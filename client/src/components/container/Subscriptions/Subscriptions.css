@@ -1,0 +1,18 @@
+.sub-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "thumbnail thumbnail thumbnail title title"
+        "thumbnail thumbnail thumbnail details details"
+}
+
+.sub-intro-thumbnail {
+    grid-area: thumbnail;
+}
+
+.sub-intro-title {
+    grid-area: title;
+}
+.sub-intro-description {
+    grid-area: details;
+}

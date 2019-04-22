@@ -1,0 +1,36 @@
+.nav-container {
+    display: grid;
+    margin-bottom: 3rem;
+    grid-template-columns: 8% 14% 14% 14% 14% 14% 14% 8%;
+    grid-template-rows: 8rem 4rem;
+    grid-template-areas: 
+      ". . logo logo logo . perm-nav cart"
+      ". nav nav nav nav nav nav ."
+  }
+  
+  .logo {
+    grid-area: logo;
+    justify-self: center;
+    align-self: center;
+  }
+  
+  .sticky-nav {
+    grid-area: perm-nav;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .cart {
+      grid-area: cart;
+      justify-self: center;
+      align-self: center;
+  }
+  
+  .nav-main {
+    grid-area: nav;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    border-bottom: solid 0.05rem var(--mainDark)
+  }
