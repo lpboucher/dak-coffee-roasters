@@ -53,10 +53,14 @@ button {
   letter-spacing: inherit; 
 }
 input,
-textarea,
-button {
+textarea {
   border: 1px solid gray; 
 }
+
+button {
+  border: none;
+}
+
 a:-webkit-any-link {
   color: inherit;
   cursor: pointer;

@@ -4,7 +4,7 @@ import Button from '../../utils/Button';
 
 import './Products.css';
 
-const FeaturedProducts = () => {
+const FeaturedProducts = ({products}) => {
     return (
         <Fragment>
             <div className='product-intro container mid-bg'>
@@ -65,3 +65,18 @@ const FeaturedProducts = () => {
 };
 
 export default FeaturedProducts;
+
+/*<Fragment>
+                {products && products.length ? (
+                    products.map(product => (
+                        <ProductCard 
+                            key={product.id}
+                            name={product.name}
+                            thumbnail={thumbnails[product.relationships.main_image.data.id]}
+                        />
+                    ))
+                    ) : (
+                        <Loader />
+                    )
+                }
+            </Fragment>*/

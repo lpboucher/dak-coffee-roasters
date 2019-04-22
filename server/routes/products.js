@@ -6,4 +6,6 @@ const productsController = require('../controllers/productsController');
 /* GET home page. */
 router.get('/', productsController.getAllProducts);
 
+router.get('/featured', productsController.getFeaturedCollection);
+
 module.exports = router;

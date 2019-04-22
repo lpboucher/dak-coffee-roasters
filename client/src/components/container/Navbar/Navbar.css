@@ -1,17 +1,24 @@
 .nav-container {
     display: grid;
-    margin-bottom: 3rem;
+    margin: 0 1rem 3rem;
     grid-template-columns: 8% 14% 14% 14% 14% 14% 14% 8%;
     grid-template-rows: 8rem 4rem;
     grid-template-areas: 
       ". . logo logo logo . perm-nav cart"
-      ". nav nav nav nav nav nav ."
+      ". nav nav nav nav nav nav .";
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
   }
   
   .logo {
     grid-area: logo;
     justify-self: center;
     align-self: center;
+  }
+
+  .logo svg {
+    height: 60px;
   }
   
   .sticky-nav {
@@ -24,8 +31,58 @@
       grid-area: cart;
       justify-self: center;
       align-self: center;
+      color: var(--darkHighlight);
+      position: relative;
+      padding: 1rem 0;
+  }
+
+  .cart:hover .cart-header-summary {
+    display: block;
   }
   
+  .cart-header-summary {
+    display: none;
+    position: absolute;
+    background-color: var(--mainWhite);
+    margin: 1rem 0;
+    width: 400px;
+    height: auto;
+    right: 0;
+  }
+
+  .cart-header-list {
+    width: 100%;
+    border: solid 0.005rem var(--darkGrey);
+    padding-top: 1rem;
+    color: var(--mainDark);
+  }
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .cart-item > * {
+    height: auto;
+    width: 25%;
+    text-align: center;
+  }
+
+  .cart-item > *:nth-child(2) {
+    width: 50%;
+  }
+
+  
+.order-btn {
+  background-color: black;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
   .nav-main {
     grid-area: nav;
     display: flex;

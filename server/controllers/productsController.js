@@ -16,4 +16,15 @@ module.exports = {
               console.log(err);
             }
           },
+    getFeaturedCollection: async(req, res, next) => {
+      try {
+        const featured = await Moltin
+                              .Collections
+                              .Get('6c1a0672-2ca3-4f61-979b-dfe8f820be56');
+        console.log('api response featured----------', featured);
+        res.json(featured);
+      } catch (err) {
+        console.log(err);
+      }
+    },
 }

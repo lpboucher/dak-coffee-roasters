@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SubscriptionDetails = () => {
+const SubscriptionDetails = ({description}) => {
     return (
         <div>
-            <h3>Hello from subscription details</h3>
+            <p>{description}</p>
         </div>
     );
 };
