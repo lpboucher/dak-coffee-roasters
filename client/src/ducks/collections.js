@@ -2,9 +2,9 @@ import axios from 'axios';
 //import _ from 'lodash';
 
 //Action Types
-export const FETCH_COLLECTIONS_REQUEST = 'products/fetch_products_request';
-export const FETCH_COLLECTIONS_SUCCESS = 'products/fetch_collections_success';
-export const FETCH_COLLECTIONS_FAILURE = 'products/fetch_collections_failure';
+export const FETCH_COLLECTIONS_REQUEST = 'collections/fetch_collections_request';
+export const FETCH_COLLECTIONS_SUCCESS = 'collections/fetch_collections_success';
+export const FETCH_COLLECTIONS_FAILURE = 'collections/fetch_collections_failure';
 
 //Action Creators
 export const fetchCollections = () => async dispatch => {
@@ -21,7 +21,7 @@ export const fetchCollections = () => async dispatch => {
 
 //Reducer
 const initialState = {
-    collections: {},
+    collections: [],
     loading: false,
   };
 
@@ -50,5 +50,5 @@ export default function reducer(state = initialState, action) {
 
 //Selectors
 export const getAllFeaturedProductsData = (state) => {
-    return state;
+    return state.collections;
 }
