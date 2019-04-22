@@ -2,11 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Thumbnail = styled.div`
-    order: ${props => props.order}
-    & > img {
-        width: 100%;
-        object-fit: cover;
-    }
+    order: ${props => props.order};
+    background-image: url(${props => props.bgImage});
+    background-size: cover;
 `
 
 const Description = styled.div`
@@ -18,10 +16,12 @@ const Section = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    height: 100%;
 
     & > ${Thumbnail} {
         width: 60%;
         height: 100%;
+        min-height: 400px;
     }
 
     & > ${Description} {
@@ -33,9 +33,7 @@ const IntroSection = ({bgColor, thumb, thumbnailOrder, textAlign, children}) => 
     return (
             <div className={`container ${bgColor}`}>
                 <Section>
-                    <Thumbnail order={thumbnailOrder}>
-                        <img src={thumb} alt=""/>
-                    </Thumbnail>
+                    <Thumbnail bgImage={thumb} order={thumbnailOrder} />
                     <Description align={textAlign}>
                         {children}
                     </Description>
