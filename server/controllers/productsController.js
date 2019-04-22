@@ -8,19 +8,17 @@ const Moltin = MoltinGateway({
 module.exports = {
     // Get all products
     getAllProducts: async (req, res, next) => {
-            try {
-              const products = await Moltin.Products.With('files, main_images, collections').All();
-              console.log('api response products----------', products);
-              res.json(products);
-            } catch (err) {
-              console.log(err);
-            }
-          },
-    getFeaturedCollection: async(req, res, next) => {
       try {
-        const featured = await Moltin
-                              .Collections
-                              .Get('6c1a0672-2ca3-4f61-979b-dfe8f820be56');
+        const products = await Moltin.Products.With('files, main_images, collections').All();
+        console.log('api response products----------', products);
+        res.json(products);
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    getAllFeatured: async(req, res, next) => {
+      try {
+        const featured = await Moltin.Collections.With('products').All();
         console.log('api response featured----------', featured);
         res.json(featured);
       } catch (err) {
