@@ -1,4 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+
+import { fetchProducts } from '../../../ducks/products';
+import { fetchCollections } from '../../../ducks/collections';
 
 import Hero from '../Hero/Hero';
 import SubscriptionIntro from '../Subscriptions/SubscriptionIntro';
@@ -8,18 +12,45 @@ import FeaturedProductsContainer from '../../container/Products/FeaturedProducts
 import ProductList from '../Products/ProductList';
 import NewsletterSignUp from '../Newsletter/NewsletterSignUp';
 
-const Home = () => {
-    return (
-        <Fragment>
-            <Hero />
-            <SubscriptionIntro />
-            <LimitedEditionsIntro />
-            <FeaturedProducts />
-            <ProductList />
-            <FeaturedProductsContainer />
-            <NewsletterSignUp />
-        </Fragment>
-    );
-};
+class Home extends Component {
 
-export default Home;
+    componentDidMount() {
+        const { products, collections } = this.props;
+        if (!products) {
+          this.props.fetchProducts();
+        }
+    
+        if (!collections) {
+          this.props.fetchCollections();
+        }
+      }
+
+    render() {
+        return (
+            <Fragment>
+                <Hero />
+                <SubscriptionIntro />
+                <LimitedEditionsIntro />
+                <FeaturedProductsContainer collection='featured-products'/>
+                <ProductList />
+                <NewsletterSignUp />
+            </Fragment>
+        );
+    }
+}
+
+function mapStateToProps({products, collections}) {
+    return {
+        products,
+        collections
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        fetchCollections: () => dispatch(fetchCollections()),
+        fetchProducts: () => dispatch(fetchProducts())
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
