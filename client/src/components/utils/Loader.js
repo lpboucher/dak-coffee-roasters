@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
 
-import './util.css';
-
 const Loader = () => {
     return (
         <Fragment>
