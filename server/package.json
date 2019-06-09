@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@moltin/sdk": "^3.19.0",
+    "@moltin/sdk": "^3.21.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",

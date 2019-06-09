@@ -10,7 +10,7 @@ module.exports = {
     getAllProducts: async (req, res, next) => {
       try {
         const products = await Moltin.Products.With('files, main_images, collections').All();
-        console.log('api response products----------', products);
+        console.log('API RESPONSE PRODUCTS----------', products);
         res.json(products);
       } catch (err) {
         console.log(err);
@@ -19,7 +19,7 @@ module.exports = {
     getAllFeatured: async(req, res, next) => {
       try {
         const featured = await Moltin.Collections.With('products').All();
-        console.log('api response featured----------', featured);
+        console.log('API RESPONSE FEATURED----------', featured);
         res.json(featured);
       } catch (err) {
         console.log(err);
