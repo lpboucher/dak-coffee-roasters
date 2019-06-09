@@ -12,6 +12,15 @@ body{
   background: var(--mainWhite) !important;
 }
 
+.spaced {
+  letter-spacing: 0.1rem;
+}
+
+#sub-intro,
+#featured-products {
+  background-color: var(--lightGrey);
+}
+
 /* resets */
 html {
   box-sizing: border-box;
@@ -65,4 +74,8 @@ a:-webkit-any-link {
   color: inherit;
   cursor: pointer;
   text-decoration: none;
+}
+
+img {
+  object-fit: cover;
 }
