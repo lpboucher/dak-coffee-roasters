@@ -2,6 +2,9 @@ import { combineReducers } from 'redux';
 import axios from 'axios';
 //import _ from 'lodash';
 
+import { getCollectionBySlug } from './collections';
+import { getThumbnailByProductId } from './thumbnails';
+
 //Action Types
 export const FETCH_PRODUCTS_REQUEST = 'products/fetch_products_request';
 export const FETCH_PRODUCTS_SUCCESS = 'products/fetch_products_success';
@@ -10,7 +13,6 @@ export const FETCH_PRODUCTS_FAILURE = 'products/fetch_products_failure';
 //Action Creators
 export const fetchProducts = () => async dispatch => {
     //dispatch({ type: FETCH_PRODUCTS_REQUEST });
-
     try {
         const res = await axios.get(`http://localhost:5000/api/products/`);
         console.log('fetched products----------', res.data);
@@ -33,8 +35,8 @@ const byId = (state = {}, action) => {
         }
         default:
             return state
-        }
     }
+}
     
 const allIds = (state = [], action) => {
     switch (action.type) {
@@ -43,7 +45,7 @@ const allIds = (state = [], action) => {
         default:
         return state
     }
-    }
+}
 
 export default combineReducers({
     byId,
@@ -53,4 +55,28 @@ export default combineReducers({
 //Selectors
 export const getProduct = (state, id) => state.products.byId[id];
 
+export const getProductBySlug = (state, slug) => {
+    const productId = state.products.allIds.filter(id => state.products.byId[id].slug === slug);
+    if (productId) {
+        return {
+            ...getProduct(state, productId),
+            ...getThumbnailByProductId(state, productId)
+        }
+    }
+}
+
 export const getAllProducts = (state) => state.products.allIds.map(id => getProduct(state, id));
+
+export const getProductsByIds = (state) => state.products.byId;
+
+export const getProductsByCollection = (state, slug) => {
+    const featured = getCollectionBySlug(state, slug);
+    if(featured) {
+        return featured.relationships.products.data.map(product => {
+            return {
+                product: {...getProduct(state, product.id)},
+                thumb: {...getThumbnailByProductId(state, product.id)}
+            }
+        });
+    }
+}

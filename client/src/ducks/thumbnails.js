@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 //import _ from 'lodash';
 
 //Action Types
-import { FETCH_PRODUCTS_SUCCESS } from './products';
+import { FETCH_PRODUCTS_SUCCESS, getProduct } from './products';
 
 //Reducers
 const byId = (state = {}, action) => {
@@ -39,4 +39,11 @@ export const getThumbnail = (state, id) => state.thumbnails.byId[id];
 
 export const getAllThumbnails = (state) => state.thumbnails.allIds.map(id => getThumbnail(state, id));
 
-export const getThumbnailsById = (state) => state.thumbnails.byId;
+export const getThumbnailsByIds = (state) => state.thumbnails.byId;
+
+export const getThumbnailByProductId = (state, id) => {
+    const product = getProduct(state, id);
+    if(product) {
+        return getThumbnail(state, product.relationships.main_image.data.id)
+    }
+};
