@@ -13,7 +13,14 @@ const Cart = ({items, removeFromCart, updateCartItem}) => {
                     <i className="fas fa-chevron-left px-3"></i>
                     <p>Continue Shopping</p>
                 </Row>
-                {items.map(item => <CartItem key={item.id} update={updateCartItem} remove={removeFromCart} {...item}/>)}
+                {items.map(item => 
+                    <CartItem 
+                        key={item.id}
+                        update={updateCartItem}
+                        remove={removeFromCart}
+                        {...item}
+                    />
+                )}
             </Container>
         </Fragment>
     );
