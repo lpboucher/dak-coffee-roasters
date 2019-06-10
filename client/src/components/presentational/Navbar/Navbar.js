@@ -1,14 +1,17 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
+import NavbarLayout from './NavbarLayout';
+import LogoBar from './LogoBar';
 import TopNavBar from './TopNavBar';
 import SubNavBar from './SubNavBar';
 
 const Navbar = () => {
     return (
-        <Fragment>
-            <TopNavBar />
-            <SubNavBar />
-        </Fragment>
+        <NavbarLayout
+            logo={<LogoBar />}
+            topNav={<TopNavBar />}
+            subNav={<SubNavBar />}
+        />        
     );
 };
 
