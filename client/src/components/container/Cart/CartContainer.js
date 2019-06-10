@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCartItems, getAllCartItems, removeItem } from '../../../ducks/cart';
+import { fetchCartItems, getAllCartItems, removeItem, updateItem } from '../../../ducks/cart';
 
 import Cart from '../../presentational/Cart/Cart';
 
@@ -11,10 +11,12 @@ class CartContainer extends Component {
     }
 
     render() {
-        const { cartItems, removeItem } = this.props;
+        const { cartItems, removeItem, updateItem } = this.props;
         return (
             <Fragment>
-                <Cart removeFromCart={removeItem} items={cartItems}/>
+                <Cart removeFromCart={removeItem}
+                      updateCartItem={updateItem}
+                      items={cartItems}/>
             </Fragment>
         );
     }
@@ -29,7 +31,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         fetchCart: () => dispatch(fetchCartItems()),
-        removeItem: (id) => dispatch(removeItem(id))
+        removeItem: (id) => dispatch(removeItem(id)),
+        updateItem: (id, quantity) => dispatch(updateItem(id, quantity))
     };
 }
 

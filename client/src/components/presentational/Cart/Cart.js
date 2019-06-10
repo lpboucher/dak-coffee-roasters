@@ -5,7 +5,7 @@ import CartItem from './CartItem';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
-const Cart = ({items, removeFromCart}) => {
+const Cart = ({items, removeFromCart, updateCartItem}) => {
     return (
         <Fragment>
             <Container>
@@ -13,7 +13,7 @@ const Cart = ({items, removeFromCart}) => {
                     <i className="fas fa-chevron-left px-3"></i>
                     <p>Continue Shopping</p>
                 </Row>
-                {items.map(item => <CartItem key={item.id} remove={removeFromCart} {...item}/>)}
+                {items.map(item => <CartItem key={item.id} update={updateCartItem} remove={removeFromCart} {...item}/>)}
             </Container>
         </Fragment>
     );
