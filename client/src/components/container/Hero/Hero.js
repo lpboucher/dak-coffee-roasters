@@ -15,7 +15,7 @@ const heroStyle = {
 const Hero = () => {
     return (
         <Fragment>
-        <Jumbotron style={heroStyle} fluid>
+        <Jumbotron style={heroStyle} fluid className="m-0">
             <Container>
                 <h1>Fluid jumbotron</h1>
                 <p>

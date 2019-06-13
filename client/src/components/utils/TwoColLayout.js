@@ -7,14 +7,14 @@ import Col from 'react-bootstrap/Col';
 import Img from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 
-const TwoColLayout = ({introImage, title, subtitle, undertitle, text, link, inverse}) => {
+const TwoColLayout = ({introImage, bgColor, title, subtitle, undertitle, text, link, inverse}) => {
     return (
-        <Container className="text-center p-5 bg-white">
+        <Container fluid className="text-center p-5" style={{backgroundColor: `var(--${bgColor})`}}>
             <Row>
                 <Col md={{span: 5, order: inverse ? 2 : 1}} className="d-flex flex-column justify-content-center" >
                     <Img src={introImage} fluid/>
                 </Col>
-                <Col md={{span: 7, order: inverse ? 1 : 2}} className="d-flex flex-column" >
+                <Col md={{span: 7, order: inverse ? 1 : 2}} className="d-flex flex-column text-left" >
                     <h1 className="large">{title}</h1>
                     <h2>{subtitle}</h2>
                     <h5>{undertitle}</h5>

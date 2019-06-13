@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCartItems, getAllCartItems, removeItem, updateItem } from '../../../ducks/cart';
 
@@ -13,11 +13,11 @@ class CartContainer extends Component {
     render() {
         const { cartItems, removeItem, updateItem } = this.props;
         return (
-            <Fragment>
-                <Cart removeFromCart={removeItem}
-                      updateCartItem={updateItem}
-                      items={cartItems}/>
-            </Fragment>
+                <Cart 
+                    removeFromCart={removeItem}
+                    updateCartItem={updateItem}
+                    items={cartItems}
+                />
         );
     }
 }
