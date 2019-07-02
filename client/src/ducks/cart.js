@@ -96,6 +96,8 @@ export const getCartItem = (state, id) => state.cart.byId[id];
 
 export const getAllCartItems = (state) => state.cart.allIds.map(id => getCartItem(state, id));
 
+export const getAllCartMeta = (state) => state.cart.meta;
+
 export const getCartTotal = (state) => state.cart.meta.display_price;
 
 export const getNumberInCart = (state) => {
