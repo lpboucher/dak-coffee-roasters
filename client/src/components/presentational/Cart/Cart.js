@@ -10,7 +10,7 @@ const Cart = ({items, removeFromCart, updateCartItem}) => {
     return (
         <Fragment>
             <Container>
-                <Row className="align-items-center py-5">
+                <Row className="align-items-center pt-5">
                     <i className="fas fa-chevron-left px-3"></i>
                     <p>Continue Shopping</p>
                 </Row>

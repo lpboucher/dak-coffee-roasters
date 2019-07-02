@@ -21,7 +21,7 @@ const TwoColLayout = ({introImage, bgColor, title, subtitle, undertitle, text, l
                     <p>{text}</p>
                     {link &&
                     <div className="flex-grow-1  my-2 d-flex justify-content-start align-items-end">
-                        <Button><Link to={link.dest}>{link.text}</Link></Button>
+                        <Button variant="dark" size="lg" className="text-uppercase"><Link to={link.dest}>{link.text}</Link></Button>
                     </div>
                     }
                 </Col>
