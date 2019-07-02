@@ -4,6 +4,7 @@ import CartItem from './CartItem';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import ProductSuggestion from '../Products/ProductSuggestion';
 
 const Cart = ({items, removeFromCart, updateCartItem}) => {
     return (
@@ -22,6 +23,7 @@ const Cart = ({items, removeFromCart, updateCartItem}) => {
                     />
                 )}
             </Container>
+            <ProductSuggestion />
         </Fragment>
     );
 };

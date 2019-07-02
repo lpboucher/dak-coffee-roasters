@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 
 import { fetchProducts } from '../../../ducks/products';
 
-import Hero from '../Hero/Hero';
+import Hero from '../../presentational/Hero/Hero';
 import SubscriptionIntro from '../../presentational/Intros/SubscriptionIntro';
 import LimitedEditionsIntro from '../../presentational/Intros/LimitedEditionsIntro';
 import FeaturedProductsContainer from '../../container/Products/FeaturedProductsContainer';
-import NewsletterSignUp from '../Newsletter/NewsletterSignUp';
+import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 import ValuesIntro from '../../presentational/Intros/ValuesIntro';
 import BrewingIntro from '../../presentational/Intros/BrewingIntro';
 
-class Home extends Component {
+class HomePage extends Component {
 
     componentDidMount() {
         const { products } = this.props;
@@ -47,4 +47,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

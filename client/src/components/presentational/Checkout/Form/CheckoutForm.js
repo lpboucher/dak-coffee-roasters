@@ -3,7 +3,7 @@ import { Form } from 'react-final-form'
 
 import CheckoutGroup from './CheckoutGroup';
 
-import { CHECKOUT } from '../../../constants/Fields';
+import { CHECKOUT } from '../../../../constants/Fields';
 
 const onSubmit = async values => {
   window.alert(JSON.stringify(values, 0, 2))

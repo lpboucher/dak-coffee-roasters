@@ -3,13 +3,14 @@ import { Switch, Route } from 'react-router-dom';
 import './App.css';
 
 import Navbar from './components/presentational/Navbar/Navbar';
-import Home from './components/container/Home/Home';
+import HomePage from './components/pages/Home/Home';
 import Shop from './components/container/Shop/Shop';
-import SubscriptionDetails from './components/container/Subscriptions/SubscriptionDetails';
-import About from './components/container/About/About';
-import Wholesale from './components/container/Wholesale/Wholesale';
-import Contact from './components/container/Contact/Contact';
-import Blog from './components/container/Blog/Blog';
+import SubscriptionPage from './components/pages/Subscription/Subscription';
+import AboutPage from './components/pages/About/About';
+import WholesalePage from './components/pages/Wholesale/Wholesale';
+import ContactPage from './components/pages/Contact/Contact';
+import BlogPage from './components/pages/Blog/Blog';
+
 import Account from './components/container/Account/Account';
 import CartContainer from './components/container/Cart/CartContainer';
 import CheckoutContainer from './components/container/Checkout/CheckoutContainer';
@@ -21,12 +22,12 @@ class App extends Component {
       <Fragment>
         <Navbar></Navbar>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/subscriptions" component={SubscriptionDetails} />
-          <Route path="/about" component={About} />
-          <Route path="/wholesale" component={Wholesale} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/blog" component={Blog} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/subscriptions" component={SubscriptionPage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/wholesale" component={WholesalePage} />
+          <Route path="/contact" component={ContactPage} />
+          <Route path="/blog" component={BlogPage} />
           <Route path="/account" component={Account} />
           <Route path="/cart" component={CartContainer} />
           <Route path="/checkout" component={CheckoutContainer} />
