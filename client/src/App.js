@@ -11,7 +11,8 @@ import Wholesale from './components/container/Wholesale/Wholesale';
 import Contact from './components/container/Contact/Contact';
 import Blog from './components/container/Blog/Blog';
 import Account from './components/container/Account/Account';
-import Cart from './components/container/Cart/CartContainer';
+import CartContainer from './components/container/Cart/CartContainer';
+import CheckoutContainer from './components/container/Checkout/CheckoutContainer';
 import ProductDetailsContainer from './components/container/Products/ProductDetailsContainer';
 
 class App extends Component {
@@ -27,7 +28,8 @@ class App extends Component {
           <Route path="/contact" component={Contact} />
           <Route path="/blog" component={Blog} />
           <Route path="/account" component={Account} />
-          <Route path="/cart" component={Cart} />
+          <Route path="/cart" component={CartContainer} />
+          <Route path="/checkout" component={CheckoutContainer} />
           <Route path="/shop/:slug" component={ProductDetailsContainer} />
           <Route path="/shop" component={Shop} />
         </Switch>

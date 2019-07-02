@@ -11,36 +11,37 @@ const FeaturedProducts = ({products, cart}) => {
     return (
         <Fragment>
             <Container>
-            <Row style={{height: '600px'}}>
-                <Col>
-                    <ProductCard 
-                        {...products[0]}
-                        addToCart={cart}
-                        main
-                    />
-                </Col>
-                <Col>
-                    <ProductCard 
-                            {...products[1]}
-                            addToCart={cart}
-                        />
+                <h1 className="text-center">Coffee bags & equipment</h1>
+                <Row style={{height: '600px'}}>
+                    <Col>
                         <ProductCard 
-                            {...products[2]}
+                            {...products[0]}
                             addToCart={cart}
+                            main
                         />
-                </Col>
-                <Col>
-                    <ProductCard 
-                            {...products[3]}
-                            addToCart={cart}
-                        />
-                    <ProductCard 
-                            {...products[4]}
-                            addToCart={cart}
-                        />
-                </Col>
-            </Row>
-            <Button>See More</Button>
+                    </Col>
+                    <Col>
+                        <ProductCard 
+                                {...products[1]}
+                                addToCart={cart}
+                            />
+                            <ProductCard 
+                                {...products[2]}
+                                addToCart={cart}
+                            />
+                    </Col>
+                    <Col>
+                        <ProductCard 
+                                {...products[3]}
+                                addToCart={cart}
+                            />
+                        <ProductCard 
+                                {...products[4]}
+                                addToCart={cart}
+                            />
+                    </Col>
+                </Row>
+                <Button>See More</Button>
             </Container>        
         </Fragment>
     );

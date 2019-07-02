@@ -15,8 +15,8 @@ const ProductCard = ({product, thumb, main, addToCart}) => {
                 <Link to={`/shop/${product.slug}`}>
                     <div className="h-75" style={productStyles} />
                 </Link>
-                <div className="h-25 d-flex flex-row justify-content-around align-items-center">
-                    <div>
+                <div className="h-25 d-flex flex-row justify-content-between align-items-center">
+                    <div className="w-100 d-flex flex-column align-items-center">
                         <p>{product.name}</p>
                         <p>{product.description}</p> 
                         <p>{product.price.amount}</p>

@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import { fetchProducts } from '../../../ducks/products';
 
 import Hero from '../Hero/Hero';
-import SubscriptionIntro from '../../presentational/Subscriptions/SubscriptionIntro';
-import LimitedEditionsIntro from '../LimitedEditions/LimitedEditionsIntro';
+import SubscriptionIntro from '../../presentational/Intros/SubscriptionIntro';
+import LimitedEditionsIntro from '../../presentational/Intros/LimitedEditionsIntro';
 import FeaturedProductsContainer from '../../container/Products/FeaturedProductsContainer';
 import NewsletterSignUp from '../Newsletter/NewsletterSignUp';
+import ValuesIntro from '../../presentational/Intros/ValuesIntro';
+import BrewingIntro from '../../presentational/Intros/BrewingIntro';
 
 class Home extends Component {
 
@@ -26,6 +28,8 @@ class Home extends Component {
                 <LimitedEditionsIntro />
                 <FeaturedProductsContainer collection='featured-products'/>
                 <NewsletterSignUp />
+                <ValuesIntro />
+                <BrewingIntro />
             </Fragment>
         );
     }
