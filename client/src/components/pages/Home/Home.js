@@ -10,6 +10,7 @@ import FeaturedProductsContainer from '../../container/Products/FeaturedProducts
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 import ValuesIntro from '../../presentational/Intros/ValuesIntro';
 import BrewingIntro from '../../presentational/Intros/BrewingIntro';
+import Footer from '../../presentational/Footer/Footer';
 
 class HomePage extends Component {
 
@@ -30,6 +31,7 @@ class HomePage extends Component {
                 <NewsletterSignUp />
                 <ValuesIntro />
                 <BrewingIntro />
+                <Footer />
             </Fragment>
         );
     }
