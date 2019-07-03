@@ -13,7 +13,7 @@ const CheckoutForm = () => (
     <Form
       onSubmit={onSubmit}
       //initialValues={{ stooge: 'larry', employed: false }}
-      render={({ handleSubmit, form, submitting, pristine, values }) => (
+      render={({ handleSubmit, form, submitting, pristine, values, active }) => (
         <form onSubmit={handleSubmit}>
           {CHECKOUT.map(item =>
             <CheckoutGroup
@@ -21,6 +21,8 @@ const CheckoutForm = () => (
               icon={item.group.icon}
               label={item.group.name}
               fields={item.fields}
+              values={values}
+              active={active}
             />
           )}
           <div className="buttons">

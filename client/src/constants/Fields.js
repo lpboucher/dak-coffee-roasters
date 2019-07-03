@@ -142,8 +142,8 @@ export const CHECKOUT = [
             },
             {
                 label: 'security code',
-                name: 'ccv',
-                placeholder: 'ccv',
+                name: 'cvc',
+                placeholder: 'cvc',
                 type: 'text',
                 halfWidth: false
             },
