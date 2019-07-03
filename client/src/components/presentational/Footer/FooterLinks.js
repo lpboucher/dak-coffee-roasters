@@ -10,7 +10,7 @@ const FooterLinks = () => {
     return (
         <Row className="d-flex">
             { FOOTER_NAV.map(item => 
-                <Col md={4}>
+                <Col key={item.menuText} md={4}>
                     <Link to={item.link}>{item.menuText}</Link>
                 </Col>
             )}
