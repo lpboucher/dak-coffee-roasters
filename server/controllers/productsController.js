@@ -25,4 +25,13 @@ module.exports = {
         console.log(err);
       }
     },
+    getAllCategories: async(req, res, next) => {
+      try {
+        const categories = await Moltin.Categories.With('products').All();
+        console.log('API RESPONSE CATEGORIES----------', categories);
+        res.json(categories);
+      } catch (err) {
+        console.log(err);
+      }
+    },
 }

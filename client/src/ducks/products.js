@@ -3,6 +3,7 @@ import axios from 'axios';
 //import _ from 'lodash';
 
 import { getCollectionBySlug } from './collections';
+import { getCategoryBySlug } from './categories';
 import { getThumbnailByProductId } from './thumbnails';
 
 //Action Types
@@ -73,6 +74,18 @@ export const getProductsByCollection = (state, slug) => {
     const featured = getCollectionBySlug(state, slug);
     if(featured) {
         return featured.relationships.products.data.map(product => {
+            return {
+                product: {...getProduct(state, product.id)},
+                thumb: {...getThumbnailByProductId(state, product.id)}
+            }
+        });
+    }
+}
+
+export const getProductsByCategory = (state, slug) => {
+    const category = getCategoryBySlug(state, slug);
+    if(category) {
+        return category.relationships.products.data.map(product => {
             return {
                 product: {...getProduct(state, product.id)},
                 thumb: {...getThumbnailByProductId(state, product.id)}
