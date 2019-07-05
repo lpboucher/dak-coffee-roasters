@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCartItems, getAllCartItems, removeItem, updateItem } from '../../../ducks/cart';
+import { fetchCartItems, getAllCartItems, getAllCartMeta, removeItem, updateItem } from '../../../ducks/cart';
 
 import Cart from '../../presentational/Cart/Cart';
 
@@ -11,12 +11,13 @@ class CartContainer extends Component {
     }
 
     render() {
-        const { cartItems, removeItem, updateItem } = this.props;
+        const { cartItems, cartMeta, removeItem, updateItem } = this.props;
         return (
                 <Cart 
                     removeFromCart={removeItem}
                     updateCartItem={updateItem}
                     items={cartItems}
+                    cart={cartMeta}
                 />
         );
     }
@@ -25,6 +26,7 @@ class CartContainer extends Component {
 function mapStateToProps(state) {
     return {
         cartItems: getAllCartItems(state),
+        cartMeta: getAllCartMeta(state)
     };
 }
 

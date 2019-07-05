@@ -4,9 +4,10 @@ import CartItem from './CartItem';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import OrderSummaryPrices from './OrderSummaryPrices';
 import ProductSuggestion from '../Products/ProductSuggestion';
 
-const Cart = ({items, removeFromCart, updateCartItem}) => {
+const Cart = ({items, cart, removeFromCart, updateCartItem}) => {
     return (
         <Fragment>
             <Container>
@@ -22,6 +23,7 @@ const Cart = ({items, removeFromCart, updateCartItem}) => {
                         {...item}
                     />
                 )}
+            <OrderSummaryPrices {...cart}/>
             </Container>
             <ProductSuggestion />
         </Fragment>
