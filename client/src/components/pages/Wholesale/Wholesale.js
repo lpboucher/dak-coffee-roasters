@@ -4,6 +4,7 @@ import Hero from '../../presentational/Hero/Hero';
 import WholesaleIntro from '../../presentational/Intros/WholesaleIntro';
 import PrivateLabelIntro from '../../presentational/Intros/PrivateLabelIntro';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
+import Footer from '../../presentational/Footer/Footer';
 
 class WholesalePage extends Component {
 
@@ -16,6 +17,7 @@ class WholesalePage extends Component {
                 <WholesaleIntro />
                 <PrivateLabelIntro />
                 <NewsletterSignUp />
+                <Footer />
             </Fragment>
         );
     }

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import ShopContainer from '../../container/Shop/ShopContainer';
+import Footer from '../../presentational/Footer/Footer';
 
 class ShopPage extends Component {
 
@@ -10,6 +11,7 @@ class ShopPage extends Component {
         return (
             <Fragment>
                 <ShopContainer />
+                <Footer />
             </Fragment>
         );
     }
