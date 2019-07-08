@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Grommet } from 'grommet';
+import { DakTheme } from './theme';
 import './App.css';
 
 import Navbar from './components/presentational/Navbar/Navbar';
@@ -19,7 +21,7 @@ import ProductDetailsContainer from './components/container/Products/ProductDeta
 class App extends Component {
   render() {
     return (
-      <Fragment>
+      <Grommet theme={DakTheme}>
         <Navbar></Navbar>
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -34,7 +36,7 @@ class App extends Component {
           <Route path="/shop/:slug" component={ProductDetailsContainer} />
           <Route path="/shop" component={ShopPage} />
         </Switch>
-      </Fragment>
+      </Grommet>
     );
   }
 }
