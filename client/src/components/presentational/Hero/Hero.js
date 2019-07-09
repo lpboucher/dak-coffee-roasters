@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import { Box, Image, Stack, Text } from 'grommet';
 

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import CategoryRowContainer from '../../container/Products/CategoryRowContainer';
 
 const Shop = ({categories}) => {
     return (
-        <div>
+        <Fragment>
             {categories.map(category => 
                 <CategoryRowContainer 
                     key={category.id}
@@ -12,7 +12,7 @@ const Shop = ({categories}) => {
                     category={category.slug}
                 />
             )}
-        </div>
+        </Fragment>
     );
 };
 

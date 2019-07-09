@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Grommet } from 'grommet';
 import { DakTheme } from './theme';
