@@ -1,21 +1,18 @@
 import React from 'react';
 
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
+import { Box, Image, Text } from 'grommet';
 
 const CheckoutSummaryItem = ({name, description, image}) => {
     return (
-        <Row>
-            <Col md={4}>
-                <Image fluid src={image.href} alt=''/>
-            </Col>
-            <Col md={8}>
-                <p>{name}</p>
-                <p>{description}</p>
-            </Col>
-        </Row>
-        
+        <Box direction="row" height="100px" align="center">
+            <Box width="33%">
+                <Image fit="contain" src={image.href}/>
+            </Box>
+            <Box width="66%">
+                <Text>{name}</Text>
+                <Text>{description}</Text>
+            </Box>
+        </Box>
     );
 };
 

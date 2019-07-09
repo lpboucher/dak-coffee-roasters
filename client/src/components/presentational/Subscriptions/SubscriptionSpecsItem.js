@@ -1,12 +1,14 @@
 import React from 'react';
 
+import { Box } from 'grommet';
+
 const SubscriptionSpecsItem = ({icon, header, desc}) => {
     return (
-        <div>
-            <i className={`fas ${icon}`}></i>
+        <Box align="center">
+            {icon}
             <p>{header}</p>
             <p>{desc}</p>
-        </div>
+        </Box>
     );
 };
 

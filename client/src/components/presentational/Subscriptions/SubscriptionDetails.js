@@ -3,22 +3,18 @@ import React from 'react';
 import SubscriptionCard from './SubscriptionCard';
 import SubscriptionForm from './Form/SubscriptionForm';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Box } from 'grommet';
 
 const SubscriptionDetails = ({cart, products}) => {
     return (
-        <Container fluid className="p-5 bg-white">
-            <Row className="d-flex align-content-stretch">
-                {products.map(product => 
-                    <Col key={product.product.id} md={6} className="d-flex flex-column p-5">
-                        <SubscriptionCard {...product} />
-                        <SubscriptionForm />
-                    </Col>
-                )}
-            </Row>
-        </Container>
+        <Box direction="row" pad="large">
+            {products.map(product => 
+                <Box key={product.product.id} width="50%" pad="large">
+                    <SubscriptionCard {...product} />
+                    <SubscriptionForm type={product.product.slug}/>
+                </Box>
+            )}
+        </Box>
     );
 };
 

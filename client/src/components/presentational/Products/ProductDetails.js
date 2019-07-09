@@ -1,28 +1,48 @@
 import React, { Fragment } from 'react';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
+import IconedExplanation from '../../utils/IconedExplanation';
+
+import { Box, Heading, Paragraph, Grid } from 'grommet';
+import { Grow } from 'grommet-icons';
 
 const ProductDetails = ({id, name, description, price, link, slug, main, addToCart}) => {
     return (
         <Fragment>
-            <Container>
-                <Row className="align-items-center">
-                    <Col md={{span: 7, order: 1}}>
-                        <Image src={link.href} fluid />
-                    </Col>
-                    <Col className="text-right" md={{span: 5, order: 1}}>
-                        <h1>{name}</h1>
-                        <h2>{slug}</h2>
-                        <p>{description}</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <Button>Add to cart</Button>
-                    </Col>
-                </Row>
-            </Container>
+            <Box direction="row">
+                <Box width="50%">
+                    <Box width="100%" height="100%" background={`url(${link.href})`}>
+                </Box>
+                </Box>
+                <Box width="50%">
+                    <Heading level="1">{name}</Heading>
+                    <Heading level="3">Nueva Segovia, Nicaragua | Espresso Beans</Heading>
+                    <Paragraph>The Esperanza is from the region of Nueva Segovia in Nicaragua. You can expect floral, tea-like acidity, brown-sugar tasting notes. This single origin coffee is an Espresso Roast, perfect with milk to balance the acidity.</Paragraph>
+                    <Paragraph>{description}</Paragraph>
+                    <IconedExplanation 
+                        icon={<Grow color="plain" size="large" />}
+                        description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
+                    />
+                    <hr/>
+                    <Grid columns="50%" rows="50%">
+                    <IconedExplanation 
+                        icon={<Grow color="plain" size="large" />}
+                        description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
+                    />
+                    <IconedExplanation 
+                    icon={<Grow color="plain" size="large" />}
+                    description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
+                    />
+                    <IconedExplanation 
+                        icon={<Grow color="plain" size="large" />}
+                        description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
+                    />
+                    <IconedExplanation 
+                    icon={<Grow color="plain" size="large" />}
+                    description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
+                    />
+                    </Grid>
+                </Box>
+            </Box>
         </Fragment>
     );
 };

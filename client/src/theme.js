@@ -7,12 +7,25 @@ export const DakTheme = {
             'mainWhite': '#ffffff',
             'highlight': '#c5b6a4',
             'darkHighlight': '#a96c35',
-            control: {'dark': 'mainDark'}
+            control: {'dark': 'mainDark'},
         },
         font: {
           family: 'Montserrat',
           size: '16px',
         },
+        focus: {
+          border: {
+            color: 'darkHighlight'
+          }
+        },
+        control: {
+          border: {
+            color: 'darkHighlight'
+          }
+        },
+        input: {
+          padding: '5px'
+        }
       },
       button: {
         border: {

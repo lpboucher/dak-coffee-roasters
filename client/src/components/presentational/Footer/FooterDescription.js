@@ -1,11 +1,16 @@
 import React from 'react';
 
+import { Box, Paragraph } from 'grommet';
+import { Instagram } from 'grommet-icons';
+
 const FooterDescription = () => {
     return (
-        <div className="px-4">
-            <p>Dak Coffee Roasters is a coffee roasting company based in Amsterdam delivering high-quality specialty coffee. We strive to</p>
-            <i className="fab fa-instagram"></i>
-        </div>
+        <Box width="40%" pad="small">
+            <Paragraph>
+            Dak Coffee Roasters is a coffee roasting company based in Amsterdam delivering high-quality specialty coffee. We strive to
+            </Paragraph>
+            <Instagram />
+        </Box>
     );
 };
 

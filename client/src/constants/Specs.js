@@ -1,3 +1,6 @@
+import React from 'react';
+import { Java, Tasks, Money, Plan, Bar } from 'grommet-icons';
+
 export const ALL_SUBS_SPECS = [
     {
         title: 'free shipping in EU & North America',
@@ -22,19 +25,19 @@ export const SUBS_SPECS = [
         data: [
             {
                 text: 'Freshly-roasted specialty coffee',
-                icon: 'fa-mug-hot',
+                icon: <Java />,
             },
             {
                 text: 'Customize your order by choosing your roast styles and quantity',
-                icon: 'fa-sliders-h',
+                icon: <Tasks />,
             },
             {
                 text: 'Save money compared to single orders',
-                icon: 'fa-wallet',
+                icon: <Money />,
             },
             {
                 text: 'Receive your coffee box once a month',
-                icon: 'fa-calendar-alt',
+                icon: <Plan />,
             },
         ],
     },
@@ -43,19 +46,19 @@ export const SUBS_SPECS = [
         data: [
             {
                 text: 'Freshly-roasted specialty coffee',
-                icon: 'fa-mug-hot',
+                icon: <Java />,
             },
             {
                 text: 'Get 2 coffee varieties: the current limited edition & what the roaster drinks that month',
-                icon: 'fa-shopping-bag',
+                icon: <Bar />,
             },
             {
                 text: 'Save money compared to single orders',
-                icon: 'fa-wallet',
+                icon: <Money />,
             },
             {
                 text: 'Receive your coffee box once a month',
-                icon: 'fa-calendar-alt',
+                icon: <Plan />,
             },
         ],
     }

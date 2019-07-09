@@ -3,16 +3,18 @@ import React from 'react';
 import CheckoutSummaryItem from './CheckoutSummaryItem';
 import OrderSummaryPrices from '../Cart/OrderSummaryPrices';
 
-import Container from 'react-bootstrap/Container';
+import { Box } from 'grommet';
 
 const CheckoutSummary = ({items, cart}) => {
     return (
-        <Container className="bg-light mt-5 py-5">
+        <Box pad="large" margin="large" background="lightGrey">
             {items.map(item => 
                 <CheckoutSummaryItem key={item.id} {...item} />
             )}
-            <OrderSummaryPrices {...cart}/>
-        </Container>
+            <Box align="end">
+                <OrderSummaryPrices {...cart}/>
+            </Box>
+        </Box>
     );
 };
 

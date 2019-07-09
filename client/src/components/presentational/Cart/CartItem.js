@@ -1,8 +1,7 @@
 import React, {Fragment} from 'react';
 
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
+import { Box, Text, Image } from 'grommet';
+import { SubtractCircle, Add, Subtract } from 'grommet-icons';
 
 const CartItem = ({
     id,
@@ -16,31 +15,31 @@ const CartItem = ({
     update}) => {
     return (
         <Fragment>
-            <Row className="align-items-center justify-content-between no-gutters py-3">
-                <Col md={1} className="text-center">
-                    <i onClick={() => remove(id)} className="far fa-times-circle"></i>
-                </Col>
-                <Col md={3} className="text-center">
-                    <Image src={image.href} fluid/>
-                </Col>
-                <Col md={3}>
-                    <p>Item type</p>
-                    <p>{name}</p>
-                    <p>{description}</p>
-                    <p>Product spec</p>
-                </Col>
-                <Col md={2} className="text-center">
-                    <p>{`${unit_price.amount / 100} ${unit_price.currency}`}</p>
-                </Col>
-                <Col md={2} className="text-center">
-                    <button onClick={() => update(id, quantity + 1)}>+</button>
-                    <p>{quantity}</p>
-                    <button onClick={() => update(id, quantity - 1)}>-</button>
-                </Col>
-                <Col md={1}>
-                    <p>{`${value.amount / 100} ${value.currency}`}</p>
-                </Col>
-            </Row>
+            <Box direction="row" align="center" width="100%" height="small">
+                <Box width="10%" align="center">
+                    <SubtractCircle onClick={() => remove(id)} />
+                </Box>
+                <Box width="25%">
+                    <Image fit="contain" src={image.href}/>
+                </Box>
+                <Box width="25%">
+                    <Text>Item Type</Text>
+                    <Text>{name}</Text>
+                    <Text>{description}</Text>
+                    <Text>Product Spec</Text>
+                </Box>
+                <Box width="20%" align="center">
+                    <Text>{`${unit_price.amount / 100} ${unit_price.currency}`}</Text>
+                </Box>
+                <Box width="10%" align="center">
+                    <Add onClick={() => update(id, quantity + 1)}/>
+                    <Text>{quantity}</Text>
+                    <Subtract onClick={() => update(id, quantity - 1)}/>
+                </Box>
+                <Box width="20%" align="center">
+                    <Text>{`${value.amount / 100} ${value.currency}`}</Text>
+                </Box>
+            </Box>
             <hr/>
         </Fragment>
     );

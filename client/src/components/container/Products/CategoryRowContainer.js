@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getProductsByCategory } from '../../../ducks/products';
 import { addToCart } from '../../../ducks/cart';
 
-import CategoryRow from '../../presentational/Products/CategoryRow';
+import ProductRow from '../../presentational/Products/ProductRow';
 
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -11,7 +11,9 @@ class CategoryRowContainer extends Component {
 
     renderProducts() {
         const { name, categoryProducts, addToCart } = this.props;
-        if(categoryProducts && categoryProducts.length > 0) {return <CategoryRow cart={addToCart} title={name} products={categoryProducts}/>};
+        if(categoryProducts && categoryProducts.length > 0) {
+            return <ProductRow cart={addToCart} title={name} products={categoryProducts}/>
+        };
 
         return <Spinner animation="grow" />
     }

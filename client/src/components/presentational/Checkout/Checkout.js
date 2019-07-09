@@ -1,19 +1,15 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-import CheckoutLayout from './CheckoutLayout';
+import TwoColLayout from '../../utils/TwoColLayout';
 import CheckoutForm from './Form/CheckoutForm';
 import CheckoutSummaryContainer from '../../container/Checkout/CheckoutSummaryContainer';
-import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 
 const Checkout = () => {
     return (
-        <Fragment >
-            <CheckoutLayout 
-                leftCol={<CheckoutForm />}
-                rightCol={<CheckoutSummaryContainer />}
+            <TwoColLayout 
+                left={<CheckoutForm />}
+                right={<CheckoutSummaryContainer />}
             />
-            <NewsletterSignUp />
-        </Fragment>
     );
 };
 

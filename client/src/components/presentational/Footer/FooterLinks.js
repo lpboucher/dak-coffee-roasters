@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FOOTER_NAV } from '../../../constants/Navigation';
 
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Box } from 'grommet';
 
 const FooterLinks = () => {
     return (
-        <Row className="d-flex">
-            { FOOTER_NAV.map(item => 
-                <Col key={item.menuText} md={4}>
+        <Fragment>
+            <Box direction="row" wrap>
+            { FOOTER_NAV.map((item, index) => 
+                <Box key={`${item.menuText}-${index}`} width="33%">
                     <Link to={item.link}>{item.menuText}</Link>
-                </Col>
-            )}
-        </Row>
+                </Box>
+                )}
+            </Box>
+        </Fragment>
     );
 };
 
