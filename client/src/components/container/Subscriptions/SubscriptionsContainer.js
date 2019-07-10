@@ -6,8 +6,8 @@ import { addToCart } from '../../../ducks/cart';
 
 import SubscriptionDetails from '../../presentational/Subscriptions/SubscriptionDetails';
 
-//implement this spinner as part of a loading indicator
-import Spinner from 'react-bootstrap/Spinner';
+import Loader from '../../utils/Loader';
+
 
 class SubscriptionsContainer extends Component {
     
@@ -23,7 +23,7 @@ class SubscriptionsContainer extends Component {
         const { subscriptionsProducts, addToCart } = this.props;
         if(subscriptionsProducts && subscriptionsProducts.length > 0) {return <SubscriptionDetails cart={addToCart} products={subscriptionsProducts}/>};
 
-        return <Spinner animation="grow" />
+        return <Loader />
       }
     
     render() {

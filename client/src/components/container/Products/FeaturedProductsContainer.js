@@ -6,8 +6,7 @@ import { addToCart } from '../../../ducks/cart';
 
 import FeaturedProducts from '../../presentational/Products/FeaturedProducts';
 
-//implement this spinner as part of a loading indicator
-import Spinner from 'react-bootstrap/Spinner';
+import Loader from '../../utils/Loader';
 
 class FeaturedProductsContainer extends Component {
     
@@ -19,7 +18,7 @@ class FeaturedProductsContainer extends Component {
         const { featuredProducts, addToCart } = this.props;
         if(featuredProducts && featuredProducts.length > 0) {return <FeaturedProducts cart={addToCart} products={featuredProducts}/>};
 
-        return <Spinner animation="grow" />
+        return <Loader />
       }
     
     render() {

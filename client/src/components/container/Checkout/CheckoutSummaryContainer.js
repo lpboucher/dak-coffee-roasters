@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchCartItems, getAllCartItems, getAllCartMeta } from '../../../ducks/cart';
 
-import Spinner from 'react-bootstrap/Spinner';
+import Loader from '../../utils/Loader';
 
 import CheckoutSummary from '../../presentational/Checkout/CheckoutSummary';
 
@@ -16,7 +16,7 @@ class CheckoutSummaryContainer extends Component {
         const { cartItems, cartMeta } = this.props;
         if(cartItems && cartItems.length > 0) {return <CheckoutSummary items={cartItems} cart={cartMeta}/>};
 
-        return <Spinner animation="grow" />
+        return <Loader />
       }
 
     render() {

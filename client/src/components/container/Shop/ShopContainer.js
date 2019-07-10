@@ -5,8 +5,7 @@ import { fetchProducts, getAllProducts } from '../../../ducks/products';
 
 import Shop from '../../presentational/Shop/Shop';
 
-//implement this spinner as part of a loading indicator
-import Spinner from 'react-bootstrap/Spinner';
+import Loader from '../../utils/Loader';
 
 class ShopContainer extends Component {
 
@@ -22,7 +21,7 @@ class ShopContainer extends Component {
         const { categories } = this.props;
         if(categories && categories.length > 0) {return <Shop categories={categories}/>};
 
-        return <Spinner animation="grow" />
+        return <Loader />
     }
 
     render() {

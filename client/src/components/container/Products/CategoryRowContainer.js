@@ -5,7 +5,7 @@ import { addToCart } from '../../../ducks/cart';
 
 import ProductRow from '../../presentational/Products/ProductRow';
 
-import Spinner from 'react-bootstrap/Spinner';
+import Loader from '../../utils/Loader';
 
 class CategoryRowContainer extends Component {
 
@@ -15,7 +15,7 @@ class CategoryRowContainer extends Component {
             return <ProductRow cart={addToCart} title={name} products={categoryProducts}/>
         };
 
-        return <Spinner animation="grow" />
+        return <Loader />
     }
 
     render() {
