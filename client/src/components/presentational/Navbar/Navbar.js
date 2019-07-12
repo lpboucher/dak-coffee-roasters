@@ -8,9 +8,9 @@ import SubNavBar from './SubNavBar';
 const Navbar = () => {
     return (
         <NavbarLayout
-            logo={<LogoBar />}
-            topNav={<TopNavBar />}
-            subNav={<SubNavBar />}
+            logo={<LogoBar loc="logo"/>}
+            topNav={<TopNavBar loc="topNav"/>}
+            subNav={<SubNavBar loc="subNav"/>}
         />        
     );
 };

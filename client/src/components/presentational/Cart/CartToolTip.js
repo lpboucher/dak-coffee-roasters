@@ -1,30 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import Collapse from 'react-bootstrap/Collapse';
+import CartToolTipItem from './CartToolTipItem';
 
-import '../../presentational/Navbar/Navbar.css';
+import { Drop, Box, Text } from 'grommet';
 
-const CartToolTip = ({items, show}) => {
+const CartToolTip = ({items, close, target}) => {
     return (
-        <Collapse in={show} timeout={300}>
-            <div className="cart-header-summary">
-                <ul className='cart-header-list'>
+        <Drop align={{"top": "bottom", "right": "right"}} plain={true} target={target.current} onClickOutside={close} onEsc={close}>
+            <Box width="400px" background='mainWhite' justify="between">
+                <Box border fill="horizontal" pad={{top: 'small'}}>
                     {items && items.length > 0 ? items.map(item => 
-                        <li key={item.id} className='cart-item'>
-                            <img src={item.image.href} alt=''/>
-                            <p>{item.name}</p>
-                            <p>{`${item.quantity} x`}</p>
-                            <p>{`${item.value.amount / 100} ${item.value.currency}`}</p>
-                        </li>
+                            <CartToolTipItem {...item} />
                     ) : 
-                        <li className="p-1 w-100">
-                            <p className="text-center">No items in the cart</p>
-                        </li>
+                        <p>No items in Cart</p>
                     }
-                </ul>
-                <div className="order-btn">Order</div>
-            </div>
-        </Collapse>
+                </Box>
+                <Box as={Link} to="/cart" fill="horizontal" align="center" pad="small" background="mainDark" ><Text color="mainWhite">View Cart</Text></Box>
+            </Box>
+        </Drop>
     );
 };
 

@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import { isCartOpen, openCartToolTip, closeCartToolTip } from '../../../ducks/views';
 import { fetchCartItems, getAllCartItems, getNumberInCart } from '../../../ducks/cart';
 
 import CartToolTip from '../../presentational/Cart/CartToolTip';
 
+import { Stack, Box, Text } from 'grommet';
+import { Cart } from 'grommet-icons';
+
 class CartCounter extends Component {
+    cartRef = createRef();
     
     componentDidMount() {
         this.props.fetchCart();
@@ -20,12 +23,27 @@ class CartCounter extends Component {
                 onMouseLeave={() => closeCart()}
                 aria-controls="example-collapse-text"
                 aria-expanded={isOpen}
+                style={{width: '40px'}}
+                ref={this.cartRef}
             >
-                <Link to="/cart" className="px-3 cart-trigger">
+                {/*<Link to="/cart" className="px-3 cart-trigger">
                     <i className="fas fa-shopping-cart"></i> 
                     {quantity ? `(${quantity})` : `(0)`}
-                </Link>
-                <CartToolTip items={cartItems} show={isOpen}/>
+        </Link>*/}
+                <Stack anchor="right" fill={true}>
+                    <Cart size="medium"/>
+                    <Box
+                        background="darkHighlight"
+                        pad={{ horizontal: 'xsmall' }}
+                        round
+                    >
+                        <Text size="xsmall">{quantity ? `${quantity}` : `0`}</Text>
+                    </Box>
+                </Stack>
+                
+                {isOpen &&
+                    <CartToolTip items={cartItems} close={closeCart} target={this.cartRef}/>
+                }
             </div>
         );
     }

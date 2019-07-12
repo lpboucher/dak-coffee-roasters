@@ -1,19 +1,32 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Nav from 'react-bootstrap/Nav';
+import { Box } from 'grommet';
 
 import { SUB_NAV } from '../../../constants/Navigation';
 
-const SubNavbar = () => {
+const SubNavbar = ({loc}) => {
     return (
-        <Fragment>
+        <Box 
+            gridArea={loc}
+            direction="row"
+            align="center"
+            justify="around"
+            border="bottom"
+            margin={{"bottom": "20px", 'left': '50px', 'right': '50px'}}
+        >
             { SUB_NAV.map(item => (
-                <Nav.Item key={item.menuText.replace(/\s+/g, '')}>
-                    <NavLink activeStyle={{textDecoration: 'line-through', textDecorationColor: 'var(--darkHighlight)'}} to={item.link}>{item.menuText}</NavLink>
-                </Nav.Item>
+                <Box 
+                    key={item.menuText.replace(/\s+/g, '')}
+                    as={NavLink}
+                    to={item.link}
+                    activeStyle={{textDecoration: 'line-through', textDecorationColor: 'var(--darkHighlight)'}}
+                    pad="small"
+                >
+                    {item.menuText}
+                </Box>
             ))}
-        </Fragment>
+        </Box>
     );
 };
 
