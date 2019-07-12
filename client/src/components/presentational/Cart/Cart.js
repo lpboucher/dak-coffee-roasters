@@ -8,12 +8,11 @@ import { FormPrevious } from 'grommet-icons';
 import IconedExplanation from '../../utils/IconedExplanation';
 import OrderPromoCode from './OrderPromoCode';
 import OrderSummaryPrices from './OrderSummaryPrices';
-//import ProductSuggestion from '../Products/ProductSuggestion';
 
 const Cart = ({items, cart, removeFromCart, updateCartItem}) => {
     return (
         <Fragment>
-            <Box pad="xlarge">
+            <Box pad={{horizontal: "xlarge", vertical: "medium"}}>
                 <IconedExplanation 
                         withLink
                         icon={<FormPrevious />}
@@ -37,8 +36,6 @@ const Cart = ({items, cart, removeFromCart, updateCartItem}) => {
                     </Box>
                 </Box>
             </Box>
-            {//<ProductSuggestion />
-            }
         </Fragment>
     );
 };

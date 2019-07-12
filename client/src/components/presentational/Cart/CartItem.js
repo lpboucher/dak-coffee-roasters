@@ -19,7 +19,7 @@ const CartItem = ({
                 <Box width="10%" align="center">
                     <SubtractCircle onClick={() => remove(id)} />
                 </Box>
-                <Box width="25%">
+                <Box width="25%" height="100%">
                     <Image fit="contain" src={image.href}/>
                 </Box>
                 <Box width="25%">

@@ -2,16 +2,15 @@ import React, { Fragment } from 'react';
 
 import IconedExplanation from '../../utils/IconedExplanation';
 
-import { Box, Heading, Paragraph, Grid } from 'grommet';
+import { Box, Heading, Paragraph, Grid, Image } from 'grommet';
 import { Grow } from 'grommet-icons';
 
 const ProductDetails = ({id, name, description, price, link, slug, main, addToCart}) => {
     return (
         <Fragment>
             <Box direction="row">
-                <Box width="50%">
-                    <Box width="100%" height="100%" background={`url(${link.href})`}>
-                </Box>
+                <Box width="50%" height="100%">
+                    <Image fit="contain" src={`${link? link.href : ""}`}/>
                 </Box>
                 <Box width="50%">
                     <Heading level="1">{name}</Heading>
