@@ -1,4 +1,6 @@
-import React, { useState, Fragment } from 'react';
+import React, { Fragment } from 'react';
+
+import useSelect from '../../../utils/Hooks/useSelect';
 
 import {
     Box,
@@ -8,34 +10,23 @@ import {
     FormField,
   } from "grommet";
 
-const onSubmit = async values => {
-    window.alert(JSON.stringify(values, 0, 2))
-  }
-
 const SubscriptionForm = ({ type }) => {
-    const [values, setValues] = useState({});
+    const addToCart = () => {
+      console.log("Submit: ", selections);
+    }
 
-    const handleChange = (event) => {
-        //event.persist();
-        console.log(event)
-        setValues(values => ({ ...values, [event.target.name]: event.value }));
-      };
-
-    const handleSubmit = (event) => {
-        if (event) event.preventDefault();
-        console.log("Submit: ", values)
-    };
+    const {selections, handleChange, handleSelect} = useSelect(addToCart);
 
     return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSelect}>
         <Box pad="small">
             {type !== 'roaster-subscription' && 
             <Fragment>
-                <FormField options={['1', '2']} onChange={handleChange} value={values.varieties} name="varieties" placeholder="Number of varieties" component={Select} required={true} size="small" />
-                <FormField options={['Espresso', 'Filter']} onChange={handleChange} value={values.roast} name="roast" placeholder="Roast Style" component={Select} required={true} size="small" />
+                <FormField component={Select} options={['1', '2']} onChange={handleChange} value={selections.varieties || ''} name="varieties" placeholder="Number of varieties" required={true} size="small" />
+                <FormField component={Select} options={['Espresso', 'Filter']} onChange={handleChange} value={selections.roast || ''} name="roast" placeholder="Roast Style" required={true} size="small" />
             </Fragment>
             }
-            <FormField options={['500g', '1kg']} onChange={handleChange} value={values.quantity} name="quantity" placeholder="Quantity" component={Select} required={true} size="small" />
+            <FormField component={Select} options={['500g', '1kg']} onChange={handleChange} value={selections.quantity || ''} name="quantity" placeholder="Quantity" required={true} size="small" />
         </Box>
       
       <Button type="submit" label="Submit" primary color="mainDark" />
