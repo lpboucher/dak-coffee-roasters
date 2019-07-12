@@ -22,7 +22,7 @@ class ProductDetailsContainer extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    const slug  = ownProps.match.params.slug;
+    const slug  = ownProps.id;
     return {
         product: getProductBySlug(state, slug)
     };

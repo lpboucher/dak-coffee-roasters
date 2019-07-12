@@ -12,11 +12,12 @@ import AboutPage from './components/pages/About/About';
 import WholesalePage from './components/pages/Wholesale/Wholesale';
 import ContactPage from './components/pages/Contact/Contact';
 import BlogPage from './components/pages/Blog/Blog';
+import CartPage from './components/pages/Cart/Cart';
+import ProductPage from './components/pages/Product/ProductPage';
+import CheckoutPage from './components/pages/Checkout/Checkout';
 
 // import Account from './components/container/Account/Account';
-import CartContainer from './components/container/Cart/CartContainer';
-import CheckoutContainer from './components/container/Checkout/CheckoutContainer';
-import ProductDetailsContainer from './components/container/Products/ProductDetailsContainer';
+
 
 class App extends Component {
   render() {
@@ -31,9 +32,9 @@ class App extends Component {
           <Route path="/contact" component={ContactPage} />
           <Route path="/blog" component={BlogPage} />
           {/* <Route path="/account" component={Account} /> */}
-          <Route path="/cart" component={CartContainer} />
-          <Route path="/checkout" component={CheckoutContainer} />
-          <Route path="/shop/:slug" component={ProductDetailsContainer} />
+          <Route path="/cart" component={CartPage} />
+          <Route path="/checkout" component={CheckoutPage} />
+          <Route path="/shop/:slug" component={ProductPage} />
           <Route path="/shop" component={ShopPage} />
         </Switch>
       </Grommet>
