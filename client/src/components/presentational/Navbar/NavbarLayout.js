@@ -6,6 +6,7 @@ const NavbarLayout = ({logo, topNav, subNav}) => {
     return (
     <Fragment>
             <Grid
+            fill
             rows={['100px', 'flex']}
             columns={['flex', '25%']}
             gap="none"

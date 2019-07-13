@@ -11,7 +11,7 @@ const CartToolTip = ({items, close, target}) => {
             <Box width="400px" background='mainWhite' justify="between">
                 <Box border fill="horizontal" pad={{top: 'small'}}>
                     {items && items.length > 0 ? items.map(item => 
-                            <CartToolTipItem {...item} />
+                            <CartToolTipItem key={item.id} {...item} />
                     ) : 
                         <p>No items in Cart</p>
                     }

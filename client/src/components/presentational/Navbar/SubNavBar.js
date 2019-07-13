@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { Box } from 'grommet';
+import { Box, Menu } from 'grommet';
 
 import { SUB_NAV } from '../../../constants/Navigation';
 
@@ -15,15 +15,19 @@ const SubNavbar = ({loc}) => {
             border="bottom"
             margin={{"bottom": "20px", 'left': '50px', 'right': '50px'}}
         >
-            { SUB_NAV.map(item => (
+            { SUB_NAV.map(nav => (
                 <Box 
-                    key={item.menuText.replace(/\s+/g, '')}
+                    key={nav.menuText.replace(/\s+/g, '')}
                     as={NavLink}
-                    to={item.link}
+                    to={nav.link}
                     activeStyle={{textDecoration: 'line-through', textDecorationColor: 'var(--darkHighlight)'}}
                     pad="small"
                 >
-                    {item.menuText}
+                    <Menu label={nav.menuText}
+                        dropBackground="mainWhite"
+                        icon={nav.type === "drop"}
+                        items={nav.subs ? nav.subs.map(sub => ({label: sub.label, as: NavLink, to: sub.link})) : ""}
+                    />
                 </Box>
             ))}
         </Box>

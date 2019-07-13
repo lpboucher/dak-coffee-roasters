@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import OrderSummaryRow from './OrderSummaryRow';
 
@@ -12,7 +13,9 @@ const CheckoutSummaryPrices = ({display_price}) => {
             <OrderSummaryRow label="VAT 21%" price={display_price.tax.formatted} />
             <OrderSummaryRow label="Discount" price="3$" />
             <OrderSummaryRow label="Total (including taxes)" price={display_price.with_tax.formatted} />
-            <Button primary fill label="ORDER" alignSelf="end" color="mainDark" />
+            <Link to='/checkout'>
+                <Button primary fill label="ORDER" alignSelf="end" color="mainDark" />
+            </Link>
         </Box>
     );
 };

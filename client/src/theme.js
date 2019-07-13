@@ -9,6 +9,9 @@ export const DakTheme = {
             'darkHighlight': '#a96c35',
             control: {'dark': 'mainDark'},
         },
+        drop: {
+          zIndex: '1021',
+        },
         font: {
           family: 'Montserrat',
           size: '16px',
@@ -31,5 +34,8 @@ export const DakTheme = {
         border: {
           radius: '4px'
         }
+      },
+      checkBox: {
+        color: 'darkHighlight',
       }
     };

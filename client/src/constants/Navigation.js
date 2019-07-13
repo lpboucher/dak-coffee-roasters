@@ -1,10 +1,16 @@
 export const SUB_NAV = [
-    { menuText: "shop", link: "/shop"},
-    { menuText: "coffee subscriptions", link: "/subscriptions"},
-    { menuText: "who we are", link: "/about"},
-    { menuText: "wholesale", link: "/wholesale"},
-    { menuText: "get in touch", link: "/contact"},
-    { menuText: "blog", link: "/blog"}
+    { menuText: "shop", link: "/shop", type: "nav", subs: []},
+    { menuText: "coffee subscriptions", link: "/subscriptions", type: "nav", subs: []},
+    { menuText: "who we are", link: "/about", type: "drop", subs: [
+        {label: "Our Coffee", link: ""},
+        {label: "About Us", link: ""}
+    ]},
+    { menuText: "wholesale", link: "/wholesale", type: "nav", subs: []},
+    { menuText: "get in touch", link: "/contact", type: "nav", subs: []},
+    { menuText: "blog", link: "/blog", type: "drop", subs: [
+        {label: "Brewing Guides", link: ""},
+        {label: "Coffee Maps", link: ""}
+    ]}
 ]
 
 export const FOOTER_NAV = [
