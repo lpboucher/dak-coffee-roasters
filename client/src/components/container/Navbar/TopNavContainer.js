@@ -1,14 +1,18 @@
-import React, { Component, createRef } from 'react';
+import React, { Component, createRef, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { isCartOpen, openCartToolTip, closeCartToolTip } from '../../../ducks/views';
 import { fetchCartItems, getAllCartItems, getNumberInCart } from '../../../ducks/cart';
+import { getLoggedStatus } from '../../../ducks/user';
 
 import CartToolTip from '../../presentational/Cart/CartToolTip';
+import Account from '../../presentational/Navbar/Account';
+import CartCounter from '../../presentational/Navbar/CartCounter';
+import LogOut from '../../presentational/Navbar/Logout';
 
 import { Stack, Box, Text } from 'grommet';
 import { Cart } from 'grommet-icons';
 
-class CartCounter extends Component {
+class TopNavContainer extends Component {
     cartRef = createRef();
     
     componentDidMount() {
@@ -16,9 +20,9 @@ class CartCounter extends Component {
     }
 
     render() {
-        const { cartItems, quantity, isOpen, openCart, closeCart } = this.props;
+        const { cartItems, quantity, isOpen, openCart, closeCart, isUserLoggedIn } = this.props;
         return (
-            <div
+            /*<div
                 onMouseEnter={() => openCart()}
                 onMouseLeave={() => closeCart()}
                 aria-controls="example-collapse-text"
@@ -26,10 +30,6 @@ class CartCounter extends Component {
                 style={{width: '40px'}}
                 ref={this.cartRef}
             >
-                {/*<Link to="/cart" className="px-3 cart-trigger">
-                    <i className="fas fa-shopping-cart"></i> 
-                    {quantity ? `(${quantity})` : `(0)`}
-        </Link>*/}
                 <Stack anchor="right" fill={true}>
                     <Cart size="medium"/>
                     <Box
@@ -44,7 +44,18 @@ class CartCounter extends Component {
                 {isOpen &&
                     <CartToolTip items={cartItems} close={closeCart} target={this.cartRef}/>
                 }
-            </div>
+            </div>*/
+            <Fragment>
+                <Account loggedIn={isUserLoggedIn}/>
+                <CartCounter 
+                    items={cartItems}
+                    quantity={quantity}
+                    isOpen={isOpen}
+                    open={openCart}
+                    close={closeCart}
+                    cartRef={this.cartRef}/>
+                <LogOut loggedIn={isUserLoggedIn} />
+            </Fragment>
         );
     }
 }
@@ -53,7 +64,8 @@ function mapStateToProps(state) {
     return {
         isOpen: isCartOpen(state),
         cartItems: getAllCartItems(state),
-        quantity: getNumberInCart(state)
+        quantity: getNumberInCart(state),
+        isUserLoggedIn: getLoggedStatus(state)
     };
 }
 
@@ -65,4 +77,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartCounter);
+export default connect(mapStateToProps, mapDispatchToProps)(TopNavContainer);
