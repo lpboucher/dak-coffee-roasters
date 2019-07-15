@@ -10,8 +10,10 @@ const cors = require('cors');
 
 //Routes
 const indexRouter = require('./routes/index');
+const userRouter = require('./routes/user');
 const productsRouter = require('./routes/products');
 const cartRouter = require('./routes/cart');
+const checkoutRouter = require('./routes/checkout');
 const shippingRouter = require('./routes/shipping');
 
 const app = express();
@@ -32,8 +34,10 @@ app.use(session({
 }));
 
 app.use('/', indexRouter);
+app.use('/api/user', userRouter);
 app.use('/api/products', productsRouter);
 app.use('/api/cart', cartRouter);
+app.use('/api/checkout', checkoutRouter);
 app.use('/api/shipping', shippingRouter);
 
 const PORT = 5000;
