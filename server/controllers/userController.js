@@ -18,11 +18,34 @@ module.exports = {
         }
       },
     register: async (req, res, next) => {
+      const { name, email, password } = req.body;
         try {
-            console.log('API REGISTER SUBMITTING----------', req.body);
-            const newUser = await Moltin.Customers.Create(req.body);
+            console.log('API REGISTER SUBMITTING----------', { name, email, password });
+            const newUser = await Moltin.Customers.Create({ name, email, password });
             console.log('API USER REGISTERED----------', newUser);
             res.json(newUser);
+        } catch (err) {
+          console.log(err);
+        }
+      },
+      getUserAddresses: async (req, res, next) => {
+        const { customerId, token } = req.body;
+        try {
+            console.log('API GETTING ADDRESSES----------', { customerId, token });
+            const addresses = await Moltin.Addresses.All({customerId, token});
+            console.log('API LOGGING ADDRESSES----------', addresses);
+            res.json(addresses);
+        } catch (err) {
+          console.log(err);
+        }
+      },
+      getUserOrders: async (req, res, next) => {
+        const { token } = req.body;
+        try {
+            console.log('API GETTING ORDERS----------', { token });
+            const orders = await Moltin.Orders.All({token});
+            console.log('API LOGGING ORDERS----------', orders);
+            res.json(orders);
         } catch (err) {
           console.log(err);
         }

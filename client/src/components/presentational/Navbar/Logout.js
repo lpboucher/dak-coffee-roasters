@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom';
 
 import { Logout } from 'grommet-icons';
 
-const LogOut = ({loggedIn}) => {
+const LogOut = ({loggedIn, logout}) => {
     return (
         <Fragment>
             {loggedIn &&
-            <Link to="/logout">
-                <Logout />
-            </Link>
+                <Logout onClick={logout}/>
             }
         </Fragment>
     );

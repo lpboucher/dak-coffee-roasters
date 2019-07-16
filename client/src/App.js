@@ -4,7 +4,7 @@ import PrivateRoute from './components/utils/Routes/PrivateRoute';
 
 import Navbar from './components/presentational/Navbar/Navbar';
 import HomePage from './components/pages/Home/Home';
-import LoginContainer from './components/container/Account/LoginFormContainer';
+import LoginPage from './components/pages/Account/Login';
 import ShopPage from './components/pages/Shop/Shop';
 import SubscriptionPage from './components/pages/Subscription/Subscription';
 import AboutPage from './components/pages/About/About';
@@ -14,8 +14,7 @@ import BlogPage from './components/pages/Blog/Blog';
 import CartPage from './components/pages/Cart/Cart';
 import ProductPage from './components/pages/Product/ProductPage';
 import CheckoutPage from './components/pages/Checkout/Checkout';
-
-import Account from './components/presentational/Account/Account';
+import AccountPage from './components/pages/Account/Account';
 
 import { Grommet } from 'grommet';
 import { DakTheme } from './theme';
@@ -29,7 +28,7 @@ class App extends Component {
         {<Navbar></Navbar>}
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/login" component={LoginContainer} />
+          <Route path="/login" component={LoginPage} />
           <Route path="/subscriptions" component={SubscriptionPage} />
           <Route path="/about" component={AboutPage} />
           <Route path="/wholesale" component={WholesalePage} />
@@ -39,7 +38,7 @@ class App extends Component {
           <Route path="/checkout" component={CheckoutPage} />
           <Route path="/shop/:slug" component={ProductPage} />
           <Route path="/shop" component={ShopPage} />
-          <PrivateRoute path="/account" component={Account} />
+          <PrivateRoute path="/account" component={AccountPage} />
         </Switch>
       </Grommet>
     );
