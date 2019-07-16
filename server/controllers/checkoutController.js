@@ -6,13 +6,13 @@ const Moltin = MoltinGateway({
 })
 
 module.exports = {
-    // Get all products
     submitOrder: async (req, res, next) => {
+        const { customerId, shipping_address, billing_address } = req.body;
         try {
-            console.log('API ORDER SUBMITTING----------', req.body);
-          //const order = await Moltin.Cart().Checkout(req.params.id, req.body);
-          //console.log('API RESPONSE SUBMIT ORDER----------', order);
-          //res.json(order);
+          console.log('API ORDER SUBMITTING----------', {customerId, shipping_address, billing_address} );
+          const order = await Moltin.Cart().Checkout(customerId, shipping_address, billing_address);
+          console.log('API RESPONSE SUBMIT ORDER----------', order);
+          res.json(order);
         } catch (err) {
           console.log(err);
         }

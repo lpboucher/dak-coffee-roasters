@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import CheckoutContainer from '../../container/Checkout/CheckoutContainer';
+import Checkout from '../../presentational/Checkout/Checkout';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 import Footer from '../../presentational/Footer/Footer';
 
@@ -11,7 +11,7 @@ class CheckoutPage extends Component {
     render() {
         return (
             <Fragment>
-                <CheckoutContainer />
+                <Checkout />
                 <NewsletterSignUp />
                 <Footer />
             </Fragment>

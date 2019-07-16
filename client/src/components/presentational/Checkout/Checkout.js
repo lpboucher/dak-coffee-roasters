@@ -1,13 +1,13 @@
 import React from 'react';
 
 import TwoColLayout from '../../utils/TwoColLayout';
-import CheckoutForm from './Form/CheckoutForm';
+import CheckoutFormContainer from '../../container/Checkout/CheckoutFormContainer';
 import CheckoutSummaryContainer from '../../container/Checkout/CheckoutSummaryContainer';
 
 const Checkout = () => {
     return (
             <TwoColLayout 
-                left={<CheckoutForm />}
+                left={<CheckoutFormContainer />}
                 right={<CheckoutSummaryContainer />}
             />
     );

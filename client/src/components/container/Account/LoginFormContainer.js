@@ -1,16 +1,22 @@
 import React, { Component, Fragment } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { register, login } from '../../../ducks/user';
+import { register, login, getLoggedStatus } from '../../../ducks/user';
 
 import Loader from '../../utils/Loader';
 
 import LoginForm from '../../presentational/Account/Form/LoginForm';
 
-class CheckoutFormContainer extends Component {
+class LoginFormContainer extends Component {
 
     renderLoginForm() {
-        const { register, login } = this.props;
-        return <LoginForm login={login} register={register}/>
+        const { register, login, isUserLoggedIn, loc } = this.props;
+        const withRedirect = loc ? loc === "/login" : false;
+        if(isUserLoggedIn && withRedirect) {
+            return <Redirect to="/" />
+         } else {
+            return <LoginForm login={login} register={register}/> 
+        }
       }
 
     render() {
@@ -22,12 +28,11 @@ class CheckoutFormContainer extends Component {
     }
 }
 
-/*function mapStateToProps(state) {
+function mapStateToProps(state) {
     return {
-        cartItems: getAllCartItems(state),
-        cartMeta: getAllCartMeta(state)
+        isUserLoggedIn: getLoggedStatus(state)
     };
-}*/
+}
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -36,4 +41,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(null,mapDispatchToProps)(CheckoutFormContainer);
+export default connect(mapStateToProps,mapDispatchToProps)(LoginFormContainer);

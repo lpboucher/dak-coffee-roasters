@@ -9,11 +9,11 @@ export const CLOSE_CART = 'views/close_cart';
 
 //Action Creators
 export const openCartToolTip = () => dispatch => {
-dispatch({type: OPEN_CART})
+    dispatch({type: OPEN_CART})
 }
 
 export const closeCartToolTip = () => dispatch => {
-dispatch({type: CLOSE_CART})
+    dispatch({type: CLOSE_CART})
 }
 
 
