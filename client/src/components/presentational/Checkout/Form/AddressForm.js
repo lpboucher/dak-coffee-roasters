@@ -10,11 +10,11 @@ import PaymentFields from './PaymentFields';
 import { Box, Text, Button } from "grommet";
 import { Deliver, UserNew, Home, CreditCard } from 'grommet-icons';
 
-const AddressForm = ({submit, user}) => {
+const AddressForm = ({submit, user, addresses}) => {
   return (
       <Form
       onSubmit={values => submit(user.customer_id, values)}
-      initialValues={{ billingIsShipping: true }}
+      initialValues={{ "shipping_address": {...addresses}, billingIsShipping: true }}
       validate={validation}
       render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
         <form onSubmit={handleSubmit}>

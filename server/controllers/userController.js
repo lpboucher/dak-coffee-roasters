@@ -29,10 +29,10 @@ module.exports = {
         }
       },
       getUserAddresses: async (req, res, next) => {
-        const { customerId, token } = req.body;
+        const { customer } = req.body;
         try {
-            console.log('API GETTING ADDRESSES----------', { customerId, token });
-            const addresses = await Moltin.Addresses.All({customerId, token});
+            console.log('API GETTING ADDRESSES----------', { customer });
+            const addresses = await Moltin.Addresses.All({customer});
             console.log('API LOGGING ADDRESSES----------', addresses);
             res.json(addresses);
         } catch (err) {

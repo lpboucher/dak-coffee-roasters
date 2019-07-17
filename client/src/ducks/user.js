@@ -17,9 +17,9 @@ export const ORDERS_SUCCESS = 'user/orders_success';
 export const ORDERS_FAILURE = 'user/orders_failure';
 
 //Action Creators
-export const fetchUserAddresses = (customerId, token) => async dispatch => {
+export const fetchUserAddresses = (customer) => async dispatch => {
     try {
-        const res = await axios.post(`http://localhost:5000/api/user/addresses`, { customerId, token } );
+        const res = await axios.post(`http://localhost:5000/api/user/addresses`, { customer } );
         console.log('logging addresses----------', res.data);
         dispatch({ type: ADDRESS_SUCCESS, payload: res.data });
     } catch(err) {
@@ -42,7 +42,7 @@ export const login = ({ email, password }) => async dispatch => {
         const res = await axios.post(`http://localhost:5000/api/user/login`, { email, password } );
         console.log('logging user----------', res.data);
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-        dispatch(fetchUserAddresses(res.data.data.customer_id, res.data.data.token));
+        dispatch(fetchUserAddresses(res.data.data.customer_id));
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
     }
@@ -114,10 +114,30 @@ const orders = (state = initialOrders, action) => {
     }
 }
 
+const initialAddresses = {allIds: [], byId: {}}
+const addresses = (state = initialAddresses, action) => {
+    switch (action.type) {
+        case ADDRESS_SUCCESS:
+        return {
+            ...state,
+            byId: {
+                        ...action.payload.data.reduce((obj, address) => {
+                        obj[address.id] = address
+                        return obj
+                    }, {})
+                },
+            allIds: action.payload.data.map(address => address.id)
+        }
+        default:
+            return state
+    }
+}
+
 export default combineReducers({
     info,
     meta,
-    orders
+    orders,
+    addresses
 })
 
 //Selectors
@@ -130,3 +150,20 @@ export const getOrder = (state, id) => state.user.orders.byId[id];
 export const getAllOrders = (state) => state.user.orders.allIds.map(id => getOrder(state, id));
 
 export const getOrdersByIds = (state) => state.user.orders.byId;
+
+export const getAddress = (state, id) => state.user.addresses.byId[id];
+
+export const getAllAddresses = (state) => state.user.addresses.allIds.map(id => getAddress(state, id));
+
+export const getAddressesByIds = (state) => state.user.addresses.byId;
+
+/*export const getAddressByName = (state, name) => {
+    const addressId = state.user.addresses.allIds.find(id => state.user.addresses.byId[id].name === name);
+    const addressToShow = getAddress(state, addressId);
+    return Object.keys(addressToShow).reduce((acc, add) => {acc[`shipping_address.${add}`] = addressToShow[add]; return acc}, {})
+}*/
+
+export const getAddressByName = (state, name) => {
+    const addressId = state.user.addresses.allIds.find(id => state.user.addresses.byId[id].name === name);
+    return getAddress(state, addressId);
+}

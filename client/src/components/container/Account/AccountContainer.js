@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUserOrders, getUser, getAllOrders } from '../../../ducks/user';
+import { fetchUserOrders, getUser, getAllOrders, getAddressByName } from '../../../ducks/user';
 
 import Account from '../../presentational/Account/Account';
 
@@ -13,8 +13,8 @@ class AccountContainer extends Component {
     }
 
     renderAccount() {
-        const { submit, userInfo, orders } = this.props;
-        if(orders && orders.length > 0) return <Account user={userInfo} orders={orders} />
+        const { submit, userInfo, orders, addresses } = this.props;
+        if(orders && orders.length > 0) return <Account user={userInfo} orders={orders} addresses={addresses}/>
 
         return <Loader />
       }
@@ -31,7 +31,8 @@ class AccountContainer extends Component {
 function mapStateToProps(state) {
     return {
         userInfo: getUser(state),
-        orders: getAllOrders(state)
+        orders: getAllOrders(state),
+        addresses: getAddressByName(state, 'Home')
     };
 }
 
