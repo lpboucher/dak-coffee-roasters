@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { submitOrder } from '../../../ducks/checkout';
-import { getUser, fetchUserAddresses } from '../../../ducks/user';
+import { getUser, getAddressByName } from '../../../ducks/user';
 
 import Loader from '../../utils/Loader';
 
@@ -17,8 +17,8 @@ class OrderFormContainer extends Component {
     }*/
     
     renderOrderForm() {
-        const { submit, userInfo } = this.props;
-        return <AddressForm submit={submit} user={userInfo} />
+        const { submit, userInfo, addresses } = this.props;
+        return <AddressForm submit={submit} user={userInfo} addresses={addresses} />
       }
 
     render() {
@@ -33,6 +33,7 @@ class OrderFormContainer extends Component {
 function mapStateToProps(state) {
     return {
         userInfo: getUser(state),
+        addresses: getAddressByName(state, 'Home')
     };
 }
 

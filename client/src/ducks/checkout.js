@@ -17,7 +17,6 @@ export const submitOrder = (customerId, { shipping_address, billing_address = sh
     }
 }
 
-
 //Reducers
 const order = (state = {}, action) => {
     switch (action.type) {
@@ -49,3 +48,5 @@ export default combineReducers({
 
 //Selectors
 export const orderExists = (state) => Object.keys(state.checkout.order).length >= 1;
+
+export const getOrder = (state) => state.checkout.order;

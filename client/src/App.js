@@ -15,6 +15,7 @@ import CartPage from './components/pages/Cart/Cart';
 import ProductPage from './components/pages/Product/ProductPage';
 import CheckoutPage from './components/pages/Checkout/Checkout';
 import AccountPage from './components/pages/Account/Account';
+import SuccessPage from './components/presentational/Checkout/CheckoutSuccess';
 
 import { Grommet } from 'grommet';
 import { DakTheme } from './theme';
@@ -35,9 +36,10 @@ class App extends Component {
           <Route path="/contact" component={ContactPage} />
           <Route path="/blog" component={BlogPage} />
           <Route path="/cart" component={CartPage} />
-          <Route path="/checkout" component={CheckoutPage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
           <Route path="/shop/:slug" component={ProductPage} />
           <Route path="/shop" component={ShopPage} />
+          <Route path="/checkout/sucess" component={SuccessPage} />
           <PrivateRoute path="/account" component={AccountPage} />
         </Switch>
       </Grommet>

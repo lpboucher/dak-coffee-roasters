@@ -1,4 +1,5 @@
 import React from 'react';
+import { Elements } from 'react-stripe-elements';
 
 import LoginFormContainer from '../../../container/Account/LoginFormContainer';
 import OrderFormContainer from '../../../container/Checkout/OrderFormContainer';
@@ -17,7 +18,7 @@ const CheckoutForm = ({isUserLoggedIn, orderExists}) => {
       <IconedExplanation icon={<Deliver />} description={`${orderExists ? "Submitted" : "Shipping Address"}`} />
       {isUserLoggedIn && !orderExists && <OrderFormContainer loggedIn={isUserLoggedIn}/>}
       <IconedExplanation icon={<CreditCard />} description="Payment Method" />
-      {orderExists && <PaymentFormContainer />}
+      {orderExists &&  <Elements><PaymentFormContainer /></Elements>}
     </Box>
 )}
 

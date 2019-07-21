@@ -6,6 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import * as serviceWorker from './serviceWorker';
+import {StripeProvider} from 'react-stripe-elements'
 
 import reducers from './reducers';
 import App from './App';
@@ -15,7 +16,9 @@ const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(redu
 ReactDOM.render(
 <Provider store={store}>
     <Router>
-        <App />
+        <StripeProvider apiKey="pk_test_hN24eKK8d78KlAVlKAcll8eu">
+                <App />
+        </StripeProvider>
     </Router>
 </Provider>
 , document.getElementById('root'));

@@ -6,6 +6,7 @@ import categoryReducer from '../ducks/categories';
 import thumbnailReducer from '../ducks/thumbnails';
 import cartReducer from '../ducks/cart';
 import checkoutReducer from '../ducks/checkout';
+import paymentReducer from '../ducks/payments';
 import viewReducer from '../ducks/views';
 
 export default combineReducers({
@@ -16,5 +17,6 @@ export default combineReducers({
     thumbnails: thumbnailReducer,
     cart: cartReducer,
     checkout: checkoutReducer,
+    payments: paymentReducer,
     views: viewReducer
 });
