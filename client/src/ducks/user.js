@@ -5,6 +5,12 @@ import axios from 'axios';
 export const LOGIN_REQUEST = 'user/login_request';
 export const LOGIN_SUCCESS = 'user/login_success';
 export const LOGIN_FAILURE = 'user/login_failure';
+export const FETCH_REQUEST = 'user/fetch_request';
+export const FETCH_SUCCESS = 'user/fetch_success';
+export const FETCH_FAILURE = 'user/fetch_fail';
+export const UPDATE_REQUEST = 'user/update_request';
+export const UPDATE_SUCCESS = 'user/update_success';
+export const UPDATE_FAILURE = 'user/update_fail';
 export const REGISTER_REQUEST = 'user/register_request';
 export const REGISTER_SUCCESS = 'user/register_success';
 export const REGISTER_FAILURE = 'user/register_failure';
@@ -17,6 +23,33 @@ export const ORDERS_SUCCESS = 'user/orders_success';
 export const ORDERS_FAILURE = 'user/orders_failure';
 
 //Action Creators
+export const fetchUser = (id, stripeId = null) => async dispatch => {
+    console.log('passed id', id)
+    if (stripeId == null) {
+        const res = await axios.get(`http://localhost:5000/api/user/${id}`);
+        console.log('logging moltin user----------', res.data);
+        dispatch({ type: FETCH_SUCCESS, payload: res.data.data });
+        stripeId = res.data.data.stripe_id;
+    }
+    try {
+        const res = await axios.get(`http://localhost:5000/api/user/${stripeId}`);
+        console.log('logging stripe user----------', res.data);
+        dispatch({ type: FETCH_SUCCESS, payload: res.data });
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+export const updateCustomer = (id, updatedData) => async dispatch => {
+    try {
+        const res = await axios.put(`http://localhost:5000/api/user/${id}`, { updatedData } );
+        console.log('logging update----------', res.data);
+        dispatch({ type: UPDATE_SUCCESS, payload: res.data });
+    } catch(err) {
+        //dispatch({ type: FETCH_PRODUCTS_FAILURE});
+    }
+}
+
 export const fetchUserAddresses = (customer) => async dispatch => {
     try {
         const res = await axios.post(`http://localhost:5000/api/user/addresses`, { customer } );
@@ -42,7 +75,8 @@ export const login = ({ email, password }) => async dispatch => {
         const res = await axios.post(`http://localhost:5000/api/user/login`, { email, password } );
         console.log('logging user----------', res.data);
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-        dispatch(fetchUserAddresses(res.data.data.customer_id));
+        dispatch(fetchUser(res.data.data.customer_id));
+        //dispatch(fetchUserAddresses(res.data.data.customer_id));
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
     }
@@ -71,6 +105,11 @@ const info = (state = initialInfo, action) => {
         return {
             ...state,
             ...action.payload.data,
+        }
+        case FETCH_SUCCESS:
+        return {
+            ...state,
+            ...action.payload,
         }
         case LOGOUT_SUCCESS:
         return initialInfo
