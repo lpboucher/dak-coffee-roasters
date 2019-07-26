@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUserOrders, getUser, getAllOrders, getAddressByName } from '../../../ducks/user';
+import { fetchUserOrders, getUser, getAllOrders, getUserAddress, updateCustomerAddress } from '../../../ducks/user';
+
+import AddressForm from '../../presentational/Checkout/Form/AddressForm';
+import Orders from '../../presentational/Account/Orders';
 
 import Account from '../../presentational/Account/Account';
 
@@ -13,8 +16,15 @@ class AccountContainer extends Component {
     }
 
     renderAccount() {
-        const { submit, userInfo, orders, addresses } = this.props;
-        if(orders && orders.length > 0) return <Account user={userInfo} orders={orders} addresses={addresses}/>
+        const { update, userInfo, orders, address } = this.props;
+        if(orders && orders.length > 0) return (
+            <Account
+                address={<AddressForm submit={update} userId={userInfo.id} address={address} />}
+                payment={<p>Cards</p>}
+                subscriptions={<p>Subs</p>}
+                orders={<Orders orders={orders}/>}
+            />
+            )
 
         return <Loader />
       }
@@ -32,13 +42,14 @@ function mapStateToProps(state) {
     return {
         userInfo: getUser(state),
         orders: getAllOrders(state),
-        addresses: getAddressByName(state, 'Home')
+        address: getUserAddress(state)
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         fetchOrders: (token) => dispatch(fetchUserOrders(token)), 
+        update: (id, data) => dispatch(updateCustomerAddress(id, data))
     };
 }
 

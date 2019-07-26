@@ -11,50 +11,44 @@ const AddressFields = ({type}) => {
             <Box direction="row" flex="grow">
                 <Box width="50%" pad={{"right": "small"}}>
                     <Field
-                        label="First Name"
-                        name={`${type}.first_name`}
+                        label="Name"
+                        name={`${type}.name`}
                         component={TextInputAdapter}
                         type="text"
                     />
                 </Box>
                 <Box width="50%" pad={{"left": "small"}}>
                     <Field
-                        label="Last Name"
-                        name={`${type}.last_name`}
+                        label="Company"
+                        name={`${type}.company`}
                         component={TextInputAdapter}
                         type="text"
                     />
                 </Box>
             </Box>
-            <Field
-                label="Company"
-                name={`${type}.company`}
-                component={TextInputAdapter}
-                type="text"
-            />
-            <Field
-                label="Address Line 1"
-                name={`${type}.line_1`}
-                component={TextInputAdapter}
-                type="text"
-            />
-            <Field
-                label="Address Line 2"
-                name={`${type}.line_2`}
-                component={TextInputAdapter}
-                type="text"
-            />
-            <Field
-                label="City/Town"
-                name={`${type}.city`}
-                component={TextInputAdapter}
-                type="text"
-            />
             <Box direction="row" flex="grow">
                 <Box width="50%" pad={{"right": "small"}}>
                     <Field
-                        label="County/Region"
-                        name={`${type}.county`}
+                        label="Address Line 1"
+                        name={`${type}.line1`}
+                        component={TextInputAdapter}
+                        type="text"
+                    />
+                </Box>
+                <Box width="50%" pad={{"left": "small"}}>
+                    <Field
+                        label="Address Line 2"
+                        name={`${type}.line2`}
+                        component={TextInputAdapter}
+                        type="text"
+                    />
+                </Box>
+            </Box>
+            <Box direction="row" flex="grow">
+                <Box width="50%" pad={{"right": "small"}}>
+                    <Field
+                        label="City/Town"
+                        name={`${type}.city`}
                         component={TextInputAdapter}
                         type="text"
                     />
@@ -62,18 +56,30 @@ const AddressFields = ({type}) => {
                 <Box width="50%" pad={{"left": "small"}}>
                     <Field
                         label="Postal Code"
-                        name={`${type}.postcode`}
+                        name={`${type}.postal_code`}
                         component={TextInputAdapter}
                         type="text"
                     />
                 </Box>
             </Box>
-            <Field
-                label="Country"
-                name={`${type}.country`}
-                component={TextInputAdapter}
-                type="text"
-            />
+            <Box direction="row" flex="grow">
+                <Box width="50%" pad={{"right": "small"}}>
+                    <Field
+                        label="County/Region"
+                        name={`${type}.state`}
+                        component={TextInputAdapter}
+                        type="text"
+                    />
+                </Box>
+                <Box width="50%" pad={{"left": "small"}}>
+                    <Field
+                        label="Country"
+                        name={`${type}.country`}
+                        component={TextInputAdapter}
+                        type="text"
+                    />
+                </Box>
+            </Box>
         </Box>
     );
 };

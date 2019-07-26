@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { submitOrder } from '../../../ducks/checkout';
-import { getUser, getAddressByName } from '../../../ducks/user';
+import { getUser, getUserAddress } from '../../../ducks/user';
 
 import Loader from '../../utils/Loader';
 
@@ -9,16 +9,9 @@ import AddressForm from '../../presentational/Checkout/Form/AddressForm';
 
 class OrderFormContainer extends Component {
     
-    /*componentDidMount() {
-        const { loggedIn, userInfo } = this.props;
-        if (loggedIn) {
-            this.props.fetchAddresses(userInfo.customer_id);
-        }
-    }*/
-    
     renderOrderForm() {
-        const { submit, userInfo, addresses } = this.props;
-        return <AddressForm submit={submit} user={userInfo} addresses={addresses} />
+        const { submit, userInfo, address } = this.props;
+        return <AddressForm submit={submit} userId={userInfo.customer_id} address={address} />
       }
 
     render() {
@@ -33,14 +26,13 @@ class OrderFormContainer extends Component {
 function mapStateToProps(state) {
     return {
         userInfo: getUser(state),
-        addresses: getAddressByName(state, 'Home')
+        address: getUserAddress(state)
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         submit: (id, data) => dispatch(submitOrder(id, data)),
-        //fetchAddresses: (id) => dispatch(fetchUserAddresses(id))
     };
 }
 

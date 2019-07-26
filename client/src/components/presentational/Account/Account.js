@@ -1,26 +1,29 @@
 import React from 'react';
 
-import AddressForm from '../Checkout/Form/AddressForm';
-import Orders from './Orders';
-
 import { Tabs, Tab, Box } from 'grommet';
 
-const Account = ({user, orders, addresses}) => {
-    const submit = values => {
-        console.log(values)
-    }
+const Account = ({address, payment, subscriptions, orders}) => {
     return (
         <Tabs>
             <Tab title="Address">
                 <Box pad={{"horizontal": "xlarge"}}>
-                    <AddressForm submit={submit} user={user} addresses={addresses} />
+                    {address}
+                </Box>
+            </Tab>
+            <Tab title="Payment Methods">
+                <Box pad={{"horizontal": "xlarge"}}>
+                    {payment}
                 </Box>
             </Tab>
             <Tab title="Manage Subscriptions">
-                <Box pad="medium">Two</Box>
+                <Box pad={{"horizontal": "xlarge"}}>
+                    {subscriptions}
+                </Box>
             </Tab>
             <Tab title="View Orders">
-                <Orders orders={orders}/>
+                <Box pad={{"horizontal": "xlarge"}}>
+                    {orders}
+                </Box>
             </Tab>
         </Tabs>
     );

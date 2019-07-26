@@ -1,52 +1,49 @@
 const orderValidation = values => {
   const errors = {}
 
-  if (!values.shipping_address || !values.shipping_address.first_name) {
-    if (!errors.shipping_address) {
-      errors.shipping_address = {}
+  if (!values.shipping || !values.shipping.address || !values.shipping.address.name) {
+    if (!errors.shipping) {
+      errors.shipping = {}
+      errors.shipping.address = {}
     }
 
-    errors.shipping_address.first_name = 'Required'
+    errors.shipping.address.name = 'Required'
   }
 
-  if (!values.shipping_address || !values.shipping_address.last_name) {
-    if (!errors.shipping_address) {
-      errors.shipping_address = {}
+  if (!values.shipping || !values.shipping.address || !values.shipping.address.line1) {
+    if (!errors.shipping) {
+      errors.shipping = {}
+      errors.shipping.address = {}
     }
 
-    errors.shipping_address.last_name = 'Required'
+    errors.shipping.address.line1 = 'Required'
   }
 
-  if (!values.shipping_address || !values.shipping_address.line_1) {
-    if (!errors.shipping_address) {
-      errors.shipping_address = {}
+  if (!values.shipping || !values.shipping.address || !values.shipping.address.city) {
+    if (!errors.shipping) {
+      errors.shipping = {}
+      errors.shipping.address = {}
     }
 
-    errors.shipping_address.line_1 = 'Required'
+    errors.shipping.address.city = 'Required'
   }
 
-  if (!values.shipping_address || !values.shipping_address.city) {
-    if (!errors.shipping_address) {
-      errors.shipping_address = {}
+  if (!values.shipping || !values.shipping.address || !values.shipping.address.postal_code) {
+    if (!errors.shipping) {
+      errors.shipping = {}
+      errors.shipping.address = {}
     }
 
-    errors.shipping_address.city = 'Required'
+    errors.shipping.address.postal_code = 'Required'
   }
 
-  if (!values.shipping_address || !values.shipping_address.postcode) {
-    if (!errors.shipping_address) {
-      errors.shipping_address = {}
+  if (!values.shipping || !values.shipping.address || !values.shipping.address.country) {
+    if (!errors.shipping) {
+      errors.shipping = {}
+      errors.shipping.address = {}
     }
 
-    errors.shipping_address.postcode = 'Required'
-  }
-
-  if (!values.shipping_address || !values.shipping_address.country) {
-    if (!errors.shipping_address) {
-      errors.shipping_address = {}
-    }
-
-    errors.shipping_address.country = 'Required'
+    errors.shipping.address.country = 'Required'
   }
 
   return errors

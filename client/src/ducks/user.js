@@ -15,9 +15,6 @@ export const REGISTER_REQUEST = 'user/register_request';
 export const REGISTER_SUCCESS = 'user/register_success';
 export const REGISTER_FAILURE = 'user/register_failure';
 export const LOGOUT_SUCCESS = 'user/logout_success';
-export const ADDRESS_REQUEST = 'user/address_request';
-export const ADDRESS_SUCCESS = 'user/address_success';
-export const ADDRESS_FAILURE = 'user/address_failure';
 export const ORDERS_REQUEST = 'user/orders_request';
 export const ORDERS_SUCCESS = 'user/orders_success';
 export const ORDERS_FAILURE = 'user/orders_failure';
@@ -40,21 +37,14 @@ export const fetchUser = (id, stripeId = null) => async dispatch => {
     }
 }
 
-export const updateCustomer = (id, updatedData) => async dispatch => {
+export const updateCustomerAddress = (id, {billingIsShipping, shipping, address = billingIsShipping ? shipping.address : null}) => async dispatch => {
+    shipping.name = shipping.address.name;
+    delete shipping.address.name;
+    delete address.name;
     try {
-        const res = await axios.put(`http://localhost:5000/api/user/${id}`, { updatedData } );
+        const res = await axios.post(`http://localhost:5000/api/user/${id}`, {address, shipping} );
         console.log('logging update----------', res.data);
-        dispatch({ type: UPDATE_SUCCESS, payload: res.data });
-    } catch(err) {
-        //dispatch({ type: FETCH_PRODUCTS_FAILURE});
-    }
-}
-
-export const fetchUserAddresses = (customer) => async dispatch => {
-    try {
-        const res = await axios.post(`http://localhost:5000/api/user/addresses`, { customer } );
-        console.log('logging addresses----------', res.data);
-        dispatch({ type: ADDRESS_SUCCESS, payload: res.data });
+        dispatch({ type: FETCH_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
     }
@@ -96,7 +86,7 @@ export const register = ({ name, email, password }) => async dispatch => {
     }
 }
 
-const initialInfo = {};
+const initialInfo = {address: {}, shipping: {name: "", address:{}}};
 //Reducers
 const info = (state = initialInfo, action) => {
     switch (action.type) {
@@ -153,30 +143,10 @@ const orders = (state = initialOrders, action) => {
     }
 }
 
-const initialAddresses = {allIds: [], byId: {}}
-const addresses = (state = initialAddresses, action) => {
-    switch (action.type) {
-        case ADDRESS_SUCCESS:
-        return {
-            ...state,
-            byId: {
-                        ...action.payload.data.reduce((obj, address) => {
-                        obj[address.id] = address
-                        return obj
-                    }, {})
-                },
-            allIds: action.payload.data.map(address => address.id)
-        }
-        default:
-            return state
-    }
-}
-
 export default combineReducers({
     info,
     meta,
     orders,
-    addresses
 })
 
 //Selectors
@@ -190,19 +160,10 @@ export const getAllOrders = (state) => state.user.orders.allIds.map(id => getOrd
 
 export const getOrdersByIds = (state) => state.user.orders.byId;
 
-export const getAddress = (state, id) => state.user.addresses.byId[id];
-
-export const getAllAddresses = (state) => state.user.addresses.allIds.map(id => getAddress(state, id));
-
-export const getAddressesByIds = (state) => state.user.addresses.byId;
-
-/*export const getAddressByName = (state, name) => {
-    const addressId = state.user.addresses.allIds.find(id => state.user.addresses.byId[id].name === name);
-    const addressToShow = getAddress(state, addressId);
-    return Object.keys(addressToShow).reduce((acc, add) => {acc[`shipping_address.${add}`] = addressToShow[add]; return acc}, {})
-}*/
-
-export const getAddressByName = (state, name) => {
-    const addressId = state.user.addresses.allIds.find(id => state.user.addresses.byId[id].name === name);
-    return getAddress(state, addressId);
-}
+export const getUserAddress = (state) => ({
+    billing: state.user.info.address,
+    shipping: {
+        name: state.user.info.shipping.name,
+        ...state.user.info.shipping.address
+    },
+})

@@ -54,22 +54,16 @@ module.exports = {
           console.log(err)
         }
       },
-      updateUser: async (req, res, next) => {
+      updateUser: (req, res, next) => {
         const { id } = req.params;
-        console.log(req.body);
-        /*stripe.customers.update(
-          'cus_FUeVc912pfqCvr',
-          {metadata: {order_id: '6735'}},
+        stripe.customers.update(
+          id,
+          req.body,
           async (err, customer) => {
-            /*try {
-              const newUser = await Moltin.Customers.Create({ name, email, password, stripe_id: customer.id });
-              console.log('API USER REGISTERED----------', newUser);
-              res.json(newUser);
-            } catch {
-              console.log(err)
-            } 
-      }
-        );*/
+            await res.json(customer);
+            console.log('API LOGGING UPDATED CUSTOMER----------', customer);
+          }
+        );
       },
       getUserAddresses: async (req, res, next) => {
         const { customer } = req.body;
