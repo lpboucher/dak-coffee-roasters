@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import axios from 'axios';
 
+import { getProductIDBySlug } from './products';
+
 //Action Types
 export const FETCH_CART_REQUEST = 'cart/fetch_cart_request';
 export const FETCH_CART_SUCCESS = 'cart/fetch_cart_success';
@@ -25,6 +27,11 @@ export const addToCart = (id, quantity) => async dispatch => {
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
     }
+}
+
+export const addDerivedToCart = (slug, data) => (dispatch, getState) => {
+    const derivedId = getProductIDBySlug(getState(), `${slug}-${data.quantity}`);
+    dispatch(addToCart(derivedId, "1"));
 }
 
 export const updateItem = (id, quantity) => async dispatch => {

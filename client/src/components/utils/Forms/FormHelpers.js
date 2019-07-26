@@ -1,8 +1,8 @@
 import React from 'react';
 import { Field } from 'react-final-form';
-import { FormField, TextInput, RadioButton, CheckBox } from "grommet";
+import { FormField, TextInput, RadioButton, CheckBox, Select } from "grommet";
 
-const Fields = ({names, subscription, fieldsState = {}, children, originalRender}) => {
+/*const Fields = ({names, subscription, fieldsState = {}, children, originalRender}) => {
     if (!names.length) {
       return (originalRender || children)(fieldsState);
     }
@@ -19,16 +19,16 @@ const Fields = ({names, subscription, fieldsState = {}, children, originalRender
         )}
       </Field>
     );
-  };
+  };*/
 
-export const WhenValid = ({ fieldNames, subscription, children }) => (
+/*export const WhenValid = ({ fieldNames, subscription, children }) => (
     <Fields names={fieldNames} subscription={subscription}>
         {fieldsState => (
             Object.values(fieldsState).every(field => field.meta.valid) ? children : null
             //Object.entries(fieldsState).map(field => <pre>{JSON.stringify(field, 0, 2)}</pre>)
         )}
     </Fields>
-  )
+  )*/
 
 export const TextInputAdapter = ({ input: {name, onChange, value, ...restInput}, meta, ...rest }) => (
     <FormField error={meta.modified && meta.error ? meta.error : ""} {...rest} >
@@ -65,4 +65,18 @@ export const CheckboxAdapter = ({ input: {checked, name, onChange, value, ...res
         onChange={onChange}
         />
     </FormField>
+)
+
+export const SelectAdapter = ({ input: {name, onChange, value, ...restInput}, options, meta, label, placeholder, ...rest }) => (
+  <FormField error={meta.modified && meta.error ? meta.error : ""} {...rest}>
+      <Select
+      {...restInput}
+      placeholder={placeholder}
+      label={label}
+      name={name}
+      onChange={({ option }) => onChange(option)}
+      value={value}
+      options={options}
+      />
+  </FormField>
 )

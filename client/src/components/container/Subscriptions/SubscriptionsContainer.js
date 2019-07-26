@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchCollections } from '../../../ducks/collections';
 import { fetchProducts, getAllProducts, getProductsByCollection } from '../../../ducks/products';
-import { addToCart } from '../../../ducks/cart';
+import { addDerivedToCart } from '../../../ducks/cart';
 
 import SubscriptionDetails from '../../presentational/Subscriptions/SubscriptionDetails';
 
@@ -11,20 +11,22 @@ import Loader from '../../utils/Loader';
 
 class SubscriptionsContainer extends Component {
     
-      componentDidMount() {
+    componentDidMount() {
         const { products } = this.props;
         if(products.length < 1) {
             this.props.fetchProducts();
         }
         this.props.fetchCollections();
     };
-
-      renderProducts() {
+    
+    renderProducts() {
         const { subscriptionsProducts, addToCart } = this.props;
-        if(subscriptionsProducts && subscriptionsProducts.length > 0) {return <SubscriptionDetails cart={addToCart} products={subscriptionsProducts}/>};
+        if(subscriptionsProducts && subscriptionsProducts.length > 0) {
+            return <SubscriptionDetails addToCart={addToCart} products={subscriptionsProducts}/>
+        };
 
         return <Loader />
-      }
+    }
     
     render() {
         return (
@@ -47,7 +49,7 @@ function mapDispatchToProps(dispatch) {
     return {
         fetchCollections: () => dispatch(fetchCollections()),
         fetchProducts: () => dispatch(fetchProducts()),
-        addToCart: (id, quantity) => dispatch(addToCart(id, quantity))
+        addToCart: (slug, data) => dispatch(addDerivedToCart(slug, data))
     };
 }
 

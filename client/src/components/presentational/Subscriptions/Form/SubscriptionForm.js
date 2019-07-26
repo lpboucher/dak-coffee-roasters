@@ -1,36 +1,50 @@
 import React, { Fragment } from 'react';
+import { Form, Field } from 'react-final-form';
 
-import useSelect from '../../../utils/Hooks/useSelect';
+import { SelectAdapter } from '../../../utils/Forms/FormHelpers';
 
-import {
-    Box,
-    Button,
-    Select,
-    Form,
-    FormField,
-  } from "grommet";
+import { Box, Button } from "grommet";
 
-const SubscriptionForm = ({ type }) => {
-    const addToCart = () => {
-      console.log("Submit: ", selections);
-    }
-
-    const {selections, handleChange, handleSelect} = useSelect(addToCart);
-
+const SubscriptionForm = ({ type, addToCart }) => {
+    const initialize = type !== 'roaster-subscription' ? 
+                      { quantity: '500g', varieties: '1', roast: 'espresso'}
+                      :
+                      { quantity: '500g' }
     return (
-    <Form onSubmit={handleSelect}>
+    <Form
+    onSubmit={values => addToCart(type, values)}
+    initialValues={initialize}
+    render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
+      <form onSubmit={handleSubmit}>
         <Box pad="small">
-            {type !== 'roaster-subscription' && 
-            <Fragment>
-                <FormField component={Select} options={['1', '2']} onChange={handleChange} value={selections.varieties || ''} name="varieties" placeholder="Number of varieties" required={true} size="small" />
-                <FormField component={Select} options={['Espresso', 'Filter']} onChange={handleChange} value={selections.roast || ''} name="roast" placeholder="Roast Style" required={true} size="small" />
-            </Fragment>
-            }
-            <FormField component={Select} options={['500g', '1kg']} onChange={handleChange} value={selections.quantity || ''} name="quantity" placeholder="Quantity" required={true} size="small" />
+          {type !== 'roaster-subscription' && 
+          <Fragment>
+            <Field
+              label="Number of varieties"
+              name="varieties"
+              component={SelectAdapter}
+              size="small"
+              options={['1', '2']}
+            />
+            <Field
+              label="Roast style"
+              name="roast"
+              component={SelectAdapter}
+              size="small"
+              options={['Espresso', 'Filter']}
+            />
+          </Fragment>
+          }
+          <Field label="Quantity" name="quantity" component={SelectAdapter} size="small" options={['500g', '1kg']}/>
         </Box>
-      
-      <Button type="submit" label="Submit" primary color="mainDark" />
-    </Form>
+        <Button type="submit" disabled={submitting || invalid} primary fill="horizontal" label="Submit" color="mainDark" />
+        <pre>{JSON.stringify(values, 0, 2)}</pre>
+        <pre>{JSON.stringify(errors, 0, 2)}</pre>
+        <pre>{JSON.stringify(invalid, 0, 2)}</pre>
+        <pre>{JSON.stringify(submitting, 0, 2)}</pre>
+      </form>
+    )}
+  />
     )
 };
 

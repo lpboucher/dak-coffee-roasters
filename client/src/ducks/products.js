@@ -56,8 +56,10 @@ export default combineReducers({
 //Selectors
 export const getProduct = (state, id) => state.products.byId[id];
 
+export const getProductIDBySlug = (state, slug) => state.products.allIds.find(id => state.products.byId[id].slug === slug);
+
 export const getProductBySlug = (state, slug) => {
-    const productId = state.products.allIds.filter(id => state.products.byId[id].slug === slug);
+    const productId = getProductIDBySlug(state, slug);
     if (productId) {
         return {
             ...getProduct(state, productId),
