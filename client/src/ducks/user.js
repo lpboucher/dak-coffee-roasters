@@ -154,6 +154,10 @@ export const getLoggedStatus = (state) => state.user.meta.loggedIn;
 
 export const getUser = (state) => state.user.info;
 
+export const getUserID = (state) => state.user.info.stripe_id;
+
+export const getUserPaymentMethod = (state) => state.user.info.invoice_settings.default_payment_method;
+
 export const getOrder = (state, id) => state.user.orders.byId[id];
 
 export const getAllOrders = (state) => state.user.orders.allIds.map(id => getOrder(state, id));

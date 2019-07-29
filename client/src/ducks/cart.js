@@ -60,7 +60,6 @@ const byId = (state = {}, action) => {
     switch (action.type) {
         case FETCH_CART_SUCCESS:
         return {
-            ...state,
             ...action.payload.data.reduce((obj, product) => {
                 obj[product.id] = product
                 return obj
@@ -85,7 +84,7 @@ const meta = (state = {}, action) => {
         case FETCH_CART_SUCCESS:
         return {
             ...state,
-            ...action.payload.meta
+            ...action.payload.meta,
         }
         default:
         return state

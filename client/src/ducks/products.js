@@ -5,6 +5,7 @@ import axios from 'axios';
 import { getCollectionBySlug } from './collections';
 import { getCategoryBySlug } from './categories';
 import { getThumbnailByProductId } from './thumbnails';
+import { getOrderItems } from './checkout';
 
 //Action Types
 export const FETCH_PRODUCTS_REQUEST = 'products/fetch_products_request';
@@ -93,5 +94,16 @@ export const getProductsByCategory = (state, slug) => {
                 thumb: {...getThumbnailByProductId(state, product.id)}
             }
         });
+    }
+}
+
+export const getSubscriptionProducts = (state) => {
+    const items = getOrderItems(state);
+    if (items) {
+        return items.map(item => {
+            if(getProduct(state, item.product_id)['recurring'] === true) {
+                return getProduct(state, item.product_id)
+            }
+        })
     }
 }

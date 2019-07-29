@@ -8,9 +8,10 @@ export const SUBMIT_PAYMENT_FAILURE = 'checkout/submit_payment_failure';
 export const SUBMIT_PAYMENT_CONFIRM = 'checkout/submit_payment_confirm';
 
 //Action Creators
-export const submitPayment = (payment) => async dispatch => {
+export const submitPayment = (payment, subscription = {}) => async dispatch => {
     dispatch({ type: SUBMIT_PAYMENT_REQUEST});
-    console.log(payment)
+    const { has_recurring, plans } = subscription;
+    const { customer } = payment;
     try {
         const res = await axios.post(`http://localhost:5000/api/payments/confirm`, payment );
         console.log('submitting payment----------', res.data);
@@ -20,8 +21,20 @@ export const submitPayment = (payment) => async dispatch => {
         } else if (res.data.requires_action) {
             dispatch({ type: SUBMIT_PAYMENT_CONFIRM, payload: res.data });
         } else if (res.data.success) {
+            if(has_recurring) {dispatch(addSuscription(customer, plans, res.data.payment_method))} 
             dispatch({ type: SUBMIT_PAYMENT_SUCCESS, payload: res.data });
         }
+        //dispatch({ type: SUBMIT_ORDER_SUCCESS, payload: res.data });
+    } catch(err) {
+        //dispatch({ type: SUBMIT_PAYMENT_FAILURE});
+    }
+}
+
+export const addSuscription = (customer, plans, payment_method) => async dispatch => {
+    //dispatch({ type: SUBMIT_PAYMENT_REQUEST});
+    try {
+        const res = await axios.post(`http://localhost:5000/api/payments/subscribe`, { customer: customer, plans: plans, payment_method: payment_method } );
+        console.log('submitting subscription----------', res.data);
         //dispatch({ type: SUBMIT_ORDER_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: SUBMIT_PAYMENT_FAILURE});
@@ -33,6 +46,7 @@ const initialStatus = {
     secret: null,
     action: false,
     success: false,
+    subscribe: false
 }
 //Reducers
 const status = (state = initialStatus, action) => {

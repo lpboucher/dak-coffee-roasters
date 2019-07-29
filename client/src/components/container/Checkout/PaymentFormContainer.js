@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Elements, injectStripe } from 'react-stripe-elements';
 import { Redirect } from 'react-router-dom';
-import { getOrder } from '../../../ducks/checkout';
+import { getSubscriptionProducts, getOneTimeProducts } from '../../../ducks/products';
+import { getCartTotal } from '../../../ducks/cart';
+import { getUserID, getUserPaymentMethod } from '../../../ducks/user';
 import { submitPayment, getStatus } from '../../../ducks/payments';
 import { isProcessing } from '../../../ducks/views';
 
@@ -12,29 +14,39 @@ import PaymentForm from '../../presentational/Checkout/Form/PaymentForm';
 
 class PaymentFormContainer extends Component {
 
-    /*.then(function(confirmResult) {
-              return confirmResult.json();
-            }).then();
-    }*/
-
+    submitPayment = async ({payment_method_id, payment_intent_id}) => {
+        const { submit, amount, subProducts, customer } = this.props;
+        await submit(
+            { payment_method_id: payment_method_id,
+              payment_intent_id: payment_intent_id,
+              order_amount: amount,
+              customer: customer,
+            },
+            { has_recurring: subProducts.length > 0,
+              plans: subProducts.map(product => ({ plan: product.stripe_plan_id }))
+            }
+        )
+    }
     generateToken = async (e, element) => {
-        const { stripe, submit } = this.props;
+        const { stripe } = this.props;
         e.preventDefault();
         if (stripe) {
           const res = await stripe.createPaymentMethod('card', element);
-          console.log(res)
-          await submit({ payment_method_id: res.paymentMethod.id })
+          await this.submitPayment({payment_method_id: res.paymentMethod.id})
         } else {
           console.log("Stripe.js hasn't loaded yet.");
         }
       };
-    
-    handleConfirmation() {
-        const { status, stripe, submit } = this.props;
-        stripe.handleCardAction(status.secret).then((res) => {
-            submit({ payment_intent_id: res.paymentIntent.id });
-        })
-    }
+
+      handleConfirmation = async (status) => {
+        const { stripe } = this.props;
+        if (stripe) {
+          const res = await stripe.handleCardAction(status.secret);
+          await this.submitPayment({payment_intent_id: res.paymentIntent.id})
+        } else {
+          console.log("Stripe.js hasn't loaded yet.");
+        }
+      };
 
     renderPaymentForm() {
         const { order, isProcessing } = this.props;
@@ -45,7 +57,7 @@ class PaymentFormContainer extends Component {
     render() {
         const { status } = this.props;
         if (status.success) {return <Redirect to="/checkout/sucess" />};
-        if (status.action) {this.handleConfirmation()};
+        if (status.action) {this.handleConfirmation(status)};
         return (
             <Fragment>
                 {this.renderPaymentForm()}
@@ -57,13 +69,18 @@ class PaymentFormContainer extends Component {
 function mapStateToProps(state) {
     return {
         status: getStatus(state),
-        isProcessing: isProcessing(state)
+        isProcessing: isProcessing(state),
+        subProducts: getSubscriptionProducts(state),
+        amount: getCartTotal(state),
+        customer: {
+            id: getUserID(state),
+            default_payment: getUserPaymentMethod(state)
+        }
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        //payOrder: (id, data) => dispatch(payOrder(id, data)),
         submit: (id, token) => dispatch(submitPayment(id, token)),
     };
 }
