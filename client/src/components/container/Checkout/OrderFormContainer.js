@@ -26,7 +26,7 @@ class OrderFormContainer extends Component {
 function mapStateToProps(state) {
     return {
         userInfo: getUser(state),
-        address: getUserAddress(state)
+        address: getUserAddress(state),
     };
 }
 
