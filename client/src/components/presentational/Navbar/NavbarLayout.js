@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 import { Grid } from 'grommet';
 
-const NavbarLayout = ({logo, topNav, subNav}) => {
+const NavbarLayout = ({util, logo, topNav, subNav}) => {
     return (
     <Fragment>
             <Grid
@@ -15,7 +15,9 @@ const NavbarLayout = ({logo, topNav, subNav}) => {
                 { name: 'topNav', start: [1, 0], end: [1, 0] },
                 { name: 'subNav', start: [0, 1], end: [1, 1] },
             ]}
+            margin={{"vertical": "medium"}}
             >
+                {util}
                 {logo}
                 {topNav}
                 {subNav}

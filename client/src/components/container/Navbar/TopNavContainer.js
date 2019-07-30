@@ -6,7 +6,6 @@ import { getLoggedStatus, logout } from '../../../ducks/user';
 
 import Account from '../../presentational/Navbar/Account';
 import CartCounter from '../../presentational/Navbar/CartCounter';
-import LogOut from '../../presentational/Navbar/Logout';
 
 class TopNavContainer extends Component {
     cartRef = createRef();
@@ -19,7 +18,7 @@ class TopNavContainer extends Component {
         const { cartItems, quantity, isOpen, openCart, closeCart, isUserLoggedIn, logout } = this.props;
         return (
             <Fragment>
-                <Account loggedIn={isUserLoggedIn}/>
+                <Account loggedIn={isUserLoggedIn} logout={logout}/>
                 <CartCounter 
                     items={cartItems}
                     quantity={quantity}
@@ -27,7 +26,7 @@ class TopNavContainer extends Component {
                     open={openCart}
                     close={closeCart}
                     cartRef={this.cartRef}/>
-                <LogOut loggedIn={isUserLoggedIn} logout={logout} />
+                <p>EUR</p>
             </Fragment>
         );
     }
