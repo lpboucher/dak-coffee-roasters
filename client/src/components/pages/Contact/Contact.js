@@ -5,6 +5,8 @@ import ContactInfo from '../../presentational/Contact/ContactInfo';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 import Footer from '../../presentational/Footer/Footer';
 
+import header from '../../../assets/images/Header_Contactus.jpg';
+
 class ContactPage extends Component {
 
     componentDidMount() {}
@@ -12,7 +14,7 @@ class ContactPage extends Component {
     render() {
         return (
             <Fragment>
-                <Hero />
+                <Hero bgImage={header}/>
                 <ContactInfo />
                 <NewsletterSignUp />
                 <Footer />

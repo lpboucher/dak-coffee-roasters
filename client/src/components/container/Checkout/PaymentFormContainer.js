@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Elements, injectStripe } from 'react-stripe-elements';
+import { injectStripe } from 'react-stripe-elements';
 import { Redirect } from 'react-router-dom';
-import { getSubscriptionProducts, getOneTimeProducts } from '../../../ducks/products';
+import { getSubscriptionProducts } from '../../../ducks/products';
 import { getCartTotal } from '../../../ducks/cart';
 import { getUserID, getUserPaymentMethod } from '../../../ducks/user';
 import { submitPayment, getStatus } from '../../../ducks/payments';

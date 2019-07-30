@@ -8,9 +8,11 @@ const LimitedEditionsIntro = () => {
     const intro = 
         <IntroSection 
             heading="Our Limited Edition" 
-            subHeading="Name of limited edition here"
+            subHeading="Coffee for Two"
             helperText="Tasting note line"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            description={`This month’s limited edition is from the region of Chalatenango in El Salvador. You can expect tasting notes of almond, caramel and cacao butter. We’ve roasted this single origin coffee as an omni-roast, equally delicious if brewed as an espresso or as a filter coffee. We have limited quantities!\n\nFarm: Finca El Caracol | Country: El Salvador\nRegion: Chalatenango | Process: Washed\nAltitude: 1700m | Variety: Pacamara`}
+            btnLabel="Buy Coffee"
+            link="/shop"
         />
     return (
         <TwoColLayout 

@@ -5,18 +5,17 @@ import { SelectAdapter } from '../../../utils/Forms/FormHelpers';
 
 import { Box, Button } from "grommet";
 
+const required = value => (value ? undefined : "Please select all options");
+
 const SubscriptionForm = ({ type, addToCart }) => {
-    const initialize = type !== 'roaster-subscription' ? 
-                      { quantity: '500g', varieties: '1', roast: 'espresso'}
-                      :
-                      { quantity: '500g' }
     return (
     <Form
-    onSubmit={values => addToCart(type, values)}
-    initialValues={initialize}
+    onSubmit={values => //addToCart(type, values)
+    console.log(values)}
+    //initialValues={initialize}
     render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
       <form onSubmit={handleSubmit}>
-        <Box pad="small">
+        <Box width="75%" pad={{vertical: 'medium'}}>
           {type !== 'roaster-subscription' && 
           <Fragment>
             <Field
@@ -25,6 +24,8 @@ const SubscriptionForm = ({ type, addToCart }) => {
               component={SelectAdapter}
               size="small"
               options={['1', '2']}
+              placeholder="How many varieties?"
+              validate={required}
             />
             <Field
               label="Roast style"
@@ -32,16 +33,14 @@ const SubscriptionForm = ({ type, addToCart }) => {
               component={SelectAdapter}
               size="small"
               options={['Espresso', 'Filter']}
+              placeholder="Espresso or Filter?"
+              validate={required}
             />
           </Fragment>
           }
-          <Field label="Quantity" name="quantity" component={SelectAdapter} size="small" options={['500g', '1kg']}/>
-        </Box>
+          <Field label="Quantity" name="quantity" component={SelectAdapter} size="small" options={['500g', '1kg']} placeholder="How much?" validate={required}/>
         <Button type="submit" disabled={submitting || invalid} primary fill="horizontal" label="Submit" color="mainDark" />
-        <pre>{JSON.stringify(values, 0, 2)}</pre>
-        <pre>{JSON.stringify(errors, 0, 2)}</pre>
-        <pre>{JSON.stringify(invalid, 0, 2)}</pre>
-        <pre>{JSON.stringify(submitting, 0, 2)}</pre>
+        </Box>
       </form>
     )}
   />

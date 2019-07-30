@@ -1,47 +1,71 @@
 import React, { Fragment } from 'react';
+import { Form, Field } from 'react-final-form';
+
+import { SelectAdapter } from '../../utils/Forms/FormHelpers';
 
 import IconedExplanation from '../../utils/IconedExplanation';
 
-import { Box, Heading, Paragraph, Grid, Image } from 'grommet';
+import { Heading, Text, Grid, Button, Box } from 'grommet';
 import { Grow } from 'grommet-icons';
 
 const ProductDetails = ({id, name, description, price, link, slug, main, addToCart}) => {
+    const onSubmit = values => {
+        console.log(values);
+    }
     return (
         <Fragment>
-            <Box direction="row">
-                <Box width="50%" height="100%">
-                    <Image fit="contain" src={`${link? link.href : ""}`}/>
-                </Box>
-                <Box width="50%">
-                    <Heading level="1">{name}</Heading>
-                    <Heading level="3">Nueva Segovia, Nicaragua | Espresso Beans</Heading>
-                    <Paragraph>The Esperanza is from the region of Nueva Segovia in Nicaragua. You can expect floral, tea-like acidity, brown-sugar tasting notes. This single origin coffee is an Espresso Roast, perfect with milk to balance the acidity.</Paragraph>
-                    <Paragraph>{description}</Paragraph>
-                    <IconedExplanation 
-                        icon={<Grow color="plain" size="large" />}
-                        description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
-                    />
-                    <hr/>
-                    <Grid columns="50%" rows="50%">
-                    <IconedExplanation 
-                        icon={<Grow color="plain" size="large" />}
-                        description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
-                    />
-                    <IconedExplanation 
-                    icon={<Grow color="plain" size="large" />}
-                    description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
-                    />
-                    <IconedExplanation 
-                        icon={<Grow color="plain" size="large" />}
-                        description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
-                    />
-                    <IconedExplanation 
-                    icon={<Grow color="plain" size="large" />}
-                    description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
-                    />
-                    </Grid>
-                </Box>
-            </Box>
+            <Heading level={1}>{name}</Heading>
+            <Heading level={3} margin={{"bottom": "medium"}} size="small">Nueva Segovia, Nicaragua | Espresso Beans</Heading>
+            <Text>The Esperanza is from the region of Nueva Segovia in Nicaragua. You can expect floral, tea-like acidity, brown-sugar tasting notes. This single origin coffee is an Espresso Roast, perfect with milk to balance the acidity.</Text>
+            <Text>{description}</Text>
+            <IconedExplanation 
+                icon={<Grow color="plain" size="medium" />}
+                description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
+                spacing={{vertical: 'medium'}}
+                size={"xsmall"}
+            />
+            <hr/>
+            <Grid columns="50%" rows="50%">
+            <IconedExplanation 
+                icon={<Grow color="plain" size="medium" />}
+                description={"Red Honey, Nueva Segovia, Nicaragua"}
+                spacing={{vertical: 'medium'}}
+                size={"xsmall"}
+            />
+            <IconedExplanation 
+            icon={<Grow color="plain" size="medium" />}
+            description={"Recommended as a Cappuccino"}
+            spacing={{vertical: 'medium'}}
+            size={"xsmall"}
+            />
+            <IconedExplanation 
+                icon={<Grow color="plain" size="medium" />}
+                description={"Floral, Brown Sugar, Teal-like acidity, clean"}
+                spacing={{vertical: 'medium'}}
+                size={"xsmall"}
+            />
+            <IconedExplanation 
+            icon={<Grow color="plain" size="medium" />}
+            description={"100% recyclable bag, recyclable box"}
+            spacing={{vertical: 'medium'}}
+            size={"xsmall"}
+            />
+            </Grid>
+            <Form
+            onSubmit={onSubmit}
+            render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
+                <form onSubmit={handleSubmit}>
+                    <Box pad="small">
+                        <Field label="Quantity" name="quantity" component={SelectAdapter} size="small" options={['500g', '1kg']}/>
+                    </Box>
+                    <Button type="submit" disabled={submitting || invalid} primary alignSelf="start" label="Add to Cart" color="mainDark" />
+                    {/*<pre>{JSON.stringify(values, 0, 2)}</pre>
+                    <pre>{JSON.stringify(errors, 0, 2)}</pre>
+                    <pre>{JSON.stringify(invalid, 0, 2)}</pre>
+            <pre>{JSON.stringify(submitting, 0, 2)}</pre>*/}
+                </form>
+            )}
+  />
         </Fragment>
     );
 };

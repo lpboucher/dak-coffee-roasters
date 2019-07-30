@@ -25,19 +25,19 @@ export const SUBS_SPECS = [
         data: [
             {
                 text: 'Freshly-roasted specialty coffee',
-                icon: <Java />,
+                icon: <Java style={{margin: '0 20px'}}/>,
             },
             {
                 text: 'Customize your order by choosing your roast styles and quantity',
-                icon: <Tasks />,
+                icon: <Tasks style={{margin: '0 20px'}}/>,
             },
             {
                 text: 'Save money compared to single orders',
-                icon: <Money />,
+                icon: <Money style={{margin: '0 20px'}}/>,
             },
             {
                 text: 'Receive your coffee box once a month',
-                icon: <Plan />,
+                icon: <Plan style={{margin: '0 20px'}}/>,
             },
         ],
     },
@@ -46,19 +46,19 @@ export const SUBS_SPECS = [
         data: [
             {
                 text: 'Freshly-roasted specialty coffee',
-                icon: <Java />,
+                icon: <Java style={{margin: '0 20px'}}/>,
             },
             {
                 text: 'Get 2 coffee varieties: the current limited edition & what the roaster drinks that month',
-                icon: <Bar />,
+                icon: <Bar style={{margin: '0 20px'}}/>,
             },
             {
                 text: 'Save money compared to single orders',
-                icon: <Money />,
+                icon: <Money style={{margin: '0 20px'}}/>,
             },
             {
                 text: 'Receive your coffee box once a month',
-                icon: <Plan />,
+                icon: <Plan style={{margin: '0 20px'}}/>,
             },
         ],
     }

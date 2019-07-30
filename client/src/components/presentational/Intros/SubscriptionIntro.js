@@ -8,8 +8,11 @@ const SubscriptionIntro = () => {
     const intro = 
         <IntroSection 
             heading="Monthly Coffee Subscription" 
-            subHeading="From €15 | Free Shipping | Commitment Free"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            helperText="From €15   |   Free Shipping   |   Commitment Free"
+            description={
+                `Have your coffee delivered to your doorstep every month by opting for one of our subscriptions. Choose between:\n\nOUR CLASSICS: Choose a roast and receive a selection of origin coffees in either filter or espresso roasts (or both, why not!)\n\nTHE ROASTER’S CHOICE: Let the roaster surprise you with his preferred roast of the month. This subscription will offer different assortments of filter/espresso/limited edition roasts, but our roaster never compromises the quality or taste, so this is truly the best way to familiarize yourself with fresh, new coffees!`}
+            btnLabel="Subscribe"
+            link="/subscriptions"
         />
     return (
         <TwoColLayout 

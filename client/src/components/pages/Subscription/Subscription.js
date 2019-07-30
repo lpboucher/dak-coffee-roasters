@@ -8,6 +8,8 @@ import CategoryRowContainer from '../../container/Products/CategoryRowContainer'
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 import Footer from '../../presentational/Footer/Footer';
 
+import header from '../../../assets/images/Header_Mainpage.jpg';
+
 class SubscriptionPage extends Component {
 
     componentDidMount() {}
@@ -15,7 +17,14 @@ class SubscriptionPage extends Component {
     render() {
         return (
             <Fragment>
-                <Hero />
+                <Hero
+                    bgImage={header}
+                    overlay={{
+                        text: "From farm to cup we take great pride in celebrating quality coffee",
+                        loc: "bottom-left",
+                        withOpacity: true
+                    }}
+                />
                 <SubscriptionExplain />
                 <SubscriptionSpecs />
                 <SubscriptionContainer collection='coffee-subscriptions'/>

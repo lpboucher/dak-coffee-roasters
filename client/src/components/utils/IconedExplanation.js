@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { Box, Text } from 'grommet';
 
-const IconedExplanation = ({icon, description, withLink=false, dest}) => {
+const IconedExplanation = ({icon, description, size, spacing, vertical}) => {
     return (
-        <Box as={Link} to={`${withLink ? dest : ''}`} direction="row">
+        <Box pad={spacing} direction="row" align={vertical}>
             {icon}
-            <Text>{description}</Text>
+            <Text size={size}>{description}</Text>
         </Box>
     );
 };

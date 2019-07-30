@@ -4,16 +4,20 @@ import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
 import IntroSection from '../../utils/IntroSection';
 
+import beans from '../../../assets/images/Coffeebeans.jpg';
+
 const ValuesIntro = () => {
     const intro = 
         <IntroSection 
-            heading="Tagline about us and values" 
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            heading="What we believe in" 
+            description={`Five things always come first at Dak: delicious coffee, the environment, the social conditions of the farmers, creativity and customization.\n\nOffering high-quality coffee for you to enjoy is what matters to us. All coffees on offer have been carefully selected, and each week our team hosts cupping sessions to ensure their quality. We roast twice a week to make sure that you get the freshest coffee, and with continuous testing and development, we keep your taste buds on their toes.\n\nGood coffee tastes even better if it’s sourced ethically. We only partner with importers that share our values, work with exclusive lots and do extensive background research on the farms. We are ready to pay a premium price for our green coffee beans to make sure the farmers are paid their fair share, and our customers are offered the highest quality coffee possible`}
+            btnLabel="Read More"
+            link="/about"
         />
     return (
         <TwoColLayout 
             bgColor="mainWhite"
-            left={<FullImg imgLink={"https://thumbs.dreamstime.com/z/black-bag-packaging-wide-variety-products-clipping-packet-path-wrapper-sweet-snack-milk-powder-coffee-salt-sugar-43471774.jpg"}/>}
+            left={<FullImg imgLink={beans}/>}
             right={intro}
         />
     );

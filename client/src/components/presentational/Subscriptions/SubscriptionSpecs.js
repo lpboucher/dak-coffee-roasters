@@ -7,22 +7,22 @@ import { Deliver, Java, Calendar } from 'grommet-icons';
 
 const SubscriptionSpecs = () => {
     return (
-        <Box direction="row" pad="large" background="lightGrey">
-            <Box width="33%">
+        <Box direction="row" pad="medium" background="lightGrey">
+            <Box width="33%" pad={{horizontal: "xlarge"}}>
                 <SubscriptionSpecsItem 
                     icon={<Deliver />}
                     header="free shipping in EU & North America"
                     desc="on all monthly subscriptions"
                 />
             </Box>
-            <Box width="33%">
+            <Box width="33%" pad={{horizontal: "xlarge"}}>
                 <SubscriptionSpecsItem 
                     icon={<Java />}
                     header="choose your custom monthly subscription"
-                    desc="between our classics or the roaster\'s choice"
+                    desc="between our classics or the roaster's choice"
                 />
             </Box>
-            <Box width="33%">
+            <Box width="33%" pad={{horizontal: "xlarge"}}>
                 <SubscriptionSpecsItem 
                     icon={<Calendar />}
                     header="commitment-free"

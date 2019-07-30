@@ -4,6 +4,8 @@ import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
 import IntroSection from '../../utils/IntroSection';
 
+import coffee from '../../../assets/images/Coffeebeans.jpg';
+
 const CoffeeIntro = () => {
     const intro = 
         <IntroSection 
@@ -13,7 +15,7 @@ const CoffeeIntro = () => {
     return (
         <TwoColLayout 
             bgColor="mainWhite"
-            right={<FullImg imgLink={"https://thumbs.dreamstime.com/z/black-bag-packaging-wide-variety-products-clipping-packet-path-wrapper-sweet-snack-milk-powder-coffee-salt-sugar-43471774.jpg"}/>}
+            right={<FullImg imgLink={coffee}/>}
             left={intro}
         />
     );

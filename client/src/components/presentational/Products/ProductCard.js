@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import ProductCardInfo from './ProductCardInfo';
 
 import { Box, Image } from 'grommet';
 
-const ProductCard = ({product, thumb, addToCart}) => {
+const ProductCard = withRouter(({product, thumb, addToCart, history}) => {
     return (
         <Fragment>
-            <Box height="75%" width="100%" as={Link} to={`/shop/${product.slug}`} >
+            <Box height="75%" width="100%" onClick={() => history.push(`/shop/${product.slug}`)} >
                 <Image fit="contain" src={`${thumb.link? thumb.link.href : ""}`}/>
             </Box>
             <Box height="25%">
@@ -21,7 +21,7 @@ const ProductCard = ({product, thumb, addToCart}) => {
             </Box>      
         </Fragment>
     );
-};
+})
 
 export default ProductCard;
 

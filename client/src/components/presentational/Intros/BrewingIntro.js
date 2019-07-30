@@ -4,17 +4,20 @@ import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
 import IntroSection from '../../utils/IntroSection';
 
+import brewing from '../../../assets/images/Ourbrewingguides.jpg';
+
 const BrewingIntro = () => {
     const intro = 
         <IntroSection 
-            heading="Our guide to brewing coffee" 
-            subHeading="From €15 | Free Shipping | Commitment Free"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            heading="Our guide to brewing coffee"
+            description={`No matter the roast and origin, coffee is only ever as good as it is extracted. That is why, for each coffee, we provide guidance on how best to brew it; a step-by-step guide developed from countless cupping sessions and iterations.\n\nWe feel it is also important to understand why or how different extraction methods highlight different flavor notes in a coffee. A better understanding of the variables at play allows all coffee drinkers to make more informed choices about their roasts, coffees etc.\n\nWe believe we’ve done a good job if you, the customer, are curious enough to explore extraction methods different from your usual one!`}
+            btnLabel="Read More"
+            link="/about"
         />
     return (
         <TwoColLayout 
             bgColor="darkGrey"
-            right={<FullImg imgLink={"https://thumbs.dreamstime.com/z/black-bag-packaging-wide-variety-products-clipping-packet-path-wrapper-sweet-snack-milk-powder-coffee-salt-sugar-43471774.jpg"}/>}
+            right={<FullImg imgLink={brewing}/>}
             left={intro}
         />
     );

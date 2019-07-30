@@ -12,6 +12,8 @@ import ValuesIntro from '../../presentational/Intros/ValuesIntro';
 import BrewingIntro from '../../presentational/Intros/BrewingIntro';
 import Footer from '../../presentational/Footer/Footer';
 
+import header from '../../../assets/images/Header_Mainpage.jpg';
+
 class HomePage extends Component {
 
     componentDidMount() {
@@ -24,7 +26,14 @@ class HomePage extends Component {
     render() {
         return (
             <Fragment>
-                <Hero />
+                <Hero
+                    bgImage={header}
+                    overlay={{
+                        text: "From farm to cup we take great pride in celebrating quality coffee",
+                        loc: "bottom-left",
+                        withOpacity: true
+                    }}
+                />
                 <SubscriptionIntro />
                 <LimitedEditionsIntro />
                 <FeaturedProductsContainer collection='featured-products'/>

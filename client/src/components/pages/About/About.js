@@ -7,6 +7,8 @@ import PackagingIntro from '../../presentational/Intros/PackagingIntro';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 import Footer from '../../presentational/Footer/Footer';
 
+import header from '../../../assets/images/Header_Ourcoffee.jpg';
+
 class AboutPage extends Component {
 
     componentDidMount() {}
@@ -14,7 +16,7 @@ class AboutPage extends Component {
     render() {
         return (
             <Fragment>
-                <Hero />
+                <Hero bgImage={header}/>
                 <EthicsIntro />
                 <CoffeeIntro />
                 <PackagingIntro />

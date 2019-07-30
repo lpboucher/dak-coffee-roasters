@@ -8,10 +8,10 @@ import { Box } from 'grommet';
 const FooterLinks = () => {
     return (
         <Fragment>
-            <Box direction="row" wrap>
+            <Box direction="row" wrap pad="medium">
             { FOOTER_NAV.map((item, index) => 
                 <Box key={`${item.menuText}-${index}`} width="33%">
-                    <Link to={item.link}>{item.menuText}</Link>
+                    <Link to={item.link} style={{'fontSize': '12px'}}>{item.menuText}</Link>
                 </Box>
                 )}
             </Box>

@@ -4,6 +4,8 @@ import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
 import IntroSection from '../../utils/IntroSection';
 
+import ethics from '../../../assets/images/EthicallySourced.jpg'
+
 const EthicsIntro = () => {
     const intro = 
         <IntroSection 
@@ -13,7 +15,7 @@ const EthicsIntro = () => {
     return (
         <TwoColLayout 
             bgColor="lightGrey"
-            left={<FullImg imgLink={"https://thumbs.dreamstime.com/z/black-bag-packaging-wide-variety-products-clipping-packet-path-wrapper-sweet-snack-milk-powder-coffee-salt-sugar-43471774.jpg"}/>}
+            left={<FullImg imgLink={ethics}/>}
             right={intro}
         />
     );

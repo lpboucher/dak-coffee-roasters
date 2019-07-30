@@ -10,7 +10,7 @@ const FeaturedProducts = ({products, cart}) => {
             <Box pad="large" background="lightGrey">
                 <Heading level='1' textAlign="center">Coffee bags & equipment</Heading>
                 <ProductGrid products={products} cart={cart}/>
-                <Button primary label="SEE MORE" alignSelf="center" color="mainDark" />   
+                <Button primary label="SEE MORE" alignSelf="center" />   
             </Box>   
         </Fragment>
     );

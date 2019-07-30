@@ -2,16 +2,20 @@ import React from 'react';
 
 import { Box, Image, Stack, Text } from 'grommet';
 
-const Hero = () => {
+const Hero = ({bgImage, overlay}) => {
     return (
-    <Stack anchor="bottom-left">
+    <Stack anchor={overlay.loc}>
         <Box height="100vh" width="full">
             <Image
                 fit="cover"
-                src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
+                src={bgImage}
             />
         </Box>
-        <Text>SOme Text</Text>
+        <Box height="25vh" width="100vw" justify="center" background={`${overlay.withOpacity ? 'rgba(0,0,0,0.5)' : ''}`}>
+            <Box width="50vw" pad={{'horizontal': 'large'}}>
+                <Text size="large" color='white' weight="bold" >{overlay.text}</Text>
+            </Box>
+        </Box>
     </Stack>
     );
 };

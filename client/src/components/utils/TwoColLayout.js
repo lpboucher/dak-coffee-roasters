@@ -4,11 +4,11 @@ import { Box } from 'grommet';
 
 const TwoColLayout = ({bgColor, left, right}) => {
     return (
-        <Box direction="row" background={bgColor}>
-                <Box width="50%">
+        <Box direction="row" pad="large" background={bgColor}>
+                <Box pad="large" width="50%">
                     {left}
                 </Box>
-                <Box width="50%">
+                <Box pad="large" width="50%">
                     {right}
                 </Box>
         </Box>

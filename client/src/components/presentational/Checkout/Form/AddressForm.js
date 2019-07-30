@@ -1,14 +1,13 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 
-import { TextInputAdapter, CheckboxAdapter, WhenValid } from '../../../utils/Forms/FormHelpers';
+import { CheckboxAdapter } from '../../../utils/Forms/FormHelpers';
 import validation from '../../../utils/Forms/orderValidation';
 import IconedExplanation from '../../../utils/IconedExplanation';
 import AddressFields from './AddressFields';
-import PaymentFields from './PaymentFields';
 
-import { Box, Text, Button } from "grommet";
-import { Deliver, UserNew, Home, CreditCard } from 'grommet-icons';
+import { Text, Button } from "grommet";
+import { Home } from 'grommet-icons';
 
 const AddressForm = ({submit, userId, address}) => {
   return (

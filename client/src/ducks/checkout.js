@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
 import axios from 'axios';
 
-import { getProduct } from './products';
-
 //Action Types
 export const SUBMIT_ORDER_REQUEST = 'checkout/submit_order_request';
 export const SUBMIT_ORDER_SUCCESS = 'checkout/submit_order_success';
