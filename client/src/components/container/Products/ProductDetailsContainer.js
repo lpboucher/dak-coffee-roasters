@@ -1,15 +1,25 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { getProductBySlug } from '../../../ducks/products';
+import { getAllProducts, getProductBySlug, fetchProducts } from '../../../ducks/products';
 //import { addToCart } from '../../../ducks/cart';
 
-import ProductDetails from '../../presentational/Products/ProductDetails';
+import SingleProduct from '../../presentational/Products/SingleProduct';
+
+import Loader from '../../utils/Loader';
 
 class ProductDetailsContainer extends Component {
+    componentDidMount() {
+        const { products } = this.props;
+        if(products.length < 1) {
+            this.props.fetchProducts();
+        }
+    };
 
     renderProduct() {
     const { product } = this.props;
-    return <ProductDetails {...product}/>;
+    if(product && Object.keys(product).length > 0) {return <SingleProduct product={product}/>};
+
+    return <Loader />
     }
     
     render() {
@@ -24,8 +34,15 @@ class ProductDetailsContainer extends Component {
 function mapStateToProps(state, ownProps) {
     const slug  = ownProps.id;
     return {
-        product: getProductBySlug(state, slug)
+        product: getProductBySlug(state, slug),
+        products: getAllProducts(state)
     };
 }
 
-export default connect(mapStateToProps, null)(ProductDetailsContainer);
+function mapDispatchToProps(dispatch) {
+    return {
+        fetchProducts: () => dispatch(fetchProducts())
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailsContainer);
