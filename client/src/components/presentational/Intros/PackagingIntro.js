@@ -8,7 +8,7 @@ const PackagingIntro = () => {
     const intro = 
         <IntroSection 
             heading="Our Eco-friendly packaging tagline" 
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            description={`One thing is to source coffee ethically and to help provide living wages to the farmers, another is to respect the environment and conditions that they require to grow their product. This is why we use eco-friendly, yet aesthetically appealing packaging.\n\nOur coffee bags are 100% recyclable, CO2 Neutral and aluminum-free. We are proud to partner with a supplier that invests in CO2-reducing projects in coffee growing countries, so the greenhouse gas emissions needed to produce coffee bags can be compensated by reducing emissions elsewhere.\n\nOur shipping boxes are also 100% recyclable and made of recyclable materials and water-based ink making them environmentally friendly.\n\nOur goal is to continuously improve our processes in order to reduce our footprint. After all, we only have one planet.`}
         />
     return (
         <TwoColLayout 

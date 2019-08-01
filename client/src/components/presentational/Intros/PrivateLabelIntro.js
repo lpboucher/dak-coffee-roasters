@@ -4,16 +4,18 @@ import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
 import IntroSection from '../../utils/IntroSection';
 
+import privatelabel from '../../../assets/images/Privatelabel.jpg';
+
 const PrivateLabelIntro = () => {
     const intro = 
         <IntroSection 
             heading="Private Label" 
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            description={`We fully understand that relationships with your clients is of huge importance to the success and sustainability of your business. This starts with a recognizable and differentiating branding on your establishment, but also with the products that sit on your shelves.\n\nThat is why we recognize your need for custom packaging and branding for the coffee that you want to serve. We are committed to working with you in developing your own packaging for us to deliver the coffee in That way, you can have great coffee without reducing your presence.\n\n\nIf you would like to sell our coffee as a private label in Europe: info@dakcoffeeroasters.com\n\nIf you would like to sell our coffee as a private label in Canada/USA: wholesaleCA@dakcoffeeroasters.com`}
         />
     return (
         <TwoColLayout 
             bgColor="mainWhite"
-            right={<FullImg imgLink={"https://thumbs.dreamstime.com/z/black-bag-packaging-wide-variety-products-clipping-packet-path-wrapper-sweet-snack-milk-powder-coffee-salt-sugar-43471774.jpg"}/>}
+            right={<FullImg imgLink={privatelabel}/>}
             left={intro}
         />
     );
