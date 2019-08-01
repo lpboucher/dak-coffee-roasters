@@ -56,7 +56,7 @@ class PaymentFormContainer extends Component {
 
     render() {
         const { status } = this.props;
-        if (status.success) {return <Redirect to="/checkout/sucess" />};
+        if (status.success) {return <Redirect to="/checkout/success" />};
         if (status.action) {this.handleConfirmation(status)};
         return (
             <Fragment>

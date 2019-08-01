@@ -13,7 +13,7 @@ class LoginFormContainer extends Component {
         const { register, login, isUserLoggedIn, loc } = this.props;
         const withRedirect = loc ? loc === "/login" : false;
         if(isUserLoggedIn && withRedirect) {
-            return <Redirect to="/" />
+            return <Redirect to="/account" />
          } else {
             return <LoginForm login={login} register={register}/> 
         }
