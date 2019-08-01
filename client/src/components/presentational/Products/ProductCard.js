@@ -8,14 +8,14 @@ import { Box, Image } from 'grommet';
 const ProductCard = withRouter(({product, thumb, addToCart, history}) => {
     return (
         <Fragment>
-            <Box height="75%" width="100%" onClick={() => history.push(`/shop/${product.slug}`)} >
+            <Box height="75%" width="100%" onClick={() => history.push(`/shop/${product.slug}`)} style={{cursor: "pointer"}}>
                 <Image fit="contain" src={`${thumb.link? thumb.link.href : ""}`}/>
             </Box>
             <Box height="25%">
                 <ProductCardInfo 
                     id={product.id}
                     name={product.name}
-                    description={product.description}
+                    price={product.price}
                     add={addToCart}
                     />
             </Box>      
