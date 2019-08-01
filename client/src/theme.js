@@ -44,7 +44,9 @@ export const DakTheme = {
         },
         color: 'mainWhite',
         extend: {
-          textTransform: "uppercase"
+          textTransform: "uppercase",
+          marginTop: "10px",
+          marginBottom: "10px"
         },
         padding: {
           horizontal: '20px',
@@ -52,14 +54,17 @@ export const DakTheme = {
         },
         primary: {
           color: 'mainDark'
-        }
+        },
       },
       checkBox: {
         color: 'darkHighlight',
+        extend: {
+          marginBottom: '10px'
+        }
       },
       formField: {
         border: {
-          color: 'mainDark',
+          color: {dark: 'mainWhite', light: 'mainDark'},
           side: 'all'
         },
         margin: {
@@ -74,6 +79,11 @@ export const DakTheme = {
               height: "24px",
               maxWidth: "100%"
           },
+          small: {
+            size: "16px",
+            height: "32px",
+            maxWidth: "100%"
+        },
             medium: {
                 size: "24px",
                 height: "48px",
@@ -81,12 +91,22 @@ export const DakTheme = {
             },
           },
           2: {
+            xsmall: {
+              size: "10px",
+              height: "20px",
+              maxWidth: "100%"
+          },
             small: {
                 size: "18px",
                 height: "36px",
             },
           },
           3: {
+            xsmall: {
+              size: "8px",
+              height: "16px",
+              maxWidth: "100%"
+          },
             small: {
                 size: "14px",
                 height: "28px",

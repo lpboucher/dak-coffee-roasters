@@ -7,7 +7,7 @@ import { Box } from 'grommet';
 
 const CheckoutSummary = ({items, cart}) => {
     return (
-        <Box pad="large" margin="large" background="lightGrey">
+        <Box pad="large" margin={{horizontal: 'large'}} background="lightGrey">
             {items.map(item => 
                 <CheckoutSummaryItem key={item.id} {...item} />
             )}

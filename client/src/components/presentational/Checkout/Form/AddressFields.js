@@ -7,7 +7,7 @@ import { Box } from 'grommet';
 
 const AddressFields = ({type}) => {
     return (
-        <Box pad="small">
+        <Box pad={{vertical: 'small'}}>
             <Box direction="row" flex="grow">
                 <Box width="50%" pad={{"right": "small"}}>
                     <Field

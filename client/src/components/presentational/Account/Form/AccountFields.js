@@ -7,7 +7,7 @@ import { Box } from 'grommet';
 
 const AccountFields = ({isExistingUser}) => {
     return (
-        <Box pad="small">
+        <Box pad={{vertical: 'small'}}>
             <Field
                 label="Existing user?"
                 name="existing"

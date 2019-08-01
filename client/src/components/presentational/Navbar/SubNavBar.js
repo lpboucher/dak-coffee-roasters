@@ -19,7 +19,7 @@ const SubNavbar = ({loc}) => {
                 <Box 
                     key={nav.menuText.replace(/\s+/g, '')}
                     activeStyle={{textDecoration: 'line-through', textDecorationColor: 'var(--darkHighlight)'}}
-                    pad="small"
+                    pad="xsmall"
                 >
                     {nav.subs.length > 0 ?
                         <Menu label={nav.menuText}
