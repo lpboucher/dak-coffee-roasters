@@ -12,12 +12,33 @@ import { UserAdmin, Deliver, CreditCard } from "grommet-icons";
 
 const CheckoutForm = ({isUserLoggedIn, orderExists}) => {
   return (
-    <Box margin="large">
-      <IconedExplanation icon={<UserAdmin />} description={`${isUserLoggedIn ? "Already Logged In" : "Log In/Register to Continue"}`} />
+    <Box margin={{horizontal: 'large'}}>
+      <IconedExplanation
+        icon={<UserAdmin style={{margin: '0 20px'}}/>}
+        description={`${isUserLoggedIn ? "Already Logged In" : "Log In/Register to Continue"}`}
+        background="mainDark"
+        size="medium"
+        spacing={{vertical: "small"}}
+        vertical="center"
+      />
       {!isUserLoggedIn && <LoginFormContainer />}
-      <IconedExplanation icon={<Deliver />} description={`${orderExists ? "Submitted" : "Shipping Address"}`} />
+      <IconedExplanation
+        icon={<Deliver style={{margin: '0 20px'}}/>}
+        description={`${orderExists ? "Submitted" : "Shipping Address"}`}
+        background="mainDark"
+        size="medium"
+        spacing={{vertical: "small"}}
+        vertical="center"
+      />
       {isUserLoggedIn && !orderExists && <OrderFormContainer loggedIn={isUserLoggedIn}/>}
-      <IconedExplanation icon={<CreditCard />} description="Payment Method" />
+      <IconedExplanation
+        icon={<CreditCard style={{margin: '0 20px'}}/>}
+        description="Payment Method"
+        background="mainDark"
+        size="medium"
+        spacing={{vertical: "small"}}
+        vertical="center"
+      />
       {orderExists &&  <Elements><PaymentFormContainer /></Elements>}
     </Box>
 )}

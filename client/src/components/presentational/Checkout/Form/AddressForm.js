@@ -24,7 +24,13 @@ const AddressForm = ({submit, userId, address}) => {
       render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
         <form onSubmit={handleSubmit}>
           <AddressFields type="shipping.address" />
-          <IconedExplanation icon={<Home />} description="Billing Address" />
+          <IconedExplanation
+            icon={<Home />}
+            description="Billing Address"
+            size="medium"
+            spacing={{vertical: "small"}}
+            vertical="center"
+          />
           <Field
                   label="Use shipping address for billing"
                   name="billingIsShipping"
