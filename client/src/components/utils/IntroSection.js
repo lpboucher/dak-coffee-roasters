@@ -1,20 +1,22 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Box, Heading, Text, Button } from 'grommet';
 
-const IntroSection = withRouter(({heading, subHeading, helperText, description, btnLabel, link, children, history}) => {
+const IntroSection = ({heading, subHeading, helperText, description, btnLabel, link, children, isSmall=false}) => {
     return (
         <Box>
-            <Heading level={1}>{heading}</Heading>
-            <Heading level={2} size="small">{subHeading}</Heading>
-            <Heading level={3} margin={{"bottom": "medium"}} size="small">{helperText}</Heading>
-            <Text margin={{"bottom": "large"}}>{description}</Text>
+            <Heading level={1} size={`${isSmall ? 'small' : ''}`}>{heading}</Heading>
+            <Heading level={2} size={`${isSmall ? 'xsmall' : 'small'}`}>{subHeading}</Heading>
+            <Heading level={3} margin={{"bottom": "medium"}} size={`${isSmall ? 'xsmall' : 'small'}`} style={{fontWeight: '400'}}>{helperText}</Heading>
+            <Text size={`${isSmall ? 'small' : ''}`} margin={isSmall ? {"bottom": "medium"} : {"bottom": "large"}}>{description}</Text>
             {btnLabel &&
-            <Button primary label={btnLabel} alignSelf="start" style={{color: 'white'}} onClick={() => history.push(link)}/>
+            <Link to={link}>
+                <Button primary label={btnLabel} alignSelf="start" style={{color: 'white'}}/>
+            </Link>
             }
         </Box>
     );
-})
+};
 
 export default IntroSection;

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import CartToolTipItem from './CartToolTipItem';
 
 import { Drop, Box, Text } from 'grommet';
 
-const CartToolTip = ({items, close, target}) => {
+const CartToolTip = withRouter(({items, close, target, history}) => {
     return (
         <Drop align={{"top": "bottom", "right": "right"}} plain={true} target={target.current} onClickOutside={close} onEsc={close}>
             <Box width="400px" background='mainWhite' justify="between">
@@ -16,10 +16,14 @@ const CartToolTip = ({items, close, target}) => {
                         <p>No items in Cart</p>
                     }
                 </Box>
-                <Box as={Link} to="/cart" fill="horizontal" align="center" pad="small" background="mainDark" ><Text color="mainWhite">View Cart</Text></Box>
+                <Link to="/cart">
+                    <Box fill="horizontal" align="center" pad="small" background="mainDark" >
+                        <Text color="mainWhite">View Cart</Text>
+                    </Box>
+                </Link>
             </Box>
         </Drop>
     );
-};
+})
 
 export default CartToolTip;
