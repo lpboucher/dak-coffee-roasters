@@ -3,10 +3,12 @@ import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from './components/utils/Routes/PrivateRoute';
 
 import Navbar from './components/presentational/Navbar/Navbar';
+import Footer from './components/presentational/Footer/Footer';
 import HomePage from './components/pages/Home/Home';
 import LoginPage from './components/pages/Account/Login';
 import ShopPage from './components/pages/Shop/Shop';
 import SubscriptionPage from './components/pages/Subscription/Subscription';
+import CoffeePage from './components/pages/About/Coffee';
 import AboutPage from './components/pages/About/About';
 import WholesalePage from './components/pages/Wholesale/Wholesale';
 import ContactPage from './components/pages/Contact/Contact';
@@ -26,12 +28,13 @@ class App extends Component {
   render() {
     return (
       <Grommet theme={DakTheme}>
-        {<Navbar></Navbar>}
+        <Navbar/>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/subscriptions" component={SubscriptionPage} />
           <Route path="/about" component={AboutPage} />
+          <Route path="/our-coffee" component={CoffeePage} />
           <Route path="/wholesale" component={WholesalePage} />
           <Route path="/contact" component={ContactPage} />
           <Route path="/blog" component={BlogPage} />
@@ -39,9 +42,10 @@ class App extends Component {
           <Route exact path="/checkout" component={CheckoutPage} />
           <Route path="/shop/:slug" component={ProductPage} />
           <Route path="/shop" component={ShopPage} />
-          <Route path="/checkout/sucess" component={SuccessPage} />
+          <Route path="/checkout/success" component={SuccessPage} />
           <PrivateRoute path="/account" component={AccountPage} />
         </Switch>
+        <Footer />
       </Grommet>
     );
   }

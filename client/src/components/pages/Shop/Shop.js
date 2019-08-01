@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
-import SubscriptionIntro from '../../presentational/Intros/SubscriptionIntro';
+import SubscriptionBanner from '../../presentational/Subscriptions/SubscriptionBanner';
 import ShopContainer from '../../container/Shop/ShopContainer';
-import Footer from '../../presentational/Footer/Footer';
 
 import { Box } from 'grommet';
 
@@ -13,11 +12,10 @@ class ShopPage extends Component {
     render() {
         return (
             <Fragment>
-                <Box margin={{top: "large", bottom: "large", right: "large"}} width="75%">
-                    <SubscriptionIntro />
+                <Box margin={{top: "large", bottom: "large", right: "large"}} width="66%">
+                    <SubscriptionBanner />
                 </Box>
                 <ShopContainer />
-                <Footer />
             </Fragment>
         );
     }

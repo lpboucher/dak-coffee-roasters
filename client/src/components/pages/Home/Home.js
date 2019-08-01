@@ -10,7 +10,6 @@ import FeaturedProductsContainer from '../../container/Products/FeaturedProducts
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 import ValuesIntro from '../../presentational/Intros/ValuesIntro';
 import BrewingIntro from '../../presentational/Intros/BrewingIntro';
-import Footer from '../../presentational/Footer/Footer';
 
 import header from '../../../assets/images/Header_Mainpage.jpg';
 
@@ -31,6 +30,8 @@ class HomePage extends Component {
                     overlay={{
                         text: "From farm to cup we take great pride in celebrating quality coffee",
                         loc: "bottom-left",
+                        width: "100vw",
+                        height: "25vh",
                         withOpacity: true
                     }}
                 />
@@ -40,7 +41,6 @@ class HomePage extends Component {
                 <NewsletterSignUp />
                 <ValuesIntro />
                 <BrewingIntro />
-                <Footer />
             </Fragment>
         );
     }

@@ -4,7 +4,8 @@ import Hero from '../../presentational/Hero/Hero';
 import WholesaleIntro from '../../presentational/Intros/WholesaleIntro';
 import PrivateLabelIntro from '../../presentational/Intros/PrivateLabelIntro';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
-import Footer from '../../presentational/Footer/Footer';
+
+import header from '../../../assets/images/Header_Wholesale.jpg';
 
 class WholesalePage extends Component {
 
@@ -13,11 +14,19 @@ class WholesalePage extends Component {
     render() {
         return (
             <Fragment>
-                <Hero />
+                <Hero
+                    bgImage={header}
+                    overlay={{
+                        text: "We partner with people who share our uncompromised, passion-driven approach to coffee.",
+                        loc: "bottom-right",
+                        height: "50vh",
+                        width: "50vw",
+                        withOpacity: false
+                    }}
+                />
                 <WholesaleIntro />
                 <PrivateLabelIntro />
                 <NewsletterSignUp />
-                <Footer />
             </Fragment>
         );
     }

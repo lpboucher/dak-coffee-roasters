@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 
 import Checkout from '../../presentational/Checkout/Checkout';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
-import Footer from '../../presentational/Footer/Footer';
 
 class CheckoutPage extends Component {
 
@@ -13,7 +12,6 @@ class CheckoutPage extends Component {
             <Fragment>
                 <Checkout />
                 <NewsletterSignUp />
-                <Footer />
             </Fragment>
         );
     }

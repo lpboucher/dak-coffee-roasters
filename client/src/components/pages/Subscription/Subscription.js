@@ -6,7 +6,6 @@ import SubscriptionSpecs from '../../presentational/Subscriptions/SubscriptionSp
 import SubscriptionContainer from '../../container/Subscriptions/SubscriptionsContainer';
 import CategoryRowContainer from '../../container/Products/CategoryRowContainer';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
-import Footer from '../../presentational/Footer/Footer';
 
 import header from '../../../assets/images/Header_Mainpage.jpg';
 
@@ -20,7 +19,7 @@ class SubscriptionPage extends Component {
                 <Hero
                     bgImage={header}
                     overlay={{
-                        text: "From farm to cup we take great pride in celebrating quality coffee",
+                        text: "Go with the classics or opt for our roaster's seasonal picks.",
                         loc: "bottom-left",
                         withOpacity: true
                     }}
@@ -30,7 +29,6 @@ class SubscriptionPage extends Component {
                 <SubscriptionContainer collection='coffee-subscriptions'/>
                 <CategoryRowContainer name="You may also like" category='coffee-equipment'/>
                 <NewsletterSignUp />
-                <Footer />
             </Fragment>
         );
     }
