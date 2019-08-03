@@ -12,6 +12,7 @@ class TopNavContainer extends Component {
     
     componentDidMount() {
         this.props.fetchCart();
+        this.props.cartItems.map(item => new Image().src = item.image.href);
     }
 
     render() {
