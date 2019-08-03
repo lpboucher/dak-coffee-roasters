@@ -3,7 +3,17 @@
 //import {  } from './coins'; 
 
 //Action Types
-import { SUBMIT_PAYMENT_REQUEST, SUBMIT_PAYMENT_CONFIRM, SUBMIT_PAYMENT_FAILURE, SUBMIT_PAYMENT_SUCCESS } from './payments';
+import { 
+    SUBMIT_PAYMENT_REQUEST,
+    SUBMIT_PAYMENT_CONFIRM,
+    SUBMIT_PAYMENT_FAILURE,
+    SUBMIT_PAYMENT_SUCCESS
+} from './payments';
+
+import {
+    LOGIN_REQUEST,
+    LOGIN_SUCCESS
+} from './user';
 
 export const OPEN_CART = 'views/open_cart';
 export const CLOSE_CART = 'views/close_cart';
@@ -34,9 +44,11 @@ switch(action.type) {
         return { ...state, isCartOpen: false };
     case SUBMIT_PAYMENT_REQUEST:
     case SUBMIT_PAYMENT_CONFIRM:
+    case LOGIN_REQUEST:
         return { ...state, isProcessing: true };
     case SUBMIT_PAYMENT_FAILURE:
     case SUBMIT_PAYMENT_SUCCESS:
+    case LOGIN_SUCCESS:
         return { ...state, isProcessing: false };
     default:
         return state;

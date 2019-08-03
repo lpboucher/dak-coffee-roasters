@@ -61,6 +61,7 @@ export const fetchUserOrders = (token) => async dispatch => {
 }
 
 export const login = ({ email, password }) => async dispatch => {
+    dispatch({ type: LOGIN_REQUEST });
     try {
         const res = await axios.post(`http://localhost:5000/api/user/login`, { email, password } );
         console.log('logging user----------', res.data);

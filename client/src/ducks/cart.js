@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import axios from 'axios';
 
 import { getProductIDBySlug } from './products';
+import { openCartToolTip, closeCartToolTip } from './views';
 
 //Action Types
 export const FETCH_CART_REQUEST = 'cart/fetch_cart_request';
@@ -24,6 +25,8 @@ export const addToCart = (id, quantity) => async dispatch => {
         const res = await axios.post(`http://localhost:5000/api/cart/`, {id, quantity});
         console.log('adding to cart----------', res.data);
         dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
+        dispatch(openCartToolTip());
+        setTimeout(() => dispatch(closeCartToolTip()), 1500)
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
     }
