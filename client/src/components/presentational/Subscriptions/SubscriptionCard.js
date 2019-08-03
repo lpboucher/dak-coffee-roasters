@@ -16,12 +16,12 @@ const SubscriptionCard = ({addToCart, product, thumb}) => {
                 {//<Image fit="contain" src={`${thumb.link? thumb.link.href : ""}`}/>
                 }
             </Box>
-            <Box pad="medium" flex="grow" justify="evenly" >
+            <Box pad="large" flex="grow" justify="evenly" >
                 <Heading level="1" margin={{vertical: 'small'}}>{product.name}</Heading>
                 <Text size="small">{product.description}</Text>
                 <Box>
                 {spec[0].map(item => (
-                    <IconedExplanation key={item.text.toString()} icon={item.icon} description={item.text} size={"small"} spacing={{vertical: "small"}} vertical={'center'}/>
+                    <IconedExplanation key={item.text.toString()} icon={item.icon} description={item.text} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
                 ))}
                 </Box>
                 <Heading level="3">From XX $</Heading>

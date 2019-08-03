@@ -57,3 +57,7 @@ a:-webkit-any-link {
 img {
   object-fit: cover;
 }
+
+:focus {
+  outline-color: 'white';
+}

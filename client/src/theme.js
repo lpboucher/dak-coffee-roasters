@@ -8,7 +8,8 @@ export const DakTheme = {
             'highlight': '#c5b6a4',
             'darkHighlight': '#a96c35',
             brand: '#a96c35',
-            focus: '#a96c35',
+            focus: 'mainWhite',
+            active: 'mainWhite',
             control: {dark: 'mainDark', light: 'darkHighlight'},
         },
         drop: {
@@ -16,13 +17,20 @@ export const DakTheme = {
         },
         font: {
           family: 'Montserrat',
-          size: '16px',
+          size: '14px',
         },
-        focus: {
+        hover: {
+          color: {dark: 'mainHighlight', light: 'lightGrey'},
+          background: {
+            dark: {color: 'mainHighlight', opacity: 'medium'},
+            light: {color: 'lightGrey', opacity: 'medium'},
+          },
+        },
+        /*focus: {
           border: {
             color: 'darkHighlight'
           }
-        },
+        },*/
         control: {
           border: {
             color: 'darkHighlight',
@@ -59,12 +67,13 @@ export const DakTheme = {
       checkBox: {
         color: 'darkHighlight',
         extend: {
-          marginBottom: '10px'
+          marginBottom: '10px',
+          marginTop: '10px',
         }
       },
       formField: {
         border: {
-          color: {dark: 'mainWhite', light: 'mainDark'},
+          color: {dark: 'mainWhite', light: 'darkGrey'},
           side: 'all'
         },
         margin: {
@@ -75,45 +84,51 @@ export const DakTheme = {
         level: {
           1: {
             xsmall: {
-              size: "12px",
-              height: "24px",
-              maxWidth: "100%"
-          },
-          small: {
-            size: "16px",
-            height: "32px",
-            maxWidth: "100%"
-        },
-            medium: {
-                size: "24px",
-                height: "48px",
-                maxWidth: "100%"
-            },
-          },
-          2: {
-            xsmall: {
               size: "10px",
               height: "20px",
               maxWidth: "100%"
           },
-            small: {
-                size: "18px",
-                height: "36px",
+          small: {
+            size: "14px",
+            height: "28px",
+            maxWidth: "100%"
+        },
+            medium: {
+                size: "22px",
+                height: "44px",
+                maxWidth: "100%"
             },
           },
-          3: {
+          2: {
             xsmall: {
               size: "8px",
               height: "16px",
               maxWidth: "100%"
           },
             small: {
-                size: "14px",
-                height: "28px",
+                size: "16px",
+                height: "32px",
+            },
+          },
+          3: {
+            xsmall: {
+              size: "6px",
+              height: "12px",
+              maxWidth: "100%"
+          },
+            small: {
+                size: "12px",
+                height: "24px",
             },
             medium: {
-              size: "18px",
-              height: "36px",
+              size: "16px",
+              height: "32px",
+          },
+          },
+          4: {
+            medium: {
+              size: "12px",
+              height: "32px",
           },
           }
         },
@@ -121,22 +136,32 @@ export const DakTheme = {
           textTransform: "uppercase"
         }
       },
+      menu: {
+        extend: {
+          margin: '0px',
+          padding: '0px'
+        }
+      },
       paragraph: {
+        xsmall: {
+          size: "8px",
+          height: "16px",
+        },
         small: {
           size: "10px",
-          height: "20px",
+          height: "18px",
         },
         medium: {
-          size: "16px",
-          height: "32px",
+          size: "14px",
+          height: "28px",
         },
         large: {
-          size: "28px",
-          height: "56px",
+          size: "26px",
+          height: "52px",
         },
         xlarge: {
-          size: "40px",
-          height: "64px",
+          size: "38px",
+          height: "60px",
         },
       },
       select: {
@@ -151,27 +176,34 @@ export const DakTheme = {
       },
       text: {
         xsmall: {
-          size: "12px",
+          size: "10px",
           height: "20px",
         },
         small: {
-          size: "14px",
-          height: "20px",
+          size: "12px",
+          height: "24px",
         },
         medium: {
-          size: "16px",
-          height: "32px",
+          size: "14px",
+          height: "28px",
         },
         large: {
-          size: "28px",
-          height: "56px",
+          size: "26px",
+          height: "52px",
         },
         xlarge: {
-          size: "40px",
-          height: "64px",
+          size: "38px",
+          height: "60px",
         },
         extend: {
           whiteSpace: "pre-wrap"
+        }
+      },
+      textInput: {
+        placeholder: {
+          extend: {
+            color: "mainDark"
+          }
         }
       }
     };

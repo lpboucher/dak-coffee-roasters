@@ -1,16 +1,23 @@
 import React, { Fragment } from 'react';
+import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 
 import ProductCardInfo from './ProductCardInfo';
 
 import { Box, Image } from 'grommet';
 
+const WithHover = styled(Box)`
+    &:hover {
+        opacity: 0.5;
+    }
+`
+
 const ProductCard = withRouter(({product, thumb, addToCart, history}) => {
     return (
         <Fragment>
-            <Box height="75%" width="100%" onClick={() => history.push(`/shop/${product.slug}`)} style={{cursor: "pointer"}}>
+            <WithHover height="75%" width="100%" onClick={() => history.push(`/shop/${product.slug}`)} style={{cursor: "pointer"}}>
                 <Image fit="contain" src={`${thumb.link? thumb.link.href : ""}`}/>
-            </Box>
+            </WithHover>
             <Box height="25%">
                 <ProductCardInfo 
                     id={product.id}

@@ -12,7 +12,7 @@ class ShopPage extends Component {
     render() {
         return (
             <Fragment>
-                <Box margin={{top: "large", bottom: "large", right: "large"}} width="66%">
+                <Box pad={{top: '208px'}} margin={{bottom: "large", right: "large"}} width="66%">
                     <SubscriptionBanner />
                 </Box>
                 <ShopContainer />

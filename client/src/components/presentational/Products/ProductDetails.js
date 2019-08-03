@@ -4,6 +4,7 @@ import { Form, Field } from 'react-final-form';
 import { SelectAdapter } from '../../utils/Forms/FormHelpers';
 
 import IconedExplanation from '../../utils/IconedExplanation';
+import ProductSpecs from './ProductSpecs';
 
 import { Heading, Text, Grid, Button, Box } from 'grommet';
 import { Grow } from 'grommet-icons';
@@ -56,22 +57,23 @@ const ProductDetails = ({id, name, description, product_type, price, link, slug,
             </Fragment>
             }
             <Form
-            onSubmit={onSubmit}
-            render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
-                <form onSubmit={handleSubmit}>
-                    {product_type === 'coffee' &&
-                    <Box pad="small">
-                        <Field placeholder="How much?" name="quantity" component={SelectAdapter} size="small" options={['500g', '1kg']}/>
-                    </Box>
-                    }
-                    <Button type="submit" disabled={submitting || invalid} primary alignSelf="start" label="Add to Cart" color="mainDark" />
-                    {/*<pre>{JSON.stringify(values, 0, 2)}</pre>
-                    <pre>{JSON.stringify(errors, 0, 2)}</pre>
-                    <pre>{JSON.stringify(invalid, 0, 2)}</pre>
-            <pre>{JSON.stringify(submitting, 0, 2)}</pre>*/}
-                </form>
+                onSubmit={onSubmit}
+                render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
+                    <form onSubmit={handleSubmit}>
+                        {product_type === 'coffee' &&
+                        <Box pad="small">
+                            <Field placeholder="How much?" name="quantity" component={SelectAdapter} size="small" options={['500g', '1kg']}/>
+                        </Box>
+                        }
+                        <Button type="submit" disabled={submitting || invalid} primary alignSelf="start" label="Add to Cart" color="mainDark" />
+                        {/*<pre>{JSON.stringify(values, 0, 2)}</pre>
+                        <pre>{JSON.stringify(errors, 0, 2)}</pre>
+                        <pre>{JSON.stringify(invalid, 0, 2)}</pre>
+                <pre>{JSON.stringify(submitting, 0, 2)}</pre>*/}
+                    </form>
             )}
-  />
+            />
+            <ProductSpecs />
         </Fragment>
     );
 };

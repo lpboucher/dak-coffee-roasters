@@ -1,24 +1,18 @@
 import React, { Fragment } from 'react';
 
 import CartItem from './CartItem';
+import CartHeading from './CartHeading';
 
 import { Box } from 'grommet';
-import { FormPrevious } from 'grommet-icons';
 
-import IconedExplanation from '../../utils/IconedExplanation';
 import OrderPromoCode from './OrderPromoCode';
 import OrderSummaryPrices from './OrderSummaryPrices';
 
 const Cart = ({items, cart, removeFromCart, updateCartItem}) => {
     return (
         <Fragment>
-            <Box pad={{horizontal: "xlarge", vertical: "medium"}}>
-                <IconedExplanation 
-                        withLink
-                        icon={<FormPrevious />}
-                        description="Continue Shopping"
-                        dest="/shop"
-                />
+            <Box pad={{horizontal: "xlarge", top: '204px'}}>
+                <CartHeading />
                 {items.map(item => 
                     <CartItem 
                         key={item.id}
@@ -27,12 +21,12 @@ const Cart = ({items, cart, removeFromCart, updateCartItem}) => {
                         {...item}
                     />
                 )}
-                <Box direction="row" justify="between">
+                <Box direction="row" justify="between" pad={{vertical: "medium"}}>
                     <Box width="33%">
                         <OrderPromoCode />
                     </Box>
                     <Box align="end">
-                        <OrderSummaryPrices {...cart}/>
+                        <OrderSummaryPrices withButton={true} {...cart}/>
                     </Box>
                 </Box>
             </Box>

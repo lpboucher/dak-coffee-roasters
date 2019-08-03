@@ -1,5 +1,4 @@
 import React from 'react';
-import { Field } from 'react-final-form';
 import { FormField, TextInput, RadioButton, CheckBox, Select } from "grommet";
 
 /*const Fields = ({names, subscription, fieldsState = {}, children, originalRender}) => {
@@ -30,10 +29,11 @@ import { FormField, TextInput, RadioButton, CheckBox, Select } from "grommet";
     </Fields>
   )*/
 
-export const TextInputAdapter = ({ input: {name, onChange, value, ...restInput}, meta, ...rest }) => (
+export const TextInputAdapter = ({ input: {name, onChange, value, ...restInput}, meta, placeholder, ...rest }) => (
     <FormField error={meta.modified && meta.error ? meta.error : ""} {...rest} >
         <TextInput
         {...restInput}
+        placeholder={placeholder}
         name={name}
         onChange={onChange}
         value={value}
@@ -55,7 +55,7 @@ export const RadioAdapter = ({ input: {checked, name, onChange, value, ...restIn
 )
 
 export const CheckboxAdapter = ({ input: {checked, name, onChange, value, ...restInput}, meta, label,...rest }) => (
-    <FormField error={meta.modified && meta.error ? meta.error : ""} {...rest}>
+    
         <CheckBox
         toggle
         {...restInput}
@@ -64,7 +64,6 @@ export const CheckboxAdapter = ({ input: {checked, name, onChange, value, ...res
         name={name}
         onChange={onChange}
         />
-    </FormField>
 )
 
 export const SelectAdapter = ({ input: {name, onChange, value, ...restInput}, options, meta, label, placeholder, ...rest }) => (
@@ -77,6 +76,7 @@ export const SelectAdapter = ({ input: {name, onChange, value, ...restInput}, op
       onChange={({ option }) => onChange(option)}
       value={value}
       options={options}
+      focusIndicator={false}
       />
   </FormField>
 )

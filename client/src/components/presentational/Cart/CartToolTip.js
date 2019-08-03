@@ -16,11 +16,18 @@ const CartToolTip = withRouter(({items, close, target, history}) => {
                         <p>No items in Cart</p>
                     }
                 </Box>
-                <Link to="/cart">
-                    <Box fill="horizontal" align="center" pad="small" background="mainDark" >
-                        <Text color="mainWhite">View Cart</Text>
-                    </Box>
-                </Link>
+                <Box direction="row" fill="horizontal">
+                    <Link to="/cart" style={{width: '50%'}}>
+                        <Box fill align="center" pad="small" background="mainDark" margin={{right: '1px'}}>
+                            <Text color="mainWhite">View Cart</Text>
+                        </Box>
+                    </Link>
+                    <Link to="/checkout" style={{width: '50%'}}>
+                        <Box fill align="center" pad="small" background="mainDark" margin={{left: '1px'}}>
+                            <Text color="mainWhite">Checkout</Text>
+                        </Box>
+                    </Link>
+                </Box>
             </Box>
         </Drop>
     );

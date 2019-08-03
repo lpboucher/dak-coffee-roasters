@@ -11,7 +11,7 @@ const CheckoutSuccess = () => {
                 bgImage={header}
                 height="90vh"
                 overlay={{
-                    text: "Thank you for your order. You will receive a confirmation email shortly",
+                    text: "Thank you for your order. You will receive a confirmation email shortly.",
                     loc: "right",
                     width: "50vw",
                     height: "25vh"

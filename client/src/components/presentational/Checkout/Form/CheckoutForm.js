@@ -16,16 +16,17 @@ const CheckoutForm = ({isUserLoggedIn, orderExists}) => {
       <IconedExplanation
         icon={<UserAdmin style={{margin: '0 20px'}}/>}
         description={`${isUserLoggedIn ? "Already Logged In" : "Log In/Register to Continue"}`}
-        background="mainDark"
+        background={`${isUserLoggedIn ? "darkGrey" : "mainDark"}`}
         size="medium"
         spacing={{vertical: "small"}}
+        margin={{bottom: "small"}}
         vertical="center"
       />
       {!isUserLoggedIn && <LoginFormContainer />}
       <IconedExplanation
         icon={<Deliver style={{margin: '0 20px'}}/>}
         description={`${orderExists ? "Submitted" : "Shipping Address"}`}
-        background="mainDark"
+        background={`${orderExists ? "darkGrey" : "mainDark"}`}
         size="medium"
         spacing={{vertical: "small"}}
         vertical="center"
