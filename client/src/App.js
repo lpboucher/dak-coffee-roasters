@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from './components/utils/Routes/PrivateRoute';
 
-import Navbar from './components/presentational/Navbar/Navbar';
-import Footer from './components/presentational/Footer/Footer';
+import Layout from './components/utils/PageLayout';
+
 import HomePage from './components/pages/Home/Home';
 import LoginPage from './components/pages/Account/Login';
 import ShopPage from './components/pages/Shop/Shop';
@@ -28,24 +28,24 @@ class App extends Component {
   render() {
     return (
       <Grommet theme={DakTheme}>
-        <Navbar/>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/subscriptions" component={SubscriptionPage} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/our-coffee" component={CoffeePage} />
-          <Route path="/wholesale" component={WholesalePage} />
-          <Route path="/contact" component={ContactPage} />
-          <Route path="/blog" component={BlogPage} />
-          <Route path="/cart" component={CartPage} />
-          <Route exact path="/checkout" component={CheckoutPage} />
-          <Route path="/shop/:slug" component={ProductPage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route path="/checkout/success" component={SuccessPage} />
-          <PrivateRoute path="/account" component={AccountPage} />
-        </Switch>
-        <Footer />
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/subscriptions" component={SubscriptionPage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/our-coffee" component={CoffeePage} />
+            <Route path="/wholesale" component={WholesalePage} />
+            <Route path="/contact" component={ContactPage} />
+            <Route path="/blog" component={BlogPage} />
+            <Route path="/cart" component={CartPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
+            <Route path="/shop/:slug" component={ProductPage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route path="/checkout/success" component={SuccessPage} />
+            <PrivateRoute path="/account" component={AccountPage} />
+          </Switch>
+        </Layout>
       </Grommet>
     );
   }
