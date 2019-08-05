@@ -5,7 +5,7 @@ import { TextInputAdapter, CheckboxAdapter } from '../../../utils/Forms/FormHelp
 
 import { Box } from 'grommet';
 
-const AccountFields = ({isExistingUser}) => {
+const AccountFields = ({isExistingUser, loginErrors}) => {
     return (
         <Box pad={{vertical: 'small'}}>
             <Field
@@ -28,13 +28,14 @@ const AccountFields = ({isExistingUser}) => {
                 name="customer.email"
                 component={TextInputAdapter}
                 type="email"
+                loginErrors={loginErrors}
                 />
-                <Field
-                    label="Password"
-                    name="customer.password"
-                    component={TextInputAdapter}
-                    type="password"
-                />
+            <Field
+                label="Password"
+                name="customer.password"
+                component={TextInputAdapter}
+                type="password"
+            />
         </Box>
     );
 };

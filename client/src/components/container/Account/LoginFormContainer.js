@@ -3,19 +3,18 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { register, login, getLoggedStatus } from '../../../ducks/user';
 
-import Loader from '../../utils/Loader';
-
 import LoginForm from '../../presentational/Account/Form/LoginForm';
+import { getError } from '../../../ducks/views';
 
 class LoginFormContainer extends Component {
 
     renderLoginForm() {
-        const { register, login, isUserLoggedIn, loc } = this.props;
+        const { register, login, isUserLoggedIn, error, loc } = this.props;
         const withRedirect = loc ? loc === "/login" : false;
         if(isUserLoggedIn && withRedirect) {
             return <Redirect to="/account" />
          } else {
-            return <LoginForm login={login} register={register}/> 
+            return <LoginForm login={login} register={register} loginError={error}/> 
         }
       }
 
@@ -30,7 +29,8 @@ class LoginFormContainer extends Component {
 
 function mapStateToProps(state) {
     return {
-        isUserLoggedIn: getLoggedStatus(state)
+        isUserLoggedIn: getLoggedStatus(state),
+        error: getError(state)
     };
 }
 
