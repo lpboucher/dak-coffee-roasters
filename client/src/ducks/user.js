@@ -14,6 +14,7 @@ export const UPDATE_FAILURE = 'user/update_fail';
 export const REGISTER_REQUEST = 'user/register_request';
 export const REGISTER_SUCCESS = 'user/register_success';
 export const REGISTER_FAILURE = 'user/register_failure';
+export const LOGOUT_REQUEST = 'user/logout_request';
 export const LOGOUT_SUCCESS = 'user/logout_success';
 export const ORDERS_REQUEST = 'user/orders_request';
 export const ORDERS_SUCCESS = 'user/orders_success';
@@ -53,7 +54,7 @@ export const updateCustomerAddress = (id, {billingIsShipping, shipping, address 
 export const fetchUserOrders = (token) => async dispatch => {
     try {
         const res = await axios.post(`http://localhost:5000/api/user/orders`, { token } );
-        console.log('logging orders----------', res.data);
+        //console.log('logging orders----------', res.data);
         dispatch({ type: ORDERS_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -61,29 +62,40 @@ export const fetchUserOrders = (token) => async dispatch => {
 }
 
 export const login = ({ email, password }) => async dispatch => {
-    dispatch({ type: LOGIN_REQUEST });
+    dispatch({ type: LOGIN_REQUEST, payload: "Loading your account..." });
     try {
         const res = await axios.post(`http://localhost:5000/api/user/login`, { email, password } );
         console.log('logging user----------', res.data);
-        dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-        dispatch(fetchUser(res.data.data.customer_id));
-        //dispatch(fetchUserAddresses(res.data.data.customer_id));
+
+        if (res.data.error) {
+            dispatch({ type: LOGIN_FAILURE, payload: res.data.error})
+        } else {
+            dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+            dispatch(fetchUser(res.data.data.customer_id));
+        }
     } catch(err) {
-        //dispatch({ type: FETCH_PRODUCTS_FAILURE});
+        console.log(err)
     }
 }
 
 export const logout = () => dispatch => {
+    dispatch({ type: LOGOUT_REQUEST, payload: "Logging out..." });
     dispatch({ type: LOGOUT_SUCCESS });
 }
 
 export const register = ({ name, email, password }) => async dispatch => {
+    dispatch({ type: REGISTER_REQUEST, payload: "Creating your new account..." });
     try {
         const res = await axios.post(`http://localhost:5000/api/user/register`, { name, email, password } );
         console.log('registering user----------', res.data);
-        dispatch({ type: REGISTER_SUCCESS, payload: res.data });
+
+        if (res.data.error) {
+            dispatch({ type: REGISTER_FAILURE, payload: res.data.error})
+        } else {
+            dispatch({ type: REGISTER_SUCCESS, payload: res.data });
+        }
     } catch(err) {
-        //dispatch({ type: FETCH_PRODUCTS_FAILURE});
+        console.log(err)
     }
 }
 
@@ -165,10 +177,19 @@ export const getAllOrders = (state) => state.user.orders.allIds.map(id => getOrd
 
 export const getOrdersByIds = (state) => state.user.orders.byId;
 
-export const getUserAddress = (state) => ({
-    billing: state.user.info.address,
-    shipping: {
+export const getUserAddress = (state) => {
+    const ship = state.user.info.shipping ? 
+    {
         name: state.user.info.shipping.name,
         ...state.user.info.shipping.address
-    },
-})
+    } : {
+        name: "",
+        address: {}
+    }
+    const bill = state.user.info.address ? state.user.info.address : {}
+    return {
+        billing: bill,
+        shipping: ship
+    }  
+}
+

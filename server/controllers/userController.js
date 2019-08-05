@@ -9,27 +9,35 @@ const Moltin = MoltinGateway({
 module.exports = {
     login: async (req, res, next) => {
         const { email, password } = req.body;
+        let user;
         try {
             console.log('API LOGIN SUBMITTING----------', { email, password });
-            const user = await Moltin.Customers.Token(email, password);
-            console.log('API USER LOGGED IN----------', user);
-            res.json(user);
+            user = await Moltin.Customers.Token(email, password);
         } catch (err) {
-          console.log(err);
+          return res.json({error: err.errors[0].detail});
         }
+        console.log('API USER LOGGED IN----------', user);
+        res.json(user);
       },
-    register: (req, res, next) => {
+    register: async (req, res, next) => {
       const { name, email, password } = req.body;
+      let user;
+      try {
+        user = await Moltin.Customers.Create({ name, email });
+        console.log('CHECKING USER EXISTS----------', user);
+      } catch (err) {
+        return res.json({error: err.errors[0].detail});
+      }
       stripe.customers.create({
         description: `Test customer for ${email}`,
         name,
         email,
       }, async (err, customer) => {
         try {
-          const newUser = await Moltin.Customers.Create({ name, email, password, stripe_id: customer.id });
+          const newUser = await Moltin.Customers.Update(user.data.id, { name, email, password, stripe_id: customer.id });
           console.log('API USER REGISTERED----------', newUser);
           res.json(newUser);
-        } catch {
+        } catch (err) {
           console.log(err)
         } 
       });
@@ -81,7 +89,7 @@ module.exports = {
         try {
             console.log('API GETTING ORDERS----------', { token });
             const orders = await Moltin.Orders.All({token});
-            console.log('API LOGGING ORDERS----------', orders);
+            //console.log('API LOGGING ORDERS----------', orders);
             res.json(orders);
         } catch (err) {
           console.log(err);
