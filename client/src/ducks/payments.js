@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
 import axios from 'axios';
 
+import { finalizeOrder } from './checkout';
+import { clearCart } from './cart';
+
 //Action Types
 export const SUBMIT_PAYMENT_REQUEST = 'checkout/submit_payment_request';
 export const SUBMIT_PAYMENT_SUCCESS = 'checkout/submit_payment_success';
@@ -9,7 +12,7 @@ export const SUBMIT_PAYMENT_CONFIRM = 'checkout/submit_payment_confirm';
 
 //Action Creators
 export const submitPayment = (payment, subscription = {}) => async dispatch => {
-    dispatch({ type: SUBMIT_PAYMENT_REQUEST});
+    dispatch({ type: SUBMIT_PAYMENT_REQUEST, payload: "Processing payment..."});
     const { has_recurring, plans } = subscription;
     const { customer } = payment;
     try {
@@ -19,9 +22,11 @@ export const submitPayment = (payment, subscription = {}) => async dispatch => {
         if (res.data.error) {
             dispatch({ type: SUBMIT_PAYMENT_FAILURE, payload: res.data.error});
         } else if (res.data.requires_action) {
-            dispatch({ type: SUBMIT_PAYMENT_CONFIRM, payload: res.data });
+            dispatch({ type: SUBMIT_PAYMENT_CONFIRM, payload: res.data, processing: "Confirming payment..." });
         } else if (res.data.success) {
-            if(has_recurring) {dispatch(addSuscription(customer, plans, res.data.payment_method))} 
+            if(has_recurring) {dispatch(addSuscription(customer, plans, res.data.payment_method))}
+            dispatch(finalizeOrder());
+            dispatch(clearCart());
             dispatch({ type: SUBMIT_PAYMENT_SUCCESS, payload: res.data });
         }
         //dispatch({ type: SUBMIT_ORDER_SUCCESS, payload: res.data });

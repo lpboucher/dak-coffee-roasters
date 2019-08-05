@@ -42,4 +42,13 @@ module.exports = {
       console.log(err);
     }
   },
+  deleteCart: async (req, res, next) => {
+    try {
+      const deletedCart = await Moltin.Cart().Delete();
+      console.log('API RESPONSE CART CLEARED----------', deletedCart);
+      res.json(deletedCart);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 }

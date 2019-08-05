@@ -8,6 +8,7 @@ import { openCartToolTip, closeCartToolTip } from './views';
 export const FETCH_CART_REQUEST = 'cart/fetch_cart_request';
 export const FETCH_CART_SUCCESS = 'cart/fetch_cart_success';
 export const FETCH_CART_FAILURE = 'cart/fetch_cart_failure';
+export const CLEAR_CART_SUCCESS = 'cart/clear_cart_success';
 
 //Action Creators
 export const fetchCartItems = () => async dispatch => {
@@ -21,6 +22,7 @@ export const fetchCartItems = () => async dispatch => {
 }
 
 export const addToCart = (id, quantity) => async dispatch => {
+    dispatch({ type: FETCH_CART_REQUEST, payload: "Adding to cart..." });
     try {
         const res = await axios.post(`http://localhost:5000/api/cart/`, {id, quantity});
         console.log('adding to cart----------', res.data);
@@ -57,9 +59,19 @@ export const removeItem = (id) => async dispatch => {
     }
 }
 
+export const clearCart = () => async dispatch => {
+    try {
+        const res = await axios.get(`http://localhost:5000/api/cart/delete`);
+        console.log('clearing cart----------', res.data);
+        dispatch({ type: CLEAR_CART_SUCCESS });
+    } catch(err) {
+        //dispatch({ type: FETCH_PRODUCTS_FAILURE});
+    }
+}
 
+const byIdDefault = {};
 //Reducers
-const byId = (state = {}, action) => {
+const byId = (state = byIdDefault, action) => {
     switch (action.type) {
         case FETCH_CART_SUCCESS:
         return {
@@ -68,27 +80,35 @@ const byId = (state = {}, action) => {
                 return obj
             }, {}),
         }
+        case CLEAR_CART_SUCCESS:
+        return byIdDefault;
         default:
             return state
     }
 }
-    
-const allIds = (state = [], action) => {
+ 
+const allIdsDefault = [];
+const allIds = (state = allIdsDefault, action) => {
     switch (action.type) {
         case FETCH_CART_SUCCESS:
         return action.payload.data.map(product => product.id)
+        case CLEAR_CART_SUCCESS:
+        return allIdsDefault;
         default:
         return state
     }
 }
 
-const meta = (state = {}, action) => {
+const metaDefault = {};
+const meta = (state = metaDefault, action) => {
     switch (action.type) {
         case FETCH_CART_SUCCESS:
         return {
             ...state,
             ...action.payload.meta,
         }
+        case CLEAR_CART_SUCCESS:
+        return metaDefault;
         default:
         return state
     }

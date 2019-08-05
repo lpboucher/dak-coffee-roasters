@@ -17,4 +17,16 @@ module.exports = {
           console.log(err);
         }
       },
+    finalizeOrder: async (req, res, next) => {
+      console.log(req.body);
+      const { id } = req.body
+      try {
+        console.log('FINALIZING ORDER----------', req.body );
+        const transaction = await Moltin.Orders.Payment(id, {gateway: 'manual', method: 'authorize'});
+        const capture = await Moltin.Transactions.Capture({ order: id, transaction: transaction.data.id });
+        res.json(capture);
+      } catch (err) {
+        console.log(err);
+      }
+    },
 }
