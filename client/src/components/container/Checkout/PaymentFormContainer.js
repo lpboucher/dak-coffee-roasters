@@ -16,15 +16,18 @@ class PaymentFormContainer extends Component {
 
     submitPayment = async ({payment_method_id, payment_intent_id}) => {
         const { submit, amount, subProducts, customer } = this.props;
+        const subscription = subProducts.length > 0 ? 
+        { 
+          has_recurring: true,
+          plans: subProducts.map(product => ({ plan: product.stripe_plan_id }))
+        } : {};
         await submit(
             { payment_method_id: payment_method_id,
               payment_intent_id: payment_intent_id,
               order_amount: amount,
               customer: customer,
             },
-            { has_recurring: subProducts.length > 0,
-              plans: subProducts.map(product => ({ plan: product.stripe_plan_id }))
-            }
+            subscription
         )
     }
     generateToken = async (e, element) => {
