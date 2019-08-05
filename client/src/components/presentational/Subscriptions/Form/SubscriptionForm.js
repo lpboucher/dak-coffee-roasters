@@ -10,9 +10,7 @@ const required = value => (value ? undefined : "Please select all options");
 const SubscriptionForm = ({ type, addToCart }) => {
     return (
     <Form
-    onSubmit={values => //addToCart(type, values)
-    console.log(values)}
-    //initialValues={initialize}
+    onSubmit={values => addToCart(type, values)}
     render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
       <form onSubmit={handleSubmit}>
         <Box width="75%" pad={{vertical: 'medium'}}>

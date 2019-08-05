@@ -100,10 +100,7 @@ export const getProductsByCategory = (state, slug) => {
 export const getSubscriptionProducts = (state) => {
     const items = getOrderItems(state);
     if (items) {
-        return items.map(item => {
-            if(getProduct(state, item.product_id)['recurring'] === true) {
-                return getProduct(state, item.product_id)
-            }
-        })
+        const subs =  items.filter(item => getProduct(state, item.product_id)['recurring'] === true)
+        return subs.map(sub => getProduct(state, sub.product_id));
     }
 }
