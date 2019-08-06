@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import axios from 'axios';
 
-import { getProductIDBySlug } from './products';
+import { getProduct, getProductIDBySlug } from './products';
 import { openCartToolTip, closeCartToolTip } from './views';
 
 //Action Types
@@ -28,14 +28,21 @@ export const addToCart = (id, quantity) => async dispatch => {
         console.log('adding to cart----------', res.data);
         dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
         dispatch(openCartToolTip());
-        setTimeout(() => dispatch(closeCartToolTip()), 1500)
+        setTimeout(() => dispatch(closeCartToolTip()), 1000)
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
     }
 }
 
 export const addDerivedToCart = (slug, data) => (dispatch, getState) => {
-    const derivedId = getProductIDBySlug(getState(), `${slug}-${data.quantity}`);
+    dispatch({ type: FETCH_CART_REQUEST, payload: "Adding to cart..." });
+    const { quantity, roast, varieties } = data;
+    const derivedId = getProductIDBySlug(
+        getState(),
+        `${slug}_${quantity}${roast ? "_"+roast : ""}${varieties ? "_"+varieties : ""}`
+        );
+    const subProduct = getProduct(getState(), derivedId);
+    console.log(subProduct);
     dispatch(addToCart(derivedId, "1"));
 }
 
