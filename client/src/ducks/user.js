@@ -193,3 +193,5 @@ export const getUserAddress = (state) => {
     }  
 }
 
+export const getUserSubscriptions = (state) => state.user.info.subscriptions;
+
