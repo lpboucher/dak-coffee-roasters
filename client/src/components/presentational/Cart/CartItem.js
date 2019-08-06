@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 
 import { Box, Text, Image } from 'grommet';
-import { SubtractCircle, Add, Subtract } from 'grommet-icons';
+import { Add, Subtract } from 'grommet-icons';
 
 const CartItem = ({
     id,

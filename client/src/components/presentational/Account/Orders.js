@@ -6,8 +6,8 @@ const Orders = ({orders}) => {
     return (
         <Accordion>
             {orders.map(order => 
-            <AccordionPanel label={`Status: ${order.status}`}>
-                <Box key={order.id} pad="medium" background="light-2">
+            <AccordionPanel key={order.id} label={`Status: ${order.status}`}>
+                <Box pad="medium" background="light-2">
                     {order.relationships.items.data.map(item =>
                         <Text>{item.id}</Text>
                     )}

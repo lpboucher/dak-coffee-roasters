@@ -4,8 +4,6 @@ import { orderExists } from '../../../ducks/checkout';
 import { getLoggedStatus } from '../../../ducks/user';
 import { fetchProducts, getAllProducts } from '../../../ducks/products';
 
-import Loader from '../../utils/Loader';
-
 import CheckoutForm from '../../presentational/Checkout/Form/CheckoutForm';
 
 class CheckoutFormContainer extends Component {

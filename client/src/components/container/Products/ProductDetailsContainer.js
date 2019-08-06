@@ -35,8 +35,8 @@ function mapStateToProps(state, ownProps) {
     const slug  = ownProps.id;
     return {
         product: getProductBySlug(state, slug),
-        products: getAllProducts(state)
-    };
+        products: getAllProducts(state),
+    }
 }
 
 function mapDispatchToProps(dispatch) {

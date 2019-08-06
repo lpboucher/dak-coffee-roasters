@@ -8,8 +8,6 @@ import { getUserID, getUserPaymentMethod } from '../../../ducks/user';
 import { submitPayment, getStatus } from '../../../ducks/payments';
 import { isProcessing } from '../../../ducks/views';
 
-import Loader from '../../utils/Loader';
-
 import PaymentForm from '../../presentational/Checkout/Form/PaymentForm';
 
 class PaymentFormContainer extends Component {

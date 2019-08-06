@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { submitOrder } from '../../../ducks/checkout';
 import { getUser, getUserAddress } from '../../../ducks/user';
 
-import Loader from '../../utils/Loader';
-
 import AddressForm from '../../presentational/Checkout/Form/AddressForm';
 
 class OrderFormContainer extends Component {
