@@ -5,6 +5,7 @@ import axios from 'axios';
 export const SUBMIT_ORDER_REQUEST = 'checkout/submit_order_request';
 export const SUBMIT_ORDER_SUCCESS = 'checkout/submit_order_success';
 export const SUBMIT_ORDER_FAILURE = 'checkout/submit_order_failure';
+export const ORDER_FINALIZE_REQUEST = 'checkout/order_finalize_request';
 
 //Action Creators
 export const submitOrder = (customerId, { billingIsShipping, shipping, address }) => async dispatch => {
@@ -42,7 +43,8 @@ export const submitOrder = (customerId, { billingIsShipping, shipping, address }
     }
 }
 
-export const finalizeOrder = () => async (getState) => {
+export const finalizeOrder = () => async (dispatch, getState) => {
+    dispatch({ type: ORDER_FINALIZE_REQUEST, payload: "Finalizing order..." });
     const order = getOrder(getState());
     console.log(order);
     try {

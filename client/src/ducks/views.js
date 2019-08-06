@@ -23,7 +23,8 @@ import {
 
 import {
     SUBMIT_ORDER_REQUEST,
-    SUBMIT_ORDER_SUCCESS
+    SUBMIT_ORDER_SUCCESS,
+    ORDER_FINALIZE_REQUEST
 } from './checkout';
 
 import {
@@ -66,6 +67,7 @@ switch(action.type) {
     case REGISTER_REQUEST:
     case SUBMIT_ORDER_REQUEST:
     case FETCH_CART_REQUEST:
+    case ORDER_FINALIZE_REQUEST:
         return { ...state,
             isProcessing: true,
             processingText: action.payload,
