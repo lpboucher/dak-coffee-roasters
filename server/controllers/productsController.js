@@ -9,7 +9,7 @@ module.exports = {
     // Get all products
     getAllProducts: async (req, res, next) => {
       try {
-        const products = await Moltin.Products.With('files, main_images, collections').All();
+        const products = await Moltin.Products.With(['files, main_images, collections']).All();
         console.log('API RESPONSE PRODUCTS----------', products);
         res.json(products);
       } catch (err) {

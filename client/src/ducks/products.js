@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { getCollectionBySlug } from './collections';
 import { getCategoryBySlug } from './categories';
-import { getThumbnailByProductId } from './thumbnails';
+import { getThumbnailByProductId, getSecondaryImgByProductId } from './thumbnails';
 import { getOrderItems } from './checkout';
 
 //Action Types
@@ -57,6 +57,8 @@ export default combineReducers({
 //Selectors
 export const getProduct = (state, id) => state.products.byId[id];
 
+export const getProducts = (state, ids) => ids.map(id => getProduct(state, id));
+
 export const getProductIDBySlug = (state, slug) => state.products.allIds.find(id => state.products.byId[id].slug === slug);
 
 export const getProductBySlug = (state, slug) => {
@@ -64,7 +66,8 @@ export const getProductBySlug = (state, slug) => {
     if (productId) {
         return {
             ...getProduct(state, productId),
-            ...getThumbnailByProductId(state, productId)
+            thumb: {...getThumbnailByProductId(state, productId)},
+            secondary: {...getSecondaryImgByProductId(state, productId)}
         }
     }
 }
@@ -100,7 +103,21 @@ export const getProductsByCategory = (state, slug) => {
 export const getSubscriptionProducts = (state) => {
     const items = getOrderItems(state);
     if (items) {
-        const subs =  items.filter(item => getProduct(state, item.product_id)['recurring'] === true)
-        return subs.map(sub => getProduct(state, sub.product_id));
+        const withQuantity = items.map(sub => ({quantity: sub.quantity, ...getProduct(state, sub.product_id)}))
+        //const subs = items.filter(item => getProduct(state, item.product_id)['recurring'] === true)
+        //return subs.map(sub => getProduct(state, sub.product_id));
+        return withQuantity.filter(item => item.recurring === true)
     }
+}
+
+export const getPlanIDBySlug = (state, slug) => {
+    const productId = getProductIDBySlug(state, slug);
+    if (productId) {
+        return getProduct(state, productId)['stripe_plan_id']
+    }
+}
+
+export const getOrderProducts = (state, ids) => {
+    const productIds = ids.map(id => state.user.orders.items[id].product_id);
+    return productIds.map(id => getProduct(state, id));
 }

@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import { Box, Text, Accordion, AccordionPanel } from 'grommet';
+import OrderHeading from './OrderHeading';
+import OrderItemContainer from '../../container/Account/OrderItemContainer';
 
+import { Accordion } from 'grommet';
+//`Status: ${order.status}`
 const Orders = ({orders}) => {
     return (
-        <Accordion>
-            {orders.map(order => 
-            <AccordionPanel key={order.id} label={`Status: ${order.status}`}>
-                <Box pad="medium" background="light-2">
-                    {order.relationships.items.data.map(item =>
-                        <Text>{item.id}</Text>
-                    )}
-                    <Text>{`Date: ${order.meta.timestamps.created_at}, Order value: ${order.meta.display_price.with_tax.formatted}`}</Text>
-                </Box>
-            </AccordionPanel>
-            )}
-        </Accordion>
+        <Fragment>
+            <OrderHeading headers={["Invoice #", "Date", "Price", "Payment", "Status", "Tracking"]}/>
+            <Accordion>
+                {orders.map(order => 
+                    <OrderItemContainer key={order.id} ids={order.relationships.items.data.map(item => item.id)} order={order}/>
+                )}
+            </Accordion>
+        </Fragment>
     );
 };
 

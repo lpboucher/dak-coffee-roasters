@@ -9,7 +9,7 @@ import Loader from '../../utils/Loader';
 class AccountOrderContainer extends Component {
     componentDidMount() {
         const { userInfo } = this.props;
-        this.props.fetchOrders(userInfo.token);
+        this.props.fetchOrders(userInfo.customer_id);
     }
 
     renderOrders() {
@@ -36,7 +36,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchOrders: (token) => dispatch(fetchUserOrders(token)), 
+        fetchOrders: (id) => dispatch(fetchUserOrders(id)), 
     };
 }
 
