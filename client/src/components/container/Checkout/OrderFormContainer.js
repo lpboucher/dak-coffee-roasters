@@ -9,7 +9,7 @@ class OrderFormContainer extends Component {
     
     renderOrderForm() {
         const { submit, userInfo, address } = this.props;
-        return <AddressForm submit={submit} userId={userInfo.customer_id} address={address} />
+        return <AddressForm btnLabel="Confirm & Pay" submit={submit} userId={userInfo.customer_id} address={address} />
       }
 
     render() {

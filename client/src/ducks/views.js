@@ -18,7 +18,10 @@ import {
     LOGOUT_SUCCESS,
     REGISTER_FAILURE,
     REGISTER_REQUEST,
-    REGISTER_SUCCESS
+    REGISTER_SUCCESS,
+    UPDATE_REQUEST,
+    UPDATE_SUCCESS,
+    FETCH_SUCCESS
 } from './user';
 
 import {
@@ -68,6 +71,7 @@ switch(action.type) {
     case SUBMIT_ORDER_REQUEST:
     case FETCH_CART_REQUEST:
     case ORDER_FINALIZE_REQUEST:
+    case UPDATE_REQUEST:
         return { ...state,
             isProcessing: true,
             processingText: action.payload,
@@ -84,6 +88,8 @@ switch(action.type) {
     case REGISTER_SUCCESS:
     case SUBMIT_ORDER_SUCCESS:
     case FETCH_CART_SUCCESS:
+    case UPDATE_SUCCESS:
+    case FETCH_SUCCESS:
         return { ...state,
                 isProcessing: false,
                 error: "",

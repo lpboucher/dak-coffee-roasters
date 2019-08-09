@@ -9,7 +9,7 @@ import AddressFields from './AddressFields';
 import { Text, Button } from "grommet";
 import { Home } from 'grommet-icons';
 
-const AddressForm = ({submit, userId, address}) => {
+const AddressForm = ({btnLabel, submit, userId, address}) => {
   return (
       <Form
       onSubmit={values => submit(userId, values)}
@@ -41,7 +41,7 @@ const AddressForm = ({submit, userId, address}) => {
             <AddressFields type="address" />
             }
           <Text>By clicking the button below you agree to our terms of sale.</Text>
-          <Button type="submit" disabled={submitting || invalid} primary fill label="Confirm and Pay" color="mainDark" />
+          <Button type="submit" disabled={submitting || invalid} primary fill label={btnLabel} color="mainDark" />
             
           <pre>{JSON.stringify(values, 0, 2)}</pre>
           <pre>{JSON.stringify(errors, 0, 2)}</pre>

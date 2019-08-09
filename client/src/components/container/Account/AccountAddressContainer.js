@@ -10,7 +10,7 @@ class AccountAddressContainer extends Component {
     renderAddress() {
         const { update, userInfo, address } = this.props;
         if(address) return (
-            <AddressForm submit={update} userId={userInfo.id} address={address} />
+            <AddressForm btnLabel="Update address" submit={update} userId={userInfo.id} address={address} />
         )
         return <Loader />
       }

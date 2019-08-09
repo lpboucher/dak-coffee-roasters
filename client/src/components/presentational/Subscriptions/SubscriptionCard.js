@@ -20,9 +20,9 @@ const SubscriptionCard = ({addToCart, product, thumb}) => {
                 <Heading level="1" margin={{vertical: 'small'}}>{product.name}</Heading>
                 <Text size="small">{product.description}</Text>
                 <Box>
-                {spec[0].map(item => (
+                {spec[0] ? spec[0].map(item => (
                     <IconedExplanation key={item.text.toString()} icon={item.icon} description={item.text} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
-                ))}
+                )) : null}
                 </Box>
                 <Heading level="3">From XX $</Heading>
                 <Text>(FREE SHIPPING EU + NORTH AMERICA)</Text>

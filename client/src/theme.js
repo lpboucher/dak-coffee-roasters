@@ -174,6 +174,34 @@ export const DakTheme = {
           }
         }
       },
+      tab: {
+        margin: {
+          left: "none"
+        },
+        pad: {
+          bottom: '3px'
+        },
+        border: {
+          "side": "bottom",
+          "size": "xsmall",
+          "color": {
+            "dark": "white",
+            "light": "white"
+          },
+          "active": {
+            "color": {
+              "dark": "white",
+              "light": "black"
+            }
+          },
+          "hover": {
+            "color": {
+              "dark": "darkHighlight",
+              "light": "darkHighlight"
+            }
+          }
+        }
+      },
       text: {
         xsmall: {
           size: "10px",
@@ -203,6 +231,13 @@ export const DakTheme = {
         placeholder: {
           extend: {
             color: "mainDark"
+          }
+        }
+      },
+      tabs: {
+        panel: {
+          extend: {
+            padding: '10px 0'
           }
         }
       }

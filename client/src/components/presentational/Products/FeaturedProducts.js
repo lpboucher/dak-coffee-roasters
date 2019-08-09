@@ -11,8 +11,8 @@ const FeaturedProducts = ({products, cart}) => {
             <Box pad="large" background="lightGrey">
                 <Heading level='1' textAlign="center">Coffee bags & equipment</Heading>
                 <ProductGrid products={products} cart={cart}/>
-                <Link to="/shop">
-                    <Button primary label="SEE MORE" alignSelf="center" />   
+                <Link to="/shop" style={{textAlign: 'center'}}>
+                    <Button primary label="SEE MORE" alignSelf="center"></Button>
                 </Link>
             </Box>   
         </Fragment>
