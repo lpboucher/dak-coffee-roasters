@@ -9,7 +9,7 @@ const SingleProduct = ({product}) => {
         <Fragment>
             <TwoColLayout 
                 bgColor="mainWhite"
-                left={<FullImg imgLink={`${product.link ? product.link.href : ""}`} size="contain"/>}
+                left={<FullImg imgLink={`${product.secondary.link ? product.secondary.link.href : product.thumb.link.href}`} size="contain"/>}
                 right={<ProductDetails {...product}/>}
                 pad={{outer: {horizontal: "large", top: "208px", bottom: "large"}, inner:"large"}}
             />

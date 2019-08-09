@@ -1,66 +1,38 @@
 import React, { Fragment } from 'react';
 import { Form, Field } from 'react-final-form';
 
+import ProductSpecs from './ProductSpecs';
 import { SelectAdapter } from '../../utils/Forms/FormHelpers';
 
-import IconedExplanation from '../../utils/IconedExplanation';
+import { Heading, Text, Button, Box, Tabs, Tab } from 'grommet';
 
-import { Heading, Text, Grid, Button, Box, Tabs, Tab } from 'grommet';
-import { Grow } from 'grommet-icons';
-
-const ProductDetails = ({id, name, description, product_type, details, price, link, slug, main, addToCart}) => {
+const ProductDetails = ({id, name, region, country, roast, description, product_type, details, price, addToCart, ...rest}) => {
     const onSubmit = values => {
         console.log(values);
     }
     return (
         <Fragment>
             <Heading level={1}>{name}</Heading>
-            <Heading level={3} margin={{"bottom": "medium"}} size="small">Nueva Segovia, Nicaragua | Espresso Beans</Heading>
+            {product_type === 'coffee' &&
+            <Heading level={3} margin={{"bottom": "small"}} size="small">{`${region}, ${country} | ${roast} Beans`}</Heading>
+            }
             <Tabs justify="start">
                 <Tab title="Description">
-                    <Text>{description}</Text>
+                    <Text margin={{"bottom": "medium"}}>{description}</Text>
                     {product_type === 'coffee' &&
-                    <Fragment>
-                        <IconedExplanation 
-                            icon={<Grow color="plain" size="medium" />}
-                            description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
-                            spacing={{vertical: 'medium'}}
-                            size={"xsmall"}
+                        <ProductSpecs 
+                            recommendation={rest.drink_recommendation}
+                            process={rest.process}
+                            region={region}
+                            country={country}
+                            tasting_notes={rest.flavors}
                         />
-                        <hr/>
-                        <Grid columns="50%" rows="50%">
-                        <IconedExplanation 
-                            icon={<Grow color="plain" size="medium" />}
-                            description={"Red Honey, Nueva Segovia, Nicaragua"}
-                            spacing={{vertical: 'medium'}}
-                            size={"xsmall"}
-                        />
-                        <IconedExplanation 
-                        icon={<Grow color="plain" size="medium" />}
-                        description={"Recommended as a Cappuccino"}
-                        spacing={{vertical: 'medium'}}
-                        size={"xsmall"}
-                        />
-                        <IconedExplanation 
-                            icon={<Grow color="plain" size="medium" />}
-                            description={"Floral, Brown Sugar, Teal-like acidity, clean"}
-                            spacing={{vertical: 'medium'}}
-                            size={"xsmall"}
-                        />
-                        <IconedExplanation 
-                        icon={<Grow color="plain" size="medium" />}
-                        description={"100% recyclable bag, recyclable box"}
-                        spacing={{vertical: 'medium'}}
-                        size={"xsmall"}
-                        />
-                        </Grid>
-                    </Fragment>
                     }
                 </Tab>
                 {product_type === "equipment" &&
                 <Tab title="Details">
-                    {details.split(";").map(detail => (
-                        <Text>{`- ${detail}\n`}</Text>
+                    {details.split(";").map((detail, index) => (
+                        <Text key={`${index}${detail.slice(0,5)}`}>{`- ${detail}\n`}</Text>
                     ))}
                 </Tab>
                 }
