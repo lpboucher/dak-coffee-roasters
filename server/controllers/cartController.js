@@ -51,4 +51,14 @@ module.exports = {
       console.log(err);
     }
   },
+  applyPromo: async (req, res, next) => {
+    const { promo } = req.body;
+    try {
+      const cartWithPromo = await Moltin.Cart().AddPromotion(promo);
+      console.log('PROMOTION APPLIED----------', cartWithPromo);
+      res.json(cartWithPromo);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 }

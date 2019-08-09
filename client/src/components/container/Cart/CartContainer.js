@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCartItems, getAllCartItems, getAllCartMeta, removeItem, updateItem } from '../../../ducks/cart';
+import { fetchCartItems, getAllCartItems, getCartTotal, getCartDiscount, removeItem, updateItem, applyPromo } from '../../../ducks/cart';
 
 import Cart from '../../presentational/Cart/Cart';
 
@@ -11,13 +11,14 @@ class CartContainer extends Component {
     }
 
     render() {
-        const { cartItems, cartMeta, removeItem, updateItem } = this.props;
+        const { cartItems, removeItem, updateItem, applyPromo, total, discount } = this.props;
         return (
                 <Cart 
                     removeFromCart={removeItem}
                     updateCartItem={updateItem}
                     items={cartItems}
-                    cart={cartMeta}
+                    cart={{total, discount}}
+                    apply={applyPromo}
                 />
         );
     }
@@ -26,7 +27,8 @@ class CartContainer extends Component {
 function mapStateToProps(state) {
     return {
         cartItems: getAllCartItems(state),
-        cartMeta: getAllCartMeta(state)
+        total: getCartTotal(state),
+        discount: getCartDiscount(state)
     };
 }
 
@@ -34,7 +36,8 @@ function mapDispatchToProps(dispatch) {
     return {
         fetchCart: () => dispatch(fetchCartItems()),
         removeItem: (id) => dispatch(removeItem(id)),
-        updateItem: (id, quantity) => dispatch(updateItem(id, quantity))
+        updateItem: (id, quantity) => dispatch(updateItem(id, quantity)),
+        applyPromo: (code) => dispatch(applyPromo(code))
     };
 }
 

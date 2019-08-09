@@ -7,6 +7,8 @@ router.get('/', cartController.getCartItems);
 
 router.post('/', cartController.addItemToCart);
 
+router.post('/promo', cartController.applyPromo);
+
 router.get('/delete', cartController.deleteCart);
 
 router.post('/:id', cartController.updateCartItem);

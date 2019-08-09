@@ -8,7 +8,7 @@ import { Box } from 'grommet';
 import OrderPromoCode from './OrderPromoCode';
 import OrderSummaryPrices from './OrderSummaryPrices';
 
-const Cart = ({items, cart, removeFromCart, updateCartItem}) => {
+const Cart = ({items, cart, removeFromCart, updateCartItem, apply}) => {
     return (
         <Fragment>
             <Box pad={{horizontal: "xlarge", top: '204px'}}>
@@ -23,7 +23,7 @@ const Cart = ({items, cart, removeFromCart, updateCartItem}) => {
                 )}
                 <Box direction="row" justify="between" pad={{vertical: "medium"}}>
                     <Box width="33%">
-                        <OrderPromoCode />
+                        <OrderPromoCode apply={apply}/>
                     </Box>
                     <Box align="end">
                         <OrderSummaryPrices withButton={true} {...cart}/>

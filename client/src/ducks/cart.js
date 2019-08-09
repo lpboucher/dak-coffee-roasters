@@ -76,6 +76,17 @@ export const clearCart = () => async dispatch => {
     }
 }
 
+export const applyPromo = (code) => async dispatch => {
+    dispatch({ type: FETCH_CART_REQUEST, payload: "Applying promotion code..." });
+    try {
+        const res = await axios.post(`http://localhost:5000/api/cart/promo`, code );
+        console.log('promo applied!----------', res.data);
+        dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
+    } catch(err) {
+        //dispatch({ type: FETCH_PRODUCTS_FAILURE});
+    }
+}
+
 const byIdDefault = {};
 //Reducers
 const byId = (state = byIdDefault, action) => {
@@ -130,11 +141,18 @@ export default combineReducers({
 //Selectors
 export const getCartItem = (state, id) => state.cart.byId[id];
 
-export const getAllCartItems = (state) => state.cart.allIds.map(id => getCartItem(state, id));
+export const getAllCartItems = (state) => state.cart.allIds.reduce((result, id) => [...result, ...getCartItem(state, id)['type'] === "cart_item" ? [getCartItem(state, id)] : []], []);
 
 export const getAllCartMeta = (state) => state.cart.meta;
 
 export const getCartTotal = (state) => state.cart.meta.display_price;
+
+export const getCartDiscount = (state) => {
+    const promo = state.cart.allIds.find(id => getCartItem(state, id)['type'] === "promotion_item");
+    if (promo) {
+        return getCartItem(state, promo)['meta']['display_price']
+    }
+}
 
 export const getNumberInCart = (state) => {
     const items = getAllCartItems(state);

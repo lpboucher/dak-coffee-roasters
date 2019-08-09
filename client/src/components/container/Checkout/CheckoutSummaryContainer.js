@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchCartItems, getAllCartItems, getAllCartMeta } from '../../../ducks/cart';
+import { fetchCartItems, getAllCartItems, getCartTotal, getCartDiscount } from '../../../ducks/cart';
 
 import Loader from '../../utils/Loader';
 
@@ -13,8 +13,8 @@ class CheckoutSummaryContainer extends Component {
     }
 
     renderCheckout() {
-        const { cartItems, cartMeta } = this.props;
-        if(cartItems && cartItems.length > 0) {return <CheckoutSummary items={cartItems} cart={cartMeta}/>};
+        const { cartItems, total, discount } = this.props;
+        if(cartItems && cartItems.length > 0) {return <CheckoutSummary items={cartItems} cart={{total, discount}}/>};
 
         return <Loader />
       }
@@ -31,7 +31,8 @@ class CheckoutSummaryContainer extends Component {
 function mapStateToProps(state) {
     return {
         cartItems: getAllCartItems(state),
-        cartMeta: getAllCartMeta(state)
+        total: getCartTotal(state),
+        discount: getCartDiscount(state)
     };
 }
 
