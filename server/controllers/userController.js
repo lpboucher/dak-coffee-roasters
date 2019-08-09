@@ -73,6 +73,18 @@ module.exports = {
           }
         );
       },
+      updateSubscription: (req, res, next) => {
+        const { id } = req.params;
+        const { plan, number, itemId } = req.body;
+        stripe.subscriptions.update(
+          id,
+          {items: [{id: itemId, plan, quantity: number}]},
+            async function(err, subscription) {
+              await res.json(subscription);
+              console.log('API LOGGING UPDATED SUBSCRIPTION----------', subscription);
+          }
+        );
+      },
       getUserAddresses: async (req, res, next) => {
         const { customer } = req.body;
         try {
@@ -85,12 +97,11 @@ module.exports = {
         }
       },
       getUserOrders: async (req, res, next) => {
-        const { token } = req.body;
+        const { id } = req.params;
         try {
-            console.log('API GETTING ORDERS----------', { token });
-            const orders = await Moltin.Orders.All({token});
-            //console.log('API LOGGING ORDERS----------', orders);
-            res.json(orders);
+            const orders = await Moltin.Orders.With('items').All();
+            const userOrders = orders.data.filter(order => order.relationships.customer.data.id === id);
+            res.json({data: userOrders, items: orders.included.items});
         } catch (err) {
           console.log(err);
         }

@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import axios from 'axios';
 
+import { getPlanIDBySlug } from './products';
+
 //Action Types
 export const LOGIN_REQUEST = 'user/login_request';
 export const LOGIN_SUCCESS = 'user/login_success';
@@ -38,23 +40,41 @@ export const fetchUser = (id, stripeId = null) => async dispatch => {
     }
 }
 
-export const updateCustomerAddress = (id, {billingIsShipping, shipping, address = billingIsShipping ? shipping.address : null}) => async dispatch => {
+export const updateCustomerAddress = (id, {billingIsShipping, shipping, address}) => async dispatch => {
+    dispatch({ type: UPDATE_REQUEST, payload: "Updating your acount..." });
+    const billing = billingIsShipping || !address ? shipping.address : address;
     shipping.name = shipping.address.name;
     delete shipping.address.name;
-    delete address.name;
+    delete billing.name;
     try {
-        const res = await axios.post(`http://localhost:5000/api/user/${id}`, {address, shipping} );
+        const res = await axios.post(`http://localhost:5000/api/user/${id}`, {address: billing, shipping} );
         console.log('logging update----------', res.data);
-        dispatch({ type: FETCH_SUCCESS, payload: res.data });
+        dispatch({ type: UPDATE_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
     }
 }
 
-export const fetchUserOrders = (token) => async dispatch => {
+export const updateSubscription = (subscriptionId, itemId, data) => async (dispatch, getState) => {
+    dispatch({ type: UPDATE_REQUEST, payload: "Updating your acount..." });
+    const { plan, number, quantity, roast, varieties } = data;
+    const planId = getPlanIDBySlug(
+        getState(),
+        `${plan}-subscription_${quantity}${plan === "classics" ? "_"+roast : ""}${plan === "classics" ? "_"+varieties : ""}`
+    );
     try {
-        const res = await axios.post(`http://localhost:5000/api/user/orders`, { token } );
-        //console.log('logging orders----------', res.data);
+        const res = await axios.post(`http://localhost:5000/api/user/subscription/${subscriptionId}`, { plan: planId, number, itemId } );
+        console.log('logging sub update----------', res.data);
+        dispatch(fetchUser(null, getState()['user']['info']['stripe_id']));
+    } catch(err) {
+        //dispatch({ type: FETCH_PRODUCTS_FAILURE});
+    }
+}
+
+export const fetchUserOrders = (id) => async dispatch => {
+    try {
+        const res = await axios.get(`http://localhost:5000/api/user/orders/${id}`);
+        console.log('logging orders----------', res.data);
         dispatch({ type: ORDERS_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -110,6 +130,7 @@ const info = (state = initialInfo, action) => {
             ...action.payload.data,
         }
         case FETCH_SUCCESS:
+        case UPDATE_SUCCESS:
         return {
             ...state,
             ...action.payload,
@@ -144,12 +165,18 @@ const orders = (state = initialOrders, action) => {
         return {
             ...state,
             byId: {
-                        ...action.payload.data.reduce((obj, order) => {
-                        obj[order.id] = order
-                        return obj
-                    }, {})
+                    ...action.payload.data.reduce((obj, order) => {
+                    obj[order.id] = order
+                    return obj
+                    }, {}),
                 },
-            allIds: action.payload.data.map(order => order.id)
+            allIds: action.payload.data.map(order => order.id),
+            items: {
+                ...action.payload.items.reduce((obj, item) => {
+                    obj[item.id] = item
+                    return obj
+                    }, {}),
+            }
         }
         default:
             return state

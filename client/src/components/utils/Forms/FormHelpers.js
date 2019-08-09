@@ -1,4 +1,5 @@
 import React from 'react';
+import { Field } from 'react-final-form';
 import { FormField, TextInput, RadioButton, CheckBox, Select } from "grommet";
 
 /*const Fields = ({names, subscription, fieldsState = {}, children, originalRender}) => {
@@ -19,15 +20,11 @@ import { FormField, TextInput, RadioButton, CheckBox, Select } from "grommet";
       </Field>
     );
   };*/
-
-/*export const WhenValid = ({ fieldNames, subscription, children }) => (
-    <Fields names={fieldNames} subscription={subscription}>
-        {fieldsState => (
-            Object.values(fieldsState).every(field => field.meta.valid) ? children : null
-            //Object.entries(fieldsState).map(field => <pre>{JSON.stringify(field, 0, 2)}</pre>)
-        )}
-    </Fields>
-  )*/
+export const Condition = ({ when, is, children }) => (
+    <Field name={when} subscription={{ value: true }}>
+      {({ input: { value } }) => (value === is ? children : null)}
+    </Field>
+  )
 
 export const TextInputAdapter = ({ input: {name, onChange, value, ...restInput}, meta, placeholder, ...rest }) => (
     <FormField error={meta.modified && meta.error ? meta.error : ""} {...rest} >

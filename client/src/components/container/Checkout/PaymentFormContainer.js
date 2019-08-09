@@ -17,7 +17,7 @@ class PaymentFormContainer extends Component {
         const subscription = subProducts.length > 0 ? 
         { 
           has_recurring: true,
-          plans: subProducts.map(product => ({ plan: product.stripe_plan_id }))
+          plans: subProducts.map(product => ({ plan: product.stripe_plan_id, quantity: product.quantity }))
         } : {};
         await submit(
             { payment_method_id: payment_method_id,
@@ -39,7 +39,7 @@ class PaymentFormContainer extends Component {
         }
       };
 
-      handleConfirmation = async (status) => {
+    handleConfirmation = async (status) => {
         const { stripe } = this.props;
         if (stripe) {
           const res = await stripe.handleCardAction(status.secret);

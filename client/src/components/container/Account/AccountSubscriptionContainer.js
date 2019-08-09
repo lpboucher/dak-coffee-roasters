@@ -1,24 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUserSubscriptions } from '../../../ducks/user';
+import { getUserSubscriptions, updateSubscription } from '../../../ducks/user';
+
+import ManageSubscriptions from '../../presentational/Account/ManageSubscriptions';
 
 import Loader from '../../utils/Loader';
 
 class AccountSubscriptionContainer extends Component {
     renderSubscriptions() {
-        const { subscriptions } = this.props;
-        if(subscriptions && Object.keys(subscriptions).length > 0) return (
-            <div>
-                {subscriptions.data.map(sub => (
-                    <div>
-                    <p>{sub.start}</p>
-                    <p>{sub.quantity}</p>
-                    <p>{sub.plan.metadata.Quantity}</p>
-                    <p>{sub.plan.nickname}</p>
-                    </div>
-                ))}
-            </div>
-        )
+        const { subscriptions, update } = this.props;
+        if(subscriptions && Object.keys(subscriptions).length > 0) return (<ManageSubscriptions subscriptions={subscriptions.data} update={update}/>)
         return <Loader />
       }
 
@@ -39,7 +30,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        
+        update: (id, item, data) => dispatch(updateSubscription(id, item, data))
     };
 }
 
