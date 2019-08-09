@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import axios from 'axios';
 
+import SUBMIT_PAYMENT_SUCCESS from './payments';
+
 //Action Types
 export const SUBMIT_ORDER_REQUEST = 'checkout/submit_order_request';
 export const SUBMIT_ORDER_SUCCESS = 'checkout/submit_order_success';
@@ -63,6 +65,8 @@ const order = (state = {}, action) => {
             ...state,
             ...action.payload.data,
         }
+        case SUBMIT_PAYMENT_SUCCESS:
+            return {}
         default:
             return state
     }
@@ -71,8 +75,9 @@ const order = (state = {}, action) => {
 const items = (state = [], action) => {
     switch (action.type) {
         case SUBMIT_ORDER_SUCCESS:
-        console.log(action.payload.included)
         return action.payload.included.items.map(item => item)
+        case SUBMIT_PAYMENT_SUCCESS:
+            return []
         default:
             return state
     }
