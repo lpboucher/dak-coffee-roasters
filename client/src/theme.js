@@ -154,6 +154,7 @@ export const DakTheme = {
         medium: {
           size: "14px",
           height: "28px",
+          maxWidth: "none"
         },
         large: {
           size: "26px",
