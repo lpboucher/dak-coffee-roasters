@@ -42,7 +42,7 @@ export const SUBS_SPECS = [
         ],
     },
     {
-        slug:'roaster-subscription', 
+        slug:'roasters-subscription', 
         data: [
             {
                 text: 'Freshly-roasted specialty coffee',

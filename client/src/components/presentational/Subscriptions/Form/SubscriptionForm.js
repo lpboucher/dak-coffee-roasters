@@ -14,7 +14,7 @@ const SubscriptionForm = ({ type, addToCart }) => {
     render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
       <form onSubmit={handleSubmit}>
         <Box width="75%" pad={{vertical: 'medium'}}>
-          {type !== 'roaster-subscription' && 
+          {type !== 'roasters-subscription' && 
           <Fragment>
             <Field
               label="Number of varieties"
