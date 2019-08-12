@@ -1,20 +1,27 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 
 import Hero from '../../presentational/Hero/Hero';
+import Article from '../Blog/Article';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 
-class BlogPage extends Component {
+import header from '../../../assets/images/nathan-dumlao-fiOBVNPokGY-unsplash.jpg';
 
-    componentDidMount() {}
+const Blog = () => {
+    return (
+        <>
+           <Hero
+                bgImage={header}
+                height="90vh"
+                overlay={{
+                    text: "Why you should grind your coffee before drinking it always.",
+                    loc: "center",
+                    height: "25vh"
+                }}
+            />
+            <Article />
+            <NewsletterSignUp /> 
+        </>
+    );
+};
 
-    render() {
-        return (
-            <Fragment>
-                <Hero />
-                <NewsletterSignUp />
-            </Fragment>
-        );
-    }
-}
-
-export default BlogPage;
+export default Blog;

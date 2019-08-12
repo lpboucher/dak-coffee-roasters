@@ -1,7 +1,4 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-
-import { fetchProducts } from '../../../ducks/products';
+import React from 'react';
 
 import Hero from '../../presentational/Hero/Hero';
 import SubscriptionIntro from '../../presentational/Intros/SubscriptionIntro';
@@ -13,49 +10,27 @@ import BrewingIntro from '../../presentational/Intros/BrewingIntro';
 
 import header from '../../../assets/images/Header_Mainpage.jpg';
 
-class HomePage extends Component {
+const Home = () => {
+    return (
+    <>
+        <Hero
+            bgImage={header}
+            overlay={{
+                text: "hero.home",
+                loc: "bottom-left",
+                width: "100vw",
+                height: "25vh",
+                withOpacity: true
+            }}
+        />
+        <SubscriptionIntro />
+        <LimitedEditionsIntro />
+        <FeaturedProductsContainer collection='featured-products'/>
+        <NewsletterSignUp />
+        <ValuesIntro />
+        <BrewingIntro />
+    </>
+    );
+};
 
-    componentDidMount() {
-        const { products } = this.props;
-        if (products.allIds.length < 1) {
-          this.props.fetchProducts();
-        }
-      }
-
-    render() {
-        return (
-            <Fragment>
-                <Hero
-                    bgImage={header}
-                    overlay={{
-                        text: "From farm to cup we take great pride in celebrating quality coffee",
-                        loc: "bottom-left",
-                        width: "100vw",
-                        height: "25vh",
-                        withOpacity: true
-                    }}
-                />
-                <SubscriptionIntro />
-                <LimitedEditionsIntro />
-                <FeaturedProductsContainer collection='featured-products'/>
-                <NewsletterSignUp />
-                <ValuesIntro />
-                <BrewingIntro />
-            </Fragment>
-        );
-    }
-}
-
-function mapStateToProps({products}) {
-    return {
-        products,
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        fetchProducts: () => dispatch(fetchProducts())
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default Home;
