@@ -1,22 +1,25 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { withTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-
-import { FOOTER_NAV } from '../../../constants/Navigation';
 
 import { Box } from 'grommet';
 
-const FooterLinks = () => {
+const FooterLinks = ({t}) => {
     return (
-        <Fragment>
-            <Box direction="row" wrap pad="medium">
-            { FOOTER_NAV.map((item, index) => 
-                <Box key={`${item.menuText}-${index}`} width="33%">
-                    <Link to={item.link} style={{'fontSize': '12px'}}>{item.menuText}</Link>
-                </Box>
-                )}
-            </Box>
-        </Fragment>
+        <Box direction="row" wrap pad="medium">
+            <Box width="33%"><Link to="/shop" style={{'fontSize': '12px'}}>{t("footer.menu.shop")}</Link></Box>
+            <Box width="33%"><Link to="/subscriptions" style={{'fontSize': '12px'}}>{t("footer.menu.subscription")}</Link></Box>
+            <Box width="33%"><Link to="/about" style={{'fontSize': '12px'}}>{t("footer.menu.about-us")}</Link></Box>
+            <Box width="33%"><Link to="/wholesale" style={{'fontSize': '12px'}}>{t("footer.menu.wholesale")}</Link></Box>
+            <Box width="33%"><Link to="/blog" style={{'fontSize': '12px'}}>{t("footer.menu.blog")}</Link></Box>
+            <Box width="33%"><Link to="/faq" style={{'fontSize': '12px'}}>{t("footer.menu.faq")}</Link></Box>
+            <Box width="33%"><Link to="/contact" style={{'fontSize': '12px'}}>{t("footer.menu.contact")}</Link></Box>
+            <Box width="33%"><Link to="/about" style={{'fontSize': '12px'}}>{t("footer.menu.community")}</Link></Box>
+            <Box width="33%"><Link to="" style={{'fontSize': '12px'}}>{t("footer.menu.shipping")}</Link></Box>
+            <Box width="33%"><Link to="" style={{'fontSize': '12px'}}>{t("footer.menu.terms")}</Link></Box>
+            <Box width="33%"><Link to="" style={{'fontSize': '12px'}}>{t("footer.menu.payment")}</Link></Box>
+        </Box>
     );
 };
 
-export default FooterLinks;
+export default withTranslation()(FooterLinks);

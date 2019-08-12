@@ -1,15 +1,16 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 
 import { Field } from 'react-final-form';
 import { TextInputAdapter, CheckboxAdapter } from '../../../utils/Forms/FormHelpers';
 
 import { Box } from 'grommet';
 
-const AccountFields = ({isExistingUser, loginErrors}) => {
+const AccountFields = ({isExistingUser, loginErrors, t}) => {
     return (
         <Box pad={{vertical: 'small'}}>
             <Field
-                label="Existing user?"
+                label={t("sections.login.existing")}
                 name="existing"
                 component={CheckboxAdapter}
                 type="checkbox"
@@ -17,21 +18,21 @@ const AccountFields = ({isExistingUser, loginErrors}) => {
                 />
             {!isExistingUser &&
             <Field
-                label="Full Name"
+                label={t("sections.login.name")}
                 name="customer.name"
                 component={TextInputAdapter}
                 type="text"
                 />
             }
             <Field
-                label="Email"
+                label={t("sections.login.email")}
                 name="customer.email"
                 component={TextInputAdapter}
                 type="email"
                 loginErrors={loginErrors}
                 />
             <Field
-                label="Password"
+                label={t("sections.login.password")}
                 name="customer.password"
                 component={TextInputAdapter}
                 type="password"
@@ -40,4 +41,4 @@ const AccountFields = ({isExistingUser, loginErrors}) => {
     );
 };
 
-export default AccountFields;
+export default withTranslation()(AccountFields);

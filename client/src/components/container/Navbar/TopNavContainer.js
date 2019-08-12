@@ -6,12 +6,12 @@ import { getLoggedStatus, logout } from '../../../ducks/user';
 
 import Account from '../../presentational/Navbar/Account';
 import CartCounter from '../../presentational/Navbar/CartCounter';
+import LanguageSelector from '../../presentational/Navbar/LanguageSelector';
 
 class TopNavContainer extends Component {
     cartRef = createRef();
     
     componentDidMount() {
-        this.props.fetchCart();
         this.props.cartItems.map(item => new Image().src = item.image.href);
     }
 
@@ -28,6 +28,7 @@ class TopNavContainer extends Component {
                     close={closeCart}
                     cartRef={this.cartRef}/>
                 <p>EUR</p>
+                <LanguageSelector />
             </Fragment>
         );
     }

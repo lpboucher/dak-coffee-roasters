@@ -1,0 +1,253 @@
+{
+    "nav": {
+        "account": "dashboard",
+        "log out": "uitloggen"
+    },
+    "cart": {
+        "empty": "geen product in winkelmand",
+        "to cart": "winkelmand",
+        "to checkout": "afrekenen"
+    },
+    "menu": {
+        "shop": "shop",
+        "subscriptions": "abonnementen",
+        "about": {
+            "top": "over ons",
+            "coffee": "onze koffie",
+            "about": "verhaal"
+        },
+        "wholesale": "zakelijk",
+        "contact": "contact",
+        "blog": {
+            "top": "blog",
+            "guides": "zetmethodes"
+        }
+    },
+    "hero": {
+        "home": "Wij willen iedereen laten genieten van échte koffie",
+        "subscription": "Ga voor de klassiekers of laat je verrassen",
+        "coffee": "Wij doen er alles aan om allerhoogste kwaliteit koffie te leveren met een zo klein mogelijke ecologische voetafdruk. We hebben immers maar één planeet en daar moeten we zuinig op zijn.",
+        "team": "Wij gaan altijd voor de hoogste kwaliteit.",
+        "wholesale": "Er gaat niks boven een soepele, vruchtbare samenwerking. Daarom geven wij onszelf altijd 100%. Ongeacht hoe groot of klein de samenwerking ook is.",
+        "contact": "Van boerderij tot boon, van branding tot bereiding. We besteden aandacht aan elk detail. En dat proef je.",
+        "account": "Welkom in jouw account."
+    },
+    "intros": {
+        "subscription": {
+            "title": "Maandabonnement",
+            "helper": "VANAF €15 | GRATIS VERZENDING | ZONDER VERPLICHTINGEN",
+            "description": "Kies voor een van onze abonnementen en ontvang elke maand verse, ambachtelijk gebrande koffiebonen thuis. Je kunt kiezen uit:\n\nONZE KLASSIEKERS. Kies je favoriete branding en ontvang een selectie heerlijke, single origin filterbonen of espressobonen. Of allebei. Waarom niet?\n\nROASTER’S CHOICE. Laat je verrassen door onze meesterbrander. Elke maand kiest hij de lekkerste filter, espresso of limited edition koffiebonen voor jou uit. Altijd van de hoogste kwaliteit. Altijd met een heerlijk volle smaak. Wil jij de allerlekkerste nieuwe koffies leren kennen? Dan is dit jouw abonnement.",
+            "short description": "Ontvang elke maand de lekkerste koffie bij je thuis door te kiezen voor een van onze abonnementen. Je hebt de keuze tussen ‘onze klassiekers’ en ‘The Roaster’s Choice’.",
+            "button": "Bestel nu"
+        },
+        "limited edition": {
+            "title": "Onze Limited Edition",
+            "subtitle": "coffee for two",
+            "helper": "Tasting Note",
+            "description": "De limited edition van deze maand komt uit de regio van Chaletango in El Salvador. Laat je verrassen door zijn heerlijke amandel-, karamel- en cacaobotersmaak. Deze single origin koffie hebben we gebrand als een omni-roast en is perfect voor zowel espresso als  filterkoffie. Let op, we hebben hier maar een beperkte hoeveelheid van.\n\nProducent: Finca El Caracol | Land: El Salvador\nRegio: Chalatenango | Verwerkingsproces: Washed\nHoogte: 1700m | Variëteit: Pacamara",
+            "button": "Bestel koffie"
+        },
+        "values": {
+            "title": "Wie we zijn. Waar we voor staan",
+            "description": "Bij Dak vinden we vijf zaken erg belangrijk: heerlijke koffie, maatwerk, creativiteit, het milieu en goede leefomstandigheden voor koffieboeren.\n\nOns doel is om jou te laten genieten van de hoogste kwaliteit koffie. Daarom worden al onze koffies met de grootste zorg geselecteerd. Om deze kwaliteit te waarborgen organiseren onze teams elke week nieuwe cupping-sessies (strenge proef -en controlesessies). Daarnaast hebben wij twee brandingssessies per week, zodat je koffie altijd gegarandeerd vers is. Continu testen en ontwikkelen houdt het niveau van onze koffie hoog en jouw smaakpapillen scherp.\n\nGoede koffie smaakt nog beter als het ook ethisch verantwoorde koffie is. Daarom hebben we bij DAK alleen partnerships met importeurs die onze waarden delen, werken we samen met exclusieve koffiegebieden* en doen we uitgebreid onderzoek naar de koffieboerderijen. Bovendien betalen we graag iets meer voor onze groene koffiebonen zodat de boeren eerlijk betaald krijgen en onze klanten gegarandeerd de hoogste kwaliteit genieten.",
+            "button": "Lees verder"
+        },
+        "brewing": {
+            "title": "Onze hulp bij de bereiding",
+            "description": "Welke oorsprong of branding je koffie ook heeft, je koffie smaakt maar zo goed als je het bereid hebt. Daarom geven we bij elke koffie tips over de beste bereidingswijze, die door ons geperfectioneerd is tijdens vele cupping -en oefensessies.\n\nDaarbij vinden we het erg belangrijk dat jij weet hoe en waarom verschillende bereidingswijzen andere smaaktonen in je koffie benadrukken. Hierdoor kun je namelijk nog betere, weloverwogen keuzes maken qua branding, bonensoort, etc.\n\nPas als jij gaat experimenteren met verschillende bereidingen beschouwen wij ons doel als geslaagd.",
+            "button": "Lees verder"
+        },
+        "ethics": {
+            "title": "Ethisch verantwoord",
+            "description": "We vergeten nogal eens waar de producten die we consumeren vandaan komen. Maar één ding is zeker: koffie smaakt pas echt goed als het ethisch verantwoord is.\n\nWij vinden het belangrijk dat de boeren waarmee we werken fatsoenlijk betaald worden en zich goede leefomstandigheden kunnen veroorloven. Daarom hebben we bij DAK alleen partnerships met importeurs die onze waarden delen, werken we samen met exclusieve koffiegebieden en doen we uitgebreid onderzoek naar de koffieboerderijen.\n\nBovendien betalen we graag iets meer voor onze groene koffiebonen zodat iedereen in de supply chain eerlijk betaald krijgt en onze klanten gegarandeerd de hoogste kwaliteit genieten.\n\nIn 2020 willen we directe handelsrelaties met boeren starten door ze zelf te bezoeken, hun omstandigheden te beoordelen en exclusieve partnerships te sluiten. Ons doel is om zo snel mogelijk terug te geven aan de koffiegemeenschap en te investeren in projecten die de levensomstandigheden van de boeren waar nodig verbeteren."
+        },
+        "coffee": {
+            "title": "onze koffie",
+            "description": "Daarnaast geloven we dat de enige manier om unieke smaken te ontdekken, is door voortdurend nieuwe en innovatieve brandingsprofielen te proberen. Daarom experimenteren we continue met nieuwe brandingsprocessen en proberen we zoveel mogelijk proefsessies te doen.\n\nEen keer per week bestellen we nieuwe groene koffiebonen-monsters. Deze branden we op eenvoudige wijze, zodat dit weinig invloed heeft op de originele smaak. Na het roosteren voeren we meerdere cup-sessies uit. Hier worden monsters uitvoerig geproefd en bepalen we welke koffiebonen we uiteindelijk in grote hoeveelheden gaan bestellen.\n\nOm te bepalen welke brandprofielen we uiteindelijk aan gaan bieden, branden we de geselecteerde bonen nog een keer. Alleen gaan we deze keer iets creatiever te werk. Om voor elke koffiesoort de allerbeste brandprofielen vast te stellen, testen we verschillende brandtijd-, temperatuur- en luchtstroomcombinaties.\n\nTenslotte bepalen we in een allerlaatste cupping-sessie welk brandprofiel de unieke, originele smaak van de koffieboon het meeste eer aandoet."
+        },
+        "packaging": {
+            "title": "Milieuvriendelijke verpakking",
+            "description": "Koffie ethisch verantwoord inkopen zodat boeren een fatsoenlijk inkomen hebben is één ding. Je verantwoordelijkheid nemen ten aanzien van het milieu en de omstandigheden waarin koffie het beste groeit, is een ander. Daarom gebruiken we bij DAK alleen milieuvriendelijke verpakkingen. Die er overigens ook nog eens gewoon mooi uitzien.\n\nAl onze koffiezakken zijn 100% recyclebaar, CO2-neutraal en aluminiumvrij. We zijn erg trots op onze samenwerking met een leverancier die investeert in CO2-reducerende projecten in koffieproducerende landen. Zo doen zij er alles aan om de uitstoot die nodig is voor de koffietassen-productie te compenseren.\n\nOok onze verzenddozen zijn 100% recyclebaar. Deze worden volledig gemaakt van  recyclebare materialen en bedrukt met milieuvriendelijke inkt op waterbasis.\n\nBij DAK zijn we continu bezig om onze ecologische voetafdruk te verkleinen. We hebben tenslotte maar één planeet. En daar moeten we heel zuinig op zijn."
+        },
+        "wholesale": {
+            "title": "Groothandel en partnerships",
+            "description": "Deelt jouw bedrijf onze passie voor koffie? Dan willen we graag met jou samenwerken. Hoe groot of klein het bedrijf ook is. We hebben namelijk de capaciteit en flexibiliteit om zowel kleine als grotere orders te verwerken.\n\nGeen expert op het gebied van koffie, koffiesmaken en bereidingswijzen? Geen probleem. Wij komen graag bij je langs om je hiermee te helpen. Na ons bezoek zet je jouw klanten binnen no-time een ‘professioneel’ kopje koffie voor.\n\n\nOnze koffie direct verkopen binnen Europa: info@dakcoffeeroasters.com\n\nOnze koffie direct verkopen binnen Noord-Amerika: wholesaleCA@dakcoffeeroasters.com"
+        },
+        "private label": {
+            "title": "Huismerk",
+            "description": "Het succes en de toekomst van je zaak staat of valt bij een goede relatie hebben met je klanten. Hiervoor begin je met een herkenbare en onderscheidende huisstijl. Maar minstens zo belangrijk zijn de producten die je ze aanbiedt.\n\nDaarom ben je bij ons vrij om onze koffie te verpakken en bedrukken zoals jij wilt. We helpen je graag bij het kiezen en/of ontwerpen van je eigen verpakking. Een keer een koffietje doen om het te bespreken?\n\n\nOnze koffie als private label verkopen binnen Europa: info@dakcoffeeroasters.com\n\nOnze koffie als private label verkopen binnen Canada/USA: wholesaleCA@dakcoffeeroasters.com"
+        },
+        "team": {
+            "LP": {
+                "name": "Louis-Philippe Boucher",
+                "title": "oprichter & koffiebrander",
+                "contact": "info@dakcoffeeroasters.com",
+                "description": "DAK Coffee Roasters, gevestigd in Amsterdam, werd in 2019 opgericht door Louis-Philippe Boucher. Geboren in Montreal, Canada ontwikkelde Louis-Philippe zijn passie voor koffie tijdens zijn eerste jaren aan de universiteit waar hij studeren combineerde met fulltime werken.\n\nNa jaren gewerkt te hebben in de Finance en Venture Capital industrie, besloot Louis-Philippe de grote sprong te wagen en volledig voor zijn passie te kiezen. Net als bij wijn en bier, wil hij mensen de volledige breedte van het koffieproduct en haar heerlijke complexe smaken laten ontdekken.\n\nKoffiefilosofie: Louis-Philippe was ooit zo iemand die liters room en kilo’s suiker aan zijn koffie toevoegde. Dat veranderde toen hij in Milaan woonde en kennismaakte met de wereld van de Italiaanse espresso. Hierop volgde een ontdekkingsreis langs de vele manieren waarop koffie kan worden gebrouwen, geserveerd en genoten. Sindsdien is hij er volledig van overtuigd dat elke koffie uniek is en dat dit gevierd moet worden met een even unieke branding."
+            },
+            "VL": {
+                "name": "Veronique Lagarde",
+                "title": "brand strateeg & grafisch ontwerper",
+                "contact": "marketing@dakcoffeeroasters.com"
+            },
+            "OD": {
+                "name": "Olivier Daigneault",
+                "title": "regiomanager - Montreal/Canada",
+                "contact": "wholesale@dakcoffeeroasters.com"
+            }
+        }
+    },
+    "sections": {
+        "featured": {
+            "title": "koffie & accessoires",
+            "button": "ontdek al onze producten",
+            "soldout": "uitverkocht"
+        },
+        "related": {
+            "title": "gerelateerde producten"
+        },
+        "subscription": {
+            "title": "Maandabonnement",
+            "description": "Ontvang elke maand de lekkerste koffie bij je thuis door te kiezen voor een van onze abonnementen. Je hebt de keuze tussen ‘onze klassiekers’ en ‘The Roaster’s Choice’. Je ontvangt van ons een doos van 500 g (2 zakken van 250 g) of 2 kg (2 zakken van 1 kg), waarbij je mag kiezen voor twee verschillende brandingen. Al onze koffies zijn gegarandeerd heerlijk vers. Wij branden de bonen namelijk altijd pas vlak voor het versturen. Goed om te weten: er zijn geen verzendkosten binnen de EU en Noord-Amerika en je kunt je abonnement op elk moment kosteloos annuleren.",
+            "specs": {
+                "shipping": {
+                    "title": "gratis verzending binnen de EU en Noord-Amerika",
+                    "subtitle": "op alle abonnementen"
+                },
+                "choice": {
+                    "title": "kies jouw koffie-op-maat abonnement",
+                    "subtitle": "'onze klassiekers' of 'the roaster's choice'"
+                },
+                "commitment": {
+                    "title": "zonder verplichtingen",
+                    "subtitle": "(sla gerust eens een maand over) en altijd gratis te wijzigen/annuleren"
+                }
+            }
+        },
+        "cart": {
+            "heading": {
+                "shopping": "verder winkelen",
+                "product": "product",
+                "quantity": "aantal",
+                "price": "prijs",
+                "subtotal": "subtotaal"
+            },
+            "promo": {
+                "title": "coupon code",
+                "input": "kortingsbon",
+                "button": "kortinsbon toepassen",
+                "description": "GRATIS VERZENDING BIJ ALLE ABONNEMENTEN EN ORDERS BOVEN DE €50"
+            },
+            "order": {
+                "summary": "overzicht winkelwagen",
+                "subtotal": "subtotaal",
+                "shipping": "verzending vanaf",
+                "taxes": "BTW 21%",
+                "discount": "korting",
+                "total": "totaal (inclusief BTW)",
+                "free": "gratis",
+                "button": "bestelling plaatsen"
+            }
+        },
+        "checkout": {
+            "islogged": "Ingelogd",
+            "notlogged": "Inloggen/Registreren",
+            "shipping": "Verzendingsadres",
+            "shippingsubmit": "Successvol Voltooid",
+            "payment": "Betaalmethode",
+            "address": {
+                "name": "naam",
+                "company": "bedrijfsnaam",
+                "line1": "Straat en huisnummer",
+                "line2": "Toe.",
+                "city": "Plaats",
+                "postcode": "Postcode",
+                "region": "Staat/County",
+                "country": "Land",
+                "billing": "Factuurgegevens",
+                "samebilling": "Factuurgegevens, niet anders"
+            },
+            "terms": "Ik heb de algemene voorwaarden van de website gelezen en ga hiermee akkoord"
+        },
+        "login": {
+            "existing": "terugkerende klant?",
+            "name": "naam",
+            "email": "e-mailadres",
+            "password": "wachtwoord",
+            "login": "inloggen",
+            "register": "registreren"
+        },
+        "contact": {
+            "general": {
+                "title": "algemene vragen",
+                "contact": "info@dakcoffeeroasters.com",
+                "helper": "We do our best to respond to e-mails wthin 24 hours"
+            },
+            "wholesaleeu": {
+                "title": "pr & marketing",
+                "contact": "marketing@dakcoffeeroasters.com",
+                "helper": "For press enquiries or partnerships"
+            },
+            "marketing": {
+                "title": "groothandel europa",
+                "contact": "wholesale@dakcoffeeroasters.com",
+                "helper": "If you would like to sell our coffee or sell as a private label in Europe"
+            },
+            "wholesalena": {
+                "title": "groothandel noord-amerika",
+                "contact": "wholesaleca@dakcoffeeroasters.com",
+                "helper": "If you would like to sell our coffee or sell as a private label in Canada/US"
+            }
+        },
+        "account": {
+            "menu": {
+                "subscriptions": "mijn abonnementen",
+                "orders": "bestellingen",
+                "address": "mijn adres",
+                "payment": "betaalmethoden"
+            },
+            "subscriptions": {
+                "button": "wijzigen"
+            },
+            "orders": {
+                "heading": {
+                    "invoice": "ordernummer",
+                    "date": "bestel datum",
+                    "price": "prijs",
+                    "payment": "totaal",
+                    "status": "status",
+                    "tracking": "pakketnummer"
+                }
+            }
+        }
+    },
+    "newsletter": {
+        "description": "Meld je aan voor onze nieuwsbrief en ontvang exclusieve koffiedeals, het laatste nieuws, smakelijke verhalen en handige tips",
+        "form": {
+            "name": "Naam",
+            "email": "Emailadres"
+        },
+        "privacy": "Lees ons privacybereid",
+        "button": "Inschrijven"
+    },
+    "footer": {
+        "description": "Dak Coffee Roasters is een koffiebranderij in Amsterdam. Wij willen iedereen laten genieten van échte koffie.",
+        "menu": {
+            "shop": "shop",
+            "subscription": "koffie abonnement",
+            "about-us": "over ons",
+            "our-coffee": "onze koffie",
+            "wholesale": "groothandel",
+            "blog": "blog",
+            "faq": "faq",
+            "contact": "contact",
+            "terms": "algemene voorwaarden",
+            "shipping": "shipping",
+            "privacy": "privacybeleid",
+            "brewing": "zetmethodes"
+        },
+        "rights": "Dak Coffee Roasters 2019. All rights reserved."
+    },
+    "loading": {
+        "account": "Loading your account3..."
+    }
+}

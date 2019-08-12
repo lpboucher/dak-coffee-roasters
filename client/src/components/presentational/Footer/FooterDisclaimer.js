@@ -1,15 +1,16 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 
 import { Box, Paragraph } from 'grommet';
 
-const FooterDisclaimer = () => {
+const FooterDisclaimer = ({t}) => {
     return (
         <Box pad="small">
             <Paragraph size="small" alignSelf="center">
-                Dak Coffee Roasters 2019. All rights reserved.
+                {t("footer.rights")}
             </Paragraph>
         </Box>
     );
 };
 
-export default FooterDisclaimer;
+export default withTranslation()(FooterDisclaimer);

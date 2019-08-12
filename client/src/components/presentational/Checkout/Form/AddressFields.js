@@ -1,17 +1,18 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 
 import { Field } from 'react-final-form';
 import { TextInputAdapter } from '../../../utils/Forms/FormHelpers';
 
 import { Box } from 'grommet';
 
-const AddressFields = ({type}) => {
+const AddressFields = ({type, t}) => {
     return (
         <Box pad={{vertical: 'small'}}>
             <Box direction="row" flex="grow">
                 <Box width="50%" pad={{"right": "small"}}>
                     <Field
-                        label="Name"
+                        label={t("sections.checkout.address.name")}
                         name={`${type}.name`}
                         component={TextInputAdapter}
                         type="text"
@@ -19,7 +20,7 @@ const AddressFields = ({type}) => {
                 </Box>
                 <Box width="50%" pad={{"left": "small"}}>
                     <Field
-                        label="Company"
+                        label={t("sections.checkout.address.company")}
                         name={`${type}.company`}
                         component={TextInputAdapter}
                         type="text"
@@ -29,7 +30,7 @@ const AddressFields = ({type}) => {
             <Box direction="row" flex="grow">
                 <Box width="50%" pad={{"right": "small"}}>
                     <Field
-                        label="Address Line 1"
+                        label={t("sections.checkout.address.line1")}
                         name={`${type}.line1`}
                         component={TextInputAdapter}
                         type="text"
@@ -37,7 +38,7 @@ const AddressFields = ({type}) => {
                 </Box>
                 <Box width="50%" pad={{"left": "small"}}>
                     <Field
-                        label="Address Line 2"
+                        label={t("sections.checkout.address.line2")}
                         name={`${type}.line2`}
                         component={TextInputAdapter}
                         type="text"
@@ -47,7 +48,7 @@ const AddressFields = ({type}) => {
             <Box direction="row" flex="grow">
                 <Box width="50%" pad={{"right": "small"}}>
                     <Field
-                        label="City/Town"
+                        label={t("sections.checkout.address.city")}
                         name={`${type}.city`}
                         component={TextInputAdapter}
                         type="text"
@@ -55,7 +56,7 @@ const AddressFields = ({type}) => {
                 </Box>
                 <Box width="50%" pad={{"left": "small"}}>
                     <Field
-                        label="Postal Code"
+                        label={t("sections.checkout.address.postcode")}
                         name={`${type}.postal_code`}
                         component={TextInputAdapter}
                         type="text"
@@ -65,7 +66,7 @@ const AddressFields = ({type}) => {
             <Box direction="row" flex="grow">
                 <Box width="50%" pad={{"right": "small"}}>
                     <Field
-                        label="County/Region"
+                        label={t("sections.checkout.address.region")}
                         name={`${type}.state`}
                         component={TextInputAdapter}
                         type="text"
@@ -73,7 +74,7 @@ const AddressFields = ({type}) => {
                 </Box>
                 <Box width="50%" pad={{"left": "small"}}>
                     <Field
-                        label="Country"
+                        label={t("sections.checkout.address.country")}
                         name={`${type}.country`}
                         component={TextInputAdapter}
                         type="text"
@@ -84,4 +85,4 @@ const AddressFields = ({type}) => {
     );
 };
 
-export default AddressFields;
+export default withTranslation()(AddressFields);

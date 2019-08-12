@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { withTranslation } from 'react-i18next';
 
 import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
@@ -10,14 +11,13 @@ import veronique from '../../../assets/images/Veronique.jpg';
 
 import { Box, Heading, Image } from 'grommet';
 
-const Profiles = () => {
+const Profiles = ({t}) => {
     const intro = 
     <IntroSection 
-        heading="Louis-Philippe Boucher" 
-        subHeading="Founder & Roaster"
-        helperText="info@dakcoffeeroasters.com"
-        description={
-            `Based in Amsterdam, Dak Coffee Roasters was founded in 2019 by Louis-Philippe Boucher. Originally from Montreal, Canada, his passion for coffee began during his early years at University, studying and working full-time.\n\nAfter working many years in the Finance and Venture Capital industry, Louis-Philippe decided to make the big move and leave everything behind to follow his passion. Much like with wine and beer, he wants people to discover the breadth and understand the complexity of flavors that coffee can offer.\n\nCoffee philosophy: Louis-Philippe used to be one of those people adding tons of cream and sugar to his coffee. That all changed when he lived in Milan and was introduced to the world of Italian espresso. This experience sparked a journey to discover and appreciate the many ways coffee can be brewed, served and enjoyed. He truly believes that every coffee beverage is unique in its own way and deserves a dedicated roast that celebrates it.`}
+        heading="intros.team.LP.name" 
+        subHeading="intros.team.LP.title"
+        helperText="intros.team.LP.contact"
+        description="intros.team.LP.description"
     />
     const secondaryProfiles = (img, name, role, contact) => 
             <Fragment>
@@ -25,9 +25,9 @@ const Profiles = () => {
                     <Image fit="cover" src={img}/>
                 </Box>
                 <Box height="10%" pad={{top: "medium"}}>
-                    <Heading level={1}>{name}</Heading>
-                    <Heading level={2} size="small">{role}</Heading>
-                    <Heading level={3} size="small" margin={{"bottom": "medium"}} style={{fontWeight: '400'}}>{contact}</Heading>
+                    <Heading level={1}>{t(name)}</Heading>
+                    <Heading level={2} size="small">{t(role)}</Heading>
+                    <Heading level={3} size="small" margin={{"bottom": "medium"}} style={{fontWeight: '400'}}>{t(contact)}</Heading>
                 </Box>      
             </Fragment>
     return (
@@ -39,11 +39,11 @@ const Profiles = () => {
             />
             <TwoColLayout 
                 bgColor="lightGrey"
-                left={secondaryProfiles(veronique, "Veronique Lagarde", "Brand Strategist & Graphic Designer", "marketing@dakcoffeeroasters.com")}
-                right={secondaryProfiles(olivier, "Olivier Daigneault", "Regional Manager - Montreal/Canada", "wholesaleca@dakcoffeeroasters.com")}
+                left={secondaryProfiles(veronique, "intros.team.VL.name" , "intros.team.VL.title", "intros.team.VL.contact")}
+                right={secondaryProfiles(olivier, "intros.team.OD.name" , "intros.team.OD.title", "intros.team.OD.contact")}
             />
         </Fragment>
     );
 };
 
-export default Profiles;
+export default withTranslation()(Profiles);

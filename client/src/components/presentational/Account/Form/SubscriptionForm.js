@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { withTranslation } from 'react-i18next'
 import { Form, Field } from 'react-final-form';
 
 import { Condition, SelectAdapter } from '../../../utils/Forms/FormHelpers';
@@ -7,7 +8,7 @@ import { Box, Button } from "grommet";
 
 const required = value => (value ? undefined : "Please select all options");
 
-const SubscriptionForm = ({update, id, itemId, plan, number, quantity, roast, varieties}) => {
+const SubscriptionForm = ({update, id, itemId, plan, number, quantity, roast, varieties, t}) => {
     return (
         <Form
             onSubmit={values => update(id, itemId, values)}
@@ -56,7 +57,7 @@ const SubscriptionForm = ({update, id, itemId, plan, number, quantity, roast, va
                     </Condition>
                 </Fragment>
                 <Field label="Quantity" name="quantity" component={SelectAdapter} size="small" options={['500g', '1000g']} placeholder="How much?" validate={required}/>
-                <Button type="submit" disabled={submitting || invalid} primary fill="horizontal" label="Modify" color="mainDark" />
+                <Button type="submit" disabled={submitting || invalid} primary fill="horizontal" label={t("sections.subscriptions.account.button")} color="mainDark" />
                 </Box>
             </form>
             )}
@@ -64,4 +65,4 @@ const SubscriptionForm = ({update, id, itemId, plan, number, quantity, roast, va
     );
 };
 
-export default SubscriptionForm;
+export default withTranslation()(SubscriptionForm);

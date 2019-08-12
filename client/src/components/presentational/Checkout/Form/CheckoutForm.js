@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import { Elements } from 'react-stripe-elements';
 
 import LoginFormContainer from '../../../container/Account/LoginFormContainer';
@@ -10,12 +11,12 @@ import IconedExplanation from '../../../utils/IconedExplanation';
 import { Box } from "grommet";
 import { UserAdmin, Deliver, CreditCard } from "grommet-icons";
 
-const CheckoutForm = ({isUserLoggedIn, orderExists}) => {
+const CheckoutForm = ({isUserLoggedIn, orderExists, t}) => {
   return (
     <Box margin={{horizontal: 'large'}}>
       <IconedExplanation
         icon={<UserAdmin style={{margin: '0 20px'}}/>}
-        description={`${isUserLoggedIn ? "Already Logged In" : "Log In/Register to Continue"}`}
+        description={`${isUserLoggedIn ? t("sections.checkout.islogged") : t("sections.checkout.notlogged")}`}
         background={`${isUserLoggedIn ? "darkGrey" : "mainDark"}`}
         size="medium"
         spacing={{vertical: "small"}}
@@ -25,7 +26,7 @@ const CheckoutForm = ({isUserLoggedIn, orderExists}) => {
       {!isUserLoggedIn && <LoginFormContainer />}
       <IconedExplanation
         icon={<Deliver style={{margin: '0 20px'}}/>}
-        description={`${orderExists ? "Submitted" : "Shipping Address"}`}
+        description={`${orderExists ? t("sections.checkout.shippingsubmit") : t("sections.checkout.shipping")}`}
         background={`${orderExists ? "darkGrey" : "mainDark"}`}
         size="medium"
         spacing={{vertical: "small"}}
@@ -34,7 +35,7 @@ const CheckoutForm = ({isUserLoggedIn, orderExists}) => {
       {isUserLoggedIn && !orderExists && <OrderFormContainer loggedIn={isUserLoggedIn}/>}
       <IconedExplanation
         icon={<CreditCard style={{margin: '0 20px'}}/>}
-        description="Payment Method"
+        description={t("sections.checkout.payment")}
         background="mainDark"
         size="medium"
         spacing={{vertical: "small"}}
@@ -44,4 +45,4 @@ const CheckoutForm = ({isUserLoggedIn, orderExists}) => {
     </Box>
 )}
 
-export default CheckoutForm;
+export default withTranslation()(CheckoutForm);

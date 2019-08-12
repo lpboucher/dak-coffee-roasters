@@ -82,7 +82,7 @@ export const fetchUserOrders = (id) => async dispatch => {
 }
 
 export const login = ({ email, password }) => async dispatch => {
-    dispatch({ type: LOGIN_REQUEST, payload: "Loading your account..." });
+    dispatch({ type: LOGIN_REQUEST, payload: "loading.account" });
     try {
         const res = await axios.post(`http://localhost:5000/api/user/login`, { email, password } );
         console.log('logging user----------', res.data);

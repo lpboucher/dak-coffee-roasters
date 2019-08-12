@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 
 import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
@@ -6,14 +7,13 @@ import IntroSection from '../../utils/IntroSection';
 
 import thumb from '../../../assets/images/coffeeserver.jpg';
 
-const SubscriptionBanner = () => {
+const SubscriptionBanner = ({t}) => {
     const intro = 
         <IntroSection 
-            heading="Monthly Coffee Subscription" 
-            subHeading="From €15   |   Free Shipping   |   Commitment Free"
-            description={
-                `Have your coffee delivered to your doorstep every month by opting for one of our subscriptions. Choose between our classics or the roaster's choice.`}
-            btnLabel="Subscribe"
+            heading="intros.subscription.title" 
+            subHeading="intros.subscription.helper"
+            description="intros.subscription.short description"
+            btnLabel="intros.subscription.button"
             link="/subscriptions"
             isSmall={true}
         />
@@ -27,4 +27,4 @@ const SubscriptionBanner = () => {
     );
 };
 
-export default SubscriptionBanner;
+export default withTranslation()(SubscriptionBanner);

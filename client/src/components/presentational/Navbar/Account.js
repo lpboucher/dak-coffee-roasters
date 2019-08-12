@@ -1,29 +1,30 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
+import { withRouter, NavLink } from 'react-router-dom';
 
 import { User } from 'grommet-icons';
 import { Box, Menu } from 'grommet';
 
-const Account = withRouter(({loggedIn, logout, history}) => {
-    const subMenus = loggedIn ? [
-        { label: 'Account Settings', onClick: () => {history.push('/account')} },
-        { label: 'Log Out', onClick: () => {logout()} },
-    ] :
-    [
-        { label: 'Log In', onClick: () => {history.push('/account')} },
-    ]
+const Account = withRouter(({t, loggedIn, logout, history}) => {
+    const subMenus = [
+        { label: `${t("nav.account")}`, onClick: () => {history.push('/account')} },
+        { label: `${t("nav.log out")}`, onClick: () => {logout()} },
+    ];
     return (
         <Box direction="row" align="center">
-            <Menu
-                label="MY ACCOUNT"
-                items={subMenus}
-                icon={false}
-                size="xsmall"
-            />
-            <User />
+            {loggedIn ?
+                <Menu
+                    label={<User />}
+                    items={subMenus}
+                    icon={false}
+                    size="xsmall"
+                />
+                :
+                <NavLink to="/login"><User /></NavLink>
+            }
         </Box>
     );
 }
 )
 
-export default Account;
+export default withTranslation()(Account);

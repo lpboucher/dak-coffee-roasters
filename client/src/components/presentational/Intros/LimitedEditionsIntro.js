@@ -9,11 +9,11 @@ import limited from '../../../assets/images/Coffeefortwo.jpg';
 const LimitedEditionsIntro = () => {
     const intro = 
         <IntroSection 
-            heading="Our Limited Edition" 
-            subHeading="Coffee for Two"
-            helperText="Tasting note line"
-            description={`This month’s limited edition is from the region of Chalatenango in El Salvador. You can expect tasting notes of almond, caramel and cacao butter. We’ve roasted this single origin coffee as an omni-roast, equally delicious if brewed as an espresso or as a filter coffee. We have limited quantities!\n\nFarm: Finca El Caracol | Country: El Salvador\nRegion: Chalatenango | Process: Washed\nAltitude: 1700m | Variety: Pacamara`}
-            btnLabel="Buy Coffee"
+            heading="intros.limited edition.title"
+            subHeading="intros.limited edition.subtitle" 
+            helperText="intros.limited edition.helper"
+            description="intros.limited edition.description"
+            btnLabel="intros.limited edition.button"
             link="/shop"
         />
     return (

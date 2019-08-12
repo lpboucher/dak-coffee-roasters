@@ -1,10 +1,9 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 import { Box, Menu } from 'grommet';
-
-import { SUB_NAV } from '../../../constants/Navigation';
 
 const NavItem = styled(NavLink)`
     position: relative;
@@ -42,34 +41,44 @@ const NavItem = styled(NavLink)`
     }
 `
 
-const SubNavbar = ({loc}) => {
+const SubNavbar = ({loc, t}) => {
     return (
-        <Box 
-            gridArea={loc}
-            direction="row"
-            align="center"
-            justify="around"
-            margin={{'horizontal': '50px'}}
-        >
-            { SUB_NAV.map(nav => (
-                <Box 
-                    key={nav.menuText.replace(/\s+/g, '')}
-                    pad="xsmall"
-                >
-                    {nav.subs.length > 0 ?
-                        <Menu label={nav.menuText}
-                            dropBackground="mainWhite"
-                            icon={nav.type === "drop"}
-                            items={nav.subs ? nav.subs.map(sub => ({label: sub.label, as: NavItem, to: sub.link})) : ""}
-                            margin="none"
-                        />
-                        :
-                        <NavItem to={nav.link}>{nav.menuText}</NavItem>
-                    }
-                </Box>
-            ))}
+        <Box gridArea={loc} direction="row" align="center" justify="around" margin={{'horizontal': '50px'}}>
+            <Box pad="xsmall">
+                <NavItem to="/shop">{t("menu.shop")}</NavItem>
+            </Box>
+            <Box pad="xsmall">
+                <NavItem to="/subscriptions">{t("menu.subscriptions")}</NavItem>
+            </Box>
+            <Box pad="xsmall">
+                <Menu 
+                    label={t("menu.about.top")}
+                    dropBackground="mainWhite"
+                    margin="none"
+                    items={[
+                        {label: `${t("menu.about.coffee")}`, as: NavLink, to: "/our-coffee"},
+                        {label: `${t("menu.about.about")}`, as: NavLink, to: "/about"},
+                    ]}
+                />
+            </Box>
+            <Box pad="xsmall">
+                <NavItem to="/wholesale">{t("menu.wholesale")}</NavItem>
+            </Box>
+            <Box pad="xsmall">
+                <NavItem to="/contact">{t("menu.contact")}</NavItem>
+            </Box>
+            <Box pad="xsmall">
+                <Menu 
+                    label={t("menu.blog.top")}
+                    dropBackground="mainWhite"
+                    margin="none"
+                    items={[
+                        {label: `${t("menu.blog.guides")}`, as: NavLink, to: "/brew"},
+                    ]}
+                />
+            </Box>
         </Box>
     );
 };
 
-export default SubNavbar;
+export default withTranslation()(SubNavbar);

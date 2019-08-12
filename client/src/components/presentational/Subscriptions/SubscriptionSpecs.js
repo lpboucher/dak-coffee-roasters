@@ -11,22 +11,22 @@ const SubscriptionSpecs = () => {
             <Box width="33%" pad={{horizontal: "xlarge"}}>
                 <SubscriptionSpecsItem 
                     icon={<Deliver />}
-                    header="free shipping in EU & North America"
-                    desc="on all monthly subscriptions"
+                    header="sections.subscription.specs.shipping.title"
+                    desc="sections.subscription.specs.shipping.subtitle"
                 />
             </Box>
             <Box width="33%" pad={{horizontal: "xlarge"}}>
                 <SubscriptionSpecsItem 
                     icon={<Java />}
-                    header="choose your custom monthly subscription"
-                    desc="between our classics or the roaster's choice"
+                    header="sections.subscription.specs.choice.title"
+                    desc="sections.subscription.specs.choice.subtitle"
                 />
             </Box>
             <Box width="33%" pad={{horizontal: "xlarge"}}>
                 <SubscriptionSpecsItem 
                     icon={<Calendar />}
-                    header="commitment-free"
-                    desc="skip a month, cancel or change your subscription preferences at no extra cost"
+                    header="sections.subscription.specs.commitment.title"
+                    desc="sections.subscription.specs.commitment.subtitle"
                 />
             </Box>
         </Box>

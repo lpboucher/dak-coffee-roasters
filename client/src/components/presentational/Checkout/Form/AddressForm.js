@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import { Form, Field } from 'react-final-form';
 
 import { CheckboxAdapter } from '../../../utils/Forms/FormHelpers';
@@ -9,7 +10,7 @@ import AddressFields from './AddressFields';
 import { Text, Button } from "grommet";
 import { Home } from 'grommet-icons';
 
-const AddressForm = ({btnLabel, submit, userId, address}) => {
+const AddressForm = ({btnLabel, submit, userId, address, t}) => {
   return (
       <Form
       onSubmit={values => submit(userId, values)}
@@ -26,13 +27,13 @@ const AddressForm = ({btnLabel, submit, userId, address}) => {
           <AddressFields type="shipping.address" />
           <IconedExplanation
             icon={<Home />}
-            description="Billing Address"
+            description={t("sections.checkout.address.billing")}
             size="medium"
             spacing={{vertical: "small"}}
             vertical="center"
           />
           <Field
-                  label="Use shipping address for billing"
+                  label={t("sections.checkout.address.samebilling")}
                   name="billingIsShipping"
                   component={CheckboxAdapter}
                   type="checkbox"
@@ -51,4 +52,4 @@ const AddressForm = ({btnLabel, submit, userId, address}) => {
     />
 )}
 
-export default AddressForm;
+export default withTranslation()(AddressForm);
