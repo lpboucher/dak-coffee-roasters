@@ -1,16 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchCartItems, getAllCartItems, getCartTotal, getCartDiscount } from '../../../ducks/cart';
+import { getAllCartItems, getCartTotal, getCartDiscount } from '../../../ducks/cart';
 
 import Loader from '../../utils/Loader';
 
 import CheckoutSummary from '../../presentational/Checkout/CheckoutSummary';
 
 class CheckoutSummaryContainer extends Component {
-
-    componentDidMount() {
-        this.props.fetchCart();
-    }
 
     renderCheckout() {
         const { cartItems, total, discount } = this.props;
@@ -36,10 +32,4 @@ function mapStateToProps(state) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        fetchCart: () => dispatch(fetchCartItems()),
-    };
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(CheckoutSummaryContainer);
+export default connect(mapStateToProps,null)(CheckoutSummaryContainer);

@@ -5,11 +5,6 @@ import { fetchCartItems, getAllCartItems, getCartTotal, getCartDiscount, removeI
 import Cart from '../../presentational/Cart/Cart';
 
 class CartContainer extends Component {
-
-    componentDidMount() {
-        this.props.fetchCart();
-    }
-
     render() {
         const { cartItems, removeItem, updateItem, applyPromo, total, discount } = this.props;
         return (

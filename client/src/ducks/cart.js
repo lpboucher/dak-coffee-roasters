@@ -141,6 +141,8 @@ export default combineReducers({
 //Selectors
 export const getCartItem = (state, id) => state.cart.byId[id];
 
+export const getCartItems = (state) => state.cart.allIds;
+
 export const getAllCartItems = (state) => state.cart.allIds.reduce((result, id) => [...result, ...getCartItem(state, id)['type'] === "cart_item" ? [getCartItem(state, id)] : []], []);
 
 export const getAllCartMeta = (state) => state.cart.meta;

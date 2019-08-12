@@ -8,12 +8,6 @@ import SingleProduct from '../../presentational/Products/SingleProduct';
 import Loader from '../../utils/Loader';
 
 class ProductDetailsContainer extends Component {
-    componentDidMount() {
-        const { products } = this.props;
-        if(products.length < 1) {
-            this.props.fetchProducts();
-        }
-    };
 
     renderProduct() {
     const { product } = this.props;
