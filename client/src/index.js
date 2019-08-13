@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import ScrollToTop from './components/utils/Routes/ScrollToTop';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -41,11 +42,13 @@ const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(redu
 ReactDOM.render(
 <Provider store={store}>
     <Router>
-        <I18nextProvider i18n={i18n}>
-            <StripeProvider apiKey="pk_test_hN24eKK8d78KlAVlKAcll8eu">
-                <App />
-            </StripeProvider>
-        </I18nextProvider>
+        <ScrollToTop>
+            <I18nextProvider i18n={i18n}>
+                <StripeProvider apiKey="pk_test_hN24eKK8d78KlAVlKAcll8eu">
+                    <App />
+                </StripeProvider>
+            </I18nextProvider>
+        </ScrollToTop>
     </Router>
 </Provider>
 , document.getElementById('root'));
