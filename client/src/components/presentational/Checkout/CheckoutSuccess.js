@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 import Hero from '../../presentational/Hero/Hero';
 
-import header from '../../../assets/images/Header_Thankyou.jpg';
+const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565717615/Heros/Header_Thankyou_klmslc.jpg';
 
 const CheckoutSuccess = () => {
     return (

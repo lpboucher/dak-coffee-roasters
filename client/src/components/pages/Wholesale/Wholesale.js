@@ -5,7 +5,7 @@ import WholesaleIntro from '../../presentational/Intros/WholesaleIntro';
 import PrivateLabelIntro from '../../presentational/Intros/PrivateLabelIntro';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 
-import header from '../../../assets/images/Header_Wholesale.jpg';
+const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565717621/Heros/Header_Wholesale_wtchcg.jpg';
 
 const Wholesale = () => {
     return (

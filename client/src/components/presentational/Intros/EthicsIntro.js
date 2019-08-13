@@ -4,7 +4,7 @@ import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
 import IntroSection from '../../utils/IntroSection';
 
-import ethics from '../../../assets/images/EthicallySourced.jpg'
+const ethics = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565720115/Intros/EthicallySourced_k3xky7.jpg';
 
 const EthicsIntro = () => {
     const intro = 

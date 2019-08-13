@@ -4,7 +4,7 @@ import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
 import IntroSection from '../../utils/IntroSection';
 
-import limited from '../../../assets/images/Coffeefortwo.jpg';
+const limited = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565720114/Intros/Coffeefortwo_xcyfkk.jpg';
 
 const LimitedEditionsIntro = () => {
     const intro = 

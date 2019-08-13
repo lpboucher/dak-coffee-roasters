@@ -4,7 +4,7 @@ import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
 import IntroSection from '../../utils/IntroSection';
 
-import privatelabel from '../../../assets/images/Privatelabel.jpg';
+const privatelabel = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565720115/Intros/Privatelabel_bh1cd6.jpg';
 
 const PrivateLabelIntro = () => {
     const intro = 

@@ -9,7 +9,7 @@ import AddressContainer from '../../container/Account/AccountAddressContainer';
 
 import { Tabs, Tab, Box } from 'grommet';
 
-import header from '../../../assets/images/Header_loggedin.jpg';
+const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565717620/Heros/Header_loggedin_siykvs.jpg';
 
 const Account = ({t}) => {
     return (

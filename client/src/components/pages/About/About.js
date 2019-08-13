@@ -4,7 +4,7 @@ import Hero from '../../presentational/Hero/Hero';
 import Profiles from '../../presentational/About/Profiles';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 
-import header from '../../../assets/images/Header_Aboutus.jpg';
+const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565717609/Heros/Header_Aboutus_qwdlkf.jpg';
 
 const About = () => {
     return (

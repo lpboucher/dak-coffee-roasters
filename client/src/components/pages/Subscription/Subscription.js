@@ -7,7 +7,7 @@ import SubscriptionContainer from '../../container/Subscriptions/SubscriptionsCo
 import CategoryRowContainer from '../../container/Products/CategoryRowContainer';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 
-import header from '../../../assets/images/Header_Mainpage.jpg';
+const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565717616/Heros/Header_Mainpage_kpdf6t.jpg'
 
 const Subscription = () => {
     return (
