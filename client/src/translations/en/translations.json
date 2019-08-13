@@ -29,7 +29,8 @@
         "coffee": "We are committed to offering you the best quality coffee, while reducing our footprint. After all, we only have one planet.",
         "team": "It's good because we care and pay great attention to every step from farm to roast to brew.",
         "wholesale": "We partner with people who share our uncompromised, passion-driven approach to coffee.",
-        "contact": "Collaboration is key. Whether big or small, we engage in passion-driven partnerships."
+        "contact": "Collaboration is key. Whether big or small, we engage in passion-driven partnerships.",
+        "account": "Welcome to your account."
     },
     "intros": {
         "subscription": {
@@ -199,6 +200,9 @@
                 "orders": "view orders",
                 "address": "address",
                 "payment": "payment methods"
+            },
+            "subscriptions": {
+                "button": "Modify"
             },
             "orders": {
                 "heading": {

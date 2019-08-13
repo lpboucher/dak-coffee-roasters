@@ -57,7 +57,7 @@ const SubscriptionForm = ({update, id, itemId, plan, number, quantity, roast, va
                     </Condition>
                 </Fragment>
                 <Field label="Quantity" name="quantity" component={SelectAdapter} size="small" options={['500g', '1000g']} placeholder="How much?" validate={required}/>
-                <Button type="submit" disabled={submitting || invalid} primary fill="horizontal" label={t("sections.subscriptions.account.button")} color="mainDark" />
+                <Button type="submit" disabled={submitting || invalid} primary fill="horizontal" label={t("sections.account.subscriptions.button")} color="mainDark" />
                 </Box>
             </form>
             )}
