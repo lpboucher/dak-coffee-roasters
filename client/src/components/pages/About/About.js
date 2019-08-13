@@ -13,10 +13,11 @@ const About = () => {
             bgImage={header}
             overlay={{
                 text: "hero.team",
-                loc: "top-left",
+                loc: "left",
                 height: "50vh",
                 width: "50vw",
-                withOpacity: false
+                withOpacity: false,
+                justify: "start"
             }}
         />
         <Profiles />

@@ -15,10 +15,11 @@ const Coffee = () => {
             bgImage={header}
             overlay={{
                 text: "hero.coffee",
-                loc: "top-right",
+                loc: "right",
                 height: "50vh",
                 width: "50vw",
-                withOpacity: false
+                withOpacity: false,
+                justify: "start"
             }}
         />
         <EthicsIntro />
