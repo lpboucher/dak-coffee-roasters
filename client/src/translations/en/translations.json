@@ -214,6 +214,102 @@
                     "tracking": "tracking"
                 }
             }
+        },
+        "faq": {
+            "title": "frequently asked questions",
+            "categories": {
+                "company": {
+                    "title": "the company",
+                    "company-location": {
+                        "question": "Where is the company based and where do you roast your coffee?",
+                        "answer": "Dak Coffee Roasters is based in Amsterdam in The Netherlands. We currently roast our coffee at Amsterdam Roasters in Noord, the first coffee collective in The Netherlands. We also work with partners in Montreal, Canada to optimize the shipping process so we can offer free shipping for coffee subscriptions in North America. Our sales representative Olivier Daigneault is based in Montreal and is available for coffee tastings and distribution."
+                    }
+                },
+                "shop": {
+                    "title": "web shop",
+                    "payment": {
+                        "question": "What forms of payment do you accept?",
+                        "answer": "We accept any recognized international credit card including Mastercard, Visa, American Express, Discover, etc."
+                    },
+                    "order-change": {
+                        "question": "Can I cancel or make changes to my order?",
+                        "answer": "Yes, in your account settings you have the option to pause, cancel or modify your subscription at any time. As for regular orders, please refer to the return policy to return the item and place a new order."
+                    },
+                    "return-policy": {
+                        "question": "What is your return policy?",
+                        "answer": "Due to the perishable nature of coffee, we cannot accept returns on coffee. For other products (equipment, merchandise) bought on our webshop, you can send it back 7 days after you have received it in perfect condition and unused."
+                    },
+                    "shipping": {
+                        "question": "How much is shipping and where do you ship to?",
+                        "answer": "For monthly subscriptions or orders over 70 euros, we are happy to offer complimentary shipping to Europe and North America. For all other orders, shipping is charged depending on the destination and weight."
+                    },
+                    "order-time": {
+                        "question": "When can I expect to receive my order?",
+                        "answer": "Orders are shipped the working day following your order. You can expect to receive it within 1-3 days in Europe and within 3-4 days in North America."
+                    }
+                },
+                "subscription": {
+                    "title": "coffee subscription",
+                    "order-time": {
+                        "question": "When will I receive my order?",
+                        "answer": "Subscription orders are sent once a month on the 15th of every month. You can expect to receive your orders a few days after the 15th of every month."
+                    },
+                    "payment-time": {
+                        "question": "When will I be charged?",
+                        "answer": "The starting date of your subscription is set at the date of your order. You will get charged every month on the same day you made the order."
+                    },
+                    "subscription-pause": {
+                        "question": "Can I pause my subscription?",
+                        "answer": "Yes. In your account details, you can find an option to manage your subscriptions where you will see an option to pause the subscription. You can also send an e-mail to info@dakcoffeeroasters.com with your changes."
+                    },
+                    "subscription-cancel": {
+                        "question": "Can I cancel my subscription?",
+                        "answer": "Yes. In your account details, you can find an option to manage your subscriptions where you will see an option to cancel the subscription. You can also send an e-mail to info@dakcoffeeroasters.com with your changes."
+                    },
+                    "subscription-weight": {
+                        "question": "Can I change the amount of kg’s in my subscription?",
+                        "answer": "Yes. In your account details, you can find an option to manage your subscription details where you can modify the options of your subscription. You can also send an e-mail to info@dakcoffeeroasters.com with your changes."
+                    },
+                    "subscription-type": {
+                        "question": "Can I change the type of my subscription?",
+                        "answer": "Yes. In your account details, you can find an option to manage your subscription details where you can modify the options of your subscription. You can also send an e-mail to info@dakcoffeeroasters.com with your changes."
+                    },
+                    "coffee-variety": {
+                        "question": "Will I have the same coffee every month?",
+                        "answer": "It depends on the subscription you have selected. If you opt for the roaster’s choice, you will receive a different selection of coffees every month. If you opt for the classics, it is possible that you receive the same coffee a few months in a row. The coffee you receive will depend on our inventory."
+                    }
+                },
+                "packaging": {
+                    "title": "coffee & packaging",
+                    "coffee-grinded": {
+                        "question": "Why don’t you sell grounded coffee?",
+                        "answer": "Specialty coffee boasts much more diverse flavor profiles than “grocery store” coffee. These flavors become stale 30 minutes after being ground, therefore, it would not be possible to fully enjoy our product if we were to send grounded coffee. You can read about the importance of grinding coffee before extracting it or brewing it here."
+                    },
+                    "coffee-origin": {
+                        "question": "Where does your coffee come from?",
+                        "answer": "Our coffee comes from various regions and countries where coffee is grown such as Central & South America, Africa and Asia. Our coffee portfolio changes on a seasonal basis depending on the different harvests and climates to offer you the best quality. We only partner with green coffee importers based in The Netherlands that share our values, work with exclusive lots and do extensive background research on the farms."
+                    },
+                    "roast-expiry": {
+                        "question": "How long will my roasted coffee last?",
+                        "answer": "Roasted coffee begins to lose its flavor 3 months after the roast date. It is best to consume the coffee within those 3 months, but it can also be extended to 6months, albeit with some flavor loss."
+                    },
+                    "coffee-fresh": {
+                        "question": "How can I keep my coffee as fresh as possible?",
+                        "answer": "Our coffee bags were carefully selected to maximize freshness of coffee. To further ensure freshness, the bags/beans should be kept away from direct sunlight and should be subject to large swings in humidity/temperature."
+                    },
+                    "coffee-brew": {
+                        "question": "How should I brew my coffee?",
+                        "answer": "However you like! There are endless ways to brew coffee so it really depends on your taste. We are working on developing brew guides that we suggest for our coffees. Stay tuned!"
+                    }
+                },
+                "environment": {
+                    "title": "the environment",
+                    "actions": {
+                        "question": "What are the actions you take for the environment?",
+                        "answer": "Our coffee – as coffee is an international product grown in tropical areas, we unfortunately can’t grow coffee locally in The Netherlands. However, we partner with local coffee importers (90% of the coffee arriving in Europe lands in The Netherlands or in Germany, reducing transport emissions between importers and our storage) We are ready to pay a premium price for our green coffee beans to make sure everyone in the supply chain gets their fair shares and our customers get the best quality. We are hoping to open direct trade relationships with farmers in 2020 by visiting the farms ourselves, assessing their conditions and developing exclusive partnerships. It is also in our short-term plan to give back to the coffee community and invest in projects that can improve living conditions for the farmers. Packaging – Our coffee bags are 100% recyclable, CO2 Neutral and aluminum-free. We are proud to partner with a supplier that invests in CO2-reducing projects in coffee growing countries, so the greenhouse gas emissions needed to produce coffee bags can be compensated by reducing emissions elsewhere. Our shipping boxes are also 100% recyclable and made of recyclable materials and water-based ink making them environmentally friendly. Our goal is to continuously improve our processes in order to reduce our footprint. After all, we only have one planet. Operations – We are part of a coffee collective in Amsterdam. This collective consists of roasters, importers, baristas, etc. sharing a warehouse, roastery and work environment. The result is a better utilization of assets (roasters, warehouse space, etc.) and lower emissions (as compared to all participants having their own office)"
+                    }
+                }
+            }
         }
     },
     "newsletter": {

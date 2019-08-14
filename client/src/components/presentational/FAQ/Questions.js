@@ -8,7 +8,7 @@ import { Heading, Box, Tabs, Tab } from 'grommet';
 const Questions = ({t}) => {
     const catStr = "sections.faq.categories";
     return(
-        <Box pad={{horizontal: 'xlarge', top: '200px'}}>
+        <Box pad={{horizontal: 'xlarge', top: '200px', bottom: 'large'}}>
             <Heading level={1}>{t("sections.faq.title")}</Heading>
             <Tabs justify="start">
                 <Tab title={t(`${catStr}.company.title`)}>
