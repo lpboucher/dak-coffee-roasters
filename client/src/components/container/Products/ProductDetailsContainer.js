@@ -9,6 +9,11 @@ import Loader from '../../utils/Loader';
 
 class ProductDetailsContainer extends Component {
 
+    componentDidMount() {
+        const { product } = this.props;
+        if(product && Object.keys(product).length > 0) { new Image().src = product.thumb.link.href };
+    }
+
     renderProduct() {
     const { product } = this.props;
     if(product && Object.keys(product).length > 0) {return <SingleProduct product={product}/>};
