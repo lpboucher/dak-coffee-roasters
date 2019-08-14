@@ -14,6 +14,7 @@ import WholesalePage from './components/pages/Wholesale/Wholesale';
 import ContactPage from './components/pages/Contact/Contact';
 import BlogPage from './components/pages/Blog/Blog';
 import CartPage from './components/pages/Cart/Cart';
+import FAQPage from './components/pages/FAQ/FAQ';
 import ProductPage from './components/pages/Product/ProductPage';
 import CheckoutPage from './components/pages/Checkout/Checkout';
 import AccountPage from './components/pages/Account/Account';
@@ -39,6 +40,7 @@ class App extends Component {
             <Route path="/contact" component={ContactPage} />
             <Route path="/blog" component={BlogPage} />
             <Route path="/cart" component={CartPage} />
+            <Route path="/faq" component={FAQPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
             <Route path="/shop/:slug" component={ProductPage} />
             <Route path="/shop" component={ShopPage} />
