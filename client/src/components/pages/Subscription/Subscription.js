@@ -7,7 +7,7 @@ import SubscriptionContainer from '../../container/Subscriptions/SubscriptionsCo
 import CategoryRowContainer from '../../container/Products/CategoryRowContainer';
 import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
 
-const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565717616/Heros/Header_Mainpage_kpdf6t.jpg'
+const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565896285/Heros/SubscriptionHeader_ikwigv.jpg'
 
 const Subscription = () => {
     return (
@@ -17,7 +17,7 @@ const Subscription = () => {
             overlay={{
                 text: "hero.subscription",
                 loc: "bottom-left",
-                withOpacity: true
+                height: "50vh"
             }}
         />
         <SubscriptionExplain />

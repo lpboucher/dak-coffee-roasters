@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 
 import ProductCardInfo from './ProductCardInfo';
+import { ReactComponent as SoldOut} from '../../../assets/icons/soldout.svg';
 
 import { Box, Image, Stack, Text } from 'grommet';
 
@@ -16,6 +17,7 @@ const WithHover = styled(Box)`
 `
 const OutOfStock = styled(Stack)`
     position: absolute;
+    cursor: default;
 `
 
 const ProductCard = withRouter(({product, thumb, addToCart, history}) => {
@@ -25,7 +27,9 @@ const ProductCard = withRouter(({product, thumb, addToCart, history}) => {
                 <Image fit="contain" src={`${thumb.link? thumb.link.href : ""}`}/>
                 {product.manage_stock && product.meta.stock.level < 1 &&
                     <OutOfStock fill>
-                        <Text>Sold Out</Text>
+                        <Box align="start" pad="small">
+                            <SoldOut height="48px" />
+                        </Box>
                     </OutOfStock>
                 }
             </WithHover>

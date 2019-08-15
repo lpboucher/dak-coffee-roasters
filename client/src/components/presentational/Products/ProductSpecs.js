@@ -3,7 +3,6 @@ import React, { Fragment } from 'react';
 import IconedExplanation from '../../utils/IconedExplanation';
 
 import { Grid } from 'grommet';
-import { Grow } from 'grommet-icons';
 import { ReactComponent as Leaf} from '../../../assets/icons/noun_Coffee Leaf_1888198.svg';
 import { ReactComponent as Bean} from '../../../assets/icons/noun_Coffee Bean_2443900.svg';
 import { ReactComponent as Steam} from '../../../assets/icons/noun_Steam_795410.svg';
@@ -23,7 +22,7 @@ const ProductSpecs = ({recommendation, process, region, country, tasting_notes})
             <Grid columns="50%" rows="50%">
             <IconedExplanation 
                 icon={<Bean height="36px" />}
-                description={`${process}, ${region}, ${country}`}
+                description={`${process}`}
                 spacing={{vertical: 'small'}}
                 margin="none"
                 size={"small"}

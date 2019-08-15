@@ -176,8 +176,13 @@ export const DakTheme = {
         }
       },
       tab: {
+        active: {
+          color: "darkHighlight"
+        },
+        color: "black",
         margin: {
-          left: "none"
+          left: "none",
+          right: "24px"
         },
         pad: {
           bottom: '3px'
@@ -192,13 +197,13 @@ export const DakTheme = {
           "active": {
             "color": {
               "dark": "white",
-              "light": "black"
+              "light": "darkHighlight"
             }
           },
           "hover": {
             "color": {
-              "dark": "darkHighlight",
-              "light": "darkHighlight"
+              "dark": "black",
+              "light": "black"
             }
           }
         }

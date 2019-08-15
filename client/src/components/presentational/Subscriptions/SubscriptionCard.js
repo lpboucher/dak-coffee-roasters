@@ -12,10 +12,10 @@ const SubscriptionCard = ({addToCart, product, thumb}) => {
                             .map(spec => spec.data);
     return (
         <Fragment>
-            <Box height="400px" width="100%" background="lightGrey" >
+            {/*<Box height="400px" width="100%" background="lightGrey" >
                 {//<Image fit="contain" src={`${thumb.link? thumb.link.href : ""}`}/>
                 }
-            </Box>
+            </Box>*/}
             <Box pad="large" flex="grow" justify="evenly" >
                 <Heading level="1" margin={{vertical: 'small'}}>{product.name}</Heading>
                 <Text size="small">{product.description}</Text>

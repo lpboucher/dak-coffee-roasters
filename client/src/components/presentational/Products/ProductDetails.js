@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { withTranslation } from 'react-i18next';
 import { Form, Field } from 'react-final-form';
 
 import ProductSpecs from './ProductSpecs';
@@ -6,13 +7,13 @@ import { SelectAdapter } from '../../utils/Forms/FormHelpers';
 
 import { Heading, Text, Button, Box, Tabs, Tab } from 'grommet';
 
-const ProductDetails = ({id, name, region, country, roast, description, product_type, details, price, addToCart, ...rest}) => {
+const ProductDetails = ({id, name, region, country, roast, description, product_type, details, price, addToCart, t, ...rest}) => {
     const onSubmit = values => {
         console.log(values);
     }
     return (
         <Fragment>
-            <Heading level={1}>{name}</Heading>
+            <Heading level={1}>{t(`products:${rest.slug}.name`)}</Heading>
             {product_type === 'coffee' &&
             <Heading level={3} margin={{"bottom": "small"}} size="small">{`${region}, ${country} | ${roast} Beans`}</Heading>
             }
@@ -59,4 +60,4 @@ const ProductDetails = ({id, name, region, country, roast, description, product_
     );
 };
 
-export default ProductDetails;
+export default withTranslation()(ProductDetails);
