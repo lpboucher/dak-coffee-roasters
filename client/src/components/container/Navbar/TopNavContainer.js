@@ -7,6 +7,7 @@ import { getLoggedStatus, logout } from '../../../ducks/user';
 import Account from '../../presentational/Navbar/Account';
 import CartCounter from '../../presentational/Navbar/CartCounter';
 import LanguageSelector from '../../presentational/Navbar/LanguageSelector';
+import CurrencySelector from '../../presentational/Navbar/CurrencySelector';
 
 class TopNavContainer extends Component {
     cartRef = createRef();
@@ -27,7 +28,7 @@ class TopNavContainer extends Component {
                     open={openCart}
                     close={closeCart}
                     cartRef={this.cartRef}/>
-                <p>EUR</p>
+                <CurrencySelector />
                 <LanguageSelector />
             </Fragment>
         );
