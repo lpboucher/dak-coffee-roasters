@@ -9,33 +9,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import * as serviceWorker from './serviceWorker';
 import {StripeProvider} from 'react-stripe-elements';
 import { I18nextProvider } from "react-i18next";
-import i18n from "i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
 
-import dak_en from './translations/en/translations.json';
-import dak_fr from './translations/fr/translations.json';
-import dak_nl from './translations/nl/translations.json';
+import i18n from './i18n';
 
 import reducers from './reducers';
 import App from './App';
-
-i18n.use(LanguageDetector).init({
-    interpolation: { escapeValue: false },
-    ns: ["dak"],
-    defaultNS: "dak",
-    fallbackLng: "en",
-    resources: {
-        en: {
-            dak: dak_en
-        },
-        fr: {
-            dak: dak_fr
-        },
-        nl: {
-            dak: dak_nl
-        },
-    },
-});
 
 const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(reduxThunk)));
 
