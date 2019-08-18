@@ -2,7 +2,7 @@ import React from 'react';
 
 import ProductDetailsContainer from '../../container/Products/ProductDetailsContainer';
 import CategoryRowContainer from '../../container/Products/CategoryRowContainer';
-import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
+import NewsletterContainer from '../../container/Newsletter/NewsletterContainer';
 
 const ProductPage = ({ match }) => {
     const { slug } = match.params
@@ -10,7 +10,7 @@ const ProductPage = ({ match }) => {
     <>
         <ProductDetailsContainer id={slug}/>
         <CategoryRowContainer name="You may also like" category='coffee-equipment'/>
-        <NewsletterSignUp />
+        <NewsletterContainer />
     </>
     );
 };

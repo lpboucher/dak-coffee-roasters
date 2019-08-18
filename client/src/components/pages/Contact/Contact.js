@@ -2,7 +2,7 @@ import React from 'react';
 
 import Hero from '../../presentational/Hero/Hero';
 import ContactInfo from '../../presentational/Contact/ContactInfo';
-import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
+import NewsletterContainer from '../../container/Newsletter/NewsletterContainer';
 
 const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565717615/Heros/Header_Contactus_maq12p.jpg';
 
@@ -20,7 +20,7 @@ const Contact = () => {
             }}
         />
         <ContactInfo />
-        <NewsletterSignUp /> 
+        <NewsletterContainer /> 
     </>
     );
 };

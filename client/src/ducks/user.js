@@ -21,6 +21,8 @@ export const LOGOUT_SUCCESS = 'user/logout_success';
 export const ORDERS_REQUEST = 'user/orders_request';
 export const ORDERS_SUCCESS = 'user/orders_success';
 export const ORDERS_FAILURE = 'user/orders_failure';
+export const NEWSLETTER_REQUEST = 'user/newsletter_request';
+export const NEWSLETTER_SUCCESS = 'user/newsletter_sucess';
 
 //Action Creators
 export const fetchUser = (id, stripeId = null) => async dispatch => {
@@ -114,6 +116,22 @@ export const register = ({ name, email, password }) => async dispatch => {
         } else {
             dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         }
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+export const addToNewsletter = (name, email, language) => async dispatch => {
+    dispatch({ type: NEWSLETTER_REQUEST, payload: "Adding to mailing list..." });
+    try {
+        const res = await axios.post(`http://localhost:5000/api/newsletter/add`, { name, email, language } );
+        console.log('added to newsletter----------', res.data);
+
+        /*if (res.data.error) {
+            dispatch({ type: REGISTER_FAILURE, payload: res.data.error})
+        } else {
+            dispatch({ type: REGISTER_SUCCESS, payload: res.data });
+        }*/
     } catch(err) {
         console.log(err)
     }

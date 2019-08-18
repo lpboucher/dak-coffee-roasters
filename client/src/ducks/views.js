@@ -21,7 +21,8 @@ import {
     REGISTER_SUCCESS,
     UPDATE_REQUEST,
     UPDATE_SUCCESS,
-    FETCH_SUCCESS
+    FETCH_SUCCESS,
+    NEWSLETTER_REQUEST
 } from './user';
 
 import {
@@ -37,6 +38,9 @@ import {
 
 export const OPEN_CART = 'views/open_cart';
 export const CLOSE_CART = 'views/close_cart';
+const APPLY_MINI_HEADER = 'views/apply_mini_header';
+const REMOVE_MINI_HEADER = 'views/remove_mini_header';
+const SCROLL_HEIGHT = 'views/scroll_height'
 
 
 //Action Creators
@@ -48,6 +52,16 @@ export const closeCartToolTip = () => dispatch => {
     dispatch({type: CLOSE_CART})
 }
 
+export const handleScroll = () => (dispatch, getState) => {
+    const pos = getState()['views']['scrollPos']
+    if (window.pageYOffset > pos && window.pageYOffset > 100) {
+        dispatch({type: APPLY_MINI_HEADER})
+    } else if (window.pageYOffset < pos) {
+        dispatch({type: REMOVE_MINI_HEADER})
+    }
+    dispatch({type: SCROLL_HEIGHT, payload: window.pageYOffset})
+}
+
 
 //Reducer
 const initialState = {
@@ -55,7 +69,9 @@ isCartOpen: false,
 isLoading: false,
 isProcessing: false,
 processingText: "",
-error: ""
+error: "",
+miniHeader: false,
+scrollPos: 0
 };
 
 export default function reducer(state = initialState, action) {
@@ -72,6 +88,7 @@ switch(action.type) {
     case FETCH_CART_REQUEST:
     case ORDER_FINALIZE_REQUEST:
     case UPDATE_REQUEST:
+    case NEWSLETTER_REQUEST:
         return { ...state,
             isProcessing: true,
             processingText: action.payload,
@@ -101,6 +118,21 @@ switch(action.type) {
                 isProcessing: false,
                 error: action.payload,
                 processingText: "" };
+    case APPLY_MINI_HEADER:
+            return {
+                ...state,
+                miniHeader: true
+            }
+    case REMOVE_MINI_HEADER:
+            return {
+                ...state,
+                miniHeader: false
+            }
+    case SCROLL_HEIGHT:
+            return {
+                ...state,
+                scrollPos: action.payload
+            }
     default:
         return state;
 }
@@ -110,6 +142,8 @@ switch(action.type) {
 export const isCartOpen = (state) => state.views.isCartOpen;
 
 export const isProcessing = (state) => state.views.isProcessing;
+
+export const isMiniHeader = (state) => state.views.miniHeader;
 
 export const getProcessingText = (state) => state.views.processingText;
 

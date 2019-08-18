@@ -5,7 +5,7 @@ import SubscriptionExplain from '../../presentational/Subscriptions/Subscription
 import SubscriptionSpecs from '../../presentational/Subscriptions/SubscriptionSpecs';
 import SubscriptionContainer from '../../container/Subscriptions/SubscriptionsContainer';
 import CategoryRowContainer from '../../container/Products/CategoryRowContainer';
-import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
+import NewsletterContainer from '../../container/Newsletter/NewsletterContainer';
 
 const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565896285/Heros/SubscriptionHeader_ikwigv.jpg'
 
@@ -24,7 +24,7 @@ const Subscription = () => {
         <SubscriptionSpecs />
         <SubscriptionContainer collection='coffee-subscriptions'/>
         <CategoryRowContainer name="You may also like" category='coffee-equipment'/>
-        <NewsletterSignUp />
+        <NewsletterContainer />
     </>
     );
 };

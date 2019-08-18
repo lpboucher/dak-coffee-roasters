@@ -4,7 +4,7 @@ import Hero from '../../presentational/Hero/Hero';
 import EthicsIntro from '../../presentational/Intros/EthicsIntro';
 import CoffeeIntro from '../../presentational/Intros/CoffeeIntro';
 import PackagingIntro from '../../presentational/Intros/PackagingIntro';
-import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
+import NewsletterContainer from '../../container/Newsletter/NewsletterContainer';
 
 const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565717617/Heros/Header_Ourcoffee_jzxkoe.jpg';
 
@@ -25,7 +25,7 @@ const Coffee = () => {
         <EthicsIntro />
         <CoffeeIntro />
         <PackagingIntro />
-        <NewsletterSignUp />
+        <NewsletterContainer />
     </>
     );
 };

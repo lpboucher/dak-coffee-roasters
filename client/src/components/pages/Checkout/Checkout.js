@@ -1,13 +1,13 @@
 import React from 'react';
 
 import Checkout from '../../presentational/Checkout/Checkout';
-import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
+import NewsletterContainer from '../../container/Newsletter/NewsletterContainer';
 
 const CheckoutPage = () => {
     return (
     <>
         <Checkout />
-        <NewsletterSignUp />
+        <NewsletterContainer />
     </>
     );
 };

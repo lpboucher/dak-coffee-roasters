@@ -6,15 +6,15 @@ import { TextInputAdapter } from '../../utils/Forms/FormHelpers';
 
 import { Box, Text, Anchor, Button } from 'grommet';
 
-const NewsletterSignUp = ({t}) => {
-    const signUp = (values) => {
-        console.log("Submit: ", values);
+const NewsletterSignUp = ({add, t, i18n}) => {
+    const addToNewsletter = (values) => {
+        add(values.name, values.email, i18n.language);
       }  
     return ( 
         <Box pad="large" background="mainDark">
             <Text textAlign="center">{t("newsletter.description")}</Text>
                 <Form
-                    onSubmit={signUp}
+                    onSubmit={addToNewsletter}
                     render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
                     <form onSubmit={handleSubmit}>
                         <Box direction="row" justify="around">

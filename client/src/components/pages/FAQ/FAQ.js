@@ -1,13 +1,13 @@
 import React from 'react';
 
 import Questions from '../../presentational/FAQ/Questions';
-import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
+import NewsletterContainer from '../../container/Newsletter/NewsletterContainer';
 
 const FAQ = () => {
     return (
         <>
             <Questions />
-            <NewsletterSignUp />
+            <NewsletterContainer />
         </>
     );
 };

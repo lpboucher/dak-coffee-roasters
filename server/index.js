@@ -16,6 +16,7 @@ const cartRouter = require('./routes/cart');
 const checkoutRouter = require('./routes/checkout');
 const paymentRouter = require('./routes/payments');
 const shippingRouter = require('./routes/shipping');
+const newsletterRouter = require('./routes/newsletter');
 const webhooksRouter = require('./routes/webhooks');
 
 const app = express();
@@ -42,7 +43,8 @@ app.use('/api/cart', cartRouter);
 app.use('/api/checkout', checkoutRouter);
 app.use('/api/payments', paymentRouter);
 app.use('/api/shipping', shippingRouter);
-app.use('/webhooks', webhooksRouter)
+app.use('/api/newsletter', newsletterRouter);
+app.use('/webhooks', webhooksRouter);
 
 const PORT = 5000;
 

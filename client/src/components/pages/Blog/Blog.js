@@ -2,7 +2,7 @@ import React from 'react';
 
 import Hero from '../../presentational/Hero/Hero';
 import Article from '../Blog/Article';
-import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
+import NewsletterContainer from '../../container/Newsletter/NewsletterContainer';
 
 import header from '../../../assets/images/nathan-dumlao-fiOBVNPokGY-unsplash.jpg';
 
@@ -19,7 +19,7 @@ const Blog = () => {
                 }}
             />
             <Article />
-            <NewsletterSignUp /> 
+            <NewsletterContainer /> 
         </>
     );
 };
