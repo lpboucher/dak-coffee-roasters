@@ -5,7 +5,7 @@ import { getCartItems, fetchCartItems } from '../../ducks/cart';
 import { isProcessing, getProcessingText } from '../../ducks/views';
 
 import FullLoader from '../utils/FullLoader';
-import Navbar from '../presentational/Navbar/Navbar';
+import NavContainer from '../container/Navbar/NavContainer';
 import Footer from '../presentational/Footer/Footer';
 
 class PageLayout extends Component {
@@ -22,7 +22,7 @@ class PageLayout extends Component {
                 {processing.isProcessing &&
                     <FullLoader text={processing.processingText}/>
                 }
-                <Navbar />
+                <NavContainer />
                 {children}
                 <Footer />
             </Fragment>

@@ -4,10 +4,7 @@ import { isCartOpen, openCartToolTip, closeCartToolTip } from '../../../ducks/vi
 import { fetchCartItems, getAllCartItems, getNumberInCart } from '../../../ducks/cart';
 import { getLoggedStatus, logout } from '../../../ducks/user';
 
-import Account from '../../presentational/Navbar/Account';
-import CartCounter from '../../presentational/Navbar/CartCounter';
-import LanguageSelector from '../../presentational/Navbar/LanguageSelector';
-import CurrencySelector from '../../presentational/Navbar/CurrencySelector';
+import TopNavBar from '../../presentational/Navbar/TopNavBar';
 
 class TopNavContainer extends Component {
     cartRef = createRef();
@@ -17,19 +14,9 @@ class TopNavContainer extends Component {
     }
 
     render() {
-        const { cartItems, quantity, isOpen, openCart, closeCart, isUserLoggedIn, logout } = this.props;
         return (
             <Fragment>
-                <Account loggedIn={isUserLoggedIn} logout={logout}/>
-                <CartCounter 
-                    items={cartItems}
-                    quantity={quantity}
-                    isOpen={isOpen}
-                    open={openCart}
-                    close={closeCart}
-                    cartRef={this.cartRef}/>
-                <CurrencySelector />
-                <LanguageSelector />
+                <TopNavBar cartRef={this.cartRef} {...this.props}/>
             </Fragment>
         );
     }
@@ -49,7 +36,7 @@ function mapDispatchToProps(dispatch) {
         fetchCart: () => dispatch(fetchCartItems()),
         openCart: () => dispatch(openCartToolTip()),
         closeCart: () => dispatch(closeCartToolTip()),
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
     };
 }
 

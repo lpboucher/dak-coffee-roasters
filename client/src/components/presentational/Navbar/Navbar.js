@@ -3,7 +3,7 @@ import React from 'react';
 import NavbarLayout from './NavbarLayout';
 import AnouncementBar from './AnnouncementBar';
 import LogoBar from './LogoBar';
-import TopNavBar from './TopNavBar';
+import TopNavContainer from '../../container/Navbar/TopNavContainer';
 import SubNavBar from './SubNavBar';
 
 const Navbar = () => {
@@ -11,7 +11,7 @@ const Navbar = () => {
         <NavbarLayout
             announcement={<AnouncementBar text="free shipping" loc="announce"/>}
             logo={<LogoBar loc="logo"/>}
-            topNav={<TopNavBar loc="topNav"/>}
+            topNav={<TopNavContainer loc="topNav"/>}
             subNav={<SubNavBar loc="subNav"/>}
         />        
     );

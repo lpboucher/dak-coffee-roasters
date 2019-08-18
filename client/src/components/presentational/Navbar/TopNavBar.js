@@ -1,13 +1,25 @@
 import React from 'react';
 
-import TopNavContainer from '../../container/Navbar/TopNavContainer';
+import Account from '../../presentational/Navbar/Account';
+import CartCounter from '../../presentational/Navbar/CartCounter';
+import LanguageSelector from '../../presentational/Navbar/LanguageSelector';
+import CurrencySelector from '../../presentational/Navbar/CurrencySelector';
 
 import { Box } from 'grommet';
 
-const TopNavBar = ({loc}) => {
+const TopNavBar = ({cartRef, cartItems, quantity, isOpen, openCart, closeCart, isUserLoggedIn, logout, loc}) => {
     return (
     <Box direction="row" gridArea={loc} fill="horizontal" align="center" justify="evenly">
-        <TopNavContainer />
+        <Account loggedIn={isUserLoggedIn} logout={logout}/>
+        <CartCounter 
+            items={cartItems}
+            quantity={quantity}
+            isOpen={isOpen}
+            open={openCart}
+            close={closeCart}
+            cartRef={cartRef}/>
+        <CurrencySelector />
+        <LanguageSelector />
     </Box>
     );
 };
