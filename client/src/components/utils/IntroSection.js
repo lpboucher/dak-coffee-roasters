@@ -8,7 +8,7 @@ const IntroSection = ({heading, subHeading, helperText, description, btnLabel, l
     return (
         <Box>
             <Heading level={1} size={`${isSmall ? 'small' : ''}`}>{t(heading)}</Heading>
-            <Heading level={2} size={`${isSmall ? 'xsmall' : 'small'}`}>{t(subHeading)}</Heading>
+            <Heading level={2} size={`${isSmall ? '10px' : 'small'}`}>{t(subHeading)}</Heading>
             <Heading level={3} margin={{"bottom": "medium"}} size={`${isSmall ? 'xsmall' : 'small'}`} style={{fontWeight: '400'}}>{t(helperText)}</Heading>
             <Text size={`${isSmall ? 'small' : ''}`} margin={isSmall ? {"bottom": "medium"} : {"bottom": "large"}}>
                 <Trans i18nKey={description} />

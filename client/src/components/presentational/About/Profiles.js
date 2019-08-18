@@ -5,11 +5,11 @@ import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
 import IntroSection from '../../utils/IntroSection';
 
-import louis from '../../../assets/images/LP.jpg';
-import olivier from '../../../assets/images/Olivier.jpg';
-import veronique from '../../../assets/images/Veronique.jpg';
-
 import { Box, Heading, Image } from 'grommet';
+
+const louis = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565720115/Intros/LP_aop9ug.jpg';
+const olivier = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565720115/Intros/Olivier_p7pok3.jpg';
+const veronique = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565720116/Intros/Veronique_gfzqmg.jpg';
 
 const Profiles = ({t}) => {
     const intro = 

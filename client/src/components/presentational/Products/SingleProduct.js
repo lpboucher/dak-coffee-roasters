@@ -11,7 +11,7 @@ const SingleProduct = ({product}) => {
             <TwoColLayout 
                 bgColor="mainWhite"
                 left={
-                    <Box pad="large" height="400px">
+                    <Box pad="large" height="600px">
                         <Image fit="contain" src={`${product.secondary.link ? product.secondary.link.href : product.thumb.link.href}`}/>
                     </Box>
                 }
