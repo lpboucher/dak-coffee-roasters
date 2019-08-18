@@ -45,6 +45,5 @@ const addToNewsletter = async (req, res, next) => {
 
 module.exports = {
     newUserEmail,
-    newOrderEmail,
     addToNewsletter
 }
