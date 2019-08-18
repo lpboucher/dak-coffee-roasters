@@ -1,8 +1,9 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 
 import { Box, Image, Text } from 'grommet';
 
-const CartToolTipItem = ({image, name, quantity, value}) => {
+const CartToolTipItem = ({image, name, slug, product_type, quantity, value}) => {
     return (
         <Box direction="row" height="80px" align="center" justify="between">
             <Box width="25%" height="100%">
@@ -21,4 +22,4 @@ const CartToolTipItem = ({image, name, quantity, value}) => {
     );
 };
 
-export default CartToolTipItem;
+export default withTranslation()(CartToolTipItem);

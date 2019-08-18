@@ -38,7 +38,7 @@ const Questions = ({t}) => {
                 <Tab title={t(`${catStr}.environment.title`)}>
                 <Category
                     category={`${catStr}.environment`}
-                    questions={["actions"]}
+                    questions={["coffee", "packaging", "operations"]}
                 />
                 </Tab>
             </Tabs>

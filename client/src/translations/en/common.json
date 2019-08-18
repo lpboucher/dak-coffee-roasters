@@ -24,9 +24,9 @@
         }
     },
     "hero": {
-        "home": "From farm to cup we take great pride in celebrating quality coffee",
+        "home": "From farm to cup we take great pride in celebrating quality coffee.",
         "subscription": "Go with the classics or opt for our roaster's seasonal picks.",
-        "coffee": "We are committed to offering you the best quality coffee, while reducing our footprint. After all, we only have one planet.",
+        "coffee": "We are committed to offering you the best quality coffee, while reducing our footprint.",
         "team": "It's good because we care and pay great attention to every step from farm to roast to brew.",
         "wholesale": "We partner with people who share our uncompromised, passion-driven approach to coffee.",
         "contact": "Collaboration is key. Whether big or small, we engage in passion-driven partnerships.",
@@ -35,7 +35,7 @@
     "intros": {
         "subscription": {
             "title": "Monthly Coffee Subscription",
-            "helper": "FROM €15 | FREE SHIPPING | COMMITMENT FREE",
+            "helper": "FROM €25 | FREE SHIPPING | COMMITMENT FREE",
             "description": "Have your coffee delivered to your doorstep every month by opting for one of our subscriptions. Choose between:\n\n<strong>OUR CLASSICS</strong>: Choose a roast and receive a selection of origin coffees in either filter or espresso roasts (or both, why not!)\n\nTHE ROASTER’S CHOICE: Let the roaster surprise you with his preferred roast of the month. This subscription will offer different assortments of filter/espresso/limited edition roasts, but our roaster never compromises the quality or taste, so this is truly the best way to familiarize yourself with fresh, new coffees!",
             "short description": "Have your coffee delivered to your doorstep every month by opting for one of our subscriptions. Choose between our classics or the roaster's choice.",
             "button": "Subscribe"
@@ -43,12 +43,12 @@
         "limited edition": {
             "title": "Our Limited Edition",
             "subtitle": "coffee for two",
-            "helper": "Tasting Note",
+            "helper": "Almond, Caramel, Cacao butter",
             "description": "This month’s limited edition is from the region of Chalatenango in El Salvador. You can expect tasting notes of almond, caramel and cacao butter. We’ve roasted this single origin coffee as an omni-roast, equally delicious if brewed as an espresso or as a filter coffee. We have limited quantities!\n\nFarm: Finca El Caracol | Country: El Salvador\nRegion: Chalatenango | Process: Washed\nAltitude: 1700m | Variety: Pacamara",
             "button": "Buy Coffee"
         },
         "values": {
-            "title": "What we belive in",
+            "title": "What we believe in",
             "description": "Five things always come first at Dak: delicious coffee, the environment, the social conditions of the farmers, creativity and customization.\n\nOffering high-quality coffee for you to enjoy is what matters to us. All coffees on offer have been carefully selected, and each week our team hosts cupping sessions to ensure their quality. We roast twice a week to make sure that you get the freshest coffee, and with continuous testing and development, we keep your taste buds on their toes.\n\nGood coffee tastes even better if it’s sourced ethically. We only partner with importers that share our values, work with exclusive lots and do extensive background research on the farms. We are ready to pay a premium price for our green coffee beans to make sure the farmers are paid their fair share, and our customers are offered the highest quality coffee possible",
             "button": "Read more"
         },
@@ -175,23 +175,19 @@
         "contact": {
             "general": {
                 "title": "general enquiries",
-                "contact": "info@dakcoffeeroasters.com",
-                "helper": "We do our best to respond to e-mails wthin 24 hours"
-            },
-            "wholesaleeu": {
-                "title": "press & marketing",
-                "contact": "marketing@dakcoffeeroasters.com",
-                "helper": "For press enquiries or partnerships"
+                "helper": "We do our best to respond to e-mails wthin 24 hours."
             },
             "marketing": {
+                "title": "press & marketing",
+                "helper": "For press enquiries or partnerships."
+            },
+            "wholesaleeu": {
                 "title": "wholesale europe",
-                "contact": "wholesale@dakcoffeeroasters.com",
-                "helper": "If you would like to sell our coffee or sell as a private label in Europe"
+                "helper": "If you would like to sell our coffee or sell as a private label in Europe."
             },
             "wholesalena": {
                 "title": "wholesale north america",
-                "contact": "wholesaleca@dakcoffeeroasters.com",
-                "helper": "If you would like to sell our coffee or sell as a private label in Canada/US"
+                "helper": "If you would like to sell our coffee or sell as a private label in Canada/US."
             }
         },
         "account": {
@@ -304,16 +300,24 @@
                 },
                 "environment": {
                     "title": "the environment",
-                    "actions": {
+                    "coffee": {
+                        "question": "Is your coffee supply chain sustainable?",
+                        "answer": "As coffee is an international product grown in tropical areas, we unfortunately can’t grow coffee locally in The Netherlands. However, we partner with local coffee importers (90% of the coffee arriving in Europe lands in The Netherlands or in Germany, reducing transport emissions between importers and our storage) We are ready to pay a premium price for our green coffee beans to make sure everyone in the supply chain gets their fair shares and our customers get the best quality. We are hoping to open direct trade relationships with farmers in 2020 by visiting the farms ourselves, assessing their conditions and developing exclusive partnerships. It is also in our short-term plan to give back to the coffee community and invest in projects that can improve living conditions for the farmers."
+                    },
+                    "packaging": {
+                        "question": "Is your packaging eco-friendly?",
+                        "answer": "Our coffee bags are 100% recyclable, CO2 Neutral and aluminum-free. We are proud to partner with a supplier that invests in CO2-reducing projects in coffee growing countries, so the greenhouse gas emissions needed to produce coffee bags can be compensated by reducing emissions elsewhere. Our shipping boxes are also 100% recyclable and made of recyclable materials and water-based ink making them environmentally friendly. Our goal is to continuously improve our processes in order to reduce our footprint. After all, we only have one planet."
+                    },
+                    "operations": {
                         "question": "What are the actions you take for the environment?",
-                        "answer": "Our coffee – as coffee is an international product grown in tropical areas, we unfortunately can’t grow coffee locally in The Netherlands. However, we partner with local coffee importers (90% of the coffee arriving in Europe lands in The Netherlands or in Germany, reducing transport emissions between importers and our storage) We are ready to pay a premium price for our green coffee beans to make sure everyone in the supply chain gets their fair shares and our customers get the best quality. We are hoping to open direct trade relationships with farmers in 2020 by visiting the farms ourselves, assessing their conditions and developing exclusive partnerships. It is also in our short-term plan to give back to the coffee community and invest in projects that can improve living conditions for the farmers. Packaging – Our coffee bags are 100% recyclable, CO2 Neutral and aluminum-free. We are proud to partner with a supplier that invests in CO2-reducing projects in coffee growing countries, so the greenhouse gas emissions needed to produce coffee bags can be compensated by reducing emissions elsewhere. Our shipping boxes are also 100% recyclable and made of recyclable materials and water-based ink making them environmentally friendly. Our goal is to continuously improve our processes in order to reduce our footprint. After all, we only have one planet. Operations – We are part of a coffee collective in Amsterdam. This collective consists of roasters, importers, baristas, etc. sharing a warehouse, roastery and work environment. The result is a better utilization of assets (roasters, warehouse space, etc.) and lower emissions (as compared to all participants having their own office)"
+                        "answer": "We are part of a coffee collective in Amsterdam. This collective consists of roasters, importers, baristas, etc. sharing a warehouse, roastery and work environment. The result is a better utilization of assets (roasters, warehouse space, etc.) and lower emissions (as compared to all participants having their own office)"
                     }
                 }
             }
         }
     },
     "newsletter": {
-        "description": "Sign up to our newsletter to receive exclusive coffee promotions, news, stories, tips",
+        "description": "Sign up to our newsletter to receive exclusive coffee promotions, news, stories, tips.",
         "form": {
             "name": "Your name",
             "email": "Your email"
@@ -326,15 +330,16 @@
         "menu": {
             "shop": "shop",
             "subscription": "coffee subscription",
+            "our-coffee": "our coffee",
             "about-us": "about us",
             "wholesale": "wholesale",
             "blog": "blog",
-            "faq": "faq",
-            "contact": "contact us",
-            "community": "giving back",
+            "faq": "FAQ",
+            "contact": "get in touch",
+            "terms": "terms and conditions",
             "shipping": "shipping",
-            "terms": "privacy policy",
-            "payment": "payment"
+            "privacy": "privacy policy",
+            "brewing": "brewing guides"
         },
         "rights": "Dak Coffee Roasters 2019. All rights reserved."
     },

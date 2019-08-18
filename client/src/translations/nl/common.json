@@ -24,7 +24,7 @@
         }
     },
     "hero": {
-        "home": "Wij willen iedereen laten genieten van échte koffie",
+        "home": "Wij willen iedereen laten genieten van échte koffie.",
         "subscription": "Ga voor de klassiekers of laat je verrassen",
         "coffee": "Wij doen er alles aan om allerhoogste kwaliteit koffie te leveren met een zo klein mogelijke ecologische voetafdruk. We hebben immers maar één planeet en daar moeten we zuinig op zijn.",
         "team": "Wij gaan altijd voor de hoogste kwaliteit.",
@@ -43,7 +43,7 @@
         "limited edition": {
             "title": "Onze Limited Edition",
             "subtitle": "coffee for two",
-            "helper": "Tasting Note",
+            "helper": "Amandel-, karamel- en cacaobotersmaak",
             "description": "De limited edition van deze maand komt uit de regio van Chaletango in El Salvador. Laat je verrassen door zijn heerlijke amandel-, karamel- en cacaobotersmaak. Deze single origin koffie hebben we gebrand als een omni-roast en is perfect voor zowel espresso als  filterkoffie. Let op, we hebben hier maar een beperkte hoeveelheid van.\n\nProducent: Finca El Caracol | Land: El Salvador\nRegio: Chalatenango | Verwerkingsproces: Washed\nHoogte: 1700m | Variëteit: Pacamara",
             "button": "Bestel koffie"
         },
@@ -178,23 +178,19 @@
         },
         "contact": {
             "general": {
-                "title": "algemene vragen",
-                "contact": "info@dakcoffeeroasters.com",
+                "title": "algemene vragen.",
                 "helper": "We do our best to respond to e-mails wthin 24 hours"
             },
             "wholesaleeu": {
-                "title": "pr & marketing",
-                "contact": "marketing@dakcoffeeroasters.com",
+                "title": "pr & marketing.",
                 "helper": "For press enquiries or partnerships"
             },
             "marketing": {
-                "title": "groothandel europa",
-                "contact": "wholesale@dakcoffeeroasters.com",
+                "title": "groothandel europa.",
                 "helper": "If you would like to sell our coffee or sell as a private label in Europe"
             },
             "wholesalena": {
-                "title": "groothandel noord-amerika",
-                "contact": "wholesaleca@dakcoffeeroasters.com",
+                "title": "groothandel noord-amerika.",
                 "helper": "If you would like to sell our coffee or sell as a private label in Canada/US"
             }
         },
@@ -221,7 +217,7 @@
         }
     },
     "newsletter": {
-        "description": "Meld je aan voor onze nieuwsbrief en ontvang exclusieve koffiedeals, het laatste nieuws, smakelijke verhalen en handige tips",
+        "description": "Meld je aan voor onze nieuwsbrief en ontvang exclusieve koffiedeals, het laatste nieuws, smakelijke verhalen en handige tips.",
         "form": {
             "name": "Naam",
             "email": "Emailadres"
@@ -238,7 +234,7 @@
             "our-coffee": "onze koffie",
             "wholesale": "groothandel",
             "blog": "blog",
-            "faq": "faq",
+            "faq": "FAQ",
             "contact": "contact",
             "terms": "algemene voorwaarden",
             "shipping": "shipping",

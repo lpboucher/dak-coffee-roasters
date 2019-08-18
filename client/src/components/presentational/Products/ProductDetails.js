@@ -13,26 +13,27 @@ const ProductDetails = ({id, name, region, country, roast, description, product_
     }
     return (
         <Fragment>
-            <Heading level={1}>{t(`products:${rest.slug}.name`)}</Heading>
+            <Heading level={1}>{t(`products:${product_type}.${rest.slug}.name`)}</Heading>
             {product_type === 'coffee' &&
-            <Heading level={3} margin={{"bottom": "small"}} size="small">{`${region}, ${country} | ${roast} Beans`}</Heading>
+            <Heading level={3} margin={{"bottom": "small"}} size="small">{`${t(`products:${product_type}.${rest.slug}.region`)}, ${t(`products:${product_type}.${rest.slug}.country`)} | ${t(`products:${product_type}.${rest.slug}.roast`)} Roast`}</Heading>
             }
+            <Text margin={{"bottom": "small"}} style={{fontSize: '16px'}}>{`${product_type === "coffee" ? "From " : ""}${rest.meta.display_price.with_tax.formatted}`}</Text>
             <Tabs justify="start">
                 <Tab title="Description">
-                    <Text margin={{"bottom": "medium"}}>{description}</Text>
+                    <Text margin={{"bottom": "medium"}}>{t(`products:${product_type}.${rest.slug}.description`)}</Text>
                     {product_type === 'coffee' &&
                         <ProductSpecs 
-                            recommendation={rest.drink_recommendation}
-                            process={rest.process}
-                            region={region}
-                            country={country}
-                            tasting_notes={rest.flavors}
+                            recommendation={t(`products:${product_type}.${rest.slug}.drink`)}
+                            process={t(`products:${product_type}.${rest.slug}.process`)}
+                            harvest={t(`products:${product_type}.${rest.slug}.harvest`)}
+                            altitude={t(`products:${product_type}.${rest.slug}.altitude`)}
+                            tasting_notes={t(`products:${product_type}.${rest.slug}.taste`)}
                         />
                     }
                 </Tab>
                 {product_type === "equipment" &&
                 <Tab title="Details">
-                    {details.split(";").map((detail, index) => (
+                    {t(`products:${product_type}.${rest.slug}.details`).split(";").map((detail, index) => (
                         <Text key={`${index}${detail.slice(0,5)}`}>{`- ${detail}\n`}</Text>
                     ))}
                 </Tab>

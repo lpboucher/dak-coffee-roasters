@@ -36,8 +36,9 @@ const ProductCard = withRouter(({product, thumb, addToCart, history}) => {
             <Box height="25%">
                 <ProductCardInfo 
                     id={product.id}
-                    name={product.name}
+                    slug={product.slug}
                     price={product.price}
+                    type={product.product_type}
                     add={addToCart}
                     outOfStock={product.manage_stock && product.meta.stock.level < 1}
                     />

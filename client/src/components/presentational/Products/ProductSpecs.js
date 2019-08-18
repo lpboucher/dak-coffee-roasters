@@ -9,12 +9,12 @@ import { ReactComponent as Steam} from '../../../assets/icons/noun_Steam_795410.
 import { ReactComponent as Cup} from '../../../assets/icons/iconmonstr-coffee-8.svg';
 import { ReactComponent as Tag} from '../../../assets/icons/iconmonstr-tag-2.svg';
 
-const ProductSpecs = ({recommendation, process, region, country, tasting_notes}) => {
+const ProductSpecs = ({recommendation, process, harvest ,altitude, tasting_notes}) => {
     return (
         <Fragment>
             <IconedExplanation 
                 icon={<Leaf width="36px" />}
-                description={"These beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes)."}
+                description={harvest}
                 spacing={{vertical: 'small'}}
                 margin={{vertical: "small"}}
                 size={"small"}
@@ -22,7 +22,7 @@ const ProductSpecs = ({recommendation, process, region, country, tasting_notes})
             <Grid columns="50%" rows="50%">
             <IconedExplanation 
                 icon={<Bean height="36px" />}
-                description={`${process}`}
+                description={`${process}, ${altitude}`}
                 spacing={{vertical: 'small'}}
                 margin="none"
                 size={"small"}
