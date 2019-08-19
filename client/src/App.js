@@ -13,6 +13,7 @@ import AboutPage from './components/pages/About/About';
 import WholesalePage from './components/pages/Wholesale/Wholesale';
 import ContactPage from './components/pages/Contact/Contact';
 import BlogPage from './components/pages/Blog/Blog';
+import BrewPage from './components/pages/Brew/BrewGuides';
 import CartPage from './components/pages/Cart/Cart';
 import FAQPage from './components/pages/FAQ/FAQ';
 import ProductPage from './components/pages/Product/ProductPage';
@@ -39,6 +40,7 @@ class App extends Component {
             <Route path="/wholesale" component={WholesalePage} />
             <Route path="/contact" component={ContactPage} />
             <Route path="/blog" component={BlogPage} />
+            <Route path="/brew" component={BrewPage} />
             <Route path="/cart" component={CartPage} />
             <Route path="/faq" component={FAQPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
