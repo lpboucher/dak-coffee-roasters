@@ -14,7 +14,7 @@ const CartToolTip = withRouter(({items, close, target, t}) => {
                     {items && items.length > 0 ? items.map(item => 
                             <CartToolTipItem key={item.id} {...item} />
                     ) : 
-                        <p>{t("cart.empty")}</p>
+                        <Text textAlign="center">{t("cart.empty")}</Text>
                     }
                 </Box>
                 <Box direction="row" fill="horizontal">

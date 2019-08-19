@@ -7,7 +7,7 @@ import { Box } from 'grommet';
 
 const LogoBar = ({loc}) => {
     return (
-        <Box direction="row" align="center" justify="center" gridArea={loc} fill pad={{'left': '25vw'}}>
+        <Box direction="row" align="center" justify="center" gridArea={loc} fill pad={{'left': '25vw', 'top': '15px'}}>
             <Link to="/">
                 <Logo width="120px" />
             </Link>

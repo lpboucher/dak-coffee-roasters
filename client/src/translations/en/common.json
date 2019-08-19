@@ -23,6 +23,9 @@
             "guides": "brewing guides"
         }
     },
+    "announcement": {
+        "text": "Free shipping in Europe/North America on all subscriptions or orders above 50 EUR."
+    },
     "hero": {
         "home": "From farm to cup we take great pride in celebrating quality coffee.",
         "subscription": "Go with the classics or opt for our roaster's seasonal picks.",
@@ -36,7 +39,7 @@
         "subscription": {
             "title": "Monthly Coffee Subscription",
             "helper": "FROM €25 | FREE SHIPPING | COMMITMENT FREE",
-            "description": "Have your coffee delivered to your doorstep every month by opting for one of our subscriptions. Choose between:\n\n<strong>OUR CLASSICS</strong>: Choose a roast and receive a selection of origin coffees in either filter or espresso roasts (or both, why not!)\n\nTHE ROASTER’S CHOICE: Let the roaster surprise you with his preferred roast of the month. This subscription will offer different assortments of filter/espresso/limited edition roasts, but our roaster never compromises the quality or taste, so this is truly the best way to familiarize yourself with fresh, new coffees!",
+            "description": "Have your coffee delivered to your doorstep every month by opting for one of our subscriptions. Choose between:\n\n<strong>OUR CLASSICS</strong>: Choose a roast and receive a selection of origin coffees in either filter or espresso roasts (or both, why not!)\n\n<strong>THE ROASTER’S CHOICE</strong>: Let the roaster surprise you with his preferred roast of the month. This subscription will offer different assortments of filter/espresso/limited edition roasts, but our roaster never compromises the quality or taste, so this is truly the best way to familiarize yourself with fresh, new coffees!",
             "short description": "Have your coffee delivered to your doorstep every month by opting for one of our subscriptions. Choose between our classics or the roaster's choice.",
             "button": "Subscribe"
         },
@@ -44,7 +47,7 @@
             "title": "Our Limited Edition",
             "subtitle": "coffee for two",
             "helper": "Almond, Caramel, Cacao butter",
-            "description": "This month’s limited edition is from the region of Chalatenango in El Salvador. You can expect tasting notes of almond, caramel and cacao butter. We’ve roasted this single origin coffee as an omni-roast, equally delicious if brewed as an espresso or as a filter coffee. We have limited quantities!\n\nFarm: Finca El Caracol | Country: El Salvador\nRegion: Chalatenango | Process: Washed\nAltitude: 1700m | Variety: Pacamara",
+            "description": "This month’s limited edition is from the region of Chalatenango in El Salvador. You can expect tasting notes of almond, caramel and cacao butter. We’ve roasted this single origin coffee as an omni-roast, equally delicious if brewed as an espresso or as a filter coffee. We have limited quantities!\n\n<strong>Farm</strong>: Finca El Caracol | <strong>Country</strong>: El Salvador\n<strong>Region</strong>: Chalatenango | <strong>Process</strong>: Washed\n<strong>Altitude</strong>: 1700m | <strong>Variety</strong>: Pacamara",
             "button": "Buy Coffee"
         },
         "values": {

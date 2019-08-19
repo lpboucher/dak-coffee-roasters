@@ -11,19 +11,19 @@ import SubNavBar from '../../presentational/Navbar/SubNavBar';
 
 class NavContainer extends Component {
     
-    componentDidMount() {
+    /*componentDidMount() {
         window.addEventListener("scroll", throttle(this.props.handleScroll, 500, { leading: true, trailing: true}));
     }
       
     componentWillUnmount() {
     window.removeEventListener("scroll", this.props.handleScroll);
-    }
+    }*/
 
     render() {
         return (
             <Fragment>
                 <NavbarLayout
-                    announcement={<AnouncementBar text="free shipping" loc="announce"/>}
+                    announcement={<AnouncementBar text="announcement.text" loc="announce"/>}
                     logo={<LogoBar loc="logo"/>}
                     topNav={<TopNavContainer loc="topNav"/>}
                     subNav={<SubNavBar loc="subNav"/>}

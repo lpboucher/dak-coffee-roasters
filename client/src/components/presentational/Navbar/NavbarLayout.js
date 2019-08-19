@@ -21,7 +21,7 @@ const NavbarLayout = ({announcement, logo, topNav, subNav, show}) => {
         { name: 'logo', start: [0, 0], end: [0, 0] },
         { name: 'topNav', start: [1, 0], end: [1, 0] },
     ]
-    const activeRows = show ? ['30px', '60px', '50px'] : ['60px'];
+    const activeRows = show ? ['30px', '80px', '40px'] : ['80px'];
     return (
     <Fragment>
             <Grid
