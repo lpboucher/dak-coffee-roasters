@@ -145,6 +145,20 @@ export const getCartItems = (state) => state.cart.allIds;
 
 export const getAllCartItems = (state) => state.cart.allIds.reduce((result, id) => [...result, ...getCartItem(state, id)['type'] === "cart_item" ? [getCartItem(state, id)] : []], []);
 
+export const getAllCartItemsWithTax = (state) => {
+    return state.cart.allIds.reduce((result, id) => {
+        const item = getCartItem(state, id);
+        const product = getProduct(state, item.product_id)
+        let newItem;
+        if (item.type === "cart_item") {
+            newItem = [{ ...item, tax_code: product.tax_code, recurring: product.recurring }]
+        } else {
+            newItem = []
+        }
+        return [ ...result, ...newItem ]
+    }, []);
+}
+
 export const getAllCartMeta = (state) => state.cart.meta;
 
 export const getCartTotal = (state) => state.cart.meta.display_price;

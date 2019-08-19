@@ -10,10 +10,10 @@ import AddressFields from './AddressFields';
 import { Text, Button } from "grommet";
 import { Home } from 'grommet-icons';
 
-const AddressForm = ({btnLabel, submit, userId, address, t}) => {
+const AddressForm = ({btnLabel, submit, userId, address, items, total, t}) => {
   return (
       <Form
-      onSubmit={values => submit(userId, values)}
+      onSubmit={values => submit(userId, values, items, total)}
       initialValues={{ 
         shipping: {
           address: {...address.shipping}

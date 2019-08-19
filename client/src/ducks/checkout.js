@@ -10,8 +10,9 @@ export const SUBMIT_ORDER_FAILURE = 'checkout/submit_order_failure';
 export const ORDER_FINALIZE_REQUEST = 'checkout/order_finalize_request';
 
 //Action Creators
-export const submitOrder = (customerId, { billingIsShipping, shipping, address }) => async dispatch => {
+export const submitOrder = (customerId, { billingIsShipping, shipping, address }, items, total) => async dispatch => {
     dispatch({ type: SUBMIT_ORDER_REQUEST, payload: "Creating your order..." });
+    console.log(items, total)
     const shipping_address = {
         first_name: shipping.address.name.split(" ")[0],
         last_name: shipping.address.name.split(" ")[1],
@@ -37,7 +38,7 @@ export const submitOrder = (customerId, { billingIsShipping, shipping, address }
                 country: address.country,
             }
     try {
-        const res = await axios.post(`http://localhost:5000/api/checkout/`, { customerId, shipping_address, billing_address } );
+        const res = await axios.post(`http://localhost:5000/api/checkout/`, { customerId, shipping_address, billing_address, items, total } );
         console.log('submitting order----------', res.data);
         dispatch({ type: SUBMIT_ORDER_SUCCESS, payload: res.data });
     } catch(err) {

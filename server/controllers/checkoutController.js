@@ -1,4 +1,7 @@
 const MoltinGateway = require('@moltin/sdk').gateway
+const tax = require('../utils/taxes');
+const isoCodes = require('../utils/countryCodes');
+const shipping = require('../utils/shippingCost');
  
 const Moltin = MoltinGateway({
   client_id: process.env.MOLTIN_CLIENT_ID,
@@ -7,12 +10,23 @@ const Moltin = MoltinGateway({
 
 module.exports = {
     submitOrder: async (req, res, next) => {
-        const { customerId, shipping_address, billing_address } = req.body;
+        const { customerId, shipping_address, billing_address, items, total } = req.body;
+        const { country, county, postcode } = shipping_address;
         try {
-          console.log('API ORDER SUBMITTING----------', {customerId, shipping_address, billing_address} );
-          const order = await Moltin.Cart().Checkout(customerId, shipping_address, billing_address);
+          console.log('API ORDER SUBMITTING----------', {customerId, shipping_address, billing_address, items, total} );
+          const country_code = isoCodes.getCountryCode(country);
+          const shipCosts = shipping.calculateShipping(country_code, total.without_tax, items);
+          console.log(shipCosts)
+          const taxes = await tax.addTaxes(
+            { country_code, county, postcode },
+            total.without_tax.amount,
+            shipCosts,
+            items
+          );
+          console.log(taxes);
+          /*const order = await Moltin.Cart().Checkout(customerId, shipping_address, billing_address);
           console.log('API RESPONSE SUBMIT ORDER----------', order);
-          res.json(order);
+          res.json(order);*/
         } catch (err) {
           console.log(err);
         }
