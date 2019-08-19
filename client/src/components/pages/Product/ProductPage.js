@@ -9,7 +9,7 @@ const ProductPage = ({ match }) => {
     return (
     <>
         <ProductDetailsContainer id={slug}/>
-        <CategoryRowContainer name="You may also like" category='coffee-equipment'/>
+        <CategoryRowContainer name="You may also like" category='coffee-equipment' limit={3}/>
         <NewsletterContainer />
     </>
     );

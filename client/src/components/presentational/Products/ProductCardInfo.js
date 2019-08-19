@@ -23,7 +23,7 @@ const WithHover = styled(Box)`
 const ProductCardInfo = ({id, slug, type, price, add, outOfStock, t}) => {
     return (
         <Box height="100%" width="100%" direction="row" align="center" justify="around">
-            <Box flex="grow">
+            <Box flex="grow" margin={{right: "-48px"}}>
                 <Text textAlign="center" weight="bold" style={{textTransform: 'uppercase'}}>{t(`products:${type}.${slug}.name`)}</Text>
                 <Text textAlign="center" color="grey">{`${price ? CURRENCY_SYMBOLS[price[0].currency] : 'EUR'}${price ? price[0].amount/100 : '...'}`}</Text>
             </Box>
