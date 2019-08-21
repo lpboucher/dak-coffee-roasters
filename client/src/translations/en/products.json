@@ -119,11 +119,11 @@
         }
     },
     "subscription": {
-        "roasters-subscription": {
+        "classics-subscription": {
             "name": "The Classics",
             "description": "Choose a roast and receive a selection of origin coffees in either filter or espresso roasts (or both, why not!)"
         },
-        "classics-subscription": {
+        "roasters-subscription": {
             "name": "The Roaster's Choice",
             "description": "Let the roaster surprise you with his preferred roast of the month. This subscription will offer different assortments of filter/espresso/limited edition roasts, but our roaster never compromises the quality or taste, so this is truly the best way to familiarize yourself with fresh, new coffees!"
         }

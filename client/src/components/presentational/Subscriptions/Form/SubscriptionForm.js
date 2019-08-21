@@ -36,7 +36,7 @@ const SubscriptionForm = ({ type, addToCart }) => {
             />
           </Fragment>
           }
-          <Field label="Quantity" name="quantity" component={SelectAdapter} size="small" options={['500g', '1000g']} placeholder="How much?" validate={required}/>
+          <Field label="Quantity" name="quantity" component={SelectAdapter} size="small" options={['500g', '1kg']} placeholder="How much?" validate={required}/>
         <Button type="submit" disabled={submitting || invalid} primary fill="horizontal" label="Submit" color="mainDark" />
         </Box>
       </form>
