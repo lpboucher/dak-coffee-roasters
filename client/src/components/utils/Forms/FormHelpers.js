@@ -63,16 +63,16 @@ export const CheckboxAdapter = ({ input: {checked, name, onChange, value, ...res
         />
 )
 
-export const SelectAdapter = ({ input: {name, onChange, value, ...restInput}, options, meta, label, placeholder, ...rest }) => (
-  <FormField error={meta.modified && meta.error ? meta.error : ""} {...rest}>
+export const SelectAdapter = ({ input: {name, onChange, value, ...restInput}, options, margin, meta, label, placeholder, ...rest }) => (
+  <FormField label={label} error={meta.modified && meta.error ? meta.error : ""} {...rest}>
       <Select
       {...restInput}
       placeholder={placeholder}
-      label={label}
       name={name}
       onChange={({ option }) => onChange(option)}
       value={value}
       options={options}
+      margin={margin}
       focusIndicator={false}
       />
   </FormField>

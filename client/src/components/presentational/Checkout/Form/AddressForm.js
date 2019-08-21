@@ -24,7 +24,7 @@ const AddressForm = ({btnLabel, submit, userId, address, items, total, t}) => {
       validate={validation}
       render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
         <form onSubmit={handleSubmit}>
-          <AddressFields type="shipping.address" />
+          <AddressFields condition={values.shipping.address} type="shipping.address" />
           <IconedExplanation
             icon={<Home />}
             description={t("sections.checkout.address.billing")}
@@ -39,7 +39,7 @@ const AddressForm = ({btnLabel, submit, userId, address, items, total, t}) => {
                   type="checkbox"
                 />
           {!values.billingIsShipping &&
-            <AddressFields type="address" />
+            <AddressFields condition={values.address} type="address" />
             }
           <Text>By clicking the button below you agree to our terms of sale.</Text>
           <Button type="submit" disabled={submitting || invalid} primary fill label={btnLabel} color="mainDark" />

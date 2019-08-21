@@ -166,6 +166,11 @@ export const DakTheme = {
         },
       },
       select: {
+        control: {
+          extend: {
+            margin: '0'
+          }
+        },
         options: {
           container: {
             background: "mainHighlight"
@@ -238,6 +243,9 @@ export const DakTheme = {
           extend: {
             color: "mainDark"
           }
+        },
+        extend: {
+          margin: "10px 0"
         }
       },
       tabs: {

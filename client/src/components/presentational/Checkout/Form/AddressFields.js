@@ -2,11 +2,15 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 
 import { Field } from 'react-final-form';
-import { TextInputAdapter } from '../../../utils/Forms/FormHelpers';
+import { TextInputAdapter, SelectAdapter, Condition } from '../../../utils/Forms/FormHelpers';
 
 import { Box } from 'grommet';
 
-const AddressFields = ({type, t}) => {
+import { COUNTRIES, US_STATES, CA_PROVS } from '../../../../constants/Countries';
+
+const countries = COUNTRIES.map(country => country.name);
+
+const AddressFields = ({condition, type, t}) => {
     return (
         <Box pad={{vertical: 'small'}}>
             <Box direction="row" flex="grow">
@@ -65,20 +69,38 @@ const AddressFields = ({type, t}) => {
             </Box>
             <Box direction="row" flex="grow">
                 <Box width="50%" pad={{"right": "small"}}>
-                    <Field
-                        label={t("sections.checkout.address.region")}
-                        name={`${type}.state`}
-                        component={TextInputAdapter}
-                        type="text"
-                    />
+                    {(condition.country !== "United States" && condition.country !== "Canada") &&
+                        <Field
+                            label={t("sections.checkout.address.region")}
+                            name={`${type}.state`}
+                            component={TextInputAdapter}
+                            type="text"
+                        />
+                    }
+                    <Condition when={`${type}.country`} is={"United States"} >
+                        <Field
+                            label={t("sections.checkout.address.region")}
+                            name={`${type}.state`}
+                            component={SelectAdapter}
+                            options={US_STATES}
+                        />
+                    </Condition>
+                    <Condition when={`${type}.country`} is={"Canada"} >
+                        <Field
+                            label={t("sections.checkout.address.region")}
+                            name={`${type}.state`}
+                            component={SelectAdapter}
+                            options={CA_PROVS}
+                        />
+                    </Condition>
                 </Box>
                 <Box width="50%" pad={{"left": "small"}}>
                     <Field
                         label={t("sections.checkout.address.country")}
                         name={`${type}.country`}
-                        component={TextInputAdapter}
-                        type="text"
-                    />
+                        component={SelectAdapter}
+                        options={countries}
+                        />
                 </Box>
             </Box>
         </Box>
