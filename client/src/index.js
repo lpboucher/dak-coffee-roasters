@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ScrollToTop from './components/utils/Routes/ScrollToTop';
 import { createStore, applyMiddleware } from 'redux';
+import {responsiveStoreEnhancer} from 'redux-responsive'
 import reduxThunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import * as serviceWorker from './serviceWorker';
@@ -15,7 +16,7 @@ import i18n from './i18n';
 import reducers from './reducers';
 import App from './App';
 
-const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(reduxThunk)));
+const store = createStore(reducers, {}, composeWithDevTools(responsiveStoreEnhancer, applyMiddleware(reduxThunk)));
 
 ReactDOM.render(
 <Provider store={store}>

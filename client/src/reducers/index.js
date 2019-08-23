@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import {responsiveStateReducer} from 'redux-responsive'
 import userReducer from '../ducks/user';
 import productReducer from '../ducks/products';
 import collectionReducer from '../ducks/collections';
@@ -11,6 +12,7 @@ import viewReducer from '../ducks/views';
 
 export default combineReducers({
     user: userReducer,
+    browser: responsiveStateReducer,
     products: productReducer,
     collections: collectionReducer,
     categories: categoryReducer,
