@@ -17,7 +17,11 @@ module.exports = {
   },
   addItemToCart: async (req, res, next) => {
     try {
-      const cartItems = await Moltin.Cart().AddProduct(req.body.id, req.body.quantity);
+      const cartItems = await MoltinGateway({
+        client_id: process.env.MOLTIN_CLIENT_ID,
+        client_secret: process.env.MOLTIN_CLIENT_SECRET,
+        currency: req.body.currency
+      }).Cart().AddProduct(req.body.id, req.body.quantity);
       console.log('API RESPONSE ADD TO CART----------', cartItems);
       res.json(cartItems);
     } catch (err) {

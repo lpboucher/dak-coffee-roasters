@@ -13,10 +13,10 @@ export const FETCH_PRODUCTS_SUCCESS = 'products/fetch_products_success';
 export const FETCH_PRODUCTS_FAILURE = 'products/fetch_products_failure';
 
 //Action Creators
-export const fetchProducts = () => async dispatch => {
+export const fetchProducts = (currency = 'EUR') => async dispatch => {
     //dispatch({ type: FETCH_PRODUCTS_REQUEST });
     try {
-        const res = await axios.get(`http://localhost:5000/api/products/`);
+        const res = await axios.get(`http://localhost:5000/api/products/${currency}`);
         console.log('fetched products----------', res.data);
         dispatch({ type: FETCH_PRODUCTS_SUCCESS, payload: res.data });
     } catch(err) {

@@ -8,8 +8,13 @@ const Moltin = MoltinGateway({
 module.exports = {
     // Get all products
     getAllProducts: async (req, res, next) => {
+      const { currency } = req.params;
       try {
-        const products = await Moltin.Products.With(['files, main_images, collections']).All();
+        const products = await MoltinGateway({
+          client_id: process.env.MOLTIN_CLIENT_ID,
+          client_secret: process.env.MOLTIN_CLIENT_SECRET,
+          currency: currency
+        }).Products.With(['files, main_images, collections']).All();
         console.log('API RESPONSE PRODUCTS----------', products);
         res.json(products);
       } catch (err) {

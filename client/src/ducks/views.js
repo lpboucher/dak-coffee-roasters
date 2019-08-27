@@ -1,6 +1,5 @@
-//import {  } from './trades';
-
-//import {  } from './coins'; 
+import { clearCart } from './cart';
+import { fetchProducts } from './products';
 
 //Action Types
 import { 
@@ -38,6 +37,10 @@ import {
 
 export const OPEN_CART = 'views/open_cart';
 export const CLOSE_CART = 'views/close_cart';
+export const OPEN_MOBILE = 'views/open_mobile';
+export const CLOSE_MOBILE = 'views/close_mobile';
+export const CHANGE_CURRENCY_REQUEST = 'views/change_currency_request';
+export const CHANGE_CURRENCY_SUCCESS = 'views/change_currency_success';
 const APPLY_MINI_HEADER = 'views/apply_mini_header';
 const REMOVE_MINI_HEADER = 'views/remove_mini_header';
 const SCROLL_HEIGHT = 'views/scroll_height'
@@ -50,6 +53,27 @@ export const openCartToolTip = () => dispatch => {
 
 export const closeCartToolTip = () => dispatch => {
     dispatch({type: CLOSE_CART})
+}
+
+export const openMobileMenu = () => dispatch => {
+    dispatch({type: OPEN_MOBILE})
+}
+
+export const closeMobileMenu = () => dispatch => {
+    dispatch({type: CLOSE_MOBILE})
+}
+
+export const switchDisplayCurrency = (currency) => (dispatch, getState) => {
+    const cart = getState()['cart']
+    if(
+        cart.allIds.length > 0 &&
+        cart.meta.display_price.with_tax.currency !== currency 
+    ) {
+        dispatch(clearCart())
+    }
+    dispatch({type: CHANGE_CURRENCY_REQUEST, payload: "Switching currency..."})
+    dispatch(fetchProducts(currency))
+    dispatch({type: CHANGE_CURRENCY_SUCCESS, payload: currency})
 }
 
 export const handleScroll = () => (dispatch, getState) => {
@@ -66,12 +90,14 @@ export const handleScroll = () => (dispatch, getState) => {
 //Reducer
 const initialState = {
 isCartOpen: false,
+isMobileOpen: false,
 isLoading: false,
 isProcessing: false,
 processingText: "",
 error: "",
 miniHeader: false,
-scrollPos: 0
+scrollPos: 0,
+displayCurrency: "EUR"
 };
 
 export default function reducer(state = initialState, action) {
@@ -80,6 +106,18 @@ switch(action.type) {
         return { ...state, isCartOpen: true };
     case CLOSE_CART:
         return { ...state, isCartOpen: false };
+    case OPEN_MOBILE:
+        return { ...state, isMobileOpen: true };
+    case CLOSE_MOBILE:
+        return { ...state, isMobileOpen: false };
+    case CHANGE_CURRENCY_SUCCESS:
+        return { ...state,
+            isProcessing: false,
+            error: "",
+            processingText: "",
+            displayCurrency: action.payload 
+        };
+    case CHANGE_CURRENCY_REQUEST:
     case SUBMIT_PAYMENT_REQUEST:
     case LOGIN_REQUEST:
     case LOGOUT_REQUEST:
@@ -141,6 +179,8 @@ switch(action.type) {
 //Selectors
 export const isCartOpen = (state) => state.views.isCartOpen;
 
+export const isMobileOpen = (state) => state.views.isMobileOpen;
+
 export const isProcessing = (state) => state.views.isProcessing;
 
 export const isMiniHeader = (state) => state.views.miniHeader;
@@ -148,3 +188,7 @@ export const isMiniHeader = (state) => state.views.miniHeader;
 export const getProcessingText = (state) => state.views.processingText;
 
 export const getError = (state) => state.views.error;
+
+export const getMediaSize = (state) => state.browser.mediaType;
+
+export const getDisplayCurrency = (state) => state.views.displayCurrency;

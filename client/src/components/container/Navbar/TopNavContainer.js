@@ -1,6 +1,6 @@
 import React, { Component, createRef, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { isCartOpen, openCartToolTip, closeCartToolTip } from '../../../ducks/views';
+import { isCartOpen, openCartToolTip, closeCartToolTip, openMobileMenu, closeMobileMenu, isMobileOpen, switchDisplayCurrency, getDisplayCurrency } from '../../../ducks/views';
 import { fetchCartItems, getAllCartItems, getNumberInCart } from '../../../ducks/cart';
 import { getLoggedStatus, logout } from '../../../ducks/user';
 
@@ -27,7 +27,9 @@ function mapStateToProps(state) {
         isOpen: isCartOpen(state),
         cartItems: getAllCartItems(state),
         quantity: getNumberInCart(state),
-        isUserLoggedIn: getLoggedStatus(state)
+        isUserLoggedIn: getLoggedStatus(state),
+        isMobileOpen: isMobileOpen(state),
+        displayCurrency: getDisplayCurrency(state)
     };
 }
 
@@ -36,6 +38,9 @@ function mapDispatchToProps(dispatch) {
         fetchCart: () => dispatch(fetchCartItems()),
         openCart: () => dispatch(openCartToolTip()),
         closeCart: () => dispatch(closeCartToolTip()),
+        openMenu: () => dispatch(openMobileMenu()),
+        closeMenu: () => dispatch(closeMobileMenu()),
+        switchCurrency: (currency) => dispatch(switchDisplayCurrency(currency)),
         logout: () => dispatch(logout()),
     };
 }

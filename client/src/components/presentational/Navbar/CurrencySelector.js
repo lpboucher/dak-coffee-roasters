@@ -9,12 +9,16 @@ const Settings = styled(Menu)`
     }
 `
 
-const CurrencySelector = () => {
-    //const langs = ['en', 'fr', 'nl'].filter(lang => lang !== i18n.language);
+const CurrencySelector = ({displayCurrency, updateCurrency}) => {
+    const currencies = {
+        CAD: {label: "CA $", onClick: () => updateCurrency('CAD')},
+        EUR: {label: "EU €", onClick: () => updateCurrency('EUR')},
+    }
+    const items = Object.keys(currencies).filter(curr => curr !== displayCurrency)
     return (
         <Settings
-            label={"EU €"}
-            items={[{label: "CA $", pad: '0px'}]}
+            label={currencies[displayCurrency].label}
+            items={items.map(item => currencies[item])}
             icon={false}
             size="small"
         />

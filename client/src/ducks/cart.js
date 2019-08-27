@@ -21,10 +21,11 @@ export const fetchCartItems = () => async dispatch => {
     }
 }
 
-export const addToCart = (id, quantity) => async dispatch => {
+export const addToCart = (id, quantity) => async (dispatch, getState) => {
+    const currency = getState()['views']['displayCurrency']
     dispatch({ type: FETCH_CART_REQUEST, payload: "Adding to cart..." });
     try {
-        const res = await axios.post(`http://localhost:5000/api/cart/`, {id, quantity});
+        const res = await axios.post(`http://localhost:5000/api/cart/`, {id, quantity, currency});
         console.log('adding to cart----------', res.data);
         dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
         dispatch(openCartToolTip());
