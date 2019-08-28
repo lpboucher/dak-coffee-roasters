@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { injectStripe } from 'react-stripe-elements';
 import { Redirect } from 'react-router-dom';
 import { getSubscriptionProducts } from '../../../ducks/products';
-import { getCartTotal } from '../../../ducks/cart';
+import { getOrderTotal } from '../../../ducks/checkout';
 import { getUserID, getUserPaymentMethod } from '../../../ducks/user';
 import { submitPayment, getStatus } from '../../../ducks/payments';
 import { isProcessing } from '../../../ducks/views';
@@ -72,7 +72,7 @@ function mapStateToProps(state) {
         status: getStatus(state),
         isProcessing: isProcessing(state),
         subProducts: getSubscriptionProducts(state),
-        amount: getCartTotal(state),
+        amount: getOrderTotal(state),
         customer: {
             id: getUserID(state),
             default_payment: getUserPaymentMethod(state)

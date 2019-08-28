@@ -153,6 +153,8 @@ export const getAllCartItemsWithTax = (state) => {
         let newItem;
         if (item.type === "cart_item") {
             newItem = [{ ...item, tax_code: product.tax_code, recurring: product.recurring }]
+        } else if (item.type === "custom_item") {
+            newItem = [{ ...item }]
         } else {
             newItem = []
         }
@@ -163,6 +165,13 @@ export const getAllCartItemsWithTax = (state) => {
 export const getAllCartMeta = (state) => state.cart.meta;
 
 export const getCartTotal = (state) => state.cart.meta.display_price;
+
+export const getCartSubtotal = (state) => {
+    const products = state.cart.allIds.filter(id => getCartItem(state, id)['type'] === "cart_item");
+    if (products) {
+        return products.reduce((sum, id) => sum + getCartItem(state, id)['value']['amount'], 0)
+    }
+}
 
 export const getCartDiscount = (state) => {
     const promo = state.cart.allIds.find(id => getCartItem(state, id)['type'] === "promotion_item");

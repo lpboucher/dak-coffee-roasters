@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Box, Image, Text } from 'grommet';
 
-const CheckoutSummaryItem = ({name, quantity, unit_price, image}) => {
+const CheckoutSummaryItem = ({name, quantity, meta, image}) => {
     return (
         <Box direction="row" height="100px" align="center" pad={{vertical: 'small'}}>
             <Box width="33%" height="100%">
@@ -14,7 +14,7 @@ const CheckoutSummaryItem = ({name, quantity, unit_price, image}) => {
                     <Text size="small">{`Quantity: ${quantity}`}</Text>
                 </Box>
                 <Box>
-                    <Text size="small">{`${unit_price.amount / 100} ${unit_price.currency}`}</Text>
+                    <Text size="small">{`${meta.display_price.with_tax.value.formatted}`}</Text>
                 </Box>
             </Box>
         </Box>

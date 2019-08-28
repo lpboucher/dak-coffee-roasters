@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 
 import { Box, Image, Text } from 'grommet';
 
-const CartToolTipItem = ({image, name, slug, product_type, quantity, value}) => {
+const CartToolTipItem = ({image, name, slug, product_type, quantity, meta}) => {
     return (
         <Box direction="row" height="80px" align="center" justify="between">
             <Box width="25%" height="100%">
@@ -16,7 +16,7 @@ const CartToolTipItem = ({image, name, slug, product_type, quantity, value}) => 
                 <Text textAlign="center" size="small">{`${quantity} x`}</Text>
             </Box>
             <Box width="25%">
-                <Text textAlign="center" size="small">{`${value.amount / 100} ${value.currency}`}</Text> 
+                <Text textAlign="center" size="small">{`${meta.display_price.with_tax.value.formatted}`}</Text> 
             </Box>
         </Box>
     );

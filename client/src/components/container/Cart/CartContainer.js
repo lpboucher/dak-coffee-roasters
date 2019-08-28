@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCartItems, getAllCartItems, getCartTotal, getCartDiscount, removeItem, updateItem, applyPromo } from '../../../ducks/cart';
+import { fetchCartItems, getAllCartItems, getCartDiscount, getCartSubtotal,removeItem, updateItem, applyPromo } from '../../../ducks/cart';
+import { getOrderTotal, getOrderTax, getShippingCosts } from '../../../ducks/checkout';
 
 import Cart from '../../presentational/Cart/Cart';
 
 class CartContainer extends Component {
     render() {
-        const { cartItems, removeItem, updateItem, applyPromo, total, discount } = this.props;
+        const { cartItems, removeItem, updateItem, applyPromo, total, subTotal, shipping, taxes, discount } = this.props;
         return (
                 <Cart 
                     removeFromCart={removeItem}
                     updateCartItem={updateItem}
                     items={cartItems}
-                    cart={{total, discount}}
+                    cart={{total, discount, subTotal, shipping, taxes}}
                     apply={applyPromo}
                 />
         );
@@ -22,8 +23,11 @@ class CartContainer extends Component {
 function mapStateToProps(state) {
     return {
         cartItems: getAllCartItems(state),
-        total: getCartTotal(state),
-        discount: getCartDiscount(state)
+        total: getOrderTotal(state),
+        subTotal: getCartSubtotal(state),
+        discount: getCartDiscount(state),
+        shipping: getShippingCosts(state),
+        taxes: getOrderTax(state)
     };
 }
 

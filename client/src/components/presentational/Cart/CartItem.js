@@ -11,6 +11,7 @@ const CartItem = ({
     unit_price,
     quantity,
     value,
+    meta,
     remove,
     update}) => {
     return (
@@ -28,7 +29,7 @@ const CartItem = ({
                     <Text>{name}</Text>
                 </Box>
                 <Box width="20%" align="center">
-                    <Text>{`${unit_price.amount / 100} ${unit_price.currency}`}</Text>
+                    <Text>{`${meta.display_price.with_tax.unit.formatted}`}</Text>
                 </Box>
                 <Box width="10%" align="center">
                     <Add onClick={() => update(id, quantity + 1)} size="small" style={{margin: '10px', cursor: 'pointer'}}/>
@@ -36,7 +37,7 @@ const CartItem = ({
                     <Subtract onClick={() => update(id, quantity - 1)} size="small" style={{margin: '10px', cursor: 'pointer'}}/>
                 </Box>
                 <Box width="20%" align="center">
-                    <Text>{`${value.amount / 100} ${value.currency}`}</Text>
+                    <Text>{`${meta.display_price.with_tax.value.formatted}`}</Text>
                 </Box>
             </Box>
             <hr/>
