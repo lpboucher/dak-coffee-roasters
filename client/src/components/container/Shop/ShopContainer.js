@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchCategories, getAllCategories } from '../../../ducks/categories';
 import { getAllProducts } from '../../../ducks/products';
+import { fetchInventories, getInventories } from '../../../ducks/inventories';
 
 import Shop from '../../presentational/Shop/Shop';
 
@@ -10,7 +11,13 @@ import Loader from '../../utils/Loader';
 class ShopContainer extends Component {
 
     componentDidMount() {
-        this.props.fetchCategories();
+        const { categories, inventories } = this.props;
+        if (categories && categories.length < 1) {
+            this.props.fetchCategories();
+        }
+        if (inventories && inventories.length < 1) {
+            this.props.fetchInventories();
+        }
     };
 
     renderCategories() {
@@ -32,13 +39,15 @@ class ShopContainer extends Component {
 function mapStateToProps(state) {
     return {
         categories: getAllCategories(state),
-        products: getAllProducts(state)
+        products: getAllProducts(state),
+        inventories: getInventories(state)
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         fetchCategories: () => dispatch(fetchCategories()),
+        fetchInventories: () => dispatch(fetchInventories()),
     };
 }
 

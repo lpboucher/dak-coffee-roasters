@@ -9,6 +9,7 @@ import cartReducer from '../ducks/cart';
 import checkoutReducer from '../ducks/checkout';
 import paymentReducer from '../ducks/payments';
 import viewReducer from '../ducks/views';
+import stockReducer from '../ducks/inventories';
 
 export default combineReducers({
     user: userReducer,
@@ -20,5 +21,6 @@ export default combineReducers({
     cart: cartReducer,
     checkout: checkoutReducer,
     payments: paymentReducer,
-    views: viewReducer
+    views: viewReducer,
+    inventories: stockReducer
 });

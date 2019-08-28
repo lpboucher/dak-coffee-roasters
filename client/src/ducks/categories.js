@@ -53,6 +53,8 @@ export default combineReducers({
 //Selectors
 export const getCategory = (state, id) => state.categories.byId[id];
 
+export const getCategories = (state, id) => state.categories.allIds;
+
 export const getAllCategories = (state) => state.categories.allIds.map(id => getCategory(state, id));
 
 export const getCategoryBySlug = (state, slug) => {

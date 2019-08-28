@@ -6,6 +6,7 @@ import { getCollectionBySlug } from './collections';
 import { getCategoryBySlug } from './categories';
 import { getThumbnailByProductId, getSecondaryImgByProductId } from './thumbnails';
 import { getOrderItems } from './checkout';
+import { getProductStock } from './inventories';
 
 //Action Types
 export const FETCH_PRODUCTS_REQUEST = 'products/fetch_products_request';
@@ -83,7 +84,10 @@ export const getProductsByCollection = (state, slug) => {
     if(featured) {
         return featured.relationships.products.data.map(product => {
             return {
-                product: {...getProduct(state, product.id)},
+                product: {
+                    ...getProduct(state, product.id),
+                    stock: {...getProductStock(state, product.id)}
+                },
                 thumb: {...getThumbnailByProductId(state, product.id)}
             }
         });
@@ -95,7 +99,10 @@ export const getProductsByCategory = (state, slug) => {
     if(category) {
         return category.relationships.products.data.map(product => {
             return {
-                product: {...getProduct(state, product.id)},
+                product: {
+                    ...getProduct(state, product.id),
+                    stock: {...getProductStock(state, product.id)}
+                },
                 thumb: {...getThumbnailByProductId(state, product.id)}
             }
         });

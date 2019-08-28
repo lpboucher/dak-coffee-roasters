@@ -11,7 +11,7 @@ const FeaturedProducts = ({products, cart, t}) => {
         <Fragment>
             <Box pad="large" background="lightGrey">
                 <Heading level='1' textAlign="center">{t("sections.featured.title")}</Heading>
-                <ProductGrid products={products} cart={cart}/>
+                <ProductGrid products={products} cart={cart} />
                 <Link to="/shop" style={{textAlign: 'center'}}>
                     <Button primary label={t("sections.featured.button")} alignSelf="center"></Button>
                 </Link>

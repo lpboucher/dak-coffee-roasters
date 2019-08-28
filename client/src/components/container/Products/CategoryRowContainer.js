@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getProductsByCategory } from '../../../ducks/products';
-import { fetchCategories } from '../../../ducks/categories';
+import { fetchCategories, getCategories } from '../../../ducks/categories';
+import { fetchInventories, getInventories } from '../../../ducks/inventories';
 import { addToCart } from '../../../ducks/cart';
 
 import ProductRow from '../../presentational/Products/ProductRow';
@@ -11,9 +12,12 @@ import Loader from '../../utils/Loader';
 class CategoryRowContainer extends Component {
 
     componentDidMount() {
-        const { categories } = this.props;
-        if (categories.allIds.length < 1) {
+        const { categories, inventories } = this.props;
+        if (categories && categories.length < 1) {
             this.props.fetchCategories();
+        }
+        if (inventories && inventories.length < 1) {
+            this.props.fetchInventories();
         }
       }
 
@@ -37,10 +41,10 @@ class CategoryRowContainer extends Component {
 
 function mapStateToProps(state, ownProps) {
     const { category } = ownProps;
-    const { categories } = state;
     return {
         categoryProducts: getProductsByCategory(state, category),
-        categories,
+        categories: getCategories(state),
+        inventories: getInventories(state)
     };
 }
 
@@ -48,6 +52,7 @@ function mapDispatchToProps(dispatch) {
     return {
         addToCart: (id, quantity) => dispatch(addToCart(id, quantity)),
         fetchCategories: () => dispatch(fetchCategories()),
+        fetchInventories: () => dispatch(fetchInventories()),
     };
 }
 

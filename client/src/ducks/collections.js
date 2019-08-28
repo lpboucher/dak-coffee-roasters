@@ -53,6 +53,8 @@ export default combineReducers({
 //Selectors
 export const getCollection = (state, id) => state.collections.byId[id];
 
+export const getCollections = (state) => state.collections.allIds;
+
 export const getCollectionBySlug = (state, slug) => {
     const collectionId = state.collections.allIds.filter(id => state.collections.byId[id].slug === slug);
     return getCollection(state, collectionId[0]);

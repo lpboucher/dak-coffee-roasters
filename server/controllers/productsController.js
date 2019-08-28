@@ -39,4 +39,13 @@ module.exports = {
         console.log(err);
       }
     },
+    getAllProductStock: async(req, res, next) => {
+      try {
+        const inventories = await Moltin.Inventories.All();
+        console.log('API RESPONSE INVENTORIES----------', inventories);
+        res.json(inventories);
+      } catch (err) {
+        console.log(err);
+      }
+    },
 }

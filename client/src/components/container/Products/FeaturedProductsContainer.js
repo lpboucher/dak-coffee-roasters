@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchCollections } from '../../../ducks/collections';
+import { fetchCollections, getCollections } from '../../../ducks/collections';
+import { fetchInventories, getInventories } from '../../../ducks/inventories';
 import { getProductsByCollection } from '../../../ducks/products';
 import { addToCart } from '../../../ducks/cart';
 
@@ -11,7 +12,13 @@ import Loader from '../../utils/Loader';
 class FeaturedProductsContainer extends Component {
     
     componentDidMount() {
+        const { collections, inventories } = this.props;
+        if (collections && collections.length < 1) {
             this.props.fetchCollections();
+        }
+        if (inventories && inventories.length < 1) {
+            this.props.fetchInventories();
+        }
       };
 
       renderProducts() {
@@ -33,13 +40,16 @@ class FeaturedProductsContainer extends Component {
 function mapStateToProps(state, ownProps) {
     const { collection } = ownProps;
     return {
-        featuredProducts: getProductsByCollection(state, collection)
+        featuredProducts: getProductsByCollection(state, collection),
+        collections: getCollections(state),
+        inventories: getInventories(state)
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         fetchCollections: () => dispatch(fetchCollections()),
+        fetchInventories: () => dispatch(fetchInventories()),
         addToCart: (id, quantity) => dispatch(addToCart(id, quantity))
     };
 }

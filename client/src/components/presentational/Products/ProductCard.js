@@ -8,7 +8,7 @@ import { ReactComponent as SoldOut} from '../../../assets/icons/soldout.svg';
 import { Box, Image, Stack, Text } from 'grommet';
 
 const WithHover = styled(Box)`
-    opacity: ${props => props.isManaged ? 0.5 : 1};
+    opacity: ${props => props.outOfStock ? 0.5 : 1};
     cursor: pointer;
     position: relative;
     &:hover {
@@ -21,11 +21,12 @@ const OutOfStock = styled(Stack)`
 `
 
 const ProductCard = withRouter(({product, thumb, addToCart, history}) => {
+    const outOfStock = product.manage_stock && product.stock.available < 1;
     return (
         <Fragment>
-            <WithHover height="75%" width="100%" onClick={() => history.push(`/shop/${product.slug}`)} isManaged={product.manage_stock}>
+            <WithHover height="75%" width="100%" onClick={() => !outOfStock ? history.push(`/shop/${product.slug}`) : null} outOfStock={outOfStock}>
                 <Image fit="contain" src={`${thumb.link? thumb.link.href : ""}`}/>
-                {product.manage_stock && product.meta.stock.level < 1 &&
+                {outOfStock &&
                     <OutOfStock fill>
                         <Box align="start" pad="small">
                             <SoldOut height="48px" />
@@ -37,10 +38,10 @@ const ProductCard = withRouter(({product, thumb, addToCart, history}) => {
                 <ProductCardInfo 
                     id={product.id}
                     slug={product.slug}
-                    price={product.price}
+                    price={product.meta ? product.meta.display_price : '...'}
                     type={product.product_type}
                     add={addToCart}
-                    outOfStock={product.manage_stock && product.meta.stock.level < 1}
+                    outOfStock={outOfStock}
                     />
             </Box>      
         </Fragment>
