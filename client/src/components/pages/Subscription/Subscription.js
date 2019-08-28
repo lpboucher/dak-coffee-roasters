@@ -23,7 +23,7 @@ const Subscription = () => {
         <SubscriptionExplain />
         <SubscriptionSpecs />
         <SubscriptionContainer collection='coffee-subscriptions'/>
-        <CategoryRowContainer name="You may also like" category='coffee-equipment'/>
+        <CategoryRowContainer name="You may also like" category='coffee-equipment' limit={3}/>
         <NewsletterContainer />
     </>
     );

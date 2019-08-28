@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import withResponsive from '../../utils/HOCs/WithResponsive';
 
 import CartItem from './CartItem';
 import CartHeading from './CartHeading';
@@ -34,4 +35,4 @@ const Cart = ({items, cart, removeFromCart, updateCartItem, apply}) => {
     );
 };
 
-export default Cart;
+export default withResponsive(Cart);

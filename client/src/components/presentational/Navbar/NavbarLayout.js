@@ -1,44 +1,67 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import withResponsive from '../../utils/HOCs/WithResponsive';
 
 import { Grid } from 'grommet';
 
-const NavbarLayout = ({announcement, logo, topNav, subNav, show}) => {
-    /*const activeAreas = [
-        { name: 'announce', start: [0, 0], end: [1, 0]},
-        { name: 'logo', start: [0, 1], end: [0, 1] },
-        { name: 'topNav', start: [1, 1], end: [1, 1] },
-        { name: 'subNav', start: [0, 2], end: [1, 2] },
-    ]
-    const activeRows = ['30px', '60px', '50px'];*/
+const NavbarLayout = ({announcement, logo, topNav, subNav, media}) => {
+    const layout = {
+        small: {
+            areas: [
+                { name: 'announce', start: [0, 0], end: [1, 0]},
+                { name: 'logo', start: [0, 1], end: [0, 1] },
+                { name: 'topNav', start: [1, 1], end: [1, 1] },
+            ],
+            rows: ['30px', '80px'],
+            columns: ['flex', '50%']
+        },
+        medium: {
+            areas: [
+                { name: 'announce', start: [0, 0], end: [1, 0]},
+                { name: 'logo', start: [0, 1], end: [0, 1] },
+                { name: 'topNav', start: [1, 1], end: [1, 1] },
+            ],
+            rows: ['30px', '80px'],
+            columns: ['flex', '30%']
+        },
+        large: {
+            areas: [
+                { name: 'announce', start: [0, 0], end: [1, 0]},
+                { name: 'logo', start: [0, 1], end: [0, 1] },
+                { name: 'topNav', start: [1, 1], end: [1, 1] },
+                { name: 'subNav', start: [0, 2], end: [1, 2] },
+            ],
+            rows: ['30px', '80px', '40px'],
+            columns: ['flex', '25%']
+        },
+        infinity: {
+            areas: [
+                { name: 'announce', start: [0, 0], end: [1, 0]},
+                { name: 'logo', start: [0, 1], end: [0, 1] },
+                { name: 'topNav', start: [1, 1], end: [1, 1] },
+                { name: 'subNav', start: [0, 2], end: [1, 2] },
+            ],
+            rows: ['30px', '80px', '40px'],
+            columns: ['flex', '25%']
+        },
+    }
     const headerStyles = { background: "white", padding: "0", zIndex: "1", position: "fixed" }
-    const activeAreas = show ? 
-    [
-        { name: 'announce', start: [0, 0], end: [1, 0]},
-        { name: 'logo', start: [0, 1], end: [0, 1] },
-        { name: 'topNav', start: [1, 1], end: [1, 1] },
-        { name: 'subNav', start: [0, 2], end: [1, 2] },
-    ] : [
-        { name: 'logo', start: [0, 0], end: [0, 0] },
-        { name: 'topNav', start: [1, 0], end: [1, 0] },
-    ]
-    const activeRows = show ? ['30px', '80px', '40px'] : ['80px'];
     return (
-    <Fragment>
+    <>
             <Grid
             fill="horizontal"
-            rows={activeRows}
-            columns={['flex', '25%']}
+            rows={layout[media].rows}
+            columns={layout[media].columns}
             gap="none"
-            areas={activeAreas}
+            areas={layout[media].areas}
             style={headerStyles}
             >
-                {show ? announcement : null}
+                {announcement}
                 {logo}
                 {topNav}
-                {show ? subNav : null}
+                {media === 'large' || media === "infinity" ? subNav : null}
         </Grid>
-    </Fragment>
+    </>
     );
 };
 
-export default NavbarLayout;
+export default withResponsive(NavbarLayout);

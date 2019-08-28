@@ -20,7 +20,7 @@ const SubscriptionBanner = ({t}) => {
     return (
         <TwoColLayout 
             bgColor="darkGrey"
-            left={<FullImg imgLink={thumb}/>}
+            left={<FullImg imgLink={thumb} withMinHeight={false}/>}
             right={intro}
             pad={{outer: "large", inner: "medium"}}
         />

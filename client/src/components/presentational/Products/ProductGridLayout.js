@@ -1,24 +1,46 @@
 import React from 'react';
+import withResponsive from '../../utils/HOCs/WithResponsive';
 
 import ProductCard from './ProductCard';
 
 import { Grid, Box } from 'grommet';
 
-const ProductGrid = ({products, cart}) => {
+const ProductGrid = ({products, cart, media}) => {
+    const columns = {
+        small: ["auto"],
+        medium: ["auto"],
+        large: ["auto", "auto", "auto"],
+        infinity: ["auto", "auto", "auto"]
+      };
+      const rows = {
+        small: ["300px", "300px", "300px", "300px", "300px"],
+        medium: ["300px", "300px", "300px", "300px", "300px"],
+        large: ["300px", "300px"],
+        infinity: ["300px", "300px"]
+      };
+    const areas = media === 'infinity' || media === 'large' ?
+        [
+            { name: 'main', start: [0, 0], end: [0, 1] },
+            { name: 'product1', start: [1, 0], end: [1, 0] },
+            { name: 'product2', start: [1, 1], end: [1, 1] },
+            { name: 'product3', start: [2, 0], end: [2, 0] },
+            { name: 'product4', start: [2, 1], end: [2, 1] },
+        ] : 
+        [
+            { name: 'main', start: [0, 0], end: [0, 0] },
+            { name: 'product1', start: [0, 1], end: [0, 1] },
+            { name: 'product2', start: [0, 2], end: [0, 2] },
+            { name: 'product3', start: [0, 3], end: [0, 3] },
+            { name: 'product4', start: [0, 4], end: [0, 4] },
+        ]
     return (
         <Grid
-            columns={['flex', 'flex', 'flex']}
-            rows={['300px', '300px']}
+            columns={columns[media]}
+            rows={rows[media]}
             gap='medium'
             background="lightGrey"
             margin="medium"
-            areas={[
-                { name: 'main', start: [0, 0], end: [0, 1] },
-                { name: 'product1', start: [1, 0], end: [1, 0] },
-                { name: 'product2', start: [1, 1], end: [1, 1] },
-                { name: 'product3', start: [2, 0], end: [2, 0] },
-                { name: 'product4', start: [2, 1], end: [2, 1] },
-            ]}
+            areas={areas}
         >
         {products.map((product, index) => (
             <Box key={product.product.id}
@@ -32,4 +54,4 @@ const ProductGrid = ({products, cart}) => {
     );
 };
 
-export default ProductGrid;
+export default withResponsive(ProductGrid);

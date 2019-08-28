@@ -143,9 +143,9 @@
                 "summary": "order summary",
                 "subtotal": "subtotal",
                 "shipping": "shipping from",
-                "taxes": "VAT 21%",
+                "taxes": "tax (incl.)",
                 "discount": "discount",
-                "total": "total (including taxes)",
+                "total": "total",
                 "button": "order"
             }
         },
@@ -156,24 +156,27 @@
             "shippingsubmit": "Submitted",
             "payment": "Payment Method",
             "address": {
-                "name": "name",
-                "company": "company",
+                "name": "Name",
+                "company": "Company",
                 "line1": "Address Line 1",
                 "line2": "Address Line 2",
                 "city": "City/Town",
                 "postcode": "Postal Code",
                 "region": "County/Region",
-                "country": "Country"
+                "country": "Country",
+                "samebilling": "Same address for billing",
+                "billing": "Billing Address"
             },
-            "terms": "Ik heb de algemene voorwaarden van de website gelezen en ga hiermee akkoord"
+            "terms": "By clicking the button below, you agree to our terms of sale.",
+            "button": "Update address"
         },
         "login": {
-            "existing": "existing user?",
-            "name": "full name",
-            "email": "email",
-            "password": "password",
-            "login": "login",
-            "register": "register"
+            "existing": "Existing user?",
+            "name": "Full Name",
+            "email": "Email",
+            "password": "Password",
+            "login": "Login",
+            "register": "Register"
         },
         "contact": {
             "general": {

@@ -149,28 +149,31 @@
         "checkout": {
             "islogged": "Déjà connecté",
             "notlogged": "Se connecter/S'inscrire pour continuer",
-            "shipping": "Addresse de livraison",
+            "shipping": "Adresse de livraison",
             "shippingsubmit": "Complété",
             "payment": "Méthode de paiement",
             "address": {
-                "name": "nom",
-                "company": "compagnie",
-                "line1": "Addresse Ligne 1",
-                "line2": "Addresse Ligne 2",
+                "name": "Nom",
+                "company": "Compagnie",
+                "line1": "Adresse Ligne 1",
+                "line2": "Adresse Ligne 2",
                 "city": "Ville",
                 "postcode": "Code Postal",
                 "region": "Province",
-                "country": "Pays"
+                "country": "Pays",
+                "samebilling": "Même adresse pour la facturation",
+                "billing": "Adresse de facturation"
             },
-            "terms": "En poursuivant, j'accepte les Conditions Générales de vente"
+            "terms": "En poursuivant, j'accepte les Conditions Générales de vente",
+            "button": "Mettre à jour l'adresse"
         },
         "login": {
-            "existing": "déjà inscrit?",
-            "name": "nom complet",
-            "email": "courriel",
-            "password": "mot de passe",
-            "login": "connexion",
-            "register": "inscription"
+            "existing": "Déjà inscrit?",
+            "name": "Nom complet",
+            "email": "Courriel",
+            "password": "Mot de passe",
+            "login": "Connexion",
+            "register": "Inscription"
         },
         "contact": {
             "general": {
