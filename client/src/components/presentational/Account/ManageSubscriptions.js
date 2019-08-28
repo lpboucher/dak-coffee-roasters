@@ -4,7 +4,7 @@ import SubscriptionItem from './SubscriptionItem';
 
 import { Box } from 'grommet';
 
-const ManageSubscriptions = ({update, subscriptions}) => {
+const ManageSubscriptions = ({update, pause, cancel, subscriptions}) => {
     return (
         <Fragment>
             <Box pad={{horizontal: 'xlarge', vertical: 'medium'}}>
@@ -13,6 +13,12 @@ const ManageSubscriptions = ({update, subscriptions}) => {
                         <SubscriptionItem 
                             key={item.id}
                             update={update}
+                            pause={pause}
+                            cancel={cancel}
+                            status={{
+                                cancelled: sub.status === "canceled",
+                                paused: sub.discount ? sub.discount.coupon.id : null
+                            }}
                             {...item}
                         />
 

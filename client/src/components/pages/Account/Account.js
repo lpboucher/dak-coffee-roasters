@@ -40,11 +40,11 @@ const Account = ({t}) => {
                     <AddressContainer />
                 </Box>
             </Tab>
-            <Tab title={t("sections.account.menu.payment")}>
+            {/*<Tab title={t("sections.account.menu.payment")}>
                 <Box pad={{"horizontal": "xlarge"}}>
                     <PaymentContainer />
                 </Box>
-            </Tab>
+        </Tab>*/}
         </Tabs>
     </>
     );

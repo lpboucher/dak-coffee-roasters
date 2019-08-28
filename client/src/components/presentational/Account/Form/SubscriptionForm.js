@@ -8,7 +8,7 @@ import { Box, Button } from "grommet";
 
 const required = value => (value ? undefined : "Please select all options");
 
-const SubscriptionForm = ({update, id, itemId, plan, number, quantity, roast, varieties, t}) => {
+const SubscriptionForm = ({update, pause, cancel, id, itemId, plan, status, number, quantity, roast, varieties, t}) => {
     return (
         <Form
             onSubmit={values => update(id, itemId, values)}
@@ -57,7 +57,15 @@ const SubscriptionForm = ({update, id, itemId, plan, number, quantity, roast, va
                     </Condition>
                 </Fragment>
                 <Field label="Quantity" name="quantity" component={SelectAdapter} size="small" options={['500g', '1000g']} placeholder="How much?" validate={required}/>
-                <Button type="submit" disabled={submitting || invalid} primary fill="horizontal" label={t("sections.account.subscriptions.button")} color="mainDark" />
+                <Box width="100%" direction="row">
+                    <Box width="50%" pad={{right: 'small'}}>
+                        <Button onClick={() => pause(id, status === 'paused')} disabled={submitting || invalid} primary fill="horizontal" label={status === 'paused' ? t("reactivate") : t("pause")} color="mainDark" />
+                    </Box>
+                    <Box width="50%" pad={{left: 'small'}}>
+                        <Button onClick={() => cancel(id)} disabled={status !== 'active'} primary fill="horizontal" label={t("cancel")} color="mainDark" />
+                    </Box>
+                </Box>
+                <Button type="submit" disabled={status !== 'active' || submitting || invalid} primary fill="horizontal" label={t("sections.account.subscriptions.button")} color="mainDark" />
                 </Box>
             </form>
             )}

@@ -41,12 +41,10 @@ const AddressForm = ({btnLabel, submit, userId, address, items, total, t}) => {
           {!values.billingIsShipping &&
             <AddressFields condition={values.address} type="address" />
             }
-          <Text>By clicking the button below you agree to our terms of sale.</Text>
-          <Button type="submit" disabled={submitting || invalid} primary fill label={btnLabel} color="mainDark" />
-            
-          <pre>{JSON.stringify(values, 0, 2)}</pre>
-          <pre>{JSON.stringify(errors, 0, 2)}</pre>
-          <pre>{JSON.stringify(invalid, 0, 2)}</pre>
+            {items &&
+              <Text>{t("sections.checkout.terms")}</Text>
+            }
+          <Button type="submit" disabled={submitting || invalid} primary fill label={t(btnLabel)} color="mainDark" />
         </form>
       )}
     />

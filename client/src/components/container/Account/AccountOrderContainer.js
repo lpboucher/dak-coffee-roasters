@@ -14,7 +14,13 @@ class AccountOrderContainer extends Component {
 
     renderOrders() {
         const { orders } = this.props;
-        if(orders && orders.length > 0) return (<Orders orders={orders}/>)
+        if(orders) {
+            return orders.length > 0
+            ?
+            <Orders orders={orders}/>
+            :
+            <p style={{textAlign: 'center'}}>No orders yet.</p>
+        }
         return <Loader />
       }
 

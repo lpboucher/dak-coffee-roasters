@@ -1,5 +1,6 @@
 const MoltinGateway = require('@moltin/sdk').gateway;
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const emails = require('../utils/emails');
  
 const Moltin = MoltinGateway({
   client_id: process.env.MOLTIN_CLIENT_ID,
@@ -20,7 +21,7 @@ module.exports = {
         res.json(user);
       },
     register: async (req, res, next) => {
-      const { name, email, password } = req.body;
+      const { name, email, password, language } = req.body;
       let user;
       try {
         user = await Moltin.Customers.Create({ name, email });
@@ -36,6 +37,7 @@ module.exports = {
         try {
           const newUser = await Moltin.Customers.Update(user.data.id, { name, email, password, stripe_id: customer.id });
           console.log('API USER REGISTERED----------', newUser);
+          emails.newUserEmail(email, language)
           res.json(newUser);
         } catch (err) {
           console.log(err)
@@ -82,6 +84,29 @@ module.exports = {
             async function(err, subscription) {
               await res.json(subscription);
               console.log('API LOGGING UPDATED SUBSCRIPTION----------', subscription);
+          }
+        );
+      },
+      //merge to single call
+      pauseSubscription: (req, res, next) => {
+        const { id } = req.params;
+        const { coupon } = req.body;
+        stripe.subscriptions.update(
+          id,
+          {coupon: coupon},
+            async function(err, subscription) {
+              await res.json(subscription);
+              console.log('API LOGGING PAUSED SUBSCRIPTION----------', subscription);
+          }
+        );
+      },
+      cancelSubscription: (req, res, next) => {
+        const { id } = req.params;
+        stripe.subscriptions.del(
+          id,
+            async function(err, confirmation) {
+              await res.json(subscription);
+              console.log('API LOGGING CANCELED SUBSCRIPTION----------', subscription);
           }
         );
       },

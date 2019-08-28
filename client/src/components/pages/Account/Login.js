@@ -10,7 +10,7 @@ const Login = ({location}) => {
     new Image().src = back;
     return (
         <Box pad={{"top": '160px'}} background={`url(${back})`}>
-            <Box width="30%" background="lightGrey" pad={{"horizontal": '5%', vertical: '50px'}} margin={{"horizontal": "35%", vertical: '50px'}} style={{minHeight: '520px'}}>
+            <Box width="430px" background="lightGrey" pad={{"horizontal": '5%', vertical: '50px'}} margin={{"horizontal": "auto", vertical: '50px'}} style={{minHeight: '520px'}}>
                 <LoginFormContainer loc={location.pathname}/>
             </Box>
         </Box>

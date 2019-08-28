@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import axios from 'axios';
+import i18n from "i18next";
 
 import { getPlanIDBySlug } from './products';
 
@@ -58,7 +59,7 @@ export const updateCustomerAddress = (id, {billingIsShipping, shipping, address}
 }
 
 export const updateSubscription = (subscriptionId, itemId, data) => async (dispatch, getState) => {
-    dispatch({ type: UPDATE_REQUEST, payload: "Updating your acount..." });
+    dispatch({ type: UPDATE_REQUEST, payload: "Updating your account..." });
     const { plan, number, quantity, roast, varieties } = data;
     const planId = getPlanIDBySlug(
         getState(),
@@ -67,6 +68,28 @@ export const updateSubscription = (subscriptionId, itemId, data) => async (dispa
     try {
         const res = await axios.post(`http://localhost:5000/api/user/subscription/${subscriptionId}`, { plan: planId, number, itemId } );
         console.log('logging sub update----------', res.data);
+        dispatch(fetchUser(null, getState()['user']['info']['stripe_id']));
+    } catch(err) {
+        //dispatch({ type: FETCH_PRODUCTS_FAILURE});
+    }
+}
+
+export const pauseSubscription = (subscriptionId, reactivate=false) => async (dispatch, getState) => {
+    dispatch({ type: UPDATE_REQUEST, payload: "Pausing your subscription..." });
+    try {
+        const res = await axios.post(`http://localhost:5000/api/user/subscription/pause/${subscriptionId}`, { coupon: !reactivate ? 'sub-pause' : null});
+        console.log('logging sub pause----------', res.data);
+        dispatch(fetchUser(null, getState()['user']['info']['stripe_id']));
+    } catch(err) {
+        //dispatch({ type: FETCH_PRODUCTS_FAILURE});
+    }
+}
+
+export const cancelSubscription = (subscriptionId) => async (dispatch, getState) => {
+    dispatch({ type: UPDATE_REQUEST, payload: "Cancelling your subscription..." });
+    try {
+        const res = await axios.post(`http://localhost:5000/api/user/subscription/cancel/${subscriptionId}`);
+        console.log('logging sub cancel----------', res.data);
         dispatch(fetchUser(null, getState()['user']['info']['stripe_id']));
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -107,8 +130,9 @@ export const logout = () => dispatch => {
 
 export const register = ({ name, email, password }) => async dispatch => {
     dispatch({ type: REGISTER_REQUEST, payload: "Creating your new account..." });
+    const language = i18n.language;
     try {
-        const res = await axios.post(`http://localhost:5000/api/user/register`, { name, email, password } );
+        const res = await axios.post(`http://localhost:5000/api/user/register`, { name, email, password, language } );
         console.log('registering user----------', res.data);
 
         if (res.data.error) {
@@ -137,7 +161,7 @@ export const addToNewsletter = (name, email, language) => async dispatch => {
     }
 }
 
-const initialInfo = {address: {}, shipping: {name: "", address:{}}};
+const initialInfo = {address: {}, shipping: {name: "", address:{}}, subscriptions: {}};
 //Reducers
 const info = (state = initialInfo, action) => {
     switch (action.type) {
