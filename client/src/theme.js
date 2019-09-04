@@ -8,7 +8,7 @@ export const DakTheme = {
             'highlight': '#c5b6a4',
             'darkHighlight': '#a96c35',
             brand: '#a96c35',
-            focus: 'mainWhite',
+            focus: 'none',
             active: 'mainWhite',
             control: {dark: 'mainDark', light: 'darkHighlight'},
         },
@@ -73,7 +73,7 @@ export const DakTheme = {
       },
       formField: {
         border: {
-          color: {dark: 'mainWhite', light: 'darkGrey'},
+          color: {dark: 'mainWhite', light: 'none'},
           side: 'all'
         },
         margin: {
@@ -240,6 +240,11 @@ export const DakTheme = {
         }
       },
       textInput: {
+        container: {
+          extend: {
+            border: "1px solid #dcddde"
+          }
+        },
         placeholder: {
           extend: {
             color: "mainDark"

@@ -47,7 +47,7 @@
         }
     },
     "coffee": {
-        "rutabo-coffee": {
+        "rutabo-coffee_250g": {
             "name": "rutabo",
             "description": "This coffee is roasted for filter coffee. We use a shorter roast time at high temperatures to focus on the development of organic acids. The result is a coffee that is clean with a bright acidity and fruity sweetness that is typical of African natural-processed coffees.\n\nAt a highest altitude of 2,000m, Rushashi coffees are of very high quality and often find a place in the Rwanda Cup of Excellence. At the Rutabo village, the Bourbon variety is processed as Natural.",
             "region": "Gakenke",
@@ -61,7 +61,7 @@
             "altitude": "1800m",
             "harvest": "The Rushashi washing station is a cooperative where they pool resources together to improve the quality and the sustainability of their harvests."
         },
-        "esperanza-coffee": {
+        "esperanza-coffee_250g": {
             "name": "esperanza",
             "description": "This coffee is roasted for espresso-based drinks. We use lower temperatures and a longer roasted time to allow the sugars to develop while making sure not to burn them. The result is a coffee that feels naturally sweet and that may just be the best cappuccino you have ever had!\n\nThis “Esperanza” micro lot benefits from lower temperatures allowing the cherries to develop more slowly, resulting in more complex flavours.",
             "region": "Nueva Segovia",
@@ -75,7 +75,7 @@
             "harvest": "These Catuai beans were harvested in the highest of the peralta farms in Nicaragua (Santa Maria de Lourdes).",
             "altitude": "1500m"
         },
-        "coffee-for-two-coffee": {
+        "coffee-for-two-coffee_250g": {
             "name": "Coffee for two",
             "description": "This month’s limited edition is roasted as an omni-roast coffee, equally delicious as a filter or espresso drink. We use a balanced roast at medium temperatures and times to draw from both organic acids and sugars present in the coffee. The result is a coffee that is very pleasant with a light acidity and tasting notes of almond, caramel and cacao butter. Quantities are limited, so get yours now!",
             "region": "Chalatenango",
@@ -89,7 +89,7 @@
             "harvest": "The Chalatenango region in El Salvador is famous for its Pacamaras, particularly given the recent Cup of Excellence result.",
             "altitude": "1700m"
         },
-        "108blend-coffee": {
+        "108blend-coffee_250g": {
             "name": "No. 108",
             "description": "This blend was developed for espressos but also goes well with milk-based drinks. The coffees selected for the blend bring their own unique attributes. The result is an espresso that feels naturally sweet with a lingering body.\n\nThe Nicaraguan was selected as the sugar carrier for this blend. To top it off, the Indonesian brings hints of floral aromas and a medium-body, long and clean aftertaste.",
             "region": "Nueva Segovia & Bajawa",
@@ -103,7 +103,7 @@
             "harvest": "The Bajawa is harvested by a collective of 50 farmers in Indonesia. Cherries are handpicked resulting in one of the most expensive coffees in Indonesia",
             "altitude": "1700m"
         },
-        "reko-coffee": {
+        "reko-coffee_250g": {
             "name": "Chelelektu",
             "description": "Draft",
             "region": "Yirgacheffe Kochere",
