@@ -44,7 +44,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
     return {
         fetchCollections: () => dispatch(fetchCollections()),
-        addToCart: (slug, data) => dispatch(addDerivedToCart(slug, data))
+        addToCart: (slug, data) => dispatch(addDerivedToCart(slug, "recurring", data))
     };
 }
 

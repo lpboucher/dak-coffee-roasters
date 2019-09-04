@@ -1,25 +1,7 @@
 import React from 'react';
 import { Field } from 'react-final-form';
-import { FormField, TextInput, RadioButton, CheckBox, Select } from "grommet";
+import { FormField, TextInput, RadioButton, RadioButtonGroup, CheckBox, Select } from "grommet";
 
-/*const Fields = ({names, subscription, fieldsState = {}, children, originalRender}) => {
-    if (!names.length) {
-      return (originalRender || children)(fieldsState);
-    }
-    const [name, ...rest] = names;
-    return (
-      <Field name={name} subscription={subscription}>
-        {fieldState => (
-          <Fields
-            names={rest}
-            subscription={subscription}
-            originalRender={originalRender || children}
-            fieldsState={{ ...fieldsState, [name]: fieldState }}
-          />
-        )}
-      </Field>
-    );
-  };*/
 export const Condition = ({ when, is, children }) => (
     <Field name={when} subscription={{ value: true }}>
       {({ input: { value } }) => (value === is ? children : null)}
@@ -51,8 +33,23 @@ export const RadioAdapter = ({ input: {checked, name, onChange, value, ...restIn
     </FormField>
 )
 
+export const RadioGroupAdapter = ({ input: {checked, name, onChange, value, ...restInput}, options, meta, label, placeholder, ...rest }) => (
+  <FormField error={meta.modified && meta.error ? meta.error : ""} {...rest} style={{width: '60%'}}>
+      <RadioButtonGroup
+      {...restInput}
+      placeholder={placeholder}
+      label={label}
+      checked={checked}
+      name={name}
+      options={options}
+      onChange={onChange}
+      value={value}
+      style={rest.style}
+      />
+  </FormField>
+)
+
 export const CheckboxAdapter = ({ input: {checked, name, onChange, value, ...restInput}, meta, label,...rest }) => (
-    
         <CheckBox
         toggle
         {...restInput}

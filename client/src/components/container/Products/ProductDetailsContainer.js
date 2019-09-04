@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getAllProducts, getProductBySlug, fetchProducts } from '../../../ducks/products';
-//import { addToCart } from '../../../ducks/cart';
+import { addDerivedToCart, addToCart } from '../../../ducks/cart';
 
 import SingleProduct from '../../presentational/Products/SingleProduct';
 
@@ -15,8 +15,8 @@ class ProductDetailsContainer extends Component {
     }
 
     renderProduct() {
-    const { product } = this.props;
-    if(product && Object.keys(product).length > 0) {return <SingleProduct product={product}/>};
+    const { product, addToCart, addDerived} = this.props;
+    if(product && Object.keys(product).length > 0) {return <SingleProduct product={product} derived={addDerived} add={addToCart}/>};
 
     return <Loader />
     }
@@ -40,7 +40,9 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchProducts: () => dispatch(fetchProducts())
+        fetchProducts: () => dispatch(fetchProducts()),
+        addDerived: (slug, data) => dispatch(addDerivedToCart(slug, null, data)),
+        addToCart: (id, quantity) => dispatch(addToCart(id, quantity))
     };
 }
 

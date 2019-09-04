@@ -35,15 +35,17 @@ export const addToCart = (id, quantity) => async (dispatch, getState) => {
     }
 }
 
-export const addDerivedToCart = (slug, data) => (dispatch, getState) => {
+export const addDerivedToCart = (slug, type, data) => (dispatch, getState) => {
     dispatch({ type: FETCH_CART_REQUEST, payload: "Adding to cart..." });
     const { quantity, roast, varieties } = data;
-    const derivedId = getProductIDBySlug(
-        getState(),
-        `${slug}_${quantity}${roast ? "_"+roast : ""}${varieties ? "_"+varieties : ""}`
-        );
-    const subProduct = getProduct(getState(), derivedId);
-    console.log(subProduct);
+    let newSlug;
+    if (type === "recurring") {
+        newSlug = `${slug}_${quantity}${roast ? "_"+roast : ""}${varieties ? "_"+varieties : ""}`
+    } else {
+        const splitSlug = slug.split('_');
+        newSlug = quantity === '250g' ? slug : `${splitSlug[0]}_${quantity}`
+    }
+    const derivedId = getProductIDBySlug(getState(), newSlug)
     dispatch(addToCart(derivedId, "1"));
 }
 

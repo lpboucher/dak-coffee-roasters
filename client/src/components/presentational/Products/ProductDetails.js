@@ -3,13 +3,13 @@ import { withTranslation } from 'react-i18next';
 import { Form, Field } from 'react-final-form';
 
 import ProductSpecs from './ProductSpecs';
-import { SelectAdapter } from '../../utils/Forms/FormHelpers';
+import { RadioGroupAdapter } from '../../utils/Forms/FormHelpers';
 
 import { Heading, Text, Button, Box, Tabs, Tab } from 'grommet';
 
-const ProductDetails = ({id, name, region, country, roast, description, product_type, details, price, addToCart, t, ...rest}) => {
+const ProductDetails = ({id, name, region, country, roast, description, product_type, details, price, derived, add, t, ...rest}) => {
     const onSubmit = values => {
-        console.log(values);
+        product_type === 'coffee' ? derived(rest.slug, values) : add(id, '1')
     }
     return (
         <Fragment>
@@ -32,11 +32,11 @@ const ProductDetails = ({id, name, region, country, roast, description, product_
                     }
                 </Tab>
                 {product_type === "equipment" &&
-                <Tab title="Details">
+                (<Tab title="Details">
                     {t(`products:${product_type}.${rest.slug}.details`).split(";").map((detail, index) => (
                         <Text key={`${index}${detail.slice(0,5)}`}>{`- ${detail}\n`}</Text>
                     ))}
-                </Tab>
+                </Tab>)
                 }
             </Tabs>
             
@@ -46,14 +46,15 @@ const ProductDetails = ({id, name, region, country, roast, description, product_
                     <form onSubmit={handleSubmit}>
                         {product_type === 'coffee' &&
                         <Box pad="small">
-                            <Field placeholder="How much?" name="quantity" component={SelectAdapter} size="small" options={['500g', '1kg']}/>
+                            <Field 
+                                name="quantity"
+                                component={RadioGroupAdapter}
+                                options={[{"label": "250g","value": "250g"},{"label": "500g (+ 7)","value": "500g"},{"label": "1kg (+ 15)","value": "1kg"}]}
+                                style={{flexDirection: 'row', justifyContent: 'space-between'}}
+                            />
                         </Box>
                         }
                         <Button type="submit" disabled={submitting || invalid} primary alignSelf="start" label="Add to Cart" color="mainDark" />
-                        {/*<pre>{JSON.stringify(values, 0, 2)}</pre>
-                        <pre>{JSON.stringify(errors, 0, 2)}</pre>
-                        <pre>{JSON.stringify(invalid, 0, 2)}</pre>
-                <pre>{JSON.stringify(submitting, 0, 2)}</pre>*/}
                     </form>
             )}
             />
