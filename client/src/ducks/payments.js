@@ -25,9 +25,9 @@ export const submitPayment = (payment, subscription = {}) => async dispatch => {
             dispatch({ type: SUBMIT_PAYMENT_CONFIRM, payload: res.data, processing: "Confirming payment..." });
         } else if (res.data.success) {
             if(has_recurring) {dispatch(addSuscription(customer, plans, res.data.payment_method))}
-            dispatch(finalizeOrder());
-            dispatch(clearCart());
-            dispatch({ type: SUBMIT_PAYMENT_SUCCESS, payload: res.data });
+            await dispatch(finalizeOrder());
+            await dispatch({ type: SUBMIT_PAYMENT_SUCCESS, payload: res.data });
+            await dispatch(clearCart())
         }
         //dispatch({ type: SUBMIT_ORDER_SUCCESS, payload: res.data });
     } catch(err) {

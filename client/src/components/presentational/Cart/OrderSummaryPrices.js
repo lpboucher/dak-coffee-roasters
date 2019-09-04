@@ -11,7 +11,7 @@ const CheckoutSummaryPrices = ({total, subTotal, discount, taxes, shipping, with
     return (
         <Box width="100%" direction="column">
             <OrderSummaryRow label={t("sections.cart.order.subtotal")} price={`${total ? SYMBOLS[total.with_tax.currency] : "€"}${(subTotal/100).toFixed(2)}`} />
-            <OrderSummaryRow label={t("sections.cart.order.shipping")} price={`${total ? SYMBOLS[total.with_tax.currency] : "€"}${(shipping/100).toFixed(2)}`} />
+            <OrderSummaryRow label={t("sections.cart.order.shipping")} price={`${total ? SYMBOLS[total.with_tax.currency] : "€"}${(shipping).toFixed(2)}`} />
             <OrderSummaryRow label={t("sections.cart.order.taxes")} price={`${total ? SYMBOLS[total.with_tax.currency] : "€"}${taxes.amount_to_collect ? taxes.amount_to_collect : (0).toFixed(2)}`} />
             <OrderSummaryRow label={t("sections.cart.order.discount")} price={`${total ? SYMBOLS[total.with_tax.currency] : "€"}${(discount ? discount/100 : 0).toFixed(2)}`} />
             <OrderSummaryRow label={t("sections.cart.order.total")} price={total ? total.with_tax.formatted : "..."} />

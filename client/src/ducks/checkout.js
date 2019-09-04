@@ -3,8 +3,8 @@ import axios from 'axios';
 import i18n from "i18next";
 
 import { getCartTotal } from './cart';
+import { getThumbnailByProductId } from './thumbnails';
 
-import { SUBMIT_PAYMENT_SUCCESS } from './payments';
 import { CLEAR_CART_SUCCESS, FETCH_CART_SUCCESS } from './cart'
 
 //Action Types
@@ -51,9 +51,8 @@ export const submitOrder = (customerId, { billingIsShipping, shipping, address }
 
 export const finalizeOrder = () => async (dispatch, getState) => {
     dispatch({ type: ORDER_FINALIZE_REQUEST, payload: "Finalizing order..." });
-    const order = {...getOrder(getState()), items: [...getOrderItems(getState())]};
+    const order = {...getOrder(getState()), items: [...getOrderItemsWithImgs(getState())]};
     const lang = i18n.language;
-    //console.log(order);
     try {
         const res = await axios.post(`http://localhost:5000/api/checkout/finalize`, { order, lang } );
         console.log('finalizing order----------', res.data);
@@ -70,7 +69,6 @@ const order = (state = {}, action) => {
             ...state,
             ...action.payload.order.data,
         }
-        case SUBMIT_PAYMENT_SUCCESS:
         case CLEAR_CART_SUCCESS:
         case FETCH_CART_SUCCESS:
             return {}
@@ -83,7 +81,6 @@ const items = (state = [], action) => {
     switch (action.type) {
         case SUBMIT_ORDER_SUCCESS:
         return action.payload.order.included.items.map(item => item)
-        case SUBMIT_PAYMENT_SUCCESS:
         case CLEAR_CART_SUCCESS:
         case FETCH_CART_SUCCESS:
             return []
@@ -99,7 +96,6 @@ const taxes = (state = {}, action) => {
             ...state,
             ...action.payload.taxes.tax
         }
-        case SUBMIT_PAYMENT_SUCCESS:
         case CLEAR_CART_SUCCESS:
         case FETCH_CART_SUCCESS:
             return {}
@@ -118,6 +114,12 @@ export default combineReducers({
 export const orderExists = (state) => Object.keys(state.checkout.order).length >= 1;
 
 export const getOrderItems = (state) => state.checkout.items;
+
+export const getOrderItemsWithImgs = (state) => {
+    return state.checkout.items.map(item => {
+        return item.product_id !== "" ? {...item, thumb: {...getThumbnailByProductId(state, item.product_id)}} : {...item}
+    })
+}
 
 export const getOrder = (state) => state.checkout.order;
 
@@ -138,6 +140,6 @@ export const getShippingCosts = (state) => {
     }
     const cartAmount = getCartTotal(state);
     if (cartAmount && cartAmount.with_tax) {
-        return cartAmount.with_tax.amount > 5000 ? 0 : 350
+        return cartAmount.with_tax.amount > 5000 ? 0 : 3.50
     } 
 }
