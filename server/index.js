@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const cors = require('cors');
+const path = require("path");
 
 //Routes
 const indexRouter = require('./routes/index');
@@ -33,6 +34,8 @@ app.use(session({
         maxAge: 1000 * 60 * 60 *24 * 14
     }
 }));
+
+app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.use('/', indexRouter);
 app.use('/api/user', userRouter);
