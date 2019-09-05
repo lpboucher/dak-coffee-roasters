@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { Suspense, lazy} from 'react';
 
 import Hero from '../../presentational/Hero/Hero';
 import SubscriptionIntro from '../../presentational/Intros/SubscriptionIntro';
 import LimitedEditionsIntro from '../../presentational/Intros/LimitedEditionsIntro';
-import FeaturedProductsContainer from '../../container/Products/FeaturedProductsContainer';
-import NewsletterSignUp from '../../container/Newsletter/NewsletterSignUp';
-import ValuesIntro from '../../presentational/Intros/ValuesIntro';
-import BrewingIntro from '../../presentational/Intros/BrewingIntro';
+import Loader from '../../utils/Loader';
 
-import header from '../../../assets/images/Header_Mainpage.jpg';
+const FeaturedProductsContainer = lazy(() => import('../../container/Products/FeaturedProductsContainer'));
+const NewsletterContainer = lazy(() => import('../../container/Newsletter/NewsletterContainer'));
+const ValuesIntro = lazy(() => import('../../presentational/Intros/ValuesIntro'));
+const BrewingIntro = lazy(() => import('../../presentational/Intros/BrewingIntro'));
+
+const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565896327/Heros/HeaderV2_gujmqi.jpg'
 
 const Home = () => {
     return (
@@ -19,16 +21,17 @@ const Home = () => {
                 text: "hero.home",
                 loc: "bottom-left",
                 width: "100vw",
-                height: "25vh",
-                withOpacity: true
+                height: "40vh"
             }}
         />
-        <SubscriptionIntro />
-        <LimitedEditionsIntro />
-        <FeaturedProductsContainer collection='featured-products'/>
-        <NewsletterSignUp />
-        <ValuesIntro />
-        <BrewingIntro />
+            <SubscriptionIntro />
+            <LimitedEditionsIntro />
+        <Suspense fallback={<Loader />}>
+            <FeaturedProductsContainer collection='featured-products'/>
+            <NewsletterContainer />
+            <ValuesIntro />
+            <BrewingIntro />
+        </Suspense>
     </>
     );
 };
