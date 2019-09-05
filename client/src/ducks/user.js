@@ -29,13 +29,13 @@ export const NEWSLETTER_SUCCESS = 'user/newsletter_sucess';
 export const fetchUser = (id, stripeId = null) => async dispatch => {
     console.log('passed id', id)
     if (stripeId == null) {
-        const res = await axios.get(`http://localhost:5000/api/user/${id}`);
+        const res = await axios.get(`/api/user/${id}`);
         console.log('logging moltin user----------', res.data);
         dispatch({ type: FETCH_SUCCESS, payload: res.data.data });
         stripeId = res.data.data.stripe_id;
     }
     try {
-        const res = await axios.get(`http://localhost:5000/api/user/${stripeId}`);
+        const res = await axios.get(`/api/user/${stripeId}`);
         console.log('logging stripe user----------', res.data);
         dispatch({ type: FETCH_SUCCESS, payload: res.data });
     } catch(err) {
@@ -50,7 +50,7 @@ export const updateCustomerAddress = (id, {billingIsShipping, shipping, address}
     delete shipping.address.name;
     delete billing.name;
     try {
-        const res = await axios.post(`http://localhost:5000/api/user/${id}`, {address: billing, shipping} );
+        const res = await axios.post(`/api/user/${id}`, {address: billing, shipping} );
         console.log('logging update----------', res.data);
         dispatch({ type: UPDATE_SUCCESS, payload: res.data });
     } catch(err) {
@@ -66,7 +66,7 @@ export const updateSubscription = (subscriptionId, itemId, data) => async (dispa
         `${plan}-subscription_${quantity}${plan === "classics" ? "_"+roast : ""}${plan === "classics" ? "_"+varieties : ""}`
     );
     try {
-        const res = await axios.post(`http://localhost:5000/api/user/subscription/${subscriptionId}`, { plan: planId, number, itemId } );
+        const res = await axios.post(`/api/user/subscription/${subscriptionId}`, { plan: planId, number, itemId } );
         console.log('logging sub update----------', res.data);
         dispatch(fetchUser(null, getState()['user']['info']['stripe_id']));
     } catch(err) {
@@ -77,7 +77,7 @@ export const updateSubscription = (subscriptionId, itemId, data) => async (dispa
 export const pauseSubscription = (subscriptionId, reactivate=false) => async (dispatch, getState) => {
     dispatch({ type: UPDATE_REQUEST, payload: "Pausing your subscription..." });
     try {
-        const res = await axios.post(`http://localhost:5000/api/user/subscription/pause/${subscriptionId}`, { coupon: !reactivate ? 'sub-pause' : null});
+        const res = await axios.post(`/api/user/subscription/pause/${subscriptionId}`, { coupon: !reactivate ? 'sub-pause' : null});
         console.log('logging sub pause----------', res.data);
         dispatch(fetchUser(null, getState()['user']['info']['stripe_id']));
     } catch(err) {
@@ -88,7 +88,7 @@ export const pauseSubscription = (subscriptionId, reactivate=false) => async (di
 export const cancelSubscription = (subscriptionId) => async (dispatch, getState) => {
     dispatch({ type: UPDATE_REQUEST, payload: "Cancelling your subscription..." });
     try {
-        const res = await axios.post(`http://localhost:5000/api/user/subscription/cancel/${subscriptionId}`);
+        const res = await axios.post(`/api/user/subscription/cancel/${subscriptionId}`);
         console.log('logging sub cancel----------', res.data);
         dispatch(fetchUser(null, getState()['user']['info']['stripe_id']));
     } catch(err) {
@@ -98,7 +98,7 @@ export const cancelSubscription = (subscriptionId) => async (dispatch, getState)
 
 export const fetchUserOrders = (id) => async dispatch => {
     try {
-        const res = await axios.get(`http://localhost:5000/api/user/orders/${id}`);
+        const res = await axios.get(`/api/user/orders/${id}`);
         console.log('logging orders----------', res.data);
         dispatch({ type: ORDERS_SUCCESS, payload: res.data });
     } catch(err) {
@@ -109,7 +109,7 @@ export const fetchUserOrders = (id) => async dispatch => {
 export const login = ({ email, password }) => async dispatch => {
     dispatch({ type: LOGIN_REQUEST, payload: "loading.account" });
     try {
-        const res = await axios.post(`http://localhost:5000/api/user/login`, { email, password } );
+        const res = await axios.post(`/api/user/login`, { email, password } );
         console.log('logging user----------', res.data);
 
         if (res.data.error) {
@@ -132,7 +132,7 @@ export const register = ({ name, email, password }) => async dispatch => {
     dispatch({ type: REGISTER_REQUEST, payload: "Creating your new account..." });
     const language = i18n.language;
     try {
-        const res = await axios.post(`http://localhost:5000/api/user/register`, { name, email, password, language } );
+        const res = await axios.post(`/api/user/register`, { name, email, password, language } );
         console.log('registering user----------', res.data);
 
         if (res.data.error) {
@@ -148,7 +148,7 @@ export const register = ({ name, email, password }) => async dispatch => {
 export const addToNewsletter = (name, email, language) => async dispatch => {
     dispatch({ type: NEWSLETTER_REQUEST, payload: "Adding to mailing list..." });
     try {
-        const res = await axios.post(`http://localhost:5000/api/newsletter/add`, { name, email, language } );
+        const res = await axios.post(`/api/newsletter/add`, { name, email, language } );
         console.log('added to newsletter----------', res.data);
 
         /*if (res.data.error) {

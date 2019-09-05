@@ -12,7 +12,7 @@ export const fetchCategories = () => async dispatch => {
     //dispatch({ type: FETCH_COLLECTIONS_REQUEST });
 
     try {
-        const res = await axios.get(`http://localhost:5000/api/products/categories`);
+        const res = await axios.get(`/api/products/categories`);
         console.log('fetched categories----------', res.data);
         dispatch({ type: FETCH_CATEGORIES_SUCCESS, payload: res.data });
     } catch(err) {

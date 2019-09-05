@@ -11,7 +11,7 @@ export const FETCH_STOCK_FAILURE = 'inventories/fetch_stock_failure';
 export const fetchInventories = () => async dispatch => {
     //dispatch({ type: FETCH_PRODUCTS_REQUEST });
     try {
-        const res = await axios.get(`http://localhost:5000/api/products/stock`);
+        const res = await axios.get(`/api/products/stock`);
         console.log('fetched inventories----------', res.data);
         dispatch({ type: FETCH_STOCK_SUCCESS, payload: res.data });
     } catch(err) {

@@ -41,7 +41,7 @@ export const submitOrder = (customerId, { billingIsShipping, shipping, address }
                 country: address.country,
             }
     try {
-        const res = await axios.post(`http://localhost:5000/api/checkout/`, { customerId, shipping_address, billing_address, items, total } );
+        const res = await axios.post(`/api/checkout/`, { customerId, shipping_address, billing_address, items, total } );
         console.log('submitting order----------', res.data);
         dispatch({ type: SUBMIT_ORDER_SUCCESS, payload: res.data });
     } catch(err) {
@@ -54,7 +54,7 @@ export const finalizeOrder = () => async (dispatch, getState) => {
     const order = {...getOrder(getState()), items: [...getOrderItemsWithImgs(getState())]};
     const lang = i18n.language;
     try {
-        const res = await axios.post(`http://localhost:5000/api/checkout/finalize`, { order, lang } );
+        const res = await axios.post(`/api/checkout/finalize`, { order, lang } );
         console.log('finalizing order----------', res.data);
     } catch(err) {
         //dispatch({ type: SUBMIT_PAYMENT_FAILURE});

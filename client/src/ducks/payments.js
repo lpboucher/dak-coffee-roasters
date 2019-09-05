@@ -16,7 +16,7 @@ export const submitPayment = (payment, subscription = {}) => async dispatch => {
     const { has_recurring, plans } = subscription;
     const { customer } = payment;
     try {
-        const res = await axios.post(`http://localhost:5000/api/payments/confirm`, payment );
+        const res = await axios.post(`/api/payments/confirm`, payment );
         console.log('submitting payment----------', res.data);
         
         if (res.data.error) {
@@ -38,7 +38,7 @@ export const submitPayment = (payment, subscription = {}) => async dispatch => {
 export const addSuscription = (customer, plans, payment_method) => async dispatch => {
     //dispatch({ type: SUBMIT_PAYMENT_REQUEST});
     try {
-        const res = await axios.post(`http://localhost:5000/api/payments/subscribe`, { customer: customer, plans: plans, payment_method: payment_method } );
+        const res = await axios.post(`/api/payments/subscribe`, { customer: customer, plans: plans, payment_method: payment_method } );
         console.log('submitting subscription----------', res.data);
         //dispatch({ type: SUBMIT_ORDER_SUCCESS, payload: res.data });
     } catch(err) {
