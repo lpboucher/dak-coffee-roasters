@@ -145,11 +145,13 @@ export const register = ({ name, email, password }) => async dispatch => {
     }
 }
 
-export const addToNewsletter = (name, email, language) => async dispatch => {
+export const addToNewsletter = (name, email, language) => dispatch => {
     dispatch({ type: NEWSLETTER_REQUEST, payload: "Adding to mailing list..." });
     try {
-        const res = await axios.post(`/api/newsletter/add`, { name, email, language } );
-        console.log('added to newsletter----------', res.data);
+        //const res = await axios.post(`/api/newsletter/add`, { name, email, language } );
+        //console.log('added to newsletter----------', res.data);
+        axios.post(`/api/newsletter/add`, { name, email, language } );
+        dispatch({ type: NEWSLETTER_SUCCESS });
 
         /*if (res.data.error) {
             dispatch({ type: REGISTER_FAILURE, payload: res.data.error})

@@ -21,7 +21,8 @@ import {
     UPDATE_REQUEST,
     UPDATE_SUCCESS,
     FETCH_SUCCESS,
-    NEWSLETTER_REQUEST
+    NEWSLETTER_REQUEST,
+    NEWSLETTER_SUCCESS
 } from './user';
 
 import {
@@ -145,6 +146,7 @@ switch(action.type) {
     case FETCH_CART_SUCCESS:
     case UPDATE_SUCCESS:
     case FETCH_SUCCESS:
+    case NEWSLETTER_SUCCESS:
         return { ...state,
                 isProcessing: false,
                 error: "",

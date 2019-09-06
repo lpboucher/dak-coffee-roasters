@@ -25,9 +25,6 @@ const OrderPromoCode = ({apply, t}) => {
                             <Button type="submit" fill primary label={t("sections.cart.promo.button")} alignSelf="start" color="darkHighlight" style={{marginBottom: '0px', marginTop: '0px', padding: '0px 20px'}}/>
                         </Box>
                     </Box>
-                    <pre>{JSON.stringify(values, 0, 2)}</pre>
-                    <pre>{JSON.stringify(errors, 0, 2)}</pre>
-                    <pre>{JSON.stringify(invalid, 0, 2)}</pre>
                 </form>
                 )}
             />

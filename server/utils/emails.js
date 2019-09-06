@@ -30,6 +30,7 @@ const newOrderEmail = async (email, order, lang) => {
     if (lang === 'en') {template = 'd-e643c0e35bab4e769b74f0306e3da570'}
     if (lang === 'fr') {template = 'd-d7e68964a2ec4415a0af36b201f164cb'}
     if (lang === 'nl') {template = 'd-24e08859bb0441b1b85eacdd0e2dde95'}
+    const orderItems = order.items.filter(item => item.product_id !== "");
     try {
         const msg = {
             to: email,
@@ -44,11 +45,11 @@ const newOrderEmail = async (email, order, lang) => {
                     postcode: `${order.shipping_address.postcode}`,
                     country: `${order.shipping_address.country}`
                 },
-                items: order.items.map(item => ({
+                items: orderItems.map(item => ({
                     description: item.name,
                     quantity: item.quantity,
-                    price: item.meta.display_price.with_tax.formatted,
-                    //image: item.thumb.link.href
+                    price: item.meta.display_price.with_tax.unit.formatted,
+                    image: item.thumb.link.href
                 }))
             },
         };
@@ -61,7 +62,7 @@ const newOrderEmail = async (email, order, lang) => {
 const addToNewsletter = async (req, res, next) => {
     const { email, name, language } = req.body;
     const [ first_name, last_name ] = name.split(" ");
-    try {
+    /*try {
         
         //await SGclient.request(request);
         const add = await axios.put(
@@ -77,6 +78,17 @@ const addToNewsletter = async (req, res, next) => {
         )
     } catch(err) {
         console.log(err)
+    }*/
+    try {
+        const msg = {
+            to: 'info@dakcoffeeroasters.com',
+            from: email,
+            subject: 'Add to newsletter',
+            text: `${first_name}, ${last_name} is trying to register for the newsletter with email ${email}`,
+        };
+        await SGmail.send(msg);
+    } catch (err) {
+        console.log(err.response.body.errors);
     }
 }
 

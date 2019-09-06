@@ -4,6 +4,8 @@ import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
 import IntroSection from '../../utils/IntroSection';
 
+const introImg = "https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1567797004/Intros/subscriptiontest_q0mpbl.jpg";
+
 const SubscriptionIntro = () => {
     const intro = 
         <IntroSection 
@@ -16,7 +18,7 @@ const SubscriptionIntro = () => {
     return (
         <TwoColLayout 
             bgColor="lightGrey"
-            left={<FullImg imgLink={"https://thumbs.dreamstime.com/z/black-bag-packaging-wide-variety-products-clipping-packet-path-wrapper-sweet-snack-milk-powder-coffee-salt-sugar-43471774.jpg"}/>}
+            left={<FullImg imgLink={introImg}/>}
             right={intro}
         />
     );
