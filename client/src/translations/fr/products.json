@@ -1,24 +1,24 @@
 {
     "equipment": {
         "chemex-coffee-brewer": {
-            "name": "Classic Chemex 3-Cups",
-            "description": "CHEMEX® delivers the purest flavor experience. Known as a pristine coffeemaker, Chemex employs all of the chemically correct methods for brewing. It is simple, easy to use with timeless, elegant design.Its hourglass shaped flask is made entirely of glass, a chemically inert material that does not absorb odors or chemical residues. This CHEMEX® needs to be used with CHEMEX® Unfolded Half Moon Filters FP-2, available here.",
-            "details": "Made of non-porous Borosilicate glass which will not absorb odors or chemical residues. Includes a polished wood collar with leather tie.;CHEMEX pour-over allows coffee to be covered and refrigerated for reheating without losing flavor;This product doesn’t come with the filters. Use CHEMEX® Unfolded Half Moon Filters FP-2, available here (link to product page of filters). ;Capacity: 1 Pint, Height: 8 1/4, Diameter: 3"
+            "name": "Chemex Classique 3-Tasses",
+            "description": "La cafetière Chemex se distingue par sa gourde en forme de sablier entièrement fabriquée en verre, un matériel inerte qui n’absorbe pas les odeurs ni les résidus chimiques. Elle ne contient aucune pièce mobile; elle est donc bonne à vie. Les filtres Chemex sont fabriqués en papier filtre de la plus haute qualité.",
+            "details": "Fait en verre borosilicate non poreux qui n’absorbe pas les odeurs ni les résidus chimiques;Peut être couvert et réfrigéré, puis réchauffé sans que le café ne perde de goût;Filtres Chemex non inclus; utiliser les filtres Chemex FP-2 pour un résultat optimal (en vente ici);Capacité de 500 ml"
         },
         "aeropress": {
             "name": "Aeropress",
-            "description": "The Aerobie AeroPress is a revolutionary new way to make perfect coffee every time. It really is so simple to use that once you own an AeroPress you won’t want to go back to instant coffee or using far more expensive coffee brewers. The AeroPress uses gentle air pressure which creates a smooth rich flavor with lower acidity and without bitterness. Its brewing system results in uniform extraction for the ultimate in full coffee flavor.",
-            "details": "The AeroPress comes with full instructions for use, just add your coffee and water!;It includes: 350 filters, filter cap, filter holder, stirrer and scoop.;Actual ‘press time’ is just 20 seconds.;Simple and quick to clean; there’s no washing-up of fiddly parts.;Everything you need to make professional coffee at home."
+            "description": "L’AeroPress (fabriqué par Aerobie) propose une façon révolutionnaire de préparer le café. Son usage est d’une grande simplicité. Avec cet appareil, on se sert de la pression d’air pour créer des saveurs riches et intenses présentant peu d’acidité et aucune amertume. L’extraction uniforme donne un café des plus savoureux.",
+            "details": "Recommandations d’usage incluses : il faut de l’eau et du café, c’est tout;350 filtres et cuillère fournis;20 secondes pour préparer un café;Facile et rapide à nettoyer;Du café professionnel à la maison"
         },
         "kinto-brewer-stand": {
-            "name": "Brewer Stand Set 2-cups by Kinto",
-            "description": "For admirers of refined craft and slow coffee. The brewer stand set is perfect for those who want to indulge in a deeper, richer coffee time. The stand is designed so that you can use it with a scale to measure the amount of dripped coffee. The height of the stand can be adjusted, letting you use it with various vessels from a mug to a tall server.The set includes:- Brewer stand- Cotton paper filter 2 cups 20 pieces- Porcelain brewer 2 cups- 400 ml server- Glass holder",
-            "details": "[Stand] 18-8 Stainless steel (casting). W125 x D130 x H210 mm;[Brewer] Porcelain / Microwave and dishwasher safe. φ100 x H70 mm;[Server] Heat-resistant glass / Microwave and dishwasher safe. φ75 x H80 x W125 mm / 400 ml;[Holder] Heat-resistant glass / Microwave and dishwasher safe. φ80 x H60 mm;[Filter] Cotton pulp, Wood pulp. W100 x D105 mm"
+            "name": "Kit dripper Slow Coffee Style noir de Kinto (2 tasses)",
+            "description": "D’aspect brut, cet ensemble est idéal pour les adeptes d’une infusion lente (slow coffee). Le pied est conçu de manière à pouvoir être utilisé avec une balance; on peut ainsi mesurer précisément la quantité de café obtenu. La hauteur du pied est réglable et permet d’accueillir le récipient de son choix, que l’on décide de faire le café directement dans une tasse ou dans une carafe.",
+            "details": "Pied en fonte;Brasseur en porcelaine (va au micro-ondes et au lave-vaisselle);20 filtres en papier faits à partir de pulpes de coton et de bois;Carafe thermorésistante de 400 ml (va au micro-ondes et au lave-vaisselle);Repose-filtre thermorésistant (va au micro-ondes et au lave-vaisselle)"
         },
         "chemex-filters": {
-            "name": "Chemex Filters",
-            "description": "The CHEMEX® Bonded Filters will guarantee that your pour over brewing process will deliver the perfect cup of coffee, without any sediments or bitter elements. 100 filters per pack.",
-            "details": "Cone-shape ensures uniform extraction for pure coffee flavor;Thicker (20-30% more than the competition) specialty fiber filter design keep bitter elements, and grounds in their place (and out of your cup);Will fit most other cone-shaped filter coffeemakers;Fits CHEMEX® Coffeemakers CM-1, CM-1C, CM-1GH"
+            "name": "Filtres Chemex",
+            "description": "Les filtres Chemex garantissent une extraction impeccable sans résidus ni amertume.",
+            "details": "Forme de cône assurant une extraction parfaite;Plus épais (de 20 % à 30 %) que les autres filtres sur le marché;Peuvent être utilisés sur d’autres machines à café en forme de cône;Conçus pour les Chemex CM-1, CM-1C et CM-1GH"
         },
         "kinto-coffee-server": {
             "name": "Coffee server 300ml by Kinto",
@@ -26,19 +26,19 @@
             "details": "Heat-resistant glass;Maximum temperature differential: 120℃ / 248℉. φ75 x H80 x W125 mm / 400 ml"
         },
         "kinto-cold-carafe": {
-            "name": "Cold Brew Carafe by Kinto",
-            "description": "Stylish and clever. Place ground coffee or tea leaves in the filter and pour water to easily make cold brew coffee or tea. The mesh filter prevents fine powders from escaping. Heat-resistant glass build means hot liquids can be poured in right after brewing.",
-            "details": "The lid of this carafe opens automatically when the bottle is tipped, allowing the user to pour out from any direction.;Parts are easy to disassemble and wash.;φ85 x H270 mm / 1 L;[Body] Heat-resistant glass . Maximum temperature differential: 120℃ / 248℉ Microwave safe and dishwasher safe.;[Lid] Do not use in a microwave. Dishwasher safe."
+            "name": "Carafe Cold Brew 1L de Kinto",
+            "description": "Cette carafe est dotée d’un couvercle intelligent qui s’ouvre automatiquement lorsqu’on penche la bouteille. On peut donc se servir sans se soucier du sens de versement.\n\nLe filtre permet de réaliser les thés et cafés glacés directement dans la carafe. L’infusion à froid est lente. Cette méthode diffuse moins de tanin et de caféine/théine, qui donnent habituellement un goût amer.\n\nLe verre résistant à la chaleur est facile d’entretien; il n’absorbe pas les odeurs et ne se tache pas.",
+            "details": "Couvercle intelligent qui s’ouvre automatiquement lorsqu’on penche la carafe;Verre thermorésistant; différence maximale de température : 120 ℃/248 ℉;Va au micro-ondes (le verre seulement) et au lave-vaisselle"
         },
         "fellow-stag-kettle": {
-            "name": "Fellow Stagg Kettle",
-            "description": "Stagg Pour-Over Kettle’s beautifully functional design kicks your brewing up a notch. Enjoy an intuitive, steady pour with Stagg’s precision pour spout. Keep track of temperature with a built-in brew-range thermometer. Pour at an even, slow pace with Stagg’s counterbalanced handle that moves the center of mass back towards your hand.",
-            "details": "Gas, electric, and induction range compatible;1.0 Liter boiling capacity;Stainless steel body;New v1.2 stainless steel lid"
+            "name": "Bouilloire Fellow Stagg noire 1L",
+            "description": "Cette bouilloire d’un litre est particulièrement adaptée au slow coffee. Sa prise de main parfaite et son bec verseur ultra fin offrent confort et précision. Grâce à son couvercle muni d’un thermomètre, on obtient la température d’eau idéale.",
+            "details": "Compatible avec les cuisinières à gaz, électriques et à induction;Capacité de 1 litre;Corps et couvercle en acier inoxydable"
         },
         "gina-goat-story": {
-            "name": "Gina by Goat Story",
-            "description": "GINA is an award-winning smart coffee instrument that turns coffee brewing into a special experience. With a precision valve to control the drip, an integrated precision scale and a dedicated brewing app, it enables you to brew coffee with pour over, immersion and cold drip methods. Oh, and it even makes tea!",
-            "details": "Enables you to weigh coffee and water while brewing your drink.;Connects to your phone with Bluetooth technology.;The Gina App has numerous brewing recipes that you can follow or create your own easily.;Brews up to 750 ml / 25 oz of drink at once.;Allows to completely adjust water drop speed for a brewing technique of your choice.;Easy cleaning of ceramic and glass parts"
+            "name": "Gina de Goat Story",
+            "description": "Gina est un instrument de café intelligent qui transforme le café en une expérience particulière. Muni d’une vanne de précision pour contrôler le goutte-à-goutte, d’une balance intégrée et d’une application mobile dédiée pour l’infusion, il permet de préparer du café selon plusieurs méthodes : infusion à froid, filtre et immersion. On peut également y faire du thé.",
+            "details": "Permet de peser le café et l’eau;Se connecte à votre téléphone avec la technologie Bluetooth;Application Gina proposant de nombreuses recettes;Permet de préparer jusqu’à 750 ml de café à la fois;Permet de régler la vitesse du goutte-à-goutte;Nettoyage facile des pièces en céramique et en verre"
         },
         "porlex-coffee-grinder": {
             "name": "Tall Hand Grinder by Porlex",

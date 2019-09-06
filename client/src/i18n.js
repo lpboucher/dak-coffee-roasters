@@ -9,6 +9,7 @@ import products_fr from './translations/fr/products.json';
 import products_nl from './translations/nl/products.json';
 
 i18n.use(LanguageDetector).init({
+    lng: "en",
     interpolation: { 
         escapeValue: false,
         format: function(value, format, lng) {

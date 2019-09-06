@@ -34,7 +34,7 @@ export const RadioAdapter = ({ input: {checked, name, onChange, value, ...restIn
 )
 
 export const RadioGroupAdapter = ({ input: {checked, name, onChange, value, ...restInput}, options, meta, label, placeholder, ...rest }) => (
-  <FormField error={meta.modified && meta.error ? meta.error : ""} {...rest} style={{width: '60%'}}>
+  <FormField error={meta.modified && meta.error ? meta.error : ""} {...rest} style={{width: '80%'}}>
       <RadioButtonGroup
       {...restInput}
       placeholder={placeholder}

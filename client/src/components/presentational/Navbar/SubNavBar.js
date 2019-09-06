@@ -74,6 +74,7 @@ const SubNavbar = ({loc, t}) => {
                     margin="none"
                     items={[
                         {label: `${t("menu.blog.guides")}`, as: NavLink, to: "/brew"},
+                        {label: `${t("menu.blog.articles")}`, as: NavLink, to: "/blog"},
                     ]}
                 />
             </Box>

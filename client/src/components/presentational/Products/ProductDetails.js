@@ -7,7 +7,7 @@ import { RadioGroupAdapter } from '../../utils/Forms/FormHelpers';
 
 import { Heading, Text, Button, Box, Tabs, Tab } from 'grommet';
 
-const ProductDetails = ({id, name, region, country, roast, description, product_type, details, price, derived, add, t, ...rest}) => {
+const ProductDetails = ({id, name, region, country, roast, description, product_type, details, price, derived, add, currency, t, ...rest}) => {
     const onSubmit = values => {
         product_type === 'coffee' ? derived(rest.slug, values) : add(id, '1')
     }
@@ -49,7 +49,7 @@ const ProductDetails = ({id, name, region, country, roast, description, product_
                             <Field 
                                 name="quantity"
                                 component={RadioGroupAdapter}
-                                options={[{"label": "250g","value": "250g"},{"label": "500g (+ 7)","value": "500g"},{"label": "1kg (+ 15)","value": "1kg"}]}
+                                options={[{"label": "250g","value": "250g"},{"label": `500g ${t(`products:${product_type}.${rest.slug}.500${currency}`)}`,"value": "500g"},{"label": `1kg ${t(`products:${product_type}.${rest.slug}.1000${currency}`)}`,"value": "1kg"}]}
                                 style={{flexDirection: 'row', justifyContent: 'space-between'}}
                             />
                         </Box>

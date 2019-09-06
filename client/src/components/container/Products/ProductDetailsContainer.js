@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getAllProducts, getProductBySlug, fetchProducts } from '../../../ducks/products';
 import { addDerivedToCart, addToCart } from '../../../ducks/cart';
+import { getDisplayCurrency } from '../../../ducks/views';
 
 import SingleProduct from '../../presentational/Products/SingleProduct';
 
@@ -15,8 +16,8 @@ class ProductDetailsContainer extends Component {
     }
 
     renderProduct() {
-    const { product, addToCart, addDerived} = this.props;
-    if(product && Object.keys(product).length > 0) {return <SingleProduct product={product} derived={addDerived} add={addToCart}/>};
+    const { product, addToCart, addDerived, currency } = this.props;
+    if(product && Object.keys(product).length > 0) {return <SingleProduct product={product} derived={addDerived} add={addToCart} currency={currency}/>};
 
     return <Loader />
     }
@@ -35,6 +36,7 @@ function mapStateToProps(state, ownProps) {
     return {
         product: getProductBySlug(state, slug),
         products: getAllProducts(state),
+        currency: getDisplayCurrency(state)
     }
 }
 

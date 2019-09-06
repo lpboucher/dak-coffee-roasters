@@ -20,7 +20,8 @@
         "contact": "get in touch",
         "blog": {
             "top": "blog",
-            "guides": "brewing guides"
+            "guides": "brewing guides",
+            "articles": "articles"
         }
     },
     "announcement": {
@@ -65,7 +66,7 @@
             "description": "We often forget where the things we consume come from, but let us tell you that good coffee tastes even better when it is sourced ethically!\n\nIt is important to us that the farmers we work with are paid their fair share of money and can afford good living conditions. We only partner with importers that share our values, work with exclusive lots and do extensive background research on the farms.\n\nWe are ready to pay a premium price for our green coffee beans to make sure everyone in the supply chain gets their fair shares and our customers get the best quality.\n\nWe are hoping to open direct trade relationships with farmers in 2020 by visiting the farms ourselves, assessing their conditions and developing exclusive partnerships. It is also in our short-term plan to give back to the coffee community and invest in projects that can improve living conditions for the farmers."
         },
         "coffee": {
-            "title": "our coffee",
+            "title": "carefully selected",
             "description": "We believe the only way to identify unique flavors is to continually try new and innovative roasting profiles. For that reason, we are creative with our roasts and also do our best to sample-roast as often as we can!\n\nOnce a week, we order new green coffee samples. These samples are roasted in a very simple manner to limit the effect, the roast might have on the flavor of the origin. After sample-roasting, we conduct regular cupping sessions. Here, the new origin samples are tasted, and we identify the origins we want to order in larger quantities.\n\nIn order to identify the roast profiles that will eventually go on the shelves, we repeat the process of roasting the selected beans. However, this time we let our creativity run wild and test different combinations of roasting lengths, temperatures and airflow, to create unique roasts for specific beverages.\n\nFinally, a final cupping session with the bean in question, roasted in many different ways, allow us to decide on and finalize the roast profile that best highlight the unique flavor profile of its origin."
         },
         "packaging": {

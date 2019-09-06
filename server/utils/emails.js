@@ -7,9 +7,9 @@ SGclient.setApiKey(process.env.SENDGRID_API_KEY);
 
 const newUserEmail = async (email, lang = 'en') => {
     let template;
-    if (lang === 'en') {template = 'd-9a6f32390a7a44289a42e180eb679a21'}
-    if (lang === 'fr') {template = 'd-a54851fdc9d040c68dc3bd9b3b9c85a4'}
-    if (lang === 'nl') {template = 'd-37a03d1cece94df199d7d7d75045d0eb'}
+    if (lang === 'en') {template = 'd-fbb4badbed7141419975c20ad2a1c044'}
+    if (lang === 'fr') {template = 'd-3e05226157b4458cb1221414602153ad'}
+    if (lang === 'nl') {template = 'd-9b27e5734f384bd9bf15d8d3d683cc8b'}
     try {
         const msg = {
             to: email,
@@ -27,9 +27,9 @@ const newUserEmail = async (email, lang = 'en') => {
 
 const newOrderEmail = async (email, order, lang) => {
     let template;
-    if (lang === 'en') {template = 'd-5e88429b2b964ad7b528b158b108c0ef'}
-    if (lang === 'fr') {template = 'd-a3ff6f315a6444beae3899c1449bf569'}
-    if (lang === 'nl') {template = 'd-0a39b8f2f01d459f9cae33dae1f18639'}
+    if (lang === 'en') {template = 'd-e643c0e35bab4e769b74f0306e3da570'}
+    if (lang === 'fr') {template = 'd-d7e68964a2ec4415a0af36b201f164cb'}
+    if (lang === 'nl') {template = 'd-24e08859bb0441b1b85eacdd0e2dde95'}
     try {
         const msg = {
             to: email,
@@ -47,13 +47,14 @@ const newOrderEmail = async (email, order, lang) => {
                 items: order.items.map(item => ({
                     description: item.name,
                     quantity: item.quantity,
-                    price: item.meta.display_price.with_tax.formatted
+                    price: item.meta.display_price.with_tax.formatted,
+                    //image: item.thumb.link.href
                 }))
             },
         };
         await SGmail.send(msg);
     } catch (err) {
-        console.log(err.response.body.errors);
+        console.log(err);
     }
 }
 

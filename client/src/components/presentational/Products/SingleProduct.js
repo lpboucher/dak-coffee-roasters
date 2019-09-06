@@ -5,7 +5,7 @@ import TwoColLayout from '../../utils/TwoColLayout';
 
 import { Box, Image } from 'grommet';
 
-const SingleProduct = ({product, derived, add}) => {
+const SingleProduct = ({product, derived, add, currency}) => {
     return (
         <Fragment>
             <TwoColLayout 
@@ -15,7 +15,7 @@ const SingleProduct = ({product, derived, add}) => {
                         <Image fit="contain" src={`${product.secondary.link ? product.secondary.link.href : product.thumb.link.href}`}/>
                     </Box>
                 }
-                right={<ProductDetails {...product} derived={derived} add={add}/>}
+                right={<ProductDetails {...product} derived={derived} add={add} currency={currency}/>}
                 pad={{outer: {horizontal: "large", top: "208px", bottom: "large"}, inner:"large"}}
             />
         </Fragment>
