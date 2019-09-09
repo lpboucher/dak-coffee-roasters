@@ -57,6 +57,7 @@ module.exports = {
   },
   applyPromo: async (req, res, next) => {
     const { promo, currency } = req.body;
+    console.log('--------APPLYING PROMO WITH', promo, currency)
     try {
       const cartWithPromo = await MoltinGateway({
         client_id: process.env.MOLTIN_CLIENT_ID,
