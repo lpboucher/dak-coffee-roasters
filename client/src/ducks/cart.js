@@ -79,10 +79,11 @@ export const clearCart = () => async dispatch => {
     }
 }
 
-export const applyPromo = (code) => async dispatch => {
+export const applyPromo = (code) => async (dispatch, getState) => {
     dispatch({ type: FETCH_CART_REQUEST, payload: "Applying promotion code..." });
+    const currency = getState()['views']['displayCurrency']
     try {
-        const res = await axios.post(`/api/cart/promo`, code );
+        const res = await axios.post(`/api/cart/promo`, { promo: code, currency: currency } );
         console.log('promo applied!----------', res.data);
         dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
     } catch(err) {

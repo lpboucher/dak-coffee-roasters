@@ -56,9 +56,13 @@ module.exports = {
     }
   },
   applyPromo: async (req, res, next) => {
-    const { promo } = req.body;
+    const { promo, currency } = req.body;
     try {
-      const cartWithPromo = await Moltin.Cart().AddPromotion(promo);
+      const cartWithPromo = await MoltinGateway({
+        client_id: process.env.MOLTIN_CLIENT_ID,
+        client_secret: process.env.MOLTIN_CLIENT_SECRET,
+        currency: currency
+      }).Cart().AddPromotion(promo.promo);
       console.log('PROMOTION APPLIED----------', cartWithPromo);
       res.json(cartWithPromo);
     } catch (err) {
