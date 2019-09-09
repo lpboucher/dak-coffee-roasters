@@ -23,7 +23,7 @@ ReactDOM.render(
     <Router>
         <ScrollToTop>
             <I18nextProvider i18n={i18n}>
-                <StripeProvider apiKey="pk_test_hN24eKK8d78KlAVlKAcll8eu">
+                <StripeProvider apiKey="pk_live_bObiLAib996G72J4fUx8qbHp">
                     <App />
                 </StripeProvider>
             </I18nextProvider>
