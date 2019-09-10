@@ -5,7 +5,7 @@ import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
 import IntroSection from '../../utils/IntroSection';
 
-import thumb from '../../../assets/images/coffeeserver.jpg';
+const thumb = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1568043681/Intros/SubscriptionSmallBox_2_vkenoo.jpg';
 
 const SubscriptionBanner = ({t}) => {
     const intro = 

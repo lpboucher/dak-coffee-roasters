@@ -11,11 +11,16 @@ export const FETCH_CART_FAILURE = 'cart/fetch_cart_failure';
 export const CLEAR_CART_SUCCESS = 'cart/clear_cart_success';
 
 //Action Creators
-export const fetchCartItems = () => async dispatch => {
+export const fetchCartItems = () => async (dispatch, getState) => {
+    const activeCurrency = getState()['views']['displayCurrency']
     try {
         const res = await axios.get(`/api/cart/`);
         console.log('receiving cart----------', res.data);
-        dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
+        if (res.data.meta.display_price.with_tax.currency !== activeCurrency) {
+            dispatch(clearCart());
+        } else {
+            dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
+        }
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
     }
@@ -23,7 +28,7 @@ export const fetchCartItems = () => async dispatch => {
 
 export const addToCart = (id, quantity) => async (dispatch, getState) => {
     const currency = getState()['views']['displayCurrency']
-    dispatch({ type: FETCH_CART_REQUEST, payload: "Adding to cart..." });
+    dispatch({ type: FETCH_CART_REQUEST, payload: "loading.cart.add" });
     try {
         const res = await axios.post(`/api/cart/`, {id, quantity, currency});
         console.log('adding to cart----------', res.data);
@@ -36,7 +41,7 @@ export const addToCart = (id, quantity) => async (dispatch, getState) => {
 }
 
 export const addDerivedToCart = (slug, type, data) => (dispatch, getState) => {
-    dispatch({ type: FETCH_CART_REQUEST, payload: "Adding to cart..." });
+    dispatch({ type: FETCH_CART_REQUEST, payload: "loading.cart.add" });
     const { quantity, roast, varieties } = data;
     let newSlug;
     if (type === "recurring") {
@@ -80,7 +85,7 @@ export const clearCart = () => async dispatch => {
 }
 
 export const applyPromo = (code) => async (dispatch, getState) => {
-    dispatch({ type: FETCH_CART_REQUEST, payload: "Applying promotion code..." });
+    dispatch({ type: FETCH_CART_REQUEST, payload: "loading.cart.promo" });
     const currency = getState()['views']['displayCurrency']
     try {
         const res = await axios.post(`/api/cart/promo`, { promo: code, currency: currency } );

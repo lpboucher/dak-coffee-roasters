@@ -22,9 +22,9 @@ class CategoryRowContainer extends Component {
       }
 
     renderProducts() {
-        const { name, categoryProducts, addToCart, limit } = this.props;
+        const { name, category, categoryProducts, addToCart, limit } = this.props;
         if(categoryProducts && categoryProducts.length > 0) {
-            return <ProductRow cart={addToCart} title={name} products={categoryProducts} background="lightGrey" limit={limit}/>
+            return <ProductRow cart={addToCart} slug={category} title={name} products={categoryProducts} background="lightGrey" limit={limit}/>
         };
 
         return <Loader />

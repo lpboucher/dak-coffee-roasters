@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { fetchUserOrders, getUser, getAllOrders } from '../../../ducks/user';
 
@@ -13,13 +14,13 @@ class AccountOrderContainer extends Component {
     }
 
     renderOrders() {
-        const { orders } = this.props;
+        const { orders, t } = this.props;
         if(orders) {
             return orders.length > 0
             ?
             <Orders orders={orders}/>
             :
-            <p style={{textAlign: 'center'}}>No orders yet.</p>
+            <p style={{textAlign: 'center'}}>{t(`account.orders.no`)}</p>
         }
         return <Loader />
       }
@@ -46,4 +47,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(AccountOrderContainer);
+export default connect(mapStateToProps,mapDispatchToProps)(withTranslation()(AccountOrderContainer));

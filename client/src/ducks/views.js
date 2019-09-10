@@ -72,7 +72,7 @@ export const switchDisplayCurrency = (currency) => (dispatch, getState) => {
     ) {
         dispatch(clearCart())
     }
-    dispatch({type: CHANGE_CURRENCY_REQUEST, payload: "Switching currency..."})
+    dispatch({type: CHANGE_CURRENCY_REQUEST, payload: "loading.currency"})
     dispatch(fetchProducts(currency))
     dispatch({type: CHANGE_CURRENCY_SUCCESS, payload: currency})
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { getUserSubscriptions, updateSubscription, pauseSubscription, cancelSubscription } from '../../../ducks/user';
 
@@ -8,13 +9,13 @@ import Loader from '../../utils/Loader';
 
 class AccountSubscriptionContainer extends Component {
     renderSubscriptions() {
-        const { subscriptions, update, pause, cancel } = this.props;
+        const { subscriptions, update, pause, cancel, t } = this.props;
         if(subscriptions) {
             return subscriptions.data && subscriptions.data.length > 0
             ? 
             <ManageSubscriptions subscriptions={subscriptions.data} update={update} pause={pause} cancel={cancel}/>
             :
-            <p style={{textAlign: 'center'}}>No subscriptions yet.</p>
+            <p style={{textAlign: 'center'}}>{t(`account.subscriptions.no`)}</p>
         }
         return <Loader />
       }
@@ -42,4 +43,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(AccountSubscriptionContainer);
+export default connect(mapStateToProps,mapDispatchToProps)(withTranslation()(AccountSubscriptionContainer));

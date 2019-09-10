@@ -7,7 +7,7 @@ import SubscriptionContainer from '../../container/Subscriptions/SubscriptionsCo
 import CategoryRowContainer from '../../container/Products/CategoryRowContainer';
 import NewsletterContainer from '../../container/Newsletter/NewsletterContainer';
 
-const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565896285/Heros/SubscriptionHeader_ikwigv.jpg'
+const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/v1568042393/Heros/SubscriptionHeader_ikwigv.jpg'
 
 const Subscription = () => {
     return (

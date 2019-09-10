@@ -12,7 +12,7 @@ export const SUBMIT_PAYMENT_CONFIRM = 'checkout/submit_payment_confirm';
 
 //Action Creators
 export const submitPayment = (payment, subscription = {}) => async dispatch => {
-    dispatch({ type: SUBMIT_PAYMENT_REQUEST, payload: "Processing payment..."});
+    dispatch({ type: SUBMIT_PAYMENT_REQUEST, payload: "loading.payment.processing"});
     const { has_recurring, plans } = subscription;
     const { customer } = payment;
     try {
@@ -22,7 +22,7 @@ export const submitPayment = (payment, subscription = {}) => async dispatch => {
         if (res.data.error) {
             dispatch({ type: SUBMIT_PAYMENT_FAILURE, payload: res.data.error});
         } else if (res.data.requires_action) {
-            dispatch({ type: SUBMIT_PAYMENT_CONFIRM, payload: res.data, processing: "Confirming payment..." });
+            dispatch({ type: SUBMIT_PAYMENT_CONFIRM, payload: res.data, processing: "loading.payment.confirming" });
         } else if (res.data.success) {
             if(has_recurring) {dispatch(addSuscription(customer, plans, res.data.payment_method))}
             await dispatch(finalizeOrder());

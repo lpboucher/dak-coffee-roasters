@@ -44,7 +44,7 @@ export const fetchUser = (id, stripeId = null) => async dispatch => {
 }
 
 export const updateCustomerAddress = (id, {billingIsShipping, shipping, address}) => async dispatch => {
-    dispatch({ type: UPDATE_REQUEST, payload: "Updating your acount..." });
+    dispatch({ type: UPDATE_REQUEST, payload: "loading.update" });
     const billing = billingIsShipping || !address ? shipping.address : address;
     shipping.name = shipping.address.name;
     delete shipping.address.name;
@@ -59,7 +59,7 @@ export const updateCustomerAddress = (id, {billingIsShipping, shipping, address}
 }
 
 export const updateSubscription = (subscriptionId, itemId, data) => async (dispatch, getState) => {
-    dispatch({ type: UPDATE_REQUEST, payload: "Updating your account..." });
+    dispatch({ type: UPDATE_REQUEST, payload: "loading.update" });
     const { plan, number, quantity, roast, varieties } = data;
     const planId = getPlanIDBySlug(
         getState(),
@@ -75,7 +75,7 @@ export const updateSubscription = (subscriptionId, itemId, data) => async (dispa
 }
 
 export const pauseSubscription = (subscriptionId, reactivate=false) => async (dispatch, getState) => {
-    dispatch({ type: UPDATE_REQUEST, payload: "Pausing your subscription..." });
+    dispatch({ type: UPDATE_REQUEST, payload: "loading.subscription.pause" });
     try {
         const res = await axios.post(`/api/user/subscription/pause/${subscriptionId}`, { coupon: !reactivate ? 'sub-pause' : null});
         console.log('logging sub pause----------', res.data);
@@ -86,7 +86,7 @@ export const pauseSubscription = (subscriptionId, reactivate=false) => async (di
 }
 
 export const cancelSubscription = (subscriptionId) => async (dispatch, getState) => {
-    dispatch({ type: UPDATE_REQUEST, payload: "Cancelling your subscription..." });
+    dispatch({ type: UPDATE_REQUEST, payload: "loading.subscription.cancel" });
     try {
         const res = await axios.post(`/api/user/subscription/cancel/${subscriptionId}`);
         console.log('logging sub cancel----------', res.data);
@@ -124,12 +124,12 @@ export const login = ({ email, password }) => async dispatch => {
 }
 
 export const logout = () => dispatch => {
-    dispatch({ type: LOGOUT_REQUEST, payload: "Logging out..." });
+    dispatch({ type: LOGOUT_REQUEST, payload: "loading.logout" });
     dispatch({ type: LOGOUT_SUCCESS });
 }
 
 export const register = ({ name, email, password }) => async dispatch => {
-    dispatch({ type: REGISTER_REQUEST, payload: "Creating your new account..." });
+    dispatch({ type: REGISTER_REQUEST, payload: "loading.new" });
     const language = i18n.language;
     try {
         const res = await axios.post(`/api/user/register`, { name, email, password, language } );
@@ -139,6 +139,7 @@ export const register = ({ name, email, password }) => async dispatch => {
             dispatch({ type: REGISTER_FAILURE, payload: res.data.error})
         } else {
             dispatch({ type: REGISTER_SUCCESS, payload: res.data });
+            dispatch(fetchUser(res.data.data.id, res.data.data.stripe_id));
         }
     } catch(err) {
         console.log(err)
@@ -146,7 +147,7 @@ export const register = ({ name, email, password }) => async dispatch => {
 }
 
 export const addToNewsletter = (name, email, language) => dispatch => {
-    dispatch({ type: NEWSLETTER_REQUEST, payload: "Adding to mailing list..." });
+    dispatch({ type: NEWSLETTER_REQUEST, payload: "loading.newsletter.add" });
     try {
         //const res = await axios.post(`/api/newsletter/add`, { name, email, language } );
         //console.log('added to newsletter----------', res.data);

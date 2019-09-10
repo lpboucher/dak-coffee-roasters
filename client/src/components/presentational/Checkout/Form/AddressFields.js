@@ -68,6 +68,15 @@ const AddressFields = ({condition, type, t}) => {
                 </Box>
             </Box>
             <Box direction="row" flex="grow">
+                <Box width="50%" pad={{"left": "small"}}>
+                        <Field
+                            label={t("sections.checkout.address.country")}
+                            name={`${type}.country`}
+                            component={SelectAdapter}
+                            options={countries}
+                        />
+                </Box>
+                {condition.country &&
                 <Box width="50%" pad={{"right": "small"}}>
                     {(condition.country !== "United States" && condition.country !== "Canada") &&
                         <Field
@@ -94,14 +103,7 @@ const AddressFields = ({condition, type, t}) => {
                         />
                     </Condition>
                 </Box>
-                <Box width="50%" pad={{"left": "small"}}>
-                    <Field
-                        label={t("sections.checkout.address.country")}
-                        name={`${type}.country`}
-                        component={SelectAdapter}
-                        options={countries}
-                        />
-                </Box>
+                }
             </Box>
         </Box>
     );
