@@ -50,7 +50,8 @@ const newOrderEmail = async (email, order, lang) => {
                     quantity: item.quantity,
                     price: item.meta.display_price.with_tax.unit.formatted,
                     image: item.thumb.link.href
-                }))
+                })),
+                order: order.id.slice(0,8)
             },
         };
         await SGmail.send(msg);
