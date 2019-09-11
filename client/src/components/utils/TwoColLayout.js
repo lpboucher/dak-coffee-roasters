@@ -35,11 +35,11 @@ const TwoColLayout = ({bgColor, left, right, pad={outer: "large", inner:"large"}
         },
     };
     return (
-            <Box direction='row' pad={layout[media].pad.outer} background={bgColor} wrap>
-                <Box pad={layout[media].pad.inner} width={layout[media].width}>
+            <Box direction='row' pad={layout[media] ? layout[media].pad.outer : 'none'} background={bgColor} wrap>
+                <Box pad={layout[media] ? layout[media].pad.inner : {vertical: 'medium', horizontal: 'large'}} width={layout[media] ? layout[media].width : '100%'}>
                     {left}
                 </Box>
-                <Box pad={layout[media].pad.inner} width={layout[media].width}>
+                <Box pad={layout[media] ? layout[media].pad.inner : {vertical: 'medium', horizontal: 'large'}} width={layout[media] ? layout[media].width : '100%'}>
                     {right}
                 </Box>
             </Box>

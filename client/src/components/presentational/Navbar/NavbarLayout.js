@@ -49,10 +49,14 @@ const NavbarLayout = ({announcement, logo, topNav, subNav, media}) => {
     <>
             <Grid
             fill="horizontal"
-            rows={layout[media].rows}
-            columns={layout[media].columns}
+            rows={layout[media] ? layout[media].rows : ['30px', '80px']}
+            columns={layout[media] ? layout[media].columns : ['flex', '50%']}
             gap="none"
-            areas={layout[media].areas}
+            areas={layout[media] ? layout[media].areas : [
+                { name: 'announce', start: [0, 0], end: [1, 0]},
+                { name: 'logo', start: [0, 1], end: [0, 1] },
+                { name: 'topNav', start: [1, 1], end: [1, 1] },
+            ]}
             style={headerStyles}
             >
                 {announcement}

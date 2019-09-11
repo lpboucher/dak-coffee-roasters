@@ -13,7 +13,7 @@ const Hero = ({bgImage, height="90vh", overlay,t, media}) => {
         infinity: {pad: '160px'}
     }
     return (
-    <Stack anchor={overlay.loc} style={{paddingTop: layout[media].pad}}>
+    <Stack anchor={overlay.loc} style={{paddingTop: layout[media] ? layout[media].pad : '0px'}}>
         <Box height={height} width="full">
             <Image
                 fit="cover"

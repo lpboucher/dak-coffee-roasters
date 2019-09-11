@@ -13,7 +13,7 @@ const FooterDescription = ({t, media}) => {
         infinity: {width: '40%'}
     }
     return (
-        <Box width={layout[media].width} pad="medium">
+        <Box width={layout[media] ? layout[media].width : '100%'} pad="medium">
             <Paragraph size="small" style={{"padding": "20px"}}>
                 {t("footer.description")}
             </Paragraph>

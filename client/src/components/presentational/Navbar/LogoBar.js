@@ -14,7 +14,7 @@ const LogoBar = ({loc, media}) => {
         infinity: {pad: {'left': '25vw', 'top': '15px'}},
     }
     return (
-        <Box direction="row" align="center" justify="center" gridArea={loc} fill pad={layout[media].pad}>
+        <Box direction="row" align="center" justify="center" gridArea={loc} fill pad={layout[media] ? layout[media].pad : {'left': '0vw', 'top': '15px'}}>
             <Link to="/">
                 <Logo width="120px" />
             </Link>

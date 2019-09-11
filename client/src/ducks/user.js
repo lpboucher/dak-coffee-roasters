@@ -139,7 +139,7 @@ export const register = ({ name, email, password }) => async dispatch => {
             dispatch({ type: REGISTER_FAILURE, payload: res.data.error})
         } else {
             dispatch({ type: REGISTER_SUCCESS, payload: res.data });
-            dispatch(fetchUser(res.data.data.id, res.data.data.stripe_id));
+            dispatch(login({email, password}));
         }
     } catch(err) {
         console.log(err)

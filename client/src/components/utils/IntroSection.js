@@ -42,10 +42,10 @@ const IntroSection = ({heading, subHeading, helperText, description, btnLabel, l
     };
     return (
         <Box>
-            <Heading level={1} size={layout[media].main.size}>{t(heading)}</Heading>
-            <Heading level={2} size={layout[media].sub.size}>{t(subHeading)}</Heading>
-            <Heading level={3} margin={layout[media].main.margin} size={layout[media].small.size} style={{fontWeight: '400'}}>{t(helperText)}</Heading>
-            <Text size={layout[media].main.size} margin={layout[media].main.margin}>
+            <Heading level={1} size={layout[media] ? layout[media].main.size : 'xsmall'}>{t(heading)}</Heading>
+            <Heading level={2} size={layout[media] ? layout[media].sub.size : 'small'}>{t(subHeading)}</Heading>
+            <Heading level={3} margin={layout[media] ? layout[media].main.margin : {"bottom": "large"}} size={layout[media] ? layout[media].small.size : 'small'} style={{fontWeight: '400'}}>{t(helperText)}</Heading>
+            <Text size={layout[media] ? layout[media].main.size : 'xsmall'} margin={layout[media] ? layout[media].main.margin : {"bottom": "large"}}>
                 <Trans i18nKey={description} />
             </Text>
             {btnLabel &&
