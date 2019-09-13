@@ -15,7 +15,7 @@ export const ORDER_FINALIZE_REQUEST = 'checkout/order_finalize_request';
 
 //Action Creators
 export const submitOrder = (customerId, { billingIsShipping, shipping, address }, items, total) => async dispatch => {
-    dispatch({ type: SUBMIT_ORDER_REQUEST, payload: "Creating your order..." });
+    dispatch({ type: SUBMIT_ORDER_REQUEST, payload: "loading.order.create" });
     const shipping_address = {
         first_name: shipping.address.name.split(" ")[0],
         last_name: shipping.address.name.split(" ")[1],
@@ -50,7 +50,7 @@ export const submitOrder = (customerId, { billingIsShipping, shipping, address }
 }
 
 export const finalizeOrder = () => async (dispatch, getState) => {
-    dispatch({ type: ORDER_FINALIZE_REQUEST, payload: "Finalizing order..." });
+    dispatch({ type: ORDER_FINALIZE_REQUEST, payload: "loading.order.finalize" });
     const order = {...getOrder(getState()), items: [...getOrderItemsWithImgs(getState())]};
     const lang = i18n.language;
     try {

@@ -15,7 +15,7 @@ class AccountSubscriptionContainer extends Component {
             ? 
             <ManageSubscriptions subscriptions={subscriptions.data} update={update} pause={pause} cancel={cancel}/>
             :
-            <p style={{textAlign: 'center'}}>{t(`account.subscriptions.no`)}</p>
+            <p style={{textAlign: 'center'}}>{t(`sections.account.subscriptions.no`)}</p>
         }
         return <Loader />
       }

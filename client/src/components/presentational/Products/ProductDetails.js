@@ -19,7 +19,7 @@ const ProductDetails = ({id, name, region, country, roast, description, product_
             }
             <Text margin={{"bottom": "small"}} style={{fontSize: '16px'}}>{`${product_type === "coffee" ? "From " : ""}${rest.meta.display_price.with_tax.formatted}`}</Text>
             <Tabs justify="start">
-                <Tab title="Description">
+                <Tab title={t("sections.product.description")}>
                     <Text margin={{"bottom": "medium"}}>{t(`products:${product_type}.${rest.slug}.description`)}</Text>
                     {product_type === 'coffee' &&
                         <ProductSpecs 
@@ -32,7 +32,7 @@ const ProductDetails = ({id, name, region, country, roast, description, product_
                     }
                 </Tab>
                 {product_type === "equipment" &&
-                (<Tab title="Details">
+                (<Tab title={t("sections.product.details")}>
                     {t(`products:${product_type}.${rest.slug}.details`).split(";").map((detail, index) => (
                         <Text key={`${index}${detail.slice(0,5)}`}>{`- ${detail}\n`}</Text>
                     ))}

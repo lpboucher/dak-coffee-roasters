@@ -29,7 +29,7 @@
     },
     "hero": {
         "home": "Du terroir à votre tasse, c'est avec fierté que nous vous proposons un café de qualité.",
-        "subscription": "Nos classiques ou le choix du torréfacteur: à vous de choisir.",
+        "subscription": "Faites-vous livrer votre café à la porte tous les mois en optant pour l’un de nos abonnements.",
         "coffee": "Nous nous engageons à vous offrir le meilleur café possible tout en réduisant notre empreinte.",
         "team": "Du terroir à votre tasse, c'est avec fierté que nous vous proposons un café de qualité.",
         "wholesale": "Collaborer, c’est la clé. Nos partenariats, petits ou grands, sont tous motivés par la passion commune du café.",
@@ -110,12 +110,16 @@
             "filter-coffees": "Cafés filtres",
             "coffee-equipment": "équipement"
         },
+        "product": {
+            "description": "Description",
+            "details": "Détails"
+        },
         "related": {
             "title": "Vous aimerez aussi"
         },
         "subscription": {
             "title": "Abonnement caféiné",
-            "description": "Faites-vous livrer votre café à la porte tous les mois en optant pour l’un de nos abonnements : nos classiques ou le choix du torréfacteur. Vous recevrez une boîte de 500 g (2 sacs de 250 g) ou de 2 kg (2 sacs de 1 kg) contenant deux variétés différentes de café ou deux sacs de la même variété, à votre choix. Nous vous ferons parvenir un café des plus frais qui aura été torréfié à peine quelques jours avant de se retrouver dans votre tasse. Bonne nouvelle : les frais de livraison pour l’Union européenne et l’Amérique du Nord sont inclus. Aussi, vous pouvez annuler votre abonnement à tout moment sans aucuns frais.",
+            "description": "Faites-vous livrer votre café à la porte tous les mois en optant pour l’un de nos abonnements : nos classiques ou le choix du torréfacteur. Vous recevrez une boîte de 500 g (2 sacs de 250 g) ou de 2 kg (2 sacs de 1 kg) contenant deux variétés différentes de café ou deux sacs de la même variété, à votre choix.",
             "specs": {
                 "shipping": {
                     "title": "Livraison gratuite en Europe et Amérique du Nord",
@@ -133,7 +137,7 @@
         },
         "cart": {
             "heading": {
-                "shopping": "retour à la boutique",
+                "shopping": "boutique",
                 "product": "produit",
                 "quantity": "quantité",
                 "price": "prix",
@@ -174,7 +178,9 @@
                 "billing": "Adresse de facturation"
             },
             "terms": "En poursuivant, j'accepte les Conditions Générales de vente",
-            "button": "Mettre à jour l'adresse"
+            "button": "Mettre à jour l'adresse",
+            "confirmButton": "Confirmer & Payer",
+            "complete": "Compléter votre Achat"
         },
         "login": {
             "existing": "Déjà inscrit?",

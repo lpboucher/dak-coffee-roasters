@@ -29,8 +29,8 @@
     },
     "hero": {
         "home": "Wij willen iedereen laten genieten van échte koffie.",
-        "subscription": "Ga voor de klassiekers of laat je verrassen",
-        "coffee": "Wij doen er alles aan om allerhoogste kwaliteit koffie te leveren met een zo klein mogelijke ecologische voetafdruk. We hebben immers maar één planeet en daar moeten we zuinig op zijn.",
+        "subscription": "Kies voor een van onze abonnementen en ontvang elke maand verse, ambachtelijk gebrande koffiebonen thuis.",
+        "coffee": "Wij doen er alles aan om allerhoogste kwaliteit koffie te leveren met een zo klein mogelijke ecologische voetafdruk.",
         "team": "Wij gaan altijd voor de hoogste kwaliteit.",
         "wholesale": "Er gaat niks boven een soepele, vruchtbare samenwerking. Daarom geven wij onszelf altijd 100%. Ongeacht hoe groot of klein de samenwerking ook is.",
         "contact": "Van boerderij tot boon, van branding tot bereiding. We besteden aandacht aan elk detail. En dat proef je.",
@@ -111,12 +111,16 @@
             "filter-coffees": "Filter koffies",
             "coffee-equipment": "Accessoires"
         },
+        "product": {
+            "description": "Samenvatting",
+            "details": "Productspecificaties"
+        },
         "related": {
             "title": "gerelateerde producten"
         },
         "subscription": {
             "title": "Maandabonnement",
-            "description": "Ontvang elke maand de lekkerste koffie bij je thuis door te kiezen voor een van onze abonnementen. Je hebt de keuze tussen ‘onze klassiekers’ en ‘The Roaster’s Choice’. Je ontvangt van ons een doos van 500 g (2 zakken van 250 g) of 2 kg (2 zakken van 1 kg), waarbij je mag kiezen voor twee verschillende brandingen. Al onze koffies zijn gegarandeerd heerlijk vers. Wij branden de bonen namelijk altijd pas vlak voor het versturen. Goed om te weten: er zijn geen verzendkosten binnen de EU en Noord-Amerika en je kunt je abonnement op elk moment kosteloos annuleren.",
+            "description": "Ontvang elke maand de lekkerste koffie bij je thuis door te kiezen voor een van onze abonnementen. Je hebt de keuze tussen ‘onze klassiekers’ en ‘The Roaster’s Choice’. Je ontvangt van ons een doos van 500 g (2 zakken van 250 g) of 2 kg (2 zakken van 1 kg), waarbij je mag kiezen voor twee verschillende brandingen.",
             "specs": {
                 "shipping": {
                     "title": "gratis verzending binnen de EU en Noord-Amerika",
@@ -175,7 +179,9 @@
                 "billing": "Factuurgegevens",
                 "samebilling": "Factuurgegevens, niet anders"
             },
-            "terms": "Ik heb de algemene voorwaarden van de website gelezen en ga hiermee akkoord"
+            "terms": "Ik heb de algemene voorwaarden van de website gelezen en ga hiermee akkoord",
+            "confirmButton": "Bevestig en betaal",
+            "complete": "Bestelling Plaatsen"
         },
         "login": {
             "existing": "terugkerende klant?",

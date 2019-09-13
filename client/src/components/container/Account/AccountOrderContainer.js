@@ -20,7 +20,7 @@ class AccountOrderContainer extends Component {
             ?
             <Orders orders={orders}/>
             :
-            <p style={{textAlign: 'center'}}>{t(`account.orders.no`)}</p>
+            <p style={{textAlign: 'center'}}>{t(`sections.account.orders.no`)}</p>
         }
         return <Loader />
       }

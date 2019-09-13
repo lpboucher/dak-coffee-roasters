@@ -11,7 +11,7 @@ class OrderFormContainer extends Component {
     renderOrderForm() {
         const { submit, userInfo, address, items, total } = this.props;
         return <AddressForm
-                    btnLabel="Confirm & Pay"
+                    btnLabel="sections.checkout.confirmButton"
                     submit={submit}
                     userId={userInfo.customer_id}
                     address={address}
