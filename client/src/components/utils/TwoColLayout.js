@@ -5,6 +5,13 @@ import { Box } from 'grommet';
 
 const TwoColLayout = ({bgColor, left, right, pad={outer: "large", inner:"large"}, media}) => {
     const layout = {
+        extraSmall: {
+            width: '100%', 
+            pad: {
+                outer: 'none',
+                inner: 'none'
+            }
+        },
         small: {
             width: '100%', 
             pad: {

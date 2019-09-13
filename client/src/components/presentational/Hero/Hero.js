@@ -5,22 +5,38 @@ import Slide from 'react-reveal/Slide';
 
 import { Box, Image, Stack, Text } from 'grommet';
 
-const Hero = ({bgImage, height="90vh", overlay,t, media}) => {
+const Hero = ({bgImage, height="90vh", overlay, t, media}) => {
     const layout = {
-        small: {pad: '0px'},
-        medium: {pad: '0px'},
-        large: {pad: '160px'},
-        infinity: {pad: '160px'}
+        extraSmall: {
+            pad: '0px',
+            height: '50vh'
+        },
+        small: {
+            pad: '0px',
+            height: '50vh'
+        },
+        medium: {
+            pad: '0px',
+            height: height
+        },
+        large: {
+            pad: '160px',
+            height: height
+        },
+        infinity: {
+            pad: '160px',
+            height: height
+        }
     }
     return (
     <Stack anchor={overlay.loc} style={{paddingTop: layout[media] ? layout[media].pad : '0px'}}>
-        <Box height={height} width="full">
+        <Box height={layout[media] ? layout[media].height : height} width="full">
             <Image
                 fit="cover"
                 src={bgImage}
             />
         </Box>
-        {media !== "small" &&
+        {(media === "medium" || media === "large" || media === "infinity") &&
         <Slide right duration={1500}>
         <Box height={overlay.height} width={overlay.width} justify={overlay.justify || "center"} background={`${overlay.withOpacity ? 'rgba(0,0,0,0.5)' : ''}`}>
             <Box width="50vw" pad={{'horizontal': 'large'}}>

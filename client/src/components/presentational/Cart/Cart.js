@@ -9,11 +9,20 @@ import { Box } from 'grommet';
 import OrderPromoCode from './OrderPromoCode';
 import OrderSummaryPrices from './OrderSummaryPrices';
 
-const Cart = ({items, cart, removeFromCart, updateCartItem, apply}) => {
+const Cart = ({items, cart, removeFromCart, updateCartItem, apply, error, media}) => {
+    const layout = {
+        extraSmall: {pad: {horizontal: "small", top: '100px'}, dir: "row-reverse", width: '100%'},
+        small: {pad: {horizontal: "small", top: '100px'}, dir: "row-reverse", width: '100%'},
+        medium: {pad: {horizontal: "xlarge", top: '204px'}, dir: "row", width: '33%'},
+        large: {pad: {horizontal: "xlarge", top: '204px'}, dir: "row", width: '33%'},
+        infinity: {pad: {horizontal: "xlarge", top: '204px'}, dir: "row", width: '33%'},
+    }
     return (
         <Fragment>
-            <Box pad={{horizontal: "xlarge", top: '204px'}}>
-                <CartHeading />
+            <Box pad={layout[media] ? layout[media].pad : {horizontal: "xlarge", top: '204px'}}>
+                {(media === "medium" || media === "large" || media === "infinity") &&
+                    <CartHeading />
+                }
                 {items.map(item => 
                     <CartItem 
                         key={item.id}
@@ -22,9 +31,9 @@ const Cart = ({items, cart, removeFromCart, updateCartItem, apply}) => {
                         {...item}
                     />
                 )}
-                <Box direction="row" justify="between" pad={{vertical: "medium"}}>
-                    <Box width="33%">
-                        <OrderPromoCode apply={apply}/>
+                <Box direction={layout[media] ? layout[media].dir : "row-reverse"} justify="between" pad={{vertical: "medium"}} wrap>
+                    <Box width={layout[media] ? layout[media].width : "100%"}>
+                        <OrderPromoCode promoError={error} apply={apply}/>
                     </Box>
                     <Box align="end">
                         <OrderSummaryPrices withButton={true} {...cart}/>

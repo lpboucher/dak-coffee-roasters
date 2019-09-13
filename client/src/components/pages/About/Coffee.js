@@ -1,4 +1,5 @@
 import React from 'react';
+import withResponsive from '../../utils/HOCs/WithResponsive';
 
 import Hero from '../../presentational/Hero/Hero';
 import EthicsIntro from '../../presentational/Intros/EthicsIntro';
@@ -8,9 +9,10 @@ import NewsletterContainer from '../../container/Newsletter/NewsletterContainer'
 
 const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565717617/Heros/Header_Ourcoffee_jzxkoe.jpg';
 
-const Coffee = () => {
+const Coffee = ({media}) => {
     return (
     <>
+        { (media === "medium" || media === "large" || media === "infinity") &&
         <Hero
             bgImage={header}
             overlay={{
@@ -22,6 +24,7 @@ const Coffee = () => {
                 justify: "start"
             }}
         />
+        }
         <EthicsIntro />
         <CoffeeIntro />
         <PackagingIntro />
@@ -30,4 +33,4 @@ const Coffee = () => {
     );
 };
 
-export default Coffee;
+export default withResponsive(Coffee);

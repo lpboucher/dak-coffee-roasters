@@ -1,4 +1,5 @@
 import React, { Suspense, lazy} from 'react';
+import withResponsive from '../../utils/HOCs/WithResponsive';
 
 import Hero from '../../presentational/Hero/Hero';
 import SubscriptionIntro from '../../presentational/Intros/SubscriptionIntro';
@@ -12,18 +13,20 @@ const BrewingIntro = lazy(() => import('../../presentational/Intros/BrewingIntro
 
 const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565896327/Heros/HeaderV2_gujmqi.jpg'
 
-const Home = () => {
+const Home = ({media}) => {
     return (
     <>
-        <Hero
-            bgImage={header}
-            overlay={{
-                text: "hero.home",
-                loc: "bottom-left",
-                width: "100vw",
-                height: "40vh"
-            }}
-        />
+        {(media === "medium" || media === "large" || media === "infinity") &&
+            <Hero
+                bgImage={header}
+                overlay={{
+                    text: "hero.home",
+                    loc: "bottom-left",
+                    width: "100vw",
+                    height: "40vh"
+                }}
+            />
+        }
             <SubscriptionIntro />
             <LimitedEditionsIntro />
         <Suspense fallback={<Loader />}>
@@ -36,4 +39,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default withResponsive(Home);

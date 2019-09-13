@@ -27,7 +27,7 @@ const TopNavBar = ({
         loc,
         media
     }) => {
-    const isMobile = media === "small" || media === "medium";
+    const isMobile = media === "small" || media === "medium" || media === "extraSmall";
     return (
     <Box direction="row" gridArea={loc} fill="horizontal" align="center" justify="evenly">
         <Account loggedIn={isUserLoggedIn} logout={logout}/>

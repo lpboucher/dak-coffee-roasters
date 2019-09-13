@@ -1,15 +1,23 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
+import withResponsive from '../../utils/HOCs/WithResponsive';
 import { Form, Field } from 'react-final-form';
 
 import { TextInputAdapter } from '../../utils/Forms/FormHelpers';
 
 import { Box, Text, Anchor, Button } from 'grommet';
 
-const NewsletterSignUp = ({add, t, i18n}) => {
+const NewsletterSignUp = ({add, t, i18n, media}) => {
     const addToNewsletter = (values) => {
         add(values.name, values.email, i18n.language);
-      }  
+      }
+    const layout = {
+        extraSmall: {width: '100%'},
+        small: {width: '100%'},
+        medium: {width: '40%'},
+        large: {width: '40%'},
+        infinity: {width: '40%'},
+    }
     return ( 
         <Box pad="large" background="mainDark">
             <Text textAlign="center">{t("newsletter.description")}</Text>
@@ -17,8 +25,8 @@ const NewsletterSignUp = ({add, t, i18n}) => {
                     onSubmit={addToNewsletter}
                     render={({ handleSubmit, form, submitting, invalid, pristine, values, errors }) => (
                     <form onSubmit={handleSubmit}>
-                        <Box direction="row" justify="around">
-                            <Box width="40%" pad={{"top": "medium", "left": "medium", "right": "medium"}}>
+                        <Box direction="row" justify="around" wrap>
+                            <Box width={layout[media] ? layout[media].width : "100%"} pad={{"top": "medium", "left": "medium", "right": "medium"}}>
                                 <Field
                                     name='name'
                                     component={TextInputAdapter}
@@ -27,7 +35,7 @@ const NewsletterSignUp = ({add, t, i18n}) => {
                                 />
                                 <Anchor size="xsmall">{t("newsletter.privacy")}</Anchor>
                             </Box>
-                            <Box width="40%" pad={{"top": "medium", "left": "medium", "right": "medium"}} >
+                            <Box width={layout[media] ? layout[media].width : "100%"} pad={{"top": "medium", "left": "medium", "right": "medium"}} >
                                 <Field
                                     name='email'
                                     component={TextInputAdapter}
@@ -44,4 +52,4 @@ const NewsletterSignUp = ({add, t, i18n}) => {
     );
 };
 
-export default withTranslation()(NewsletterSignUp);
+export default withTranslation()(withResponsive(NewsletterSignUp));

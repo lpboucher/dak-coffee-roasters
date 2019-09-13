@@ -9,14 +9,15 @@ import { Box } from 'grommet';
 
 const Footer = ({media}) => {
     const layout = {
-        small: 'column',
-        medium: 'column',
-        large: 'row',
-        infinity: 'row'
+        extraSmall: {dir: 'column', pad: 'large'},
+        small: {dir: 'column', pad: 'large'},
+        medium: {dir: 'column', pad: 'large'},
+        large: {dir: 'row', pad: 'medium'},
+        infinity: {dir: 'row', pad: 'medium'}
     }
     return (
         <Fragment>
-            <Box direction={layout[media]} pad="medium" background="lightGrey">
+            <Box direction={layout[media] ? layout[media].dir : 'column'} pad={layout[media] ? layout[media].pad : 'large'} background="lightGrey">
                 <FooterDescription />
                 <FooterLinks />
             </Box>

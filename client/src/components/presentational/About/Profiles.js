@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { withTranslation } from 'react-i18next';
+import withResponsive from '../../utils/HOCs/WithResponsive';
 
 import TwoColLayout from '../../utils/TwoColLayout';
 import FullImg from '../../utils/FullImg';
@@ -11,7 +12,14 @@ const louis = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_aut
 const olivier = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565720115/Intros/Olivier_p7pok3.jpg';
 const veronique = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565720116/Intros/Veronique_gfzqmg.jpg';
 
-const Profiles = ({t}) => {
+const Profiles = ({t, media}) => {
+    const layout = {
+        extraSmall: {height: ['85%', '15%'], size: "small", align:"center"},
+        small: {height: ['85%', '15%'], size: "small", align:"center"},
+        medium: {height: ['90%', '10%'], size: "", align:"start"},
+        large: {height: ['90%', '10%'], size: "", align:"start"},
+        infinity: {height: ['90%', '10%'], size: "", align:"start"},
+    };
     const intro = 
     <IntroSection 
         heading="intros.team.LP.name" 
@@ -21,13 +29,13 @@ const Profiles = ({t}) => {
     />
     const secondaryProfiles = (img, name, role, contact) => 
             <Fragment>
-                <Box height="90%" width="100%">
+                <Box height={layout[media] ? layout[media].height[0] : '85%'}  width="100%">
                     <Image fit="cover" src={img}/>
                 </Box>
-                <Box height="10%" pad={{top: "medium"}}>
-                    <Heading level={1}>{t(name)}</Heading>
+                <Box align={layout[media] ? layout[media].align : 'center'} height={layout[media] ? layout[media].height[1] : '15%'} pad={"medium"}>
+                    <Heading level={1} size={layout[media] ? layout[media].size : 'small'}>{t(name)}</Heading>
                     <Heading level={2} size="small">{t(role)}</Heading>
-                    <Heading level={3} size="small" margin={{"bottom": "medium"}} style={{fontWeight: '400'}}>{t(contact)}</Heading>
+                    <Heading level={3} size="" margin={{"bottom": "medium"}} style={{fontWeight: '400'}}>{t(contact)}</Heading>
                 </Box>      
             </Fragment>
     return (
@@ -46,4 +54,4 @@ const Profiles = ({t}) => {
     );
 };
 
-export default withTranslation()(Profiles);
+export default withTranslation()(withResponsive(Profiles));

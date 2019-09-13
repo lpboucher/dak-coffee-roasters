@@ -1,12 +1,20 @@
 import React, { Fragment } from 'react';
 import { withTranslation } from 'react-i18next';
+import withResponsive from '../../utils/HOCs/WithResponsive';
 
 import SubscriptionForm from './Form/SubscriptionForm';
 import SubscriptionAdditional from './SubscriptionAdditional';
 
 import { Box, Image, Heading, Text } from 'grommet'
 
-const SubscriptionCard = ({addToCart, product, thumb, t}) => {
+const SubscriptionCard = ({addToCart, product, thumb, t, media}) => {
+    const layout = {
+        extraSmall: {size: 'small'},
+        small: {size: 'small'},
+        medium: {size: ''},
+        large: {size: ''},
+        infinity: {size: ''}
+    }
     return (
         <Fragment>
             {/*<Box height="400px" width="100%" background="lightGrey" >
@@ -14,7 +22,7 @@ const SubscriptionCard = ({addToCart, product, thumb, t}) => {
                 }
             </Box>*/}
             <Box pad="large" flex="grow" justify="evenly" >
-                <Heading level="1" margin={{vertical: 'small'}}>{t(`products:subscription.${product.slug}.name`)}</Heading>
+                <Heading level="1" size={layout[media] ? layout[media].size : 'small'} margin={{vertical: 'small'}}>{t(`products:subscription.${product.slug}.name`)}</Heading>
                 <Text size="small">{t(`products:subscription.${product.slug}.description`)}</Text>
                 <Box>
                     <SubscriptionAdditional type={product.slug} />
@@ -27,4 +35,4 @@ const SubscriptionCard = ({addToCart, product, thumb, t}) => {
     );
 };
 
-export default withTranslation()(SubscriptionCard);
+export default withTranslation()(withResponsive(SubscriptionCard));
