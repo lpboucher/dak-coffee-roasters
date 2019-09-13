@@ -6,9 +6,10 @@ import { TextInputAdapter } from '../../utils/Forms/FormHelpers'
 
 import { Box, Text, Button } from 'grommet';
 
-const OrderPromoCode = ({apply, t}) => {
+const OrderPromoCode = ({promoError, apply, t}) => {
     return (
         <Box>
+            <Text color="red">{promoError}</Text>
             <Text>{t("sections.cart.promo.title")}</Text>
             <Form
                 onSubmit={apply}

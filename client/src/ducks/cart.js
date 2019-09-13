@@ -9,6 +9,7 @@ export const FETCH_CART_REQUEST = 'cart/fetch_cart_request';
 export const FETCH_CART_SUCCESS = 'cart/fetch_cart_success';
 export const FETCH_CART_FAILURE = 'cart/fetch_cart_failure';
 export const CLEAR_CART_SUCCESS = 'cart/clear_cart_success';
+export const PROMO_CART_FAILURE = 'cart/promo_cart_failure';
 
 //Action Creators
 export const fetchCartItems = () => async (dispatch, getState) => {
@@ -90,7 +91,11 @@ export const applyPromo = (code) => async (dispatch, getState) => {
     try {
         const res = await axios.post(`/api/cart/promo`, { promo: code, currency: currency } );
         console.log('promo applied!----------', res.data);
-        dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
+        if (res.data.error) {
+            dispatch({ type: PROMO_CART_FAILURE, payload: res.data.error})
+        } else {
+            dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
+        }
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
     }

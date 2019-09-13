@@ -64,10 +64,10 @@ module.exports = {
         client_secret: process.env.MOLTIN_CLIENT_SECRET,
         currency: currency
       }).Cart().AddPromotion(promo.promo);
+    } catch (err) {
+      return res.json({error: err.errors[0].detail})
+    }
       console.log('PROMOTION APPLIED----------', cartWithPromo);
       res.json(cartWithPromo);
-    } catch (err) {
-      console.log(err);
-    }
   },
 }

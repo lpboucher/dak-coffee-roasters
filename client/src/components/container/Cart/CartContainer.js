@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchCartItems, getAllCartItems, getCartDiscount, getCartSubtotal,removeItem, updateItem, applyPromo } from '../../../ducks/cart';
 import { getOrderTotal, getOrderTax, getShippingCosts } from '../../../ducks/checkout';
+import { getError } from '../../../ducks/views';
 
 import Cart from '../../presentational/Cart/Cart';
 
 class CartContainer extends Component {
     render() {
-        const { cartItems, removeItem, updateItem, applyPromo, total, subTotal, shipping, taxes, discount } = this.props;
-        return (
-                <Cart 
+        const { cartItems, removeItem, updateItem, applyPromo, total, subTotal, shipping, taxes, discount, error } = this.props;
+        if (cartItems.length < 1) {
+            return <Redirect to="/shop" />
+        } else {
+            return <Cart 
                     removeFromCart={removeItem}
                     updateCartItem={updateItem}
                     items={cartItems}
                     cart={{total, discount, subTotal, shipping, taxes}}
                     apply={applyPromo}
+                    error={error}
                 />
-        );
+        }
     }
 }
 
@@ -27,7 +32,8 @@ function mapStateToProps(state) {
         subTotal: getCartSubtotal(state),
         discount: getCartDiscount(state),
         shipping: getShippingCosts(state),
-        taxes: getOrderTax(state)
+        taxes: getOrderTax(state),
+        error: getError(state)
     };
 }
 

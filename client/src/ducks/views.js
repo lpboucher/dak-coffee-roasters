@@ -33,7 +33,8 @@ import {
 
 import {
     FETCH_CART_REQUEST,
-    FETCH_CART_SUCCESS
+    FETCH_CART_SUCCESS,
+    PROMO_CART_FAILURE
 } from './cart';
 
 export const OPEN_CART = 'views/open_cart';
@@ -104,13 +105,13 @@ displayCurrency: "EUR"
 export default function reducer(state = initialState, action) {
 switch(action.type) {
     case OPEN_CART:
-        return { ...state, isCartOpen: true };
+        return { ...state, isCartOpen: true, error: "" };
     case CLOSE_CART:
-        return { ...state, isCartOpen: false };
+        return { ...state, isCartOpen: false, error: "" };
     case OPEN_MOBILE:
-        return { ...state, isMobileOpen: true };
+        return { ...state, isMobileOpen: true, error: "" };
     case CLOSE_MOBILE:
-        return { ...state, isMobileOpen: false };
+        return { ...state, isMobileOpen: false, error: "" };
     case CHANGE_CURRENCY_SUCCESS:
         return { ...state,
             isProcessing: false,
@@ -131,6 +132,7 @@ switch(action.type) {
         return { ...state,
             isProcessing: true,
             processingText: action.payload,
+            error: ""
          };
     case SUBMIT_PAYMENT_CONFIRM:
         return { ...state,
@@ -153,6 +155,7 @@ switch(action.type) {
                 processingText: "" };
     case LOGIN_FAILURE:
     case REGISTER_FAILURE:
+    case PROMO_CART_FAILURE:
             return { 
                 ...state,
                 isProcessing: false,
@@ -161,17 +164,20 @@ switch(action.type) {
     case APPLY_MINI_HEADER:
             return {
                 ...state,
-                miniHeader: true
+                miniHeader: true,
+                error: ""
             }
     case REMOVE_MINI_HEADER:
             return {
                 ...state,
-                miniHeader: false
+                miniHeader: false,
+                error: ""
             }
     case SCROLL_HEIGHT:
             return {
                 ...state,
-                scrollPos: action.payload
+                scrollPos: action.payload,
+                error: ""
             }
     default:
         return state;
