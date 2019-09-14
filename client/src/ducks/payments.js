@@ -9,6 +9,7 @@ export const SUBMIT_PAYMENT_REQUEST = 'checkout/submit_payment_request';
 export const SUBMIT_PAYMENT_SUCCESS = 'checkout/submit_payment_success';
 export const SUBMIT_PAYMENT_FAILURE = 'checkout/submit_payment_failure';
 export const SUBMIT_PAYMENT_CONFIRM = 'checkout/submit_payment_confirm';
+export const CLEAR_PAYMENT_DETAILS = 'checkout/clear_payment_details';
 
 //Action Creators
 export const submitPayment = (payment, subscription = {}) => async dispatch => {
@@ -46,6 +47,10 @@ export const addSuscription = (customer, plans, payment_method) => async dispatc
     }
 }
 
+export const resetPaymentDetails = () => async dispatch => {
+    await dispatch({ type: CLEAR_PAYMENT_DETAILS })
+}
+
 const initialStatus = {
     error: null,
     secret: null,
@@ -78,6 +83,8 @@ const status = (state = initialStatus, action) => {
                 action: false,
                 secret: null,
             }
+        case CLEAR_PAYMENT_DETAILS:
+            return initialStatus
         default:
             return state
     }
