@@ -7,7 +7,7 @@ const calculateShipping = (country, total, items) => {
             return 0
     } else {
             console.log('shipping not free')
-            return country === "US" || country === "CA" ? 7.5 : 3; 
+            return country === "US" || country === "CA" ? 7.5 : 3.5; 
     }
 }
 

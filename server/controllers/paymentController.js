@@ -28,8 +28,10 @@ module.exports = {
       addSubscription: async (req, res, next) => {
         const { customer, plans, payment_method } = req.body;
         let default_payment;
-        if(!customer.default_payment) { 
+        if(Object.entries(customer.default_payment).length === 0 && customer.default_payment.constructor === Object) { 
           default_payment = await stripe.paymentMethods.attach(payment_method, {customer: customer.id});
+        } else {
+          default_payment = customer.default_payment
         }
         const subscription = await stripe.subscriptions.create({
           customer: customer.id,
