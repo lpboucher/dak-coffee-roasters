@@ -13,7 +13,6 @@ export const fetchCollections = () => async dispatch => {
 
     try {
         const res = await axios.get(`/api/products/featured`);
-        console.log('fetched featured----------', res.data);
         dispatch({ type: FETCH_COLLECTIONS_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: FETCH_COLLECTIONS_FAILURE});

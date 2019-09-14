@@ -13,7 +13,6 @@ export const fetchCategories = () => async dispatch => {
 
     try {
         const res = await axios.get(`/api/products/categories`);
-        console.log('fetched categories----------', res.data);
         dispatch({ type: FETCH_CATEGORIES_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: FETCH_COLLECTIONS_FAILURE});

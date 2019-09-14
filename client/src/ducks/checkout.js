@@ -42,7 +42,6 @@ export const submitOrder = (customerId, { billingIsShipping, shipping, address }
             }
     try {
         const res = await axios.post(`/api/checkout/`, { customerId, shipping_address, billing_address, items, total } );
-        console.log('submitting order----------', res.data);
         dispatch({ type: SUBMIT_ORDER_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -55,7 +54,6 @@ export const finalizeOrder = () => async (dispatch, getState) => {
     const lang = i18n.language;
     try {
         const res = await axios.post(`/api/checkout/finalize`, { order, lang } );
-        console.log('finalizing order----------', res.data);
     } catch(err) {
         //dispatch({ type: SUBMIT_PAYMENT_FAILURE});
     }

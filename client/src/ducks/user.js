@@ -27,7 +27,6 @@ export const NEWSLETTER_SUCCESS = 'user/newsletter_sucess';
 
 //Action Creators
 export const fetchUser = (id, stripeId = null) => async dispatch => {
-    console.log('passed id', id)
     if (stripeId == null) {
         const res = await axios.get(`/api/user/${id}`);
         console.log('logging moltin user----------', res.data);
@@ -36,7 +35,6 @@ export const fetchUser = (id, stripeId = null) => async dispatch => {
     }
     try {
         const res = await axios.get(`/api/user/${stripeId}`);
-        console.log('logging stripe user----------', res.data);
         dispatch({ type: FETCH_SUCCESS, payload: res.data });
     } catch(err) {
         console.log(err)
@@ -51,7 +49,6 @@ export const updateCustomerAddress = (id, {billingIsShipping, shipping, address}
     delete billing.name;
     try {
         const res = await axios.post(`/api/user/${id}`, {address: billing, shipping} );
-        console.log('logging update----------', res.data);
         dispatch({ type: UPDATE_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -67,7 +64,6 @@ export const updateSubscription = (subscriptionId, itemId, data) => async (dispa
     );
     try {
         const res = await axios.post(`/api/user/subscription/${subscriptionId}`, { plan: planId, number, itemId } );
-        console.log('logging sub update----------', res.data);
         dispatch(fetchUser(null, getState()['user']['info']['stripe_id']));
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -78,7 +74,6 @@ export const pauseSubscription = (subscriptionId, reactivate=false) => async (di
     dispatch({ type: UPDATE_REQUEST, payload: "loading.subscription.pause" });
     try {
         const res = await axios.post(`/api/user/subscription/pause/${subscriptionId}`, { coupon: !reactivate ? 'sub-pause' : null});
-        console.log('logging sub pause----------', res.data);
         dispatch(fetchUser(null, getState()['user']['info']['stripe_id']));
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -89,7 +84,6 @@ export const cancelSubscription = (subscriptionId) => async (dispatch, getState)
     dispatch({ type: UPDATE_REQUEST, payload: "loading.subscription.cancel" });
     try {
         const res = await axios.post(`/api/user/subscription/cancel/${subscriptionId}`);
-        console.log('logging sub cancel----------', res.data);
         dispatch(fetchUser(null, getState()['user']['info']['stripe_id']));
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -99,7 +93,6 @@ export const cancelSubscription = (subscriptionId) => async (dispatch, getState)
 export const fetchUserOrders = (id) => async dispatch => {
     try {
         const res = await axios.get(`/api/user/orders/${id}`);
-        console.log('logging orders----------', res.data);
         dispatch({ type: ORDERS_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -110,7 +103,6 @@ export const login = ({ email, password }) => async dispatch => {
     dispatch({ type: LOGIN_REQUEST, payload: "loading.account" });
     try {
         const res = await axios.post(`/api/user/login`, { email, password } );
-        console.log('logging user----------', res.data);
 
         if (res.data.error) {
             dispatch({ type: LOGIN_FAILURE, payload: res.data.error})
@@ -133,7 +125,6 @@ export const register = ({ name, email, password }) => async dispatch => {
     const language = i18n.language;
     try {
         const res = await axios.post(`/api/user/register`, { name, email, password, language } );
-        console.log('registering user----------', res.data);
 
         if (res.data.error) {
             dispatch({ type: REGISTER_FAILURE, payload: res.data.error})

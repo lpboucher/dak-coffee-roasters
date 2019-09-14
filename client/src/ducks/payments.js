@@ -18,7 +18,6 @@ export const submitPayment = (payment, subscription = {}) => async dispatch => {
     const { customer } = payment;
     try {
         const res = await axios.post(`/api/payments/confirm`, payment );
-        console.log('submitting payment----------', res.data);
         
         if (res.data.error) {
             dispatch({ type: SUBMIT_PAYMENT_FAILURE, payload: res.data.error});
@@ -40,7 +39,6 @@ export const addSuscription = (customer, plans, payment_method) => async dispatc
     //dispatch({ type: SUBMIT_PAYMENT_REQUEST});
     try {
         const res = await axios.post(`/api/payments/subscribe`, { customer: customer, plans: plans, payment_method: payment_method } );
-        console.log('submitting subscription----------', res.data);
         //dispatch({ type: SUBMIT_ORDER_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: SUBMIT_PAYMENT_FAILURE});

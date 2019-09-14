@@ -16,7 +16,6 @@ export const fetchCartItems = () => async (dispatch, getState) => {
     const activeCurrency = getState()['views']['displayCurrency']
     try {
         const res = await axios.get(`/api/cart/`);
-        console.log('receiving cart----------', res.data);
         if (res.data.meta.display_price.with_tax.currency !== activeCurrency) {
             dispatch(clearCart());
         } else {
@@ -32,7 +31,6 @@ export const addToCart = (id, quantity) => async (dispatch, getState) => {
     dispatch({ type: FETCH_CART_REQUEST, payload: "loading.cart.add" });
     try {
         const res = await axios.post(`/api/cart/`, {id, quantity, currency});
-        console.log('adding to cart----------', res.data);
         dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
         dispatch(openCartToolTip());
         setTimeout(() => dispatch(closeCartToolTip()), 1000)
@@ -58,7 +56,6 @@ export const addDerivedToCart = (slug, type, data) => (dispatch, getState) => {
 export const updateItem = (id, quantity) => async dispatch => {
     try {
         const res = await axios.post(`/api/cart/${id}`, {quantity});
-        console.log('updating cart----------', res.data);
         dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -68,7 +65,6 @@ export const updateItem = (id, quantity) => async dispatch => {
 export const removeItem = (id) => async dispatch => {
     try {
         const res = await axios.delete(`/api/cart/${id}`);
-        console.log('deleting from cart----------', res.data);
         dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -78,7 +74,6 @@ export const removeItem = (id) => async dispatch => {
 export const clearCart = () => async dispatch => {
     try {
         const res = await axios.get(`/api/cart/delete`);
-        console.log('clearing cart----------', res.data);
         dispatch({ type: CLEAR_CART_SUCCESS });
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
@@ -90,7 +85,6 @@ export const applyPromo = (code) => async (dispatch, getState) => {
     const currency = getState()['views']['displayCurrency']
     try {
         const res = await axios.post(`/api/cart/promo`, { promo: code, currency: currency } );
-        console.log('promo applied!----------', res.data);
         if (res.data.error) {
             dispatch({ type: PROMO_CART_FAILURE, payload: res.data.error})
         } else {
