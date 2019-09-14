@@ -30,7 +30,7 @@ const newOrderEmail = async (email, order, lang) => {
     if (lang === 'en') {template = 'd-e643c0e35bab4e769b74f0306e3da570'}
     if (lang === 'fr') {template = 'd-d7e68964a2ec4415a0af36b201f164cb'}
     if (lang === 'nl') {template = 'd-24e08859bb0441b1b85eacdd0e2dde95'}
-    const orderItems = order.items.filter(item => item.product_id !== "");
+    const orderItems = order.items.filter(item => item.product_id !== "" && item.value.amount >= 0);
     try {
         const msg = {
             to: email,
