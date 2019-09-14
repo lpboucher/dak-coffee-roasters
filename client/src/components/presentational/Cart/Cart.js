@@ -11,8 +11,8 @@ import OrderSummaryPrices from './OrderSummaryPrices';
 
 const Cart = ({items, cart, removeFromCart, updateCartItem, apply, error, media}) => {
     const layout = {
-        extraSmall: {pad: {horizontal: "small", top: '100px'}, dir: "row-reverse", width: '100%'},
-        small: {pad: {horizontal: "small", top: '100px'}, dir: "row-reverse", width: '100%'},
+        extraSmall: {pad: {horizontal: "medium", top: '80px'}, dir: "row-reverse", width: '100%'},
+        small: {pad: {horizontal: "medium", top: '80px'}, dir: "row-reverse", width: '100%'},
         medium: {pad: {horizontal: "xlarge", top: '204px'}, dir: "row", width: '33%'},
         large: {pad: {horizontal: "xlarge", top: '204px'}, dir: "row", width: '33%'},
         infinity: {pad: {horizontal: "xlarge", top: '204px'}, dir: "row", width: '33%'},

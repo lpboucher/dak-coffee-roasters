@@ -9,8 +9,8 @@ const IntroSection = ({heading, subHeading, helperText, description, btnLabel, l
     const layout = {
         extraSmall: {
             main: {
-                size: isSmall ? 'xsmall' : 'small',
-                margin: isSmall ? {"bottom": "medium"} : {"horizontal": "large", "vertical": "small"}
+                size: 'small',
+                margin: isSmall ? "medium" : {"horizontal": "large", "vertical": "small"}
             },
             sub: { size: isSmall ? '10px' : 'small'},
             small: { size: isSmall ? 'xsmall' : '12px', margin: {"bottom": "medium"}},
@@ -19,8 +19,8 @@ const IntroSection = ({heading, subHeading, helperText, description, btnLabel, l
         },
         small: {
             main: {
-                size: isSmall ? 'xsmall' : 'small',
-                margin: isSmall ? {"bottom": "medium"} : "large"
+                size: 'small',
+                margin: isSmall ? "medium" : "large"
             },
             sub: { size: isSmall ? '10px' : 'small'},
             small: { size: isSmall ? 'xsmall' : '12px', margin: {"bottom": "medium"}},

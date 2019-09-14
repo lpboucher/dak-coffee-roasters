@@ -119,7 +119,7 @@
         },
         "subscription": {
             "title": "monthly coffee subscription",
-            "description": "Have your coffee delivered to your doorstep every month by opting for one of our subscriptions. Choose between our classics or the roaster’s choice. We will send you a box of 500g (2 bags of 250g) or 2kg (2 bags of 1kg), and you are free to receive two different varieties of a single one.",
+            "description": "Have your coffee delivered to your doorstep every month by opting for one of our subscriptions. Choose between our classics or the roaster’s choice. \n\nWe will send you a box of 500g (2 bags of 250g) or 1kg (4 bags of 250g), and you are free to receive two different varieties of a single one.",
             "specs": {
                 "shipping": {
                     "title": "free shipping in EU & North America",

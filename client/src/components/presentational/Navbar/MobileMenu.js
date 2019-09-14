@@ -1,23 +1,28 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
-import { Layer, Box, Menu } from 'grommet';
+import Footer from '../Footer/Footer';
+import { Layer, Box, Menu, Button } from 'grommet';
+import { Close } from 'grommet-icons';
 
-const MobileMenu = ({close, t}) => {
+const MobileMenu = ({close, t, history}) => {
     return (
         <Layer full modal onEsc={close} onClickOutside={close}>
-            <Box align="center" justify="around" margin={{'horizontal': '50px'}}>
-                <Box pad="xsmall">
-                    <NavLink to="/shop">{t("menu.shop")}</NavLink>
+            <Box align="start" justify="around" height="100%" pad={{'horizontal': '50px', top: '20px'}} background="darkGrey">
+                <Box alignSelf="end" onClick={close}>
+                    <Close />
                 </Box>
-                <Box pad="xsmall">
-                    <NavLink to="/subscriptions">{t("menu.subscriptions")}</NavLink>
+                <Box pad="xsmall" fill="horizontal" onClick={()=>{history.push('/shop'); close()}}>
+                    <Button plain ><NavLink style={{textTransform: 'uppercase', padding: '6px'}} to="/shop">{t("menu.shop")}</NavLink></Button>
                 </Box>
-                <Box pad="xsmall">
+                <Box pad="xsmall" fill="horizontal" onClick={()=>{history.push('/subscriptions'); close()}}>
+                    <Button plain><NavLink style={{textTransform: 'uppercase', padding: '6px'}} to="/subscriptions">{t("menu.subscriptions")}</NavLink></Button>
+                </Box>
+                <Box pad="xsmall" fill="horizontal">
                     <Menu 
                         label={t("menu.about.top")}
-                        dropBackground="mainWhite"
+                        dropBackground="darkGrey"
                         margin="none"
                         items={[
                             {label: `${t("menu.about.coffee")}`, as: NavLink, to: "/our-coffee"},
@@ -25,16 +30,16 @@ const MobileMenu = ({close, t}) => {
                         ]}
                     />
                 </Box>
-                <Box pad="xsmall">
-                    <NavLink to="/wholesale">{t("menu.wholesale")}</NavLink>
+                <Box pad="xsmall" fill="horizontal" onClick={()=>{history.push('/wholesale'); close()}}>
+                    <Button plain><NavLink style={{textTransform: 'uppercase', padding: '6px'}} to="/wholesale">{t("menu.wholesale")}</NavLink></Button>
                 </Box>
-                <Box pad="xsmall">
-                    <NavLink to="/contact">{t("menu.contact")}</NavLink>
+                <Box pad="xsmall" fill="horizontal" onClick={()=>{history.push('/contact'); close()}}>
+                    <Button plain><NavLink style={{textTransform: 'uppercase', padding: '6px'}}to="/contact">{t("menu.contact")}</NavLink></Button>
                 </Box>
-                <Box pad="xsmall">
+                <Box pad="xsmall" fill="horizontal">
                     <Menu 
                         label={t("menu.blog.top")}
-                        dropBackground="mainWhite"
+                        dropBackground="darkGrey"
                         margin="none"
                         items={[
                             {label: `${t("menu.blog.guides")}`, as: NavLink, to: "/brew"},
@@ -42,9 +47,10 @@ const MobileMenu = ({close, t}) => {
                         ]}
                     />
                 </Box>
+                <Footer></Footer>
             </Box>
         </Layer>
     );
 };
 
-export default withTranslation()(MobileMenu);
+export default withRouter(withTranslation()(MobileMenu));

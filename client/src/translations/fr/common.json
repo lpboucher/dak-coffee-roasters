@@ -119,7 +119,7 @@
         },
         "subscription": {
             "title": "Abonnement caféiné",
-            "description": "Faites-vous livrer votre café à la porte tous les mois en optant pour l’un de nos abonnements : nos classiques ou le choix du torréfacteur. Vous recevrez une boîte de 500 g (2 sacs de 250 g) ou de 2 kg (2 sacs de 1 kg) contenant deux variétés différentes de café ou deux sacs de la même variété, à votre choix.",
+            "description": "Faites-vous livrer votre café à la porte tous les mois en optant pour l’un de nos abonnements : nos classiques ou le choix du torréfacteur. \n\nVous recevrez une boîte de 500 g (2 sacs de 250 g) ou de 1 kg (4 sacs de 250 g) contenant deux variétés différentes de café ou deux sacs de la même variété, à votre choix.",
             "specs": {
                 "shipping": {
                     "title": "Livraison gratuite en Europe et Amérique du Nord",

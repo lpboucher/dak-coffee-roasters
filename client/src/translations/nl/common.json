@@ -120,7 +120,7 @@
         },
         "subscription": {
             "title": "Maandabonnement",
-            "description": "Ontvang elke maand de lekkerste koffie bij je thuis door te kiezen voor een van onze abonnementen. Je hebt de keuze tussen ‘onze klassiekers’ en ‘The Roaster’s Choice’. Je ontvangt van ons een doos van 500 g (2 zakken van 250 g) of 2 kg (2 zakken van 1 kg), waarbij je mag kiezen voor twee verschillende brandingen.",
+            "description": "Ontvang elke maand de lekkerste koffie bij je thuis door te kiezen voor een van onze abonnementen. Je hebt de keuze tussen ‘onze klassiekers’ en ‘The Roaster’s Choice’. \n\nJe ontvangt van ons een doos van 500 g (2 zakken van 250 g) of 1 kg (4 zakken van 250 g), waarbij je mag kiezen voor twee verschillende brandingen.",
             "specs": {
                 "shipping": {
                     "title": "gratis verzending binnen de EU en Noord-Amerika",

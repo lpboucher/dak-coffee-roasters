@@ -8,8 +8,8 @@ import { Box } from 'grommet';
 
 const Shop = ({media}) => {
     const layout = {
-        extraSmall : {padTop: '150px', width: '100%'},
-        small : {padTop: '150px', width: '100%'},
+        extraSmall : {padTop: '80px', width: '100%'},
+        small : {padTop: '80px', width: '100%'},
         medium : {padTop: '208px', width: '66%'},
         large : {padTop: '208px', width: '66%'},
         infinity : {padTop: '208px', width: '66%'},

@@ -30,7 +30,7 @@ const SubscriptionExplain = ({t, media}) => {
     return (
         <Box pad="large">
             <Heading level={1} size={layout[media] ? layout[media].size : 'small'} textAlign="center" margin={{bottom: 'medium'}}>{t("sections.subscription.title")}</Heading>
-            <Text textAlign="center" margin={{horizontal: layout[media] ? layout[media].marginH : 'small'}}>{t("sections.subscription.description")}</Text>
+            <Text textAlign="center" size={layout[media] ? layout[media].size : 'small'} margin={{horizontal: layout[media] ? layout[media].marginH : 'small'}}>{t("sections.subscription.description")}</Text>
         </Box>
     );
 };

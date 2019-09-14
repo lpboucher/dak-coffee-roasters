@@ -5,13 +5,20 @@ import { Grid } from 'grommet';
 
 const NavbarLayout = ({announcement, logo, topNav, subNav, media}) => {
     const layout = {
+        extraSmall: {
+            areas: [
+                { name: 'logo', start: [0, 0], end: [0, 0] },
+                { name: 'topNav', start: [1, 0], end: [1, 0] },
+            ],
+            rows: ['80px'],
+            columns: ['flex', '50%']
+        },
         small: {
             areas: [
-                { name: 'announce', start: [0, 0], end: [1, 0]},
-                { name: 'logo', start: [0, 1], end: [0, 1] },
-                { name: 'topNav', start: [1, 1], end: [1, 1] },
+                { name: 'logo', start: [0, 0], end: [0, 0] },
+                { name: 'topNav', start: [1, 0], end: [1, 0] },
             ],
-            rows: ['30px', '80px'],
+            rows: ['80px'],
             columns: ['flex', '50%']
         },
         medium: {
@@ -59,7 +66,7 @@ const NavbarLayout = ({announcement, logo, topNav, subNav, media}) => {
             ]}
             style={headerStyles}
             >
-                {announcement}
+                {media === "medium" || media === 'large' || media === "infinity" ? announcement : null}
                 {logo}
                 {topNav}
                 {media === 'large' || media === "infinity" ? subNav : null}

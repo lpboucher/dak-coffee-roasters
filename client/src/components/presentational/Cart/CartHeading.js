@@ -31,7 +31,7 @@ const CartHeading = ({t, media}) => {
                 <Box width="10%" align="center">
                     <Text size={layout[media] ? layout[media].size : 'small'}>{t("sections.cart.heading.quantity")}</Text>
                 </Box>
-                <Box width="20%" align="center">
+                <Box width="10%" align="center">
                     <Text size={layout[media] ? layout[media].size : 'small'}>{t("sections.cart.heading.subtotal")}</Text>
                 </Box>
             </Box>

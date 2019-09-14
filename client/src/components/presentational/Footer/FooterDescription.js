@@ -7,8 +7,8 @@ import { Instagram } from 'grommet-icons';
 
 const FooterDescription = ({t, media}) => {
     const layout = {
-        extraSmall: {width: '100%', pad: '20px 0'},
-        small: {width: '100%' , pad: '20px 0'},
+        extraSmall: {width: '100%', pad: '0 0 20px'},
+        small: {width: '100%' , pad: '0 0 20px'},
         medium: {width: '100%' , pad: '20px 0'},
         large: {width: '40%', pad: '20px'},
         infinity: {width: '40%', pad: '20px'}
