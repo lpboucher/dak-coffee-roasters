@@ -10,6 +10,15 @@ const orderValidation = values => {
     errors.shipping.address.name = 'Required'
   }
 
+  if (!values.shipping || !values.shipping.address || values.shipping.address.name.split(' ').length < 2) {
+    if (!errors.shipping) {
+      errors.shipping = {}
+      errors.shipping.address = {}
+    }
+
+    errors.shipping.address.name = 'Please provide full name'
+  }
+
   if (!values.shipping || !values.shipping.address || !values.shipping.address.line1) {
     if (!errors.shipping) {
       errors.shipping = {}

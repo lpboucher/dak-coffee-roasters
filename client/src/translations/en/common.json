@@ -166,7 +166,7 @@
             "shippingsubmit": "Submitted",
             "payment": "Payment Method",
             "address": {
-                "name": "Name",
+                "name": "Full Name",
                 "company": "Company",
                 "line1": "Address Line 1",
                 "line2": "Address Line 2",

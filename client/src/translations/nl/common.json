@@ -168,7 +168,7 @@
             "shippingsubmit": "Successvol Voltooid",
             "payment": "Betaalmethode",
             "address": {
-                "name": "naam",
+                "name": "Naam",
                 "company": "bedrijfsnaam",
                 "line1": "Straat en huisnummer",
                 "line2": "Toe.",
