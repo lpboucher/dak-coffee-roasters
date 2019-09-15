@@ -8,7 +8,7 @@ import { Box, Heading } from 'grommet';
 
 const CheckoutSummary = ({items, cart, t}) => {
     return (
-        <Box pad={{horizontal: 'large', bottom: 'large', top: 'medium'}} margin={{horizontal: 'large'}} background="darkGrey">
+        <Box pad={{horizontal: 'large', bottom: 'large', top: 'medium'}} margin={{horizontal: 'large', bottom: 'medium'}} background="darkGrey">
             <Heading level={1} size={"small"} margin={{bottom: 'small'}}>{t("sections.cart.order.summary")}</Heading>
             {items.map(item => 
                 <CheckoutSummaryItem key={item.id} {...item} />
