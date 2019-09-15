@@ -232,7 +232,12 @@ export const getUser = (state) => state.user.info;
 
 export const getUserID = (state) => state.user.info.stripe_id;
 
-export const getUserPaymentMethod = (state) => state.user.info.invoice_settings.default_payment_method ? state.user.info.invoice_settings.default_payment_method : {};
+export const getUserPaymentMethod = (state) => {
+    if (state.user.info.invoice_settings && state.user.info.invoice_settings.default_payment_method) {
+            return state.user.info.invoice_settings.default_payment_method
+        }
+        return {}
+};
 
 export const getOrder = (state, id) => state.user.orders.byId[id];
 
