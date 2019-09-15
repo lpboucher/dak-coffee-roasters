@@ -12,8 +12,8 @@ import { ReactComponent as Tag} from '../../../assets/icons/iconmonstr-tag-2.svg
 
 const ProductSpecs = ({recommendation, process, harvest ,altitude, tasting_notes, media}) => {
     const layout = {
-        extraSmall: {pad: 'medium',columns: '100%', rows: '100%'},
-        small: {columns: '100%', rows: '100%'},
+        extraSmall: {pad: 'medium', columns: '2', rows: 'auto'},
+        small: {columns: '2', rows: 'auto'},
         medium: {columns: '50%', rows: '50%'},
         large: {columns: '50%', rows: '50%'},
         infinity: {columns: '50%', rows: '50%'}

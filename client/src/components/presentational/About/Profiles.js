@@ -14,11 +14,11 @@ const veronique = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f
 
 const Profiles = ({t, media}) => {
     const layout = {
-        extraSmall: {height: ['85%', '15%'], size: "small", align:"center"},
-        small: {height: ['85%', '15%'], size: "small", align:"center"},
-        medium: {height: ['90%', '10%'], size: "", align:"start"},
-        large: {height: ['90%', '10%'], size: "", align:"start"},
-        infinity: {height: ['90%', '10%'], size: "", align:"start"},
+        extraSmall: {height: ['400px', ''], size: "small", align:"center", pad: {top: '80px'}},
+        small: {height: ['400px', ''], size: "small", align:"center", pad: {top: '80px'}},
+        medium: {height: ['90%', '10%'], size: "", align:"start", pad: {top: '0px'}},
+        large: {height: ['90%', '10%'], size: "", align:"start", pad: {top: '0px'}},
+        infinity: {height: ['90%', '10%'], size: "", align:"start", pad: {top: '0px'}},
     };
     const intro = 
     <IntroSection 
@@ -42,7 +42,7 @@ const Profiles = ({t, media}) => {
         <Fragment>
             <TwoColLayout 
                 bgColor="mainWhite"
-                left={<FullImg imgLink={louis}/>}
+                left={<FullImg imgLink={louis} margin={layout[media] ? layout[media].pad : '80px'}/>}
                 right={intro}
             />
             <TwoColLayout 

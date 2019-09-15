@@ -17,7 +17,7 @@ const Shop = ({media}) => {
     return (
     <>
         <Box pad={{top: layout[media] ? layout[media].padTop : '0px'}} margin={{bottom: "large", right: "large"}} width={layout[media] ? layout[media].width : '100%'}>
-            <SubscriptionBanner />
+            <SubscriptionBanner isMobile={media === "extraSmall" || media === "small"}/>
         </Box>
         <ShopContainer />
     </>

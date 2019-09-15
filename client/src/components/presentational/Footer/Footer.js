@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import withResponsive from '../../utils/HOCs/WithResponsive';
 
 import FooterDescription from './FooterDescription';
@@ -16,13 +16,14 @@ const Footer = ({media}) => {
         infinity: {dir: 'row', pad: 'medium'}
     }
     return (
-        <Fragment>
+        <>
             <Box direction={layout[media] ? layout[media].dir : 'column'} pad={layout[media] ? layout[media].pad : 'large'} background="lightGrey">
+                
                 <FooterDescription />
                 <FooterLinks />
             </Box>
             <FooterDisclaimer />
-        </Fragment>
+        </>
     );
 };
 

@@ -7,7 +7,7 @@ import IntroSection from '../../utils/IntroSection';
 
 const thumb = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1568043681/Intros/SubscriptionSmallBox_2_vkenoo.jpg';
 
-const SubscriptionBanner = ({t}) => {
+const SubscriptionBanner = ({isMobile, t}) => {
     const intro = 
         <IntroSection 
             heading="intros.subscription.title" 
@@ -20,9 +20,9 @@ const SubscriptionBanner = ({t}) => {
     return (
         <TwoColLayout 
             bgColor="darkGrey"
-            left={<FullImg imgLink={thumb} withMinHeight={true}/>}
+            left={<FullImg imgLink={thumb} withMinHeight={isMobile}/>}
             right={intro}
-            pad={{outer: "large", inner: "medium"}}
+            pad={{outer: "small", inner: "medium"}}
         />
     );
 };
