@@ -133,6 +133,21 @@
                     "title": "commitment-free",
                     "subtitle": "skip a month, cancel or change your subscription preferences at no extra cost"
                 }
+            },
+            "icons": {
+                "fresh": "Freshly-roasted specialty coffee",
+                "varieties": "Get 2 coffee varieties: the current limited edition & what the roaster drinks that month",
+                "choice":  "Customize your order by choosing your roast styles and quantity",
+                "save": "Save money compared to single orders",
+                "receive": "Receive your coffee box once a month"
+            },
+            "price": "from",
+            "shipping": "FREE SHIPPING",
+            "button": "Submit",
+            "form": {
+                "varieties": {"label": "Number of varieties", "placeholder": "How many varieties?"},
+                "roast": {"label": "Roast style", "placeholder": "Espresso or Filter"},
+                "quantity": {"label": "Quantity", "placeholder": "How much?"}
             }
         },
         "cart": {

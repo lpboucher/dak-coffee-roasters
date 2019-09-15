@@ -119,11 +119,11 @@
         }
     },
     "subscription": {
-        "roasters-subscription": {
+        "classics-subscription": {
             "name": "Nos classiques",
             "description": "Choisissez une torréfaction et recevez une sélection de cafés d’origine pour une extraction filtre ou espresso (ou pourquoi pas les deux!)."
         },
-        "classics-subscription": {
+        "roasters-subscription": {
             "name": "Le choix du torréfacteur",
             "description": "Laissez le maître torréfacteur vous surprendre avec son coup de cœur du mois. Vous obtiendrez ainsi un assortiment de torréfactions filtre, espresso et édition limitée. Sans jamais compromettre la qualité ni le goût, notre torréfacteur vous fera découvrir toutes les subtilités de ses cafés."
         }

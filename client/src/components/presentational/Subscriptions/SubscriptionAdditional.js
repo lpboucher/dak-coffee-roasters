@@ -1,23 +1,24 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 
 import IconedExplanation from '../../utils/IconedExplanation';
 
 import { Java, Tasks, Money, Plan, Bar } from 'grommet-icons';
 
-const SubscriptionAdditional = ({type}) => {
+const SubscriptionAdditional = ({type, t}) => {
     return (
         <>
-            <IconedExplanation icon={<Java style={{margin: '0 20px'}}/>} description={'Freshly-roasted specialty coffee'} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
+            <IconedExplanation icon={<Java style={{margin: '0 20px'}}/>} description={t('sections.subscription.icons.fresh')} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
             {type === 'roasters-subscription' &&
-                <IconedExplanation icon={<Bar style={{margin: '0 20px'}}/>} description={'Get 2 coffee varieties: the current limited edition & what the roaster drinks that month'} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
+                <IconedExplanation icon={<Bar style={{margin: '0 20px'}}/>} description={t('sections.subscription.icons.varieties')} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
             }
             {type === 'classics-subscription' &&
-                <IconedExplanation icon={<Tasks style={{margin: '0 20px'}}/>} description={'Customize your order by choosing your roast styles and quantity'} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
+                <IconedExplanation icon={<Tasks style={{margin: '0 20px'}}/>} description={t('sections.subscription.icons.choice')} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
             }
-            <IconedExplanation icon={<Money style={{margin: '0 20px'}}/>} description={'Save money compared to single orders'} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
-            <IconedExplanation icon={<Plan style={{margin: '0 20px'}}/>} description={'Receive your coffee box once a month'} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
+            <IconedExplanation icon={<Money style={{margin: '0 20px'}}/>} description={t('sections.subscription.icons.save')} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
+            <IconedExplanation icon={<Plan style={{margin: '0 20px'}}/>} description={t('sections.subscription.icons.receive')} size={"small"} spacing={{vertical: "small"}} margin="0px" vertical={'center'}/>
         </>
     );
 };
 
-export default SubscriptionAdditional;
+export default withTranslation()(SubscriptionAdditional);

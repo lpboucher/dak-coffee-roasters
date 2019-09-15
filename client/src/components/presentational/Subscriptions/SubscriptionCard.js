@@ -27,8 +27,8 @@ const SubscriptionCard = ({addToCart, product, thumb, t, media}) => {
                 <Box>
                     <SubscriptionAdditional type={product.slug} />
                 </Box>
-                <Heading level="3">{`From ${product && product.meta ? product.meta.display_price.without_tax.formatted : "--"}`}</Heading>
-                <Text>(FREE SHIPPING EU + NORTH AMERICA)</Text>
+                <Heading level="3">{`${t("sections.subscription.price")} ${product && product.meta ? product.meta.display_price.without_tax.formatted : "--"}`}</Heading>
+                <Text>{`(${t("sections.subscription.shipping")} EU + NORTH AMERICA)`}</Text>
                 <SubscriptionForm addToCart={addToCart} type={product.slug}/>
             </Box>      
           </Fragment>

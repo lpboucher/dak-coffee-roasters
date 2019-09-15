@@ -134,6 +134,21 @@
                     "title": "zonder verplichtingen",
                     "subtitle": "(sla gerust eens een maand over) en altijd gratis te wijzigen/annuleren"
                 }
+            },
+            "icons": {
+                "fresh": "Vers gebrande specialty koffie",
+                "varieties": "Ontvang 2 koffievarianten de limited edition en wat de meesterbrander die maan kiest",
+                "choice":  "Kies per bestelling je eigen branding en hoeveelheid",
+                "save": "Bespaar geld t.o.v. losse bestellingen",
+                "receive": "Je koffie elke maand thuisbezorgd"
+            },
+            "price": "Vanaf",
+            "shipping": "GRATIS VERZENDING",
+            "button": "Bestel",
+            "form": {
+                "varieties": {"label": "Aantal soorten", "placeholder": "Hoeveel soorten?"},
+                "roast": {"label": "Brand", "placeholder": "Espresso of Filter"},
+                "quantity": {"label": "Hoeveelheid gram", "placeholder": "Hoeveel gram?"}
             }
         },
         "cart": {

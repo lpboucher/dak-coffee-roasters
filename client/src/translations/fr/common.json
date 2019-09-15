@@ -39,7 +39,7 @@
     "intros": {
         "subscription": {
             "title": "Abonnement caféiné",
-            "helper": "A PARTIR DE €25 | LIVRAISON GRATUITE | SANS ENGAGEMENT",
+            "helper": "À PARTIR DE €25 | LIVRAISON GRATUITE | SANS ENGAGEMENT",
             "description": "Faites-vous livrer votre café à la porte tous les mois en optant pour l’un de nos abonnements. Voici les options qui s’offrent à vous:\n\n<strong>NOS CLASSIQUES</strong>. Choisissez une torréfaction et recevez une sélection de cafés d’origine pour une extraction filtre ou espresso (ou pourquoi pas les deux!).\n\n<strong>LE CHOIX DU TORRÉFACTEUR</strong>. Laissez le maître torréfacteur vous surprendre avec son coup de cœur du mois. Vous obtiendrez ainsi un assortiment de torréfactions filtre, espresso et édition limitée. Sans jamais compromettre la qualité ni le goût, notre torréfacteur vous fera découvrir toutes les subtilités de ses cafés. La formule idéale pour vous initier à de nouveaux arômes de cafés frais.",
             "short description": "Faites-vous livrer votre café à la porte tous les mois en optant pour l’un de nos abonnements. Choisissez entre nos classiques ou le choix du torréfacteur",
             "button": "Abonnez-vous"
@@ -133,6 +133,21 @@
                     "title": "sans engagement",
                     "subtitle": "sauter un mois, annuler ou modifier votre abonnement sans frais supplémentaires"
                 }
+            },
+            "icons": {
+                "fresh": "Savourez du café de spécialité friachement torréfié",
+                "varieties": "Obtenez deux variétés de café: l'édition limitée du mois et l'envie du moment du maitre torréfacteur",
+                "choice":  "Personnalisez votre commande en choisissant le profil de torréfaction et la quantité",
+                "save": "Économisez par rapport aux commandes à l'unité",
+                "receive": "Recevez votre boite de café tous les mois"
+            },
+            "price": "À partir de",
+            "shipping": "LIVRAISON GRATUITE",
+            "button": "Soumettre",
+            "form": {
+                "varieties": {"label": "Nombre of variétés", "placeholder": "Combien de variétés?"},
+                "roast": {"label": "Torréfaction", "placeholder": "Espresso ou Filtre"},
+                "quantity": {"label": "Quantité", "placeholder": "Combien de grammes?"}
             }
         },
         "cart": {
