@@ -1,17 +1,25 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import withResponsive from '../../utils/HOCs/WithResponsive';
 
 import IconedExplanation from '../../utils/IconedExplanation';
 
-import { Grid } from 'grommet';
+import { Grid, Box } from 'grommet';
 import { ReactComponent as Leaf} from '../../../assets/icons/noun_Coffee Leaf_1888198.svg';
 import { ReactComponent as Bean} from '../../../assets/icons/noun_Coffee Bean_2443900.svg';
 import { ReactComponent as Steam} from '../../../assets/icons/noun_Steam_795410.svg';
 import { ReactComponent as Cup} from '../../../assets/icons/iconmonstr-coffee-8.svg';
 import { ReactComponent as Tag} from '../../../assets/icons/iconmonstr-tag-2.svg';
 
-const ProductSpecs = ({recommendation, process, harvest ,altitude, tasting_notes}) => {
+const ProductSpecs = ({recommendation, process, harvest ,altitude, tasting_notes, media}) => {
+    const layout = {
+        extraSmall: {pad: 'medium',columns: '100%', rows: '100%'},
+        small: {columns: '100%', rows: '100%'},
+        medium: {columns: '50%', rows: '50%'},
+        large: {columns: '50%', rows: '50%'},
+        infinity: {columns: '50%', rows: '50%'}
+    }
     return (
-        <Fragment>
+        <Box pad={layout[media] ? layout[media].pad : 'medium'}>
             <IconedExplanation 
                 icon={<Leaf width="36px" />}
                 description={harvest}
@@ -19,7 +27,7 @@ const ProductSpecs = ({recommendation, process, harvest ,altitude, tasting_notes
                 margin={{vertical: "small"}}
                 size={"small"}
             />
-            <Grid columns="50%" rows="50%">
+            <Grid columns={layout[media] ? layout[media].columns : '100%'} rows={layout[media] ? layout[media].rows : '100%'}>
             <IconedExplanation 
                 icon={<Bean height="36px" />}
                 description={`${process}, ${altitude}`}
@@ -49,8 +57,8 @@ const ProductSpecs = ({recommendation, process, harvest ,altitude, tasting_notes
             size={"small"}
             />
             </Grid>
-        </Fragment>
+        </Box>
     );
 };
 
-export default ProductSpecs;
+export default withResponsive(ProductSpecs);
