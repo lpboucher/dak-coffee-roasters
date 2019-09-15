@@ -2,15 +2,14 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 import { NavLink, withRouter } from 'react-router-dom';
 
-import Footer from '../Footer/Footer';
 import { Layer, Box, Menu, Button } from 'grommet';
 import { Close } from 'grommet-icons';
 
 const MobileMenu = ({close, t, history}) => {
     return (
-        <Layer full modal onEsc={close} onClickOutside={close}>
-            <Box align="start" justify="around" height="100%" pad={{'horizontal': '50px', top: '20px'}} background="darkGrey">
-                <Box alignSelf="end" onClick={close}>
+        <Layer full="horizontal" modal onEsc={close} onClickOutside={close}>
+            <Box flex="grow" justify="start" align="start" pad={{'horizontal': '20px', top: '20px'}} background="darkGrey">
+                <Box height="20px" alignSelf="end" onClick={close}>
                     <Close />
                 </Box>
                 <Box pad="xsmall" fill="horizontal" onClick={()=>{history.push('/shop'); close()}}>
@@ -25,8 +24,8 @@ const MobileMenu = ({close, t, history}) => {
                         dropBackground="darkGrey"
                         margin="none"
                         items={[
-                            {label: `${t("menu.about.coffee")}`, as: NavLink, to: "/our-coffee"},
-                            {label: `${t("menu.about.about")}`, as: NavLink, to: "/about"},
+                            {label: `${t("menu.about.coffee")}`, onClick:()=>{history.push('/our-coffee'); close()}},
+                            {label: `${t("menu.about.about")}`, onClick:()=>{history.push('/about'); close()}},
                         ]}
                     />
                 </Box>
@@ -42,12 +41,11 @@ const MobileMenu = ({close, t, history}) => {
                         dropBackground="darkGrey"
                         margin="none"
                         items={[
-                            {label: `${t("menu.blog.guides")}`, as: NavLink, to: "/brew"},
-                            {label: `${t("menu.blog.articles")}`, as: NavLink, to: "/blog"},
+                            {label: `${t("menu.blog.guides")}`, onClick:()=>{history.push('/brew'); close()}},
+                            {label: `${t("menu.blog.articles")}`, onClick:()=>{history.push('/blog'); close()}},
                         ]}
                     />
                 </Box>
-                <Footer></Footer>
             </Box>
         </Layer>
     );
