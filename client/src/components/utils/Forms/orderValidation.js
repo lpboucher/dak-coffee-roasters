@@ -55,6 +55,15 @@ const orderValidation = values => {
     errors.shipping.address.country = 'Required'
   }
 
+  if (!values.shipping || !values.shipping.address || !values.shipping.address.state) {
+    if (!errors.shipping) {
+      errors.shipping = {}
+      errors.shipping.address = {}
+    }
+
+    errors.shipping.address.state = 'Required'
+  }
+
   return errors
 }
 
