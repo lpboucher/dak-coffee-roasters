@@ -23,10 +23,10 @@ const FooterLinks = ({t, media}) => {
             <Box width={layout[media] ? layout[media].width : '50%'}><Link to="" style={{'fontSize': '12px'}}>{t("footer.menu.shipping")}</Link></Box>
             <Box width={layout[media] ? layout[media].width : '50%'}><Link to="/our-coffee" style={{'fontSize': '12px'}}>{t("footer.menu.our-coffee")}</Link></Box>
             <Box width={layout[media] ? layout[media].width : '50%'}><Link to="/blog" style={{'fontSize': '12px'}}>{t("footer.menu.blog")}</Link></Box>
-            <Box width={layout[media] ? layout[media].width : '50%'}><Link to="" style={{'fontSize': '12px'}}>{t("footer.menu.terms")}</Link></Box>
+            <Box width={layout[media] ? layout[media].width : '50%'}><Link to="/terms" style={{'fontSize': '12px'}}>{t("footer.menu.terms")}</Link></Box>
             <Box width={layout[media] ? layout[media].width : '50%'}><Link to="/wholesale" style={{'fontSize': '12px'}}>{t("footer.menu.wholesale")}</Link></Box>
             <Box width={layout[media] ? layout[media].width : '50%'}><Link to="" style={{'fontSize': '12px'}}>{t("footer.menu.brewing")}</Link></Box>
-            <Box width={layout[media] ? layout[media].width : '50%'}><Link to="" style={{'fontSize': '12px'}}>{t("footer.menu.privacy")}</Link></Box>
+            <Box width={layout[media] ? layout[media].width : '50%'}><Link to="/privacy" style={{'fontSize': '12px'}}>{t("footer.menu.privacy")}</Link></Box>
         </Box>
     );
 };

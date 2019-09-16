@@ -16,6 +16,8 @@ import BlogPage from './components/pages/Blog/Blog';
 import BrewPage from './components/pages/Brew/BrewGuides';
 import CartPage from './components/pages/Cart/Cart';
 import FAQPage from './components/pages/FAQ/FAQ';
+import TermsPage from './components/pages/Terms/Terms';
+import PrivacyPage from './components/pages/Privacy/Privacy';
 import ProductPage from './components/pages/Product/ProductPage';
 import CheckoutPage from './components/pages/Checkout/Checkout';
 import AccountPage from './components/pages/Account/Account';
@@ -43,6 +45,8 @@ class App extends Component {
             <Route path="/brew" component={BrewPage} />
             <Route path="/cart" component={CartPage} />
             <Route path="/faq" component={FAQPage} />
+            <Route path="/terms" component={TermsPage} />
+            <Route path="/privacy" component={PrivacyPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
             <Route path="/shop/:slug" component={ProductPage} />
             <Route path="/shop" component={ShopPage} />
