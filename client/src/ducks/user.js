@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import axios from 'axios';
 import i18n from "i18next";
+import LogRocket from 'logrocket';
 
 import { getPlanIDBySlug } from './products';
 
@@ -37,6 +38,10 @@ export const fetchUser = (id, stripeId = null) => async dispatch => {
     try {
         const res = await axios.get(`/api/user/${stripeId}`);
         dispatch({ type: FETCH_SUCCESS, payload: res.data });
+        LogRocket.identify(res.data.id, {
+            name: res.data.name,
+            email: res.data.email,
+          });
     } catch(err) {
         console.log(err)
     }
