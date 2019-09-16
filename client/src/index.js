@@ -16,7 +16,6 @@ import i18n from './i18n';
 
 import reducers from './reducers';
 import App from './App';
-console.log(process.env.NODE_ENV)
 
 if (process.env.NODE_ENV !== 'development') {
     LogRocket.init('3khpto/dak-coffee-roasters');
