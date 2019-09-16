@@ -88,8 +88,10 @@ const addToNewsletter = async (req, res, next) => {
             text: `${first_name}, ${last_name} is trying to register for the newsletter with email ${email}`,
         };
         await SGmail.send(msg);
+        await res.send({success: 'success'})
     } catch (err) {
-        console.log(err.response.body.errors);
+        console.log(err);
+        res.send(err)
     }
 }
 

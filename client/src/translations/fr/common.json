@@ -353,6 +353,7 @@
     },
     "newsletter": {
         "description": "Inscrivez-vous à notre infolettre pour connaître nos promotions exclusives, avoir des nouvelles et obtenir de judicieux conseils.",
+        "registered": "Merci de vous inscrire!",
         "form": {
             "name": "Votre nom",
             "email": "Votre courriel"
