@@ -31,7 +31,7 @@ const ProductDetails = ({id, name, region, country, roast, description, product_
                 <Tab title={t("sections.product.description")}>
                     <Text margin={{"bottom": "medium"}}>{t(`products:${product_type}.${rest.slug}.description`)}</Text>
                     {product_type === 'coffee' &&
-                        <ProductSpecs 
+                        <ProductSpecs
                             recommendation={t(`products:${product_type}.${rest.slug}.drink`)}
                             process={t(`products:${product_type}.${rest.slug}.process`)}
                             harvest={t(`products:${product_type}.${rest.slug}.harvest`)}
