@@ -8,7 +8,7 @@ import { Stack, Box, Text } from 'grommet';
 import { Cart } from 'grommet-icons';
 
 const CartCounter = ({ items, quantity, isOpen, open, close, cartRef, media }) => {
-    const isMobile = media === "extraSmall" || media === "small" || media === "medium"
+    const isMobile = media === "extraSmall" || media === "small"
     return (
         <div
             onMouseEnter={!isMobile ? open : null}
