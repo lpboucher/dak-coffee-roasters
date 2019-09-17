@@ -4,6 +4,8 @@ import axios from 'axios';
 import { finalizeOrder } from './checkout';
 import { clearCart } from './cart';
 
+import { LOGOUT_SUCCESS } from '../ducks/user';
+
 //Action Types
 export const SUBMIT_PAYMENT_REQUEST = 'checkout/submit_payment_request';
 export const SUBMIT_PAYMENT_SUCCESS = 'checkout/submit_payment_success';
@@ -28,6 +30,7 @@ export const submitPayment = (payment, subscription = {}) => async dispatch => {
             await dispatch(finalizeOrder());
             await dispatch({ type: SUBMIT_PAYMENT_SUCCESS, payload: res.data });
             await dispatch(clearCart())
+            await dispatch(resetPaymentDetails())
         }
         //dispatch({ type: SUBMIT_ORDER_SUCCESS, payload: res.data });
     } catch(err) {
@@ -82,6 +85,7 @@ const status = (state = initialStatus, action) => {
                 secret: null,
             }
         case CLEAR_PAYMENT_DETAILS:
+        case LOGOUT_SUCCESS:
             return initialStatus
         default:
             return state
