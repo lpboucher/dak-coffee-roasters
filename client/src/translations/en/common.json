@@ -182,9 +182,8 @@
             "payment": "Payment Method",
             "address": {
                 "name": "Full Name",
-                "company": "Company",
                 "line1": "Address Line 1",
-                "line2": "Address Line 2",
+                "line2": "Line 2 (Apt, Ext, Company)",
                 "city": "City/Town",
                 "postcode": "Postal Code",
                 "region": "County/Region",

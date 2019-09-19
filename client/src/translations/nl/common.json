@@ -184,9 +184,8 @@
             "payment": "Betaalmethode",
             "address": {
                 "name": "Naam",
-                "company": "bedrijfsnaam",
                 "line1": "Straat en huisnummer",
-                "line2": "Toe.",
+                "line2": "Toe./Bedrijsfnaam",
                 "city": "Plaats",
                 "postcode": "Postcode",
                 "region": "Staat/County",

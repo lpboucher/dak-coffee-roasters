@@ -14,18 +14,10 @@ const AddressFields = ({condition, type, t}) => {
     return (
         <Box pad={{vertical: 'small'}}>
             <Box direction="row" flex="grow">
-                <Box width="50%" pad={{"right": "small"}}>
+                <Box width="100%">
                     <Field
                         label={t("sections.checkout.address.name")}
                         name={`${type}.name`}
-                        component={TextInputAdapter}
-                        type="text"
-                    />
-                </Box>
-                <Box width="50%" pad={{"left": "small"}}>
-                    <Field
-                        label={t("sections.checkout.address.company")}
-                        name={`${type}.company`}
                         component={TextInputAdapter}
                         type="text"
                     />
