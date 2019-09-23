@@ -7,7 +7,7 @@ const CartToolTipItem = ({image, name, slug, product_type, quantity, meta}) => {
     return (
         <Box direction="row" height="80px" align="center" justify="between">
             <Box width="25%" height="100%">
-                <Image fit="contain" src={image.href}/>
+                <Image fit="contain" src={image.href} alt={name}/>
             </Box>
             <Box width="25%">
                 <Text textAlign="center" size="small">{name}</Text>

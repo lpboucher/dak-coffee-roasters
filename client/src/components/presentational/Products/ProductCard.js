@@ -25,7 +25,7 @@ const ProductCard = withRouter(({product, thumb, addToCart, history}) => {
     return (
         <Fragment>
             <WithHover height="75%" width="100%" onClick={() => !outOfStock ? history.push(`/shop/${product.slug}`) : null} outOfStock={outOfStock}>
-                <Image fit="contain" src={`${thumb.link? thumb.link.href : ""}`}/>
+                <Image fit="contain" src={`${thumb.link? thumb.link.href : ""}`} alt={`${product.name}`}/>
                 {outOfStock &&
                     <OutOfStock fill>
                         <Box align="start" pad="small">

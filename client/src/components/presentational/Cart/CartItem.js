@@ -32,7 +32,7 @@ const CartItem = ({
                     </Box>
                 </Box>
                 <Box width={layout[media] ? layout[media].width[1] : '25%'} height="100%">
-                    <Image fit="contain" src={image.href}/>
+                    <Image fit="contain" src={image.href} alt={name}/>
                 </Box>
                 <Box width={layout[media] ? layout[media].width[2] : '25%'}>
                     <Text>{name}</Text>

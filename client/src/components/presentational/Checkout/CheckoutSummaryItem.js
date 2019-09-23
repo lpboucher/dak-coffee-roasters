@@ -6,7 +6,7 @@ const CheckoutSummaryItem = ({name, quantity, meta, image}) => {
     return (
         <Box direction="row" height="100px" align="center" pad={{vertical: 'small'}}>
             <Box width="33%" height="100%">
-                <Image fit="contain" src={image.href}/>
+                <Image fit="contain" src={image.href} alt={name}/>
             </Box>
             <Box width="66%" direction="row" align="center" justify="between">
                 <Box>
