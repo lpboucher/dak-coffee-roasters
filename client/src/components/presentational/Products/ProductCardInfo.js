@@ -20,8 +20,8 @@ const ProductCardInfo = ({id, slug, type, price, add, outOfStock, t}) => {
                 <Text textAlign="center" weight="bold" style={{textTransform: 'uppercase'}}>{t(`products:${type}.${slug}.name`)}</Text>
                 <Text textAlign="center" color="grey">{`${price && price.with_tax ? price.with_tax.formatted : '...'}`}</Text>
             </Box>
-            <WithHover margin="small" pad="xsmall" background={`${outOfStock ? 'darkGrey' : 'mainDark'}`} outOfStock={outOfStock}>
-                <Add size="small" onClick={!outOfStock ? () => add(id, '1') : null}/>
+            <WithHover onClick={!outOfStock ? () => add(id, '1') : null} margin="small" pad="xsmall" background={`${outOfStock ? 'darkGrey' : 'mainDark'}`} outOfStock={outOfStock}>
+                <Add size="small" />
             </WithHover>
         </Box>
     );

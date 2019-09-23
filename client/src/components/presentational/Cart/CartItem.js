@@ -43,9 +43,13 @@ const CartItem = ({
                 </Box>
                 }
                 <Box width={layout[media] ? layout[media].width[4] : '20%'} align="center">
-                    <Add onClick={() => update(id, quantity + 1)} size="small" style={{margin: '10px', cursor: 'pointer'}}/>
+                    <Box onClick={() => update(id, quantity + 1)}>
+                        <Add size="small" style={{margin: '10px', cursor: 'pointer'}}/>
+                    </Box>
                     <Text>{quantity}</Text>
-                    <Subtract onClick={() => update(id, quantity - 1)} size="small" style={{margin: '10px', cursor: 'pointer'}}/>
+                    <Box onClick={() => update(id, quantity - 1)}>
+                        <Subtract size="small" style={{margin: '10px', cursor: 'pointer'}}/>
+                    </Box>
                 </Box>
                 <Box width={layout[media] ? layout[media].width[4] : '20%'} align="center">
                     <Text>{`${meta.display_price.with_tax.value.formatted}`}</Text>
