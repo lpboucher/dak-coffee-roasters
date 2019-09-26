@@ -1,14 +1,16 @@
 const MoltinGateway = require('@moltin/sdk').gateway
- 
-const Moltin = MoltinGateway({
+const MemStorage = require('@moltin/sdk').MemoryStorageFactory
+
+const config = {
   client_id: process.env.MOLTIN_CLIENT_ID,
-  client_secret: process.env.MOLTIN_CLIENT_SECRET
-})
+  client_secret: process.env.MOLTIN_CLIENT_SECRET,
+  storage: new MemStorage()
+}
 
 module.exports = {
   getCartItems: async (req, res, next) => {
     try {
-      const cartItems = await Moltin.Cart().Items();
+      const cartItems = await MoltinGateway(config).Cart().Items();
       console.log('API RESPONSE GET CART----------', cartItems);
       res.json(cartItems);
     } catch (err) {
@@ -18,28 +20,29 @@ module.exports = {
   addItemToCart: async (req, res, next) => {
     try {
       const cartItems = await MoltinGateway({
-        client_id: process.env.MOLTIN_CLIENT_ID,
-        client_secret: process.env.MOLTIN_CLIENT_SECRET,
-        currency: req.body.currency
+        ...config,
+        currency: req.body.currency,
       }).Cart().AddProduct(req.body.id, req.body.quantity);
       console.log('API RESPONSE ADD TO CART----------', cartItems);
       res.json(cartItems);
     } catch (err) {
       console.log(err);
+      res.json({error: err.errors[0]})
     }
   },
   updateCartItem: async (req, res, next) => {
     try {
-      const updatedItems = await Moltin.Cart().UpdateItemQuantity(req.params.id, req.body.quantity);
+      const updatedItems = await MoltinGateway(config).Cart().UpdateItemQuantity(req.params.id, req.body.quantity);
       console.log('API RESPONSE UPDATED IN CART----------', updatedItems);
       res.json(updatedItems);
     } catch (err) {
       console.log(err);
+      res.json({error: err.errors[0]})
     }
   },
   removeCartItem: async (req, res, next) => {
     try {
-      const newCartItems = await Moltin.Cart().RemoveItem(req.params.id);
+      const newCartItems = await MoltinGateway(config).Cart().RemoveItem(req.params.id);
       console.log('API RESPONSE REMOVED, NEW CART----------', newCartItems);
       res.json(newCartItems);
     } catch (err) {
@@ -48,7 +51,7 @@ module.exports = {
   },
   deleteCart: async (req, res, next) => {
     try {
-      const deletedCart = await Moltin.Cart().Delete();
+      const deletedCart = await MoltinGateway(config).Cart().Delete();
       console.log('API RESPONSE CART CLEARED----------', deletedCart);
       res.json(deletedCart);
     } catch (err) {
@@ -60,9 +63,8 @@ module.exports = {
     console.log('--------APPLYING PROMO WITH', promo, currency)
     try {
       const cartWithPromo = await MoltinGateway({
-        client_id: process.env.MOLTIN_CLIENT_ID,
-        client_secret: process.env.MOLTIN_CLIENT_SECRET,
-        currency: currency
+        ...config,
+        currency: currency,
       }).Cart().AddPromotion(promo.promo);
       console.log('PROMOTION APPLIED----------', cartWithPromo);
       res.json(cartWithPromo);
