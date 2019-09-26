@@ -18,6 +18,7 @@
     "react-redux": "^7.0.2",
     "react-reveal": "^1.2.2",
     "react-router-dom": "^5.0.0",
+    "react-router-sitemap": "^1.2.0",
     "react-scripts": "2.1.8",
     "react-spinners": "^0.5.8",
     "react-stripe-elements": "^4.0.0",
@@ -31,8 +32,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "reload": "cp -r ~/dak-coffee-roasters/client/build/. /var/www/dakcoffeeroasters.com/html && sudo systemctl reload nginx",
+    "sitemap": "babel-node src/sitemap-generator.js",
+    "prebuild": "npm run sitemap",
     "build": "react-scripts build",
-    "postbuild": "cp -r ~/dak-coffee-roasters/client/build/. /var/www/dakcoffeeroasters.com/html && sudo systemctl reload nginx",
+    "postbuild": "npm run reload",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -44,5 +48,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0"
+  }
 }
