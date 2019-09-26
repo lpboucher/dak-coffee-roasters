@@ -32,6 +32,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "cp -r ~/dak-coffee-roasters/client/build/. /var/www/dakcoffeeroasters.com/html && sudo systemctl reload nginx",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
