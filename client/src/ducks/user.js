@@ -111,7 +111,7 @@ export const login = ({ email, password }) => async dispatch => {
         const res = await axios.post(`/api/user/login`, { email, password } );
 
         if (res.data.error) {
-            dispatch({ type: LOGIN_FAILURE, payload: res.data.error})
+            dispatch({ type: LOGIN_FAILURE, payload: {account: res.data.error}})
         } else {
             dispatch({ type: LOGIN_SUCCESS, payload: res.data });
             dispatch(fetchUser(res.data.data.customer_id));
@@ -133,7 +133,7 @@ export const register = ({ name, email, password }) => async dispatch => {
         const res = await axios.post(`/api/user/register`, { name, email, password, language } );
 
         if (res.data.error) {
-            dispatch({ type: REGISTER_FAILURE, payload: res.data.error})
+            dispatch({ type: REGISTER_FAILURE, payload: {account: res.data.error}})
         } else {
             dispatch({ type: REGISTER_SUCCESS, payload: res.data });
             dispatch(login({email, password}));

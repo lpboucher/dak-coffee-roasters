@@ -14,7 +14,7 @@ class LoginFormContainer extends Component {
         if(isUserLoggedIn && withRedirect) {
             return <Redirect to="/account" />
          } else {
-            return <LoginForm login={login} register={register} loginError={error}/> 
+            return <LoginForm login={login} register={register} loginError={error.account}/> 
         }
       }
 

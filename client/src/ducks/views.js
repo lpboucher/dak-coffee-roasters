@@ -35,11 +35,14 @@ import {
 import {
     FETCH_CART_REQUEST,
     FETCH_CART_SUCCESS,
-    PROMO_CART_FAILURE
+    PROMO_CART_FAILURE,
+    FETCH_CART_FAILURE
 } from './cart';
 
 export const OPEN_CART = 'views/open_cart';
 export const CLOSE_CART = 'views/close_cart';
+export const OPEN_ERROR = 'views/open_error';
+export const CLOSE_ERROR = 'views/close_error';
 export const OPEN_MOBILE = 'views/open_mobile';
 export const CLOSE_MOBILE = 'views/close_mobile';
 export const CHANGE_CURRENCY_REQUEST = 'views/change_currency_request';
@@ -89,6 +92,16 @@ export const handleScroll = () => (dispatch, getState) => {
     dispatch({type: SCROLL_HEIGHT, payload: window.pageYOffset})
 }
 
+export const openError = (error) => dispatch => {
+    dispatch({type: OPEN_ERROR, payload: error})
+
+    setTimeout(() => dispatch(closeError()), 1700)
+}
+
+export const closeError = () => dispatch => {
+    dispatch({type: CLOSE_ERROR})
+}
+
 
 //Reducer
 const initialState = {
@@ -97,26 +110,37 @@ isMobileOpen: false,
 isLoading: false,
 isProcessing: false,
 processingText: "",
-error: "",
+error: {
+    global: "",
+    account: "",
+    promo: "",
+    newsletter: "",
+    cart: ""
+},
 miniHeader: false,
 scrollPos: 0,
-displayCurrency: "EUR"
+displayCurrency: "EUR",
+showError: false
 };
 
 export default function reducer(state = initialState, action) {
 switch(action.type) {
     case OPEN_CART:
-        return { ...state, isCartOpen: true, error: "" };
+        return { ...state, isCartOpen: true, error: initialState.error };
     case CLOSE_CART:
-        return { ...state, isCartOpen: false, error: "" };
+        return { ...state, isCartOpen: false, error: initialState.error };
+    case OPEN_ERROR:
+            return { ...state, showError: true, error: action.payload };
+    case CLOSE_ERROR:
+            return { ...state, showError: false, error: initialState.error };
     case OPEN_MOBILE:
-        return { ...state, isMobileOpen: true, error: "" };
+        return { ...state, isMobileOpen: true, error: initialState.error };
     case CLOSE_MOBILE:
-        return { ...state, isMobileOpen: false, error: "" };
+        return { ...state, isMobileOpen: false, error: initialState.error };
     case CHANGE_CURRENCY_SUCCESS:
         return { ...state,
             isProcessing: false,
-            error: "",
+            error: initialState.error,
             processingText: "",
             displayCurrency: action.payload 
         };
@@ -133,7 +157,7 @@ switch(action.type) {
         return { ...state,
             isProcessing: true,
             processingText: action.payload,
-            error: ""
+            error: initialState.error
          };
     case SUBMIT_PAYMENT_CONFIRM:
         return { ...state,
@@ -151,7 +175,7 @@ switch(action.type) {
     case FETCH_SUCCESS:
         return { ...state,
                 isProcessing: false,
-                error: "",
+                error: initialState.error,
                 processingText: "" };
     case LOGIN_FAILURE:
     case REGISTER_FAILURE:
@@ -161,25 +185,31 @@ switch(action.type) {
             return { 
                 ...state,
                 isProcessing: false,
-                error: action.payload,
+                error: {...state.error, ...action.payload},
                 processingText: "" };
+    case FETCH_CART_FAILURE:
+            return {
+                ...state,
+                isProcessing: false,
+                processingText: ""
+            }
     case APPLY_MINI_HEADER:
             return {
                 ...state,
                 miniHeader: true,
-                error: ""
+                error: initialState.error
             }
     case REMOVE_MINI_HEADER:
             return {
                 ...state,
                 miniHeader: false,
-                error: ""
+                error: initialState.error
             }
     case SCROLL_HEIGHT:
             return {
                 ...state,
                 scrollPos: action.payload,
-                error: ""
+                error: initialState.error
             }
     default:
         return state;
@@ -192,6 +222,8 @@ export const isCartOpen = (state) => state.views.isCartOpen;
 export const isMobileOpen = (state) => state.views.isMobileOpen;
 
 export const isProcessing = (state) => state.views.isProcessing;
+
+export const hasError = (state) => state.views.showError;
 
 export const isMiniHeader = (state) => state.views.miniHeader;
 

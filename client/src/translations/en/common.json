@@ -385,7 +385,8 @@
         "new": "Creating your account...",
         "cart": {
             "add": "Adding to cart...",
-            "promo": "Applying promo code..."
+            "promo": "Applying promo code...",
+            "update": "Updating cart..."
         },
         "subscription": {
             "pause": "Pausing your subscription...",
@@ -403,6 +404,11 @@
             "confirming": "Confirming payment..."
         },
         "currency": "Switching currency..."
+    },
+    "error": {
+        "cart": {
+            "update": "Unable to update cart, please try again..."
+        }
     },
     "blog": {
         "title": "Why you should grind your coffee before drinking it.",

@@ -9,7 +9,7 @@ class NewsletterContainer extends Component {
 
     render() {
         return (
-            <NewsletterSignUp  message={this.props.message} add={this.props.addToNewsletter}/>      
+            <NewsletterSignUp  message={this.props.message.newsletter} add={this.props.addToNewsletter}/>      
         );
     }
 }

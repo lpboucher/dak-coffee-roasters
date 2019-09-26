@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import axios from 'axios';
 
 import { getProduct, getProductIDBySlug } from './products';
-import { openCartToolTip, closeCartToolTip } from './views';
+import { openCartToolTip, closeCartToolTip, openError } from './views';
 
 //Action Types
 export const FETCH_CART_REQUEST = 'cart/fetch_cart_request';
@@ -31,9 +31,15 @@ export const addToCart = (id, quantity) => async (dispatch, getState) => {
     dispatch({ type: FETCH_CART_REQUEST, payload: "loading.cart.add" });
     try {
         const res = await axios.post(`/api/cart/`, {id, quantity, currency});
-        dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
-        dispatch(openCartToolTip());
-        setTimeout(() => dispatch(closeCartToolTip()), 1000)
+
+        if (res.data.error) {
+            dispatch(openError({global: "error.cart.update"}))
+            dispatch({ type: FETCH_CART_FAILURE});
+        } else {
+            dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
+            dispatch(openCartToolTip());
+            setTimeout(() => dispatch(closeCartToolTip()), 1000)
+        }
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
     }
@@ -54,9 +60,16 @@ export const addDerivedToCart = (slug, type, data) => (dispatch, getState) => {
 }
 
 export const updateItem = (id, quantity) => async dispatch => {
+    dispatch({ type: FETCH_CART_REQUEST, payload: "loading.cart.update" });
     try {
         const res = await axios.post(`/api/cart/${id}`, {quantity});
-        dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
+
+        if (res.data.error) {
+            dispatch(openError({global: "error.cart.update"}))
+            dispatch({ type: FETCH_CART_FAILURE});
+        } else {
+            dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
+        }
     } catch(err) {
         //dispatch({ type: FETCH_PRODUCTS_FAILURE});
     }
@@ -86,7 +99,7 @@ export const applyPromo = (code) => async (dispatch, getState) => {
     try {
         const res = await axios.post(`/api/cart/promo`, { promo: code, currency: currency } );
         if (res.data.error) {
-            dispatch({ type: PROMO_CART_FAILURE, payload: res.data.error})
+            dispatch({ type: PROMO_CART_FAILURE, payload: {promo: res.data.error}})
         } else {
             dispatch({ type: FETCH_CART_SUCCESS, payload: res.data });
         }

@@ -2,9 +2,10 @@ import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
 import { getProducts, fetchProducts } from '../../ducks/products';
 import { getCartItems, fetchCartItems } from '../../ducks/cart';
-import { isProcessing, getProcessingText } from '../../ducks/views';
+import { hasError, getError, isProcessing, getProcessingText } from '../../ducks/views';
 
 import FullLoader from '../utils/FullLoader';
+import ErrorModal from '../utils/ErrorModal';
 import NavContainer from '../container/Navbar/NavContainer';
 import Footer from '../presentational/Footer/Footer';
 
@@ -16,11 +17,14 @@ class PageLayout extends Component {
     }
 
     render() {
-        const { processing, children } = this.props;
+        const { processing, error, children } = this.props;
         return (
             <Fragment>
+                {error.hasError &&
+                    <ErrorModal error={error.errorMsg.global} />
+                }
                 {processing.isProcessing &&
-                    <FullLoader text={processing.processingText}/>
+                    <FullLoader text={processing.processingText} />
                 }
                 <NavContainer />
                 {children}
@@ -35,6 +39,10 @@ function mapStateToProps(state) {
         processing: {
             isProcessing: isProcessing(state),
             processingText: getProcessingText(state),
+        },
+        error: {
+            hasError: hasError(state),
+            errorMsg: getError(state)
         },
         products: getProducts(state),
         cartItems: getCartItems(state)

@@ -386,7 +386,8 @@
         "new": "Jouw account wordt aangemaakt...",
         "cart": {
             "add": "Voeg dit artikel toe aan jouw winkelmand...",
-            "promo": "Korting toepassen..."
+            "promo": "Korting toepassen...",
+            "update": "Jouw winkelmand wordt bijgewerkt..."
         },
         "subscription": {
             "pause": "Pauzeer jouw abonnement...",
@@ -404,6 +405,11 @@
             "confirming": "Wij bevestigen de betaling..."
         },
         "currency": "Valuta schakelaar..."
+    },
+    "error": {
+        "cart": {
+            "update": "Kan winkelwagen niet bijwerken ..."
+        }
     },
     "blog": {
         "title": "Waarom je het beste versgemalen koffiebonen kunt gebruiken",

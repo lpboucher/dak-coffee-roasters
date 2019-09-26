@@ -33,7 +33,7 @@ const Cart = ({items, cart, removeFromCart, updateCartItem, apply, error, media}
                 )}
                 <Box direction={layout[media] ? layout[media].dir : "row-reverse"} justify="between" pad={{vertical: "medium"}} wrap>
                     <Box width={layout[media] ? layout[media].width : "100%"}>
-                        <OrderPromoCode promoError={error} apply={apply}/>
+                        <OrderPromoCode promoError={error.promo} apply={apply}/>
                     </Box>
                     <Box align="end">
                         <OrderSummaryPrices withButton={true} {...cart}/>
