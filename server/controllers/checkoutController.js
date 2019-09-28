@@ -1,19 +1,15 @@
 const MoltinGateway = require('@moltin/sdk').gateway
-const MemStorage = require('@moltin/sdk').MemoryStorageFactory
 const tax = require('../utils/taxes');
 const isoCodes = require('../utils/countryCodes');
 const shipping = require('../utils/shippingCost');
 const emails = require('../utils/emails');
 
-const config = {
+const Moltin = MoltinGateway({
   client_id: process.env.MOLTIN_CLIENT_ID,
-  client_secret: process.env.MOLTIN_CLIENT_SECRET,
-}
+  client_secret: process.env.MOLTIN_CLIENT_SECRET
+})
 
-const withStorage = {
-  ...config,
-  storage: new MemStorage()
-}
+const cart = require('../controllers/cartController');
 
 module.exports = {
     submitOrder: async (req, res, next) => {
@@ -31,12 +27,12 @@ module.exports = {
             items
           );
           if(existingShipping && existingShipping.unit_price.amount !== shipCosts * 100) {
-            await MoltinGateway({...withStorage, currency: total.without_tax.currency}).Cart().RemoveItem(existingShipping.id);
+            await cart.removeCustomItem(existingShipping.id, total.without_tax.currency)
           } else if (!existingShipping) {
-            await MoltinGateway({...withStorage, currency: total.without_tax.currency}).Cart().AddCustomItem({name: "shipping", quantity: 1, price: {amount: shipCosts * 100}});
+            await cart.addCustomItemToCart({name: "shipping", quantity: 1, price: {amount: shipCosts * 100}, currency: total.without_tax.currency})
           }
-          const order = await MoltinGateway({...withStorage, currency: total.without_tax.currency}).Cart().Checkout(customerId, shipping_address, billing_address);
-          console.log('API RESPONSE SUBMIT ORDER----------', order);
+          const order = await cart.convertCartToOrder(customerId, shipping_address, billing_address, total.without_tax.currency);
+          console.log('API RESPONSE SUBMIT ORDER----------', order.included);
           console.log(taxes)
           res.json({order, taxes});
         } catch (err) {

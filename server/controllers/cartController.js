@@ -72,4 +72,26 @@ module.exports = {
       return res.json({error: err.errors[0].detail})
     }
   },
+  addCustomItemToCart: async ({name, quantity, price, currency}) => {
+    try {
+      await MoltinGateway({...config, currency: currency}).Cart().AddCustomItem({name: name, quantity: quantity, price: price});
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  removeCustomItem: async (id, currency) => {
+    try {
+      await MoltinGateway({...config, currency: currency}).Cart().RemoveItem(existingShipping.id);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  convertCartToOrder: async (id, shipping, billing, currency) => {
+    try {
+      const order = await MoltinGateway({...config, currency: currency}).Cart().Checkout(id, shipping, billing);
+      return order
+    } catch (err) {
+      console.log(err);
+    }
+  },
 }
