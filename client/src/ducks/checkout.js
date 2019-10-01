@@ -34,7 +34,7 @@ export const submitOrder = (customerId, { billingIsShipping, shipping, address }
                 first_name: address.name ? address.name.split(" ")[0] : shipping.address.name.split(" ")[0],
                 last_name: address.name ? address.name.split(" ")[1] : shipping.address.name.split(" ")[1],
                 line_1: address.line1,
-                line_2: address.line2,
+                line_2: address.line2 ? address.line2 : "",
                 city: address.city,
                 postcode: address.postal_code,
                 county: address.state,
