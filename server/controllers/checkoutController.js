@@ -1,20 +1,14 @@
-const MoltinGateway = require('@moltin/sdk').gateway
 const tax = require('../utils/taxes');
 const isoCodes = require('../utils/countryCodes');
 const shipping = require('../utils/shippingCost');
 const emails = require('../utils/emails');
 
-const Moltin = MoltinGateway({
-  client_id: process.env.MOLTIN_CLIENT_ID,
-  client_secret: process.env.MOLTIN_CLIENT_SECRET
-})
-
-const cart = require('../controllers/cartController');
-
 module.exports = {
     submitOrder: async (req, res, next) => {
+        const Moltin = req.app.locals.moltin;
         const { customerId, shipping_address, billing_address, items, total } = req.body;
         const { country, county, postcode } = shipping_address;
+        req.app.locals.moltin.config.currency = total.without_tax.currency;
         try {
           console.log('API ORDER SUBMITTING----------', {customerId, shipping_address, billing_address, items, total} );
           const existingShipping = items.find(item => item.name === "shipping");
@@ -27,11 +21,11 @@ module.exports = {
             items
           );
           if(existingShipping && existingShipping.unit_price.amount !== shipCosts * 100) {
-            await cart.removeCustomItem(existingShipping.id, total.without_tax.currency)
+            await Moltin.Cart().RemoveItem(existingShipping.id);
           } else if (!existingShipping) {
-            await cart.addCustomItemToCart({name: "shipping", quantity: 1, price: {amount: shipCosts * 100}, currency: total.without_tax.currency})
+            await Moltin.Cart().AddCustomItem({name: "shipping", quantity: 1, price: {amount: shipCosts * 100}});
           }
-          const order = await cart.convertCartToOrder(customerId, shipping_address, billing_address, total.without_tax.currency);
+          const order = await Moltin.Cart().Checkout(customerId, shipping_address, billing_address);
           console.log('API RESPONSE SUBMIT ORDER----------', order.included);
           console.log(taxes)
           res.json({order, taxes});
@@ -40,6 +34,7 @@ module.exports = {
         }
       },
     finalizeOrder: async (req, res, next) => {
+      const Moltin = req.app.locals.moltin;
       const { order, lang } = req.body;
       try {
         console.log('FINALIZING ORDER----------', req.body );

@@ -1,48 +1,37 @@
-const MoltinGateway = require('@moltin/sdk').gateway
- 
-const Moltin = MoltinGateway({
-  client_id: process.env.MOLTIN_CLIENT_ID,
-  client_secret: process.env.MOLTIN_CLIENT_SECRET
-})
-
 module.exports = {
     // Get all products
     getAllProducts: async (req, res, next) => {
-      const { currency } = req.params;
+      const Moltin = req.app.locals.moltin;
+      req.app.locals.moltin.config.currency = req.params.currency;
       try {
-        const products = await MoltinGateway({
-          client_id: process.env.MOLTIN_CLIENT_ID,
-          client_secret: process.env.MOLTIN_CLIENT_SECRET,
-          currency: currency
-        }).Products.With(['files, main_images, collections']).All();
-        console.log('API RESPONSE PRODUCTS----------', products);
+        const products = await Moltin.Products.With(['files, main_images']).All();
         res.json(products);
       } catch (err) {
         console.log(err);
       }
     },
     getAllFeatured: async(req, res, next) => {
+      const Moltin = req.app.locals.moltin;
       try {
-        const featured = await Moltin.Collections.With('products').All();
-        console.log('API RESPONSE FEATURED----------', featured);
+        const featured = await Moltin.Collections.All();
         res.json(featured);
       } catch (err) {
         console.log(err);
       }
     },
     getAllCategories: async(req, res, next) => {
+      const Moltin = req.app.locals.moltin;
       try {
-        const categories = await Moltin.Categories.With('products').All();
-        console.log('API RESPONSE CATEGORIES----------', categories);
+        const categories = await Moltin.Categories.All();
         res.json(categories);
       } catch (err) {
         console.log(err);
       }
     },
     getAllProductStock: async(req, res, next) => {
+      const Moltin = req.app.locals.moltin;
       try {
         const inventories = await Moltin.Inventories.All();
-        console.log('API RESPONSE INVENTORIES----------', inventories);
         res.json(inventories);
       } catch (err) {
         console.log(err);

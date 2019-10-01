@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const path = require("path");
+const MoltinGateway = require('@moltin/sdk').gateway
+const MemStorage = require('@moltin/sdk').MemoryStorageFactory
 
 //Routes
 const indexRouter = require('./routes/index');
@@ -19,6 +21,12 @@ const paymentRouter = require('./routes/payments');
 const newsletterRouter = require('./routes/newsletter');
 
 const app = express();
+
+app.locals.moltin = MoltinGateway({
+    client_id: process.env.MOLTIN_CLIENT_ID,
+    client_secret: process.env.MOLTIN_CLIENT_SECRET,
+    storage: new MemStorage()
+});
 
 app.use(logger('dev'));
 app.use(cors());
