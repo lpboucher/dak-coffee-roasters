@@ -1,5 +1,7 @@
-import React, { Suspense, lazy} from 'react';
+import React, { Component, Suspense, lazy} from 'react';
+import { connect } from 'react-redux';
 import withResponsive from '../../utils/HOCs/WithResponsive';
+import { switchDisplayCurrency } from '../../../ducks/views';
 
 import Hero from '../../presentational/Hero/Hero';
 import SubscriptionIntro from '../../presentational/Intros/SubscriptionIntro';
@@ -13,30 +15,49 @@ const BrewingIntro = lazy(() => import('../../presentational/Intros/BrewingIntro
 
 const header = 'https://res.cloudinary.com/dak-coffee-roasters/image/upload/f_auto,q_auto/v1565896327/Heros/HeaderV2_gujmqi.jpg'
 
-const Home = ({media}) => {
-    return (
-    <>
-        {(media === "medium" || media === "large" || media === "infinity") &&
-            <Hero
-                bgImage={header}
-                overlay={{
-                    text: "hero.home",
-                    loc: "bottom-left",
-                    width: "100vw",
-                    height: "40vh"
-                }}
-            />
-        }
-            <SubscriptionIntro />
-            <LimitedEditionsIntro />
-        <Suspense fallback={<Loader />}>
-            <FeaturedProductsContainer collection='featured-products'/>
-            <NewsletterContainer />
-            <ValuesIntro />
-            <BrewingIntro />
-        </Suspense>
-    </>
-    );
-};
+class Home extends Component {
+    componentDidMount() {
+        fetch('http://ip-api.com/json/')
+            .then(response => response.json())
+            .then(data => {
+                if(data.countryCode === 'US' || data.countryCode === 'CA') {
+                    this.props.switchCurrency('CAD')
+                }
+            });
+    }
+    
+    render() {
+        const { media } = this.props;
+        return (
+            <>
+                {(media === "medium" || media === "large" || media === "infinity") &&
+                    <Hero
+                        bgImage={header}
+                        overlay={{
+                            text: "hero.home",
+                            loc: "bottom-left",
+                            width: "100vw",
+                            height: "40vh"
+                        }}
+                    />
+                }
+                    <SubscriptionIntro />
+                    <LimitedEditionsIntro />
+                <Suspense fallback={<Loader />}>
+                    <FeaturedProductsContainer collection='featured-products'/>
+                    <NewsletterContainer />
+                    <ValuesIntro />
+                    <BrewingIntro />
+                </Suspense>
+            </>
+        );
+    }
+}
 
-export default withResponsive(Home);
+function mapDispatchToProps(dispatch) {
+    return {
+        switchCurrency: (currency) => dispatch(switchDisplayCurrency(currency)),
+    };
+}
+
+export default withResponsive(connect(null, mapDispatchToProps)(Home));
