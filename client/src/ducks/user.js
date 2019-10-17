@@ -155,7 +155,7 @@ export const addToNewsletter = (name, email, language) => dispatch => {
         } else {
             dispatch({ type: NEWSLETTER_SUCCESS, payload: 'newsletter.registered' });
         }*/
-        dispatch({ type: NEWSLETTER_SUCCESS, payload: 'newsletter.registered' });
+        dispatch({ type: NEWSLETTER_SUCCESS, payload: {newsletter:'newsletter.registered'} });
     } catch(err) {
         console.log(err)
     }
