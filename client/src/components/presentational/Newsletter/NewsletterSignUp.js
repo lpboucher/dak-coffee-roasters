@@ -1,5 +1,6 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import withResponsive from '../../utils/HOCs/WithResponsive';
 import { Form, Field } from 'react-final-form';
 
@@ -36,7 +37,7 @@ const NewsletterSignUp = ({add, t, i18n, message, media}) => {
                                     type="text"
                                     placeholder={t("newsletter.form.name")}
                                 />
-                                <Anchor size="xsmall">{t("newsletter.privacy")}</Anchor>
+                                <Anchor size="xsmall"><Link to="/privacy">{t("newsletter.privacy")}</Link></Anchor>
                             </Box>
                             <Box width={layout[media] ? layout[media].width : "100%"} pad={{"top": "medium", "left": "medium", "right": "medium"}} >
                                 <Field

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import withResponsive from '../../utils/HOCs/WithResponsive';
 import { Form, Field } from 'react-final-form';
 
@@ -37,7 +38,6 @@ const NewsletterSignUp = ({add, t, i18n, message, media}) => {
                                     component={TextInputAdapter}
                                     type="text"
                                     placeholder={t("newsletter.form.name")}
-                                    onlyBottom
                                 />
                             </Box>
                             <Box width={"100%"}>
@@ -46,9 +46,8 @@ const NewsletterSignUp = ({add, t, i18n, message, media}) => {
                                     component={TextInputAdapter}
                                     type="text"
                                     placeholder={t("newsletter.form.email")}
-                                    onlyBottom
                                 />
-                                <Anchor size="xsmall" margin={{bottom: '14px'}}>{t("newsletter.privacy")}</Anchor>
+                                <Anchor size="xsmall" margin={{bottom: '14px'}}><Link to="/privacy">{t("newsletter.privacy")}</Link></Anchor>
                                 <Button type="submit" label={t("newsletter.button")} color="mainWhite" alignSelf="start" style={{fontSize: '10px', lineHeight: '10px'}}/>
                             </Box>
                     </form>
