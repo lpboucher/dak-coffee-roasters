@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import PrivateRoute from './components/utils/Routes/PrivateRoute';
 
 import Layout from './components/utils/PageLayout';
@@ -22,6 +22,7 @@ import ProductPage from './components/pages/Product/ProductPage';
 import CheckoutPage from './components/pages/Checkout/Checkout';
 import AccountPage from './components/pages/Account/Account';
 import SuccessPage from './components/presentational/Checkout/CheckoutSuccess';
+import SubscribePage from './components/pages/Newsletter/Subscribe';
 
 import { Grommet } from 'grommet';
 import { DakTheme } from './theme';
@@ -48,9 +49,11 @@ class App extends Component {
             <Route path="/terms" component={TermsPage} />
             <Route path="/privacy" component={PrivacyPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
-            <Route path="/shop/:slug" component={ProductPage} />
+            <Route 
+              path="/shop/:slug" component={ProductPage} />
             <Route path="/shop" component={ShopPage} />
             <Route path="/checkout/success" component={SuccessPage} />
+            <Route path="/subscribe" component={SubscribePage} />
             <PrivateRoute path="/account" component={AccountPage} />
           </Switch>
         </Layout>
