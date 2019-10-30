@@ -8,7 +8,7 @@ export const Condition = ({ when, is, children }) => (
     </Field>
   )
 
-export const TextInputAdapter = ({ input: {name, onChange, value, ...restInput}, meta, placeholder, ...rest }) => (
+export const TextInputAdapter = ({ input: {name, onChange, value, ...restInput}, meta, placeholder, onlyBottom, ...rest }) => (
     <FormField error={meta.modified && meta.error ? meta.error : ""} {...rest} >
         <TextInput
         {...restInput}
@@ -16,6 +16,10 @@ export const TextInputAdapter = ({ input: {name, onChange, value, ...restInput},
         name={name}
         onChange={onChange}
         value={value}
+        style={{
+          borderBottom: onlyBottom ? '1px solid #dcddee' : null,
+          borderRadius: onlyBottom ? '0' : null,
+        }}
         />
     </FormField>
 )

@@ -73,7 +73,7 @@ export const DakTheme = {
       },
       formField: {
         border: {
-          color: {dark: 'mainWhite', light: 'none'},
+          color: {dark: 'mainDark', light: 'none'},
           side: 'all'
         },
         margin: {
@@ -242,7 +242,7 @@ export const DakTheme = {
       textInput: {
         container: {
           extend: {
-            border: "1px solid #dcddde"
+            borderBottom: "1px solid #dcddde"
           }
         },
         placeholder: {

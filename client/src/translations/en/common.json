@@ -352,6 +352,7 @@
     },
     "newsletter": {
         "description": "Sign up to our newsletter to receive exclusive coffee promotions, news, stories, tips.",
+        "full": "Coffee news right here.\n\nSign up to our newsletter to receive exclusive coffee promotions, news, stories, tips.",
         "registered": "Thank you for signing up!",
         "form": {
             "name": "Your name",
