@@ -352,7 +352,7 @@
     },
     "newsletter": {
         "description": "Inscrivez-vous à notre infolettre pour connaître nos promotions exclusives, avoir des nouvelles et obtenir de judicieux conseils.",
-        "full": "Des nouvelles de café ici.\n\nInscrivez-vous à notre infolettre pour connaître nos promotions exclusives, avoir des nouvelles et obtenir de judicieux conseils.",
+        "full": "Nouvelles caféinées juste ici.\n\nInscrivez-vous à notre infolettre pour connaître nos promotions exclusives, avoir des nouvelles et obtenir de judicieux conseils.",
         "registered": "Merci de vous inscrire!",
         "form": {
             "name": "Votre nom",
