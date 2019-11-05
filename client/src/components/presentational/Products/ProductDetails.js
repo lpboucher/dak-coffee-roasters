@@ -26,17 +26,18 @@ const ProductDetails = ({id, name, region, country, roast, description, product_
             {product_type === 'coffee' &&
             <Heading level={3} size={layout[media] ? layout[media].size : 'small'} margin={layout[media] ? layout[media].margin : 'small'}>{`${t(`products:${product_type}.${rest.slug}.region`)}, ${t(`products:${product_type}.${rest.slug}.country`)} | ${t(`products:${product_type}.${rest.slug}.roast`)} Roast`}</Heading>
             }
-            <Text size={layout[media] ? layout[media].size : 'small'} margin={layout[media] ? layout[media].margin : 'small'} style={{fontSize: '16px'}}>{`${product_type === "coffee" ? "From " : ""}${rest.meta.display_price.with_tax.formatted}`}</Text>
+            <Text size={layout[media] ? layout[media].size : 'small'} margin={layout[media] ? layout[media].margin : 'small'} style={{fontSize: '16px'}}>{`${product_type === "coffee" ? t("sections.product.price") : ""}${rest.meta.display_price.with_tax.formatted}`}</Text>
             <Tabs justify="start" margin={layout[media] ? layout[media].margin : 'small'}>
                 <Tab title={t("sections.product.description")}>
                     <Text margin={{"bottom": "medium"}}>{t(`products:${product_type}.${rest.slug}.description`)}</Text>
                     {product_type === 'coffee' &&
                         <ProductSpecs
-                            recommendation={t(`products:${product_type}.${rest.slug}.drink`)}
+                            recommendation={`${t("sections.product.recommendation")} ${t(`products:${product_type}.${rest.slug}.drink`)}`}
                             process={t(`products:${product_type}.${rest.slug}.process`)}
                             harvest={t(`products:${product_type}.${rest.slug}.harvest`)}
                             altitude={t(`products:${product_type}.${rest.slug}.altitude`)}
                             tasting_notes={t(`products:${product_type}.${rest.slug}.taste`)}
+                            recyclable={t(`sections.product.recyclable`)}
                         />
                     }
                 </Tab>
@@ -64,7 +65,7 @@ const ProductDetails = ({id, name, region, country, roast, description, product_
                         </Box>
                         }
                         <Box>
-                        <Button type="submit" disabled={submitting || invalid} primary alignSelf={isMobile ? "center" : "start"} label="Add to Cart" color="mainDark" />
+                        <Button type="submit" disabled={submitting || invalid} primary alignSelf={isMobile ? "center" : "start"} label={t("sections.cart.order.add")} color="mainDark" />
                         </Box>
                     </form>
             )}

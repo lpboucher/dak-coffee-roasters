@@ -1,7 +1,7 @@
 import React, { Component, Suspense, lazy} from 'react';
 import { connect } from 'react-redux';
 import withResponsive from '../../utils/HOCs/WithResponsive';
-import { switchDisplayCurrency } from '../../../ducks/views';
+import { switchDisplayCurrency, getDisplayCurrency } from '../../../ducks/views';
 
 import Hero from '../../presentational/Hero/Hero';
 import SubscriptionIntro from '../../presentational/Intros/SubscriptionIntro';
@@ -27,7 +27,7 @@ class Home extends Component {
     }
     
     render() {
-        const { media } = this.props;
+        const { media, currency } = this.props;
         return (
             <>
                 {(media === "medium" || media === "large" || media === "infinity") &&
@@ -41,7 +41,7 @@ class Home extends Component {
                         }}
                     />
                 }
-                    <SubscriptionIntro />
+                    <SubscriptionIntro currency={currency}/>
                     <LimitedEditionsIntro />
                 <Suspense fallback={<Loader />}>
                     <FeaturedProductsContainer collection='featured-products'/>
@@ -54,10 +54,16 @@ class Home extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        currency: getDisplayCurrency(state),
+    };
+}
+
 function mapDispatchToProps(dispatch) {
     return {
         switchCurrency: (currency) => dispatch(switchDisplayCurrency(currency)),
     };
 }
 
-export default withResponsive(connect(null, mapDispatchToProps)(Home));
+export default withResponsive(connect(mapStateToProps, mapDispatchToProps)(Home));

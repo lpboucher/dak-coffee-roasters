@@ -112,7 +112,10 @@
         },
         "product": {
             "description": "Description",
-            "details": "Détails"
+            "price": "À partir de ",
+            "details": "Détails",
+            "recommendation": "Recommendé en",
+            "recyclable": "Sacs et boites 100% recyclables"
         },
         "related": {
             "title": "Vous aimerez aussi"
@@ -171,7 +174,8 @@
                 "taxes": "taxes",
                 "discount": "rabais",
                 "total": "total (incl. taxes)",
-                "button": "régler ma commande"
+                "button": "régler ma commande",
+                "add": "Ajouter au panier"
             }
         },
         "checkout": {

@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 
 import { Box, Heading, Text, Button } from 'grommet';
 
-const IntroSection = ({heading, subHeading, helperText, description, btnLabel, link, children, isSmall=false, t, media}) => {
+const IntroSection = ({heading, subHeading, helperText, description, btnLabel, link, options=null, children, isSmall=false, t, media}) => {
+    const helper = options ? t(helperText, options) : t(helperText);
+    const subHead = options ? t(subHeading, options) : t(subHeading);
     const layout = {
         extraSmall: {
             main: {
@@ -62,10 +64,10 @@ const IntroSection = ({heading, subHeading, helperText, description, btnLabel, l
         <Box margin={layout[media] ? layout[media].around : {vertical: 'large'}}>
             <Heading level={1} margin={layout[media] ? layout[media].main.margin : {"bottom": "large"}} size={layout[media] ? layout[media].main.size : 'xsmall'} textAlign={layout[media] ? layout[media].align : 'center'}>{t(heading)}</Heading>
             {subHeading &&
-                <Heading level={2} margin={layout[media] ? layout[media].main.margin : {"bottom": "large"}} size={layout[media] ? layout[media].sub.size : 'small'} textAlign={layout[media] ? layout[media].align : 'center'}>{t(subHeading)}</Heading>
+                <Heading level={2} margin={layout[media] ? layout[media].main.margin : {"bottom": "large"}} size={layout[media] ? layout[media].sub.size : 'small'} textAlign={layout[media] ? layout[media].align : 'center'}>{subHead}</Heading>
             }
             {helperText &&
-                <Heading level={3} margin={layout[media] ? layout[media].main.margin : {"bottom": "large"}} size={layout[media] ? layout[media].small.size : 'small'} style={{fontWeight: '400'}} textAlign={layout[media] ? layout[media].align : 'center'}>{t(helperText)}</Heading>
+                <Heading level={3} margin={layout[media] ? layout[media].main.margin : {"bottom": "large"}} size={layout[media] ? layout[media].small.size : 'small'} style={{fontWeight: '400'}} textAlign={layout[media] ? layout[media].align : 'center'}>{helper}</Heading>
             }
             <Text size={layout[media] ? layout[media].main.size : 'xsmall'} margin={layout[media] ? layout[media].main.margin : {"bottom": "large"}} textAlign={layout[media] ? layout[media].align : 'center'}>
                 <Trans i18nKey={description} />

@@ -10,7 +10,7 @@ import { ReactComponent as Steam} from '../../../assets/icons/noun_Steam_795410.
 import { ReactComponent as Cup} from '../../../assets/icons/iconmonstr-coffee-8.svg';
 import { ReactComponent as Tag} from '../../../assets/icons/iconmonstr-tag-2.svg';
 
-const ProductSpecs = ({recommendation, process, harvest ,altitude, tasting_notes, media}) => {
+const ProductSpecs = ({recommendation, process, harvest ,altitude, tasting_notes, recyclable, media}) => {
     const layout = {
         extraSmall: {pad: 'medium', columns: '2', rows: 'auto'},
         small: {columns: '2', rows: 'auto'},
@@ -37,7 +37,7 @@ const ProductSpecs = ({recommendation, process, harvest ,altitude, tasting_notes
             />
             <IconedExplanation 
                 icon={<Cup width="36px" />}
-                description={`Recommended as ${recommendation}`}
+                description={`${recommendation}`}
                 spacing={{vertical: 'small'}}
                 margin="none"
                 size={"small"}
@@ -51,7 +51,7 @@ const ProductSpecs = ({recommendation, process, harvest ,altitude, tasting_notes
             />
             <IconedExplanation 
             icon={<Tag width="36px" />}
-            description={"100% recyclable bag, recyclable box"}
+            description={recyclable}
             spacing={{vertical: 'small'}}
             margin="none"
             size={"small"}

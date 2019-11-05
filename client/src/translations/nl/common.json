@@ -113,7 +113,10 @@
         },
         "product": {
             "description": "Samenvatting",
-            "details": "Productspecificaties"
+            "price": "Vanaf ",
+            "details": "Productspecificaties",
+            "recommendation": "Branding: ",
+            "recyclable": "100% recyclebaar koffiezakken en doos"
         },
         "related": {
             "title": "gerelateerde producten"
@@ -173,7 +176,8 @@
                 "discount": "korting",
                 "total": "totaal (inclusief BTW)",
                 "free": "gratis",
-                "button": "bestelling plaatsen"
+                "button": "bestelling plaatsen",
+                "add": "In winkelmand"
             }
         },
         "checkout": {
